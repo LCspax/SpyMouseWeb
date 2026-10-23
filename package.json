@@ -1,0 +1,32 @@
+{
+  "name": "spy-mouse-web",
+  "version": "0.1.0",
+  "description": "A web port of Spy Mouse (canvas + ES modules).",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node tools/serve.mjs",
+    "editor": "node tools/serve.mjs",
+    "import": "node tools/import-assets.mjs",
+    "masks": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/walkmask.ps1 && node tools/patch-masks.mjs",
+    "faces": "node tools/add-floor-faces.mjs",
+    "carve": "node tools/carve-entities.mjs",
+    "entities": "node tools/import-entities.mjs",
+    "collision": "node tools/import-collision.mjs",
+    "build": "node tools/import-assets.mjs && powershell -NoProfile -ExecutionPolicy Bypass -File tools/walkmask.ps1 && node tools/patch-masks.mjs && node tools/add-floor-faces.mjs && node tools/carve-entities.mjs && node tools/import-entities.mjs && node tools/import-collision.mjs && node tools/import-player-animations.mjs && node tools/import-ui.mjs && node tools/import-menu.mjs && npm run mechanisms && npm run audio",
+    "test": "node tools/test-levels.mjs && node tools/test-repairs.mjs && node tools/test-mechanisms.mjs && node tools/verify-platforms.mjs && node tools/verify-tv.mjs && node tools/audit-entrances.mjs && node tools/verify-audio.mjs",
+    "smoke": "node tools/smoke.mjs && node tools/smoke-editor.mjs",
+    "browser": "node tools/browser-check.mjs",
+    "animations": "node tools/import-player-animations.mjs",
+    "ui": "node tools/import-ui.mjs",
+    "menu": "node tools/import-menu.mjs",
+    "mechanisms": "node tools/import-mechanisms.mjs && powershell -NoProfile -ExecutionPolicy Bypass -File tools/walkmask.ps1 -MapsDir assets/floors/backgrounds -OutDir assets/floors/masks -Individual",
+    "audio": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/transcode-sps.ps1",
+    "verify:audio": "node tools/verify-audio.mjs",
+    "audit:entrances": "node tools/audit-entrances.mjs",
+    "backgrounds": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/walkmask.ps1 -BackgroundsOnly"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.64.1"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "world": 1,
+    "scene": "assets/menu/buildings/world-1/scene-merged.jpg",
+    "buildings": 12
+  },
+  {
+    "world": 2,
+    "scene": "assets/menu/buildings/world-2/scene.png",
+    "buildings": 12
+  },
+  {
+    "world": 3,
+    "scene": "assets/menu/buildings/world-3/scene.png",
+    "buildings": 10
+  },
+  {
+    "world": 4,
+    "scene": "assets/menu/buildings/world-4/scene.png",
+    "buildings": 11
+  },
+  {
+    "world": 5,
+    "scene": "assets/menu/buildings/world-5/scene.png",
+    "buildings": 12
+  },
+  {
+    "world": 6,
+    "scene": "assets/menu/buildings/world-6/scene.png",
+    "buildings": 13
+  }
+]

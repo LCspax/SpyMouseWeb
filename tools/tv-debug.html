@@ -1,0 +1,36 @@
+// TV size verification page: hosts index.html in an iframe and runs the
+// tv-shot.mjs scenario inside it, so the result renders in a real browser.
+// Open http://127.0.0.1:<port>/tools/tv-debug.html with tools/serve.mjs.
+<div id="tvdebug-status">loading…</div><iframe id="frame" src="/" style="position:fixed;inset:0;width:100vw;height:100vh;border:0"></iframe>
+<script type="module">
+  const frame = document.getElementById('frame');
+  const status = document.getElementById('tvdebug-status');
+  status.style.cssText = 'position:fixed;top:0;left:0;z-index:9;background:#0008;color:#fff;font:12px monospace;padding:2px 6px';
+  frame.addEventListener('load', async () => {
+    const w = frame.contentWindow;
+    for (let i = 0; i < 200; i++) {
+      if (w.__game && w.__levels && w.__levels.length) break;
+      await new Promise((r) => setTimeout(r, 100));
+    }
+    if (!(w.__game && w.__levels)) { status.textContent = 'game not ready'; return; }
+    const g = w.__game;
+    const levels = w.__levels;
+    const i = levels.findIndex((l) => l.id === 'map728');
+    g.loadLevel(levels[i], i);
+    g.intro = null;
+    g.state = 'playing';
+    const tv = g.level.mechanisms.objects.find((o) => o.kind === 'tv');
+    g.mouse.x = tv.x; g.mouse.y = tv.y + 90;
+    g.updateCamera();
+    w.document.getElementById('frontEnd').hidden = true;
+    w.document.getElementById('overlay').classList.add('hidden');
+    await new Promise((r) => setTimeout(r, 400));
+    tv.active = true;
+    const view = g.level.mechanisms.tvViewPoint(tv);
+    const cat = g.level.cats[0];
+    cat.x = view.x; cat.y = view.y; cat.distraction = null; cat.rest = null;
+    g.level.mechanisms.update(g, 1 / 60, g.mouse);
+    cat.update(1 / 60, g.level.world, g.mouse);
+    status.textContent = `tv ok — facing ${g.level.mechanisms.tvFacing(tv)}, cat ${cat.state}`;
+  });
+</script>

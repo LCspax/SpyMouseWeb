@@ -1,0 +1,133 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map745",
+  "mbn": "map745.mbn",
+  "routes": [
+    {
+      "tag": 107,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 124,
+          "y": 464,
+          "wait": 0
+        },
+        {
+          "x": 124,
+          "y": 464,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 108,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 124,
+          "y": 322,
+          "wait": 0
+        },
+        {
+          "x": 124,
+          "y": 322,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 103,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 642,
+          "y": 166,
+          "wait": 0
+        },
+        {
+          "x": 642,
+          "y": 166,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 104,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 894,
+          "y": 166,
+          "wait": 0
+        },
+        {
+          "x": 894,
+          "y": 166,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 102,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 392,
+          "y": 168,
+          "wait": 0
+        },
+        {
+          "x": 392,
+          "y": 168,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 101,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 124,
+          "y": 166,
+          "wait": 0
+        },
+        {
+          "x": 124,
+          "y": 166,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

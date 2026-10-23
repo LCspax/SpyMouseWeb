@@ -1,0 +1,96 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map553",
+  "mbn": "map553.mbn",
+  "routes": [
+    {
+      "tag": 11,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 820,
+          "y": 352,
+          "wait": 0
+        },
+        {
+          "x": 198,
+          "y": 352,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 12,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 198,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 820,
+          "y": 416,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 100,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 516,
+          "y": 254,
+          "wait": 0
+        },
+        {
+          "x": 548,
+          "y": 262,
+          "wait": 0
+        },
+        {
+          "x": 484,
+          "y": 262,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 98,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 898,
+          "y": 616,
+          "wait": 0
+        },
+        {
+          "x": 868,
+          "y": 616,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

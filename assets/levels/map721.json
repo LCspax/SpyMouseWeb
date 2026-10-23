@@ -1,0 +1,347 @@
+{
+  "id": "map721",
+  "num": "4-3",
+  "name": "LEVEL_4_3",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 4,
+  "times": {
+    "start": 300,
+    "bronze": 15,
+    "silver": 27,
+    "gold": 35,
+    "platinum": 1000
+  },
+  "goals": [
+    {
+      "type": "pipe",
+      "value": 0
+    },
+    {
+      "type": "paths",
+      "value": 7
+    },
+    {
+      "type": "time",
+      "value": 42
+    }
+  ],
+  "secret": false,
+  "music": "CM_Japan",
+  "musicPath": "sound/music/CM_Japan.sps",
+  "ambience": {
+    "scheme": "int_japan",
+    "loop": "int_japan_loop.sps",
+    "groups": [
+      {
+        "minDelay": 2,
+        "maxDelay": 5,
+        "sounds": [
+          "woodcreak_1.sps",
+          "woodcreak_2.sps",
+          "woodcreak_3.sps"
+        ]
+      }
+    ]
+  },
+  "bg": "assets/maps/map721.jpg",
+  "mask": "assets/masks/map721.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 376,
+    "y": 552,
+    "id": 72,
+    "prop": 1,
+    "tag": 5,
+    "ox": 374,
+    "oy": 550
+  },
+  "exit": {
+    "x": 376,
+    "y": 680,
+    "id": 74,
+    "prop": 242,
+    "tag": 1025,
+    "ox": 372,
+    "oy": 680,
+    "source": "xml"
+  },
+  "cheeses": [],
+  "crumbs": [
+    {
+      "x": 744,
+      "y": 216,
+      "source": "xml",
+      "id": 106,
+      "prop": 260,
+      "tag": 0,
+      "ox": 706,
+      "oy": 184
+    },
+    {
+      "x": 744,
+      "y": 216,
+      "source": "xml",
+      "id": 107,
+      "prop": 260,
+      "tag": 0,
+      "ox": 740,
+      "oy": 184
+    },
+    {
+      "x": 744,
+      "y": 216,
+      "source": "xml",
+      "id": 108,
+      "prop": 260,
+      "tag": 0,
+      "ox": 774,
+      "oy": 184
+    }
+  ],
+  "cats": [
+    {
+      "x": 504,
+      "y": 216,
+      "angle": 1.1659045405098132,
+      "type": 6,
+      "prop": 56,
+      "tag": 1,
+      "source": "xml",
+      "id": 75,
+      "ox": 510,
+      "oy": 210,
+      "route": [
+        {
+          "x": 510,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 510,
+          "y": 230,
+          "wait": 0
+        }
+      ],
+      "routeMode": "stop",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 120,
+      "y": 200,
+      "angle": -0.17301015067716222,
+      "type": 2,
+      "prop": 52,
+      "tag": 59,
+      "source": "xml",
+      "id": 80,
+      "ox": 122,
+      "oy": 196,
+      "route": [
+        {
+          "x": 124,
+          "y": 164,
+          "wait": 0
+        },
+        {
+          "x": 326,
+          "y": 164,
+          "wait": 0
+        },
+        {
+          "x": 326,
+          "y": 304,
+          "wait": 0
+        },
+        {
+          "x": 124,
+          "y": 304,
+          "wait": 0
+        },
+        {
+          "x": 124,
+          "y": 164,
+          "wait": 0
+        }
+      ],
+      "routeMode": "loop",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 888,
+      "y": 440,
+      "angle": -2.922923707715851,
+      "type": 6,
+      "prop": 56,
+      "tag": 2,
+      "source": "xml",
+      "id": 90,
+      "ox": 882,
+      "oy": 432,
+      "route": [
+        {
+          "x": 846,
+          "y": 428,
+          "wait": 0
+        },
+        {
+          "x": 834,
+          "y": 428,
+          "wait": 0
+        }
+      ],
+      "routeMode": "stop",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 232,
+      "y": 600,
+      "angle": -1.5355168532013053,
+      "type": 6,
+      "prop": 56,
+      "tag": 88,
+      "source": "xml",
+      "id": 101,
+      "ox": 234,
+      "oy": 606,
+      "route": [
+        {
+          "x": 238,
+          "y": 614,
+          "wait": 0
+        },
+        {
+          "x": 238,
+          "y": 430,
+          "wait": 0
+        },
+        {
+          "x": 116,
+          "y": 430,
+          "wait": 0
+        },
+        {
+          "x": 116,
+          "y": 614,
+          "wait": 0
+        },
+        {
+          "x": 238,
+          "y": 614,
+          "wait": 0
+        }
+      ],
+      "routeMode": "loop",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [
+    {
+      "id": 96,
+      "prop": 201,
+      "tag": 48,
+      "x": 934,
+      "y": 646,
+      "dir": "r"
+    },
+    {
+      "id": 97,
+      "prop": 206,
+      "tag": 48,
+      "x": 644,
+      "y": 542,
+      "dir": "u"
+    },
+    {
+      "id": 100,
+      "prop": 201,
+      "tag": 48,
+      "x": 932,
+      "y": 204,
+      "dir": "r"
+    }
+  ],
+  "transports": [],
+  "hideables": [
+    {
+      "id": 98,
+      "prop": 20,
+      "tag": 31,
+      "x": 698,
+      "y": 344,
+      "dir": "u"
+    },
+    {
+      "id": 99,
+      "prop": 21,
+      "tag": 31,
+      "x": 664,
+      "y": 182,
+      "dir": "l"
+    }
+  ],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 4,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 2,
+      "transportsSameComponent": 2,
+      "hideables": 2,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 1
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 4,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 2,
+      "hideables": 2,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 1
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 72,
+        "designX": 171,
+        "designY": 243,
+        "worldX": 374,
+        "worldY": 550
+      },
+      "imported": {
+        "x": 376,
+        "y": 552,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

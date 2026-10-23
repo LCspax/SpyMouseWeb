@@ -1,0 +1,112 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map747",
+  "mbn": "map747.mbn",
+  "routes": [
+    {
+      "tag": 1,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 82,
+          "y": 166,
+          "wait": 0
+        },
+        {
+          "x": 82,
+          "y": 166,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 102,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 82,
+          "y": 270,
+          "wait": 0
+        },
+        {
+          "x": 82,
+          "y": 270,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 3,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 82,
+          "y": 378,
+          "wait": 0
+        },
+        {
+          "x": 82,
+          "y": 378,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 104,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 82,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 82,
+          "y": 486,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 5,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 82,
+          "y": 592,
+          "wait": 0
+        },
+        {
+          "x": 82,
+          "y": 592,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

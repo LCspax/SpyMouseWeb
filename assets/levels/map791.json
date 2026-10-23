@@ -1,0 +1,262 @@
+{
+  "id": "map791",
+  "num": "1-Boss",
+  "name": "LEVEL_1_Boss",
+  "theme": "house",
+  "mode": "boss",
+  "trailLength": 2,
+  "times": {
+    "start": 120,
+    "bronze": 0,
+    "silver": 30,
+    "gold": 10,
+    "platinum": 8
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Factories",
+  "musicPath": "sound/music/CM_Factories.sps",
+  "ambience": {
+    "scheme": "int_stone",
+    "loop": "int_stone_loop.sps",
+    "groups": []
+  },
+  "bg": "assets/maps/map791.jpg",
+  "mask": "assets/masks/map791.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 8,
+    "y": 632,
+    "id": 61,
+    "prop": 1,
+    "tag": 3,
+    "ox": 8,
+    "oy": 632
+  },
+  "exit": {
+    "x": 1000,
+    "y": 72,
+    "source": "synthesized"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [
+    {
+      "x": 776,
+      "y": 232,
+      "angle": 0,
+      "type": 8,
+      "prop": 58,
+      "tag": 130,
+      "source": "xml",
+      "id": 71,
+      "ox": 776,
+      "oy": 224,
+      "route": [
+        {
+          "x": 776,
+          "y": 232
+        }
+      ],
+      "routeMode": "stationary",
+      "routeSource": "native-boss-stationary"
+    },
+    {
+      "x": 376,
+      "y": 232,
+      "angle": 0,
+      "type": 9,
+      "prop": 59,
+      "tag": 0,
+      "source": "xml",
+      "id": 78,
+      "ox": 382,
+      "oy": 228,
+      "route": [
+        {
+          "x": 376,
+          "y": 232
+        }
+      ],
+      "routeMode": "stationary",
+      "routeSource": "native-boss-stationary"
+    }
+  ],
+  "bosses": [
+    {
+      "id": 62,
+      "prop": 301,
+      "tag": 120,
+      "x": 214,
+      "y": 390,
+      "source": "xml",
+      "levelPhase": 0,
+      "parts": [
+        {
+          "id": 60,
+          "prop": 358,
+          "tag": 0,
+          "x": 960,
+          "y": 298,
+          "source": "xml"
+        },
+        {
+          "id": 77,
+          "prop": 357,
+          "tag": 0,
+          "x": 62,
+          "y": 692,
+          "source": "xml"
+        }
+      ]
+    }
+  ],
+  "bossParts": [
+    {
+      "id": 60,
+      "prop": 358,
+      "tag": 0,
+      "x": 960,
+      "y": 298,
+      "source": "xml"
+    },
+    {
+      "id": 77,
+      "prop": 357,
+      "tag": 0,
+      "x": 62,
+      "y": 692,
+      "source": "xml"
+    }
+  ],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [
+    {
+      "id": 79,
+      "prop": 23,
+      "tag": 20,
+      "x": 948,
+      "y": 610,
+      "dir": "r"
+    },
+    {
+      "id": 80,
+      "prop": 23,
+      "tag": 16,
+      "x": 666,
+      "y": 612,
+      "dir": "r"
+    },
+    {
+      "id": 81,
+      "prop": 20,
+      "tag": 17,
+      "x": 616,
+      "y": 140,
+      "dir": "u"
+    },
+    {
+      "id": 82,
+      "prop": 21,
+      "tag": 17,
+      "x": 834,
+      "y": 336,
+      "dir": "l"
+    },
+    {
+      "id": 83,
+      "prop": 20,
+      "tag": 16,
+      "x": 616,
+      "y": 422,
+      "dir": "u"
+    },
+    {
+      "id": 88,
+      "prop": 20,
+      "tag": 23,
+      "x": 364,
+      "y": 288,
+      "dir": "u"
+    },
+    {
+      "id": 89,
+      "prop": 22,
+      "tag": 20,
+      "x": 752,
+      "y": 670,
+      "dir": "d"
+    },
+    {
+      "id": 90,
+      "prop": 21,
+      "tag": 23,
+      "x": 310,
+      "y": 476,
+      "dir": "l"
+    }
+  ],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 2,
+      "exit": 0,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 8,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 4
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 8,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 4
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 1,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 61,
+        "designX": -12,
+        "designY": 284,
+        "worldX": 8,
+        "worldY": 632
+      },
+      "imported": {
+        "x": 8,
+        "y": 632,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

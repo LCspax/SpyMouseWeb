@@ -1,0 +1,112 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map558",
+  "mbn": "map558.mbn",
+  "routes": [
+    {
+      "tag": 150,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 620,
+          "y": 142,
+          "wait": 0
+        },
+        {
+          "x": 620,
+          "y": 142,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 152,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 622,
+          "y": 626,
+          "wait": 0
+        },
+        {
+          "x": 622,
+          "y": 626,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 153,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 400,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 400,
+          "y": 150,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 92,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 902,
+          "y": 148,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 156,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 154,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": true,
+      "points": [
+        {
+          "x": 398,
+          "y": 624,
+          "wait": 0
+        },
+        {
+          "x": 398,
+          "y": 624,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

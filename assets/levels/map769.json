@@ -1,0 +1,194 @@
+{
+  "id": "map769",
+  "num": "",
+  "name": "LEVEL_8_Boss2",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 0,
+    "bronze": 0,
+    "silver": 30,
+    "gold": 10,
+    "platinum": 8
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Volcano",
+  "musicPath": "sound/music/CM_Volcano.sps",
+  "ambience": null,
+  "bg": "assets/maps/map769.jpg",
+  "mask": "assets/masks/map769.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 104,
+    "y": 648,
+    "id": 109,
+    "prop": 1,
+    "tag": 3,
+    "ox": 110,
+    "oy": 654
+  },
+  "exit": {
+    "x": 120,
+    "y": 664,
+    "source": "synthesized"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [
+    {
+      "x": 568,
+      "y": 88,
+      "angle": 2.239292229207101,
+      "type": 7,
+      "prop": 57,
+      "tag": 2,
+      "source": "xml",
+      "id": 114,
+      "ox": 328,
+      "oy": 138,
+      "unreachable": true,
+      "route": [
+        {
+          "x": 320,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 320,
+          "y": 402,
+          "wait": 0
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 1208,
+      "y": 200,
+      "angle": 2.729182211992406,
+      "type": 7,
+      "prop": 57,
+      "tag": 67,
+      "source": "xml",
+      "id": 124,
+      "ox": 1200,
+      "oy": 198,
+      "unreachable": true,
+      "route": [
+        {
+          "x": 1184,
+          "y": 204,
+          "wait": 0
+        },
+        {
+          "x": 1176,
+          "y": 214,
+          "wait": 0
+        }
+      ],
+      "routeMode": "stop",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "details": [
+        {
+          "kind": "exit",
+          "id": 110,
+          "prop": 243,
+          "tag": 0,
+          "designX": 760,
+          "designY": 159,
+          "worldX": 1552,
+          "worldY": 382
+        }
+      ]
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 2,
+      "exit": 0,
+      "cwmice": 0,
+      "details": [
+        {
+          "kind": "cat",
+          "id": 114,
+          "prop": 57,
+          "tag": 2,
+          "designX": 148,
+          "designY": 37,
+          "worldX": 328,
+          "worldY": 138
+        },
+        {
+          "kind": "cat",
+          "id": 124,
+          "prop": 57,
+          "tag": 67,
+          "designX": 584,
+          "designY": 67,
+          "worldX": 1200,
+          "worldY": 198
+        }
+      ]
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 1,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 109,
+        "designX": 39,
+        "designY": 295,
+        "worldX": 110,
+        "worldY": 654
+      },
+      "imported": {
+        "x": 104,
+        "y": 648,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

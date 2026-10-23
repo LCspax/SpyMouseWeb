@@ -1,0 +1,49 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map554",
+  "mbn": "map554.mbn",
+  "routes": [
+    {
+      "tag": 101,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 888,
+          "y": 454,
+          "wait": 0
+        },
+        {
+          "x": 888,
+          "y": 304,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 100,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 132,
+          "y": 302,
+          "wait": 0
+        },
+        {
+          "x": 132,
+          "y": 454,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

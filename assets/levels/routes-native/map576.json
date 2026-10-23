@@ -1,0 +1,110 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map576",
+  "mbn": "map576.mbn",
+  "routes": [
+    {
+      "tag": 51,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 888,
+          "y": 308,
+          "wait": 0
+        },
+        {
+          "x": 888,
+          "y": 470,
+          "wait": 0
+        },
+        {
+          "x": 838,
+          "y": 520,
+          "wait": 0
+        },
+        {
+          "x": 650,
+          "y": 520,
+          "wait": 0
+        },
+        {
+          "x": 616,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 616,
+          "y": 144,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 50,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 502,
+          "y": 236,
+          "wait": 0
+        },
+        {
+          "x": 158,
+          "y": 236,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 276,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 444,
+          "wait": 0
+        },
+        {
+          "x": 160,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 238,
+          "y": 486,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 450,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 150,
+          "y": 484,
+          "wait": 0
+        },
+        {
+          "x": 150,
+          "y": 478,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

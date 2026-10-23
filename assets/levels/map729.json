@@ -1,0 +1,298 @@
+{
+  "id": "map729",
+  "num": "4-7",
+  "name": "LEVEL_4_7",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 740,
+    "bronze": 125,
+    "silver": 185,
+    "gold": 250,
+    "platinum": 1000
+  },
+  "goals": [
+    {
+      "type": "chilli",
+      "value": 0
+    },
+    {
+      "type": "balloon",
+      "value": 0
+    },
+    {
+      "type": "score",
+      "value": 2200
+    }
+  ],
+  "secret": false,
+  "music": "CM_Japan",
+  "musicPath": "sound/music/CM_Japan.sps",
+  "ambience": {
+    "scheme": "int_japan",
+    "loop": "int_japan_loop.sps",
+    "groups": [
+      {
+        "minDelay": 2,
+        "maxDelay": 5,
+        "sounds": [
+          "woodcreak_1.sps",
+          "woodcreak_2.sps",
+          "woodcreak_3.sps"
+        ]
+      }
+    ]
+  },
+  "bg": "assets/maps/map729.jpg",
+  "mask": "assets/masks/map729.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 136,
+    "y": 424,
+    "id": 23,
+    "prop": 1,
+    "tag": 0,
+    "ox": 138,
+    "oy": 420
+  },
+  "exit": {
+    "x": 1000,
+    "y": 72,
+    "source": "synthesized"
+  },
+  "cheeses": [
+    {
+      "x": 616,
+      "y": 408,
+      "source": "xml",
+      "id": 30,
+      "prop": 10,
+      "tag": 0,
+      "ox": 612,
+      "oy": 404
+    },
+    {
+      "x": 344,
+      "y": 408,
+      "source": "xml",
+      "id": 31,
+      "prop": 10,
+      "tag": 0,
+      "ox": 342,
+      "oy": 404
+    },
+    {
+      "x": 856,
+      "y": 216,
+      "source": "xml",
+      "id": 32,
+      "prop": 9,
+      "tag": 0,
+      "ox": 852,
+      "oy": 212
+    },
+    {
+      "x": 856,
+      "y": 392,
+      "source": "xml",
+      "id": 33,
+      "prop": 9,
+      "tag": 0,
+      "ox": 852,
+      "oy": 398
+    },
+    {
+      "x": 856,
+      "y": 584,
+      "source": "xml",
+      "id": 34,
+      "prop": 9,
+      "tag": 0,
+      "ox": 852,
+      "oy": 586
+    }
+  ],
+  "crumbs": [
+    {
+      "x": 888,
+      "y": 152,
+      "source": "xml",
+      "id": 48,
+      "prop": 260,
+      "tag": 1052,
+      "ox": 894,
+      "oy": 154
+    },
+    {
+      "x": 920,
+      "y": 184,
+      "source": "xml",
+      "id": 49,
+      "prop": 260,
+      "tag": 1061,
+      "ox": 918,
+      "oy": 178
+    }
+  ],
+  "cats": [
+    {
+      "x": 200,
+      "y": 216,
+      "angle": -0.08698921674397811,
+      "type": 6,
+      "prop": 56,
+      "tag": 1,
+      "source": "xml",
+      "id": 24,
+      "ox": 200,
+      "oy": 218,
+      "route": [
+        {
+          "x": 218,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 544,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 544,
+          "y": 444,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 444,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 380,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 320,
+          "wait": 5
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 280,
+      "y": 472,
+      "angle": -1.6635526469830404,
+      "type": 6,
+      "prop": 56,
+      "tag": 2,
+      "source": "xml",
+      "id": 25,
+      "ox": 272,
+      "oy": 474,
+      "route": [
+        {
+          "x": 272,
+          "y": 448,
+          "wait": 5
+        },
+        {
+          "x": 272,
+          "y": 386,
+          "wait": 0
+        },
+        {
+          "x": 272,
+          "y": 318,
+          "wait": 0
+        },
+        {
+          "x": 414,
+          "y": 318,
+          "wait": 0
+        },
+        {
+          "x": 414,
+          "y": 584,
+          "wait": 0
+        },
+        {
+          "x": 730,
+          "y": 584,
+          "wait": 0
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 5,
+      "cats": 2,
+      "exit": 0,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 5,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 1,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 23,
+        "designX": 53,
+        "designY": 178,
+        "worldX": 138,
+        "worldY": 420
+      },
+      "imported": {
+        "x": 136,
+        "y": 424,
+        "source": "xml"
+      }
+    }
+  }
+}

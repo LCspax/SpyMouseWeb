@@ -1,0 +1,205 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map744",
+  "mbn": "map744.mbn",
+  "routes": [
+    {
+      "tag": 11,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 508,
+          "y": 340,
+          "wait": 0
+        },
+        {
+          "x": 508,
+          "y": 332,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 3,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 152,
+          "y": 616,
+          "wait": 0
+        },
+        {
+          "x": 176,
+          "y": 616,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 4,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 886,
+          "y": 572,
+          "wait": 0
+        },
+        {
+          "x": 860,
+          "y": 572,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 99,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 136,
+          "y": 522,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 522,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 70,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 296,
+          "y": 368,
+          "wait": 0
+        },
+        {
+          "x": 410,
+          "y": 208,
+          "wait": 9
+        }
+      ]
+    },
+    {
+      "tag": 71,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 728,
+          "y": 368,
+          "wait": 0
+        },
+        {
+          "x": 610,
+          "y": 208,
+          "wait": 9
+        }
+      ]
+    },
+    {
+      "tag": 51,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 770,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 612,
+          "y": 140,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 140,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 770,
+          "y": 354,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 50,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 264,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 418,
+          "y": 140,
+          "wait": 0
+        },
+        {
+          "x": 140,
+          "y": 140,
+          "wait": 0
+        },
+        {
+          "x": 140,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 264,
+          "y": 354,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

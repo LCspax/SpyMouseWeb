@@ -1,0 +1,574 @@
+{
+  "id": "map580",
+  "num": "7-5",
+  "name": "LEVEL_7_5",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 120,
+    "bronze": 150,
+    "silver": 200,
+    "gold": 290,
+    "platinum": 420
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Jungle",
+  "musicPath": "sound/music/CM_Jungle.sps",
+  "ambience": {
+    "scheme": "ext_jungle",
+    "loop": "ext_jungle_loop.sps",
+    "groups": [
+      {
+        "minDelay": 4.5,
+        "maxDelay": 12,
+        "sounds": [
+          "macaw_a1.sps",
+          "macaw_a2.sps",
+          "macaw_a3.sps",
+          "macaw_a4.sps"
+        ]
+      }
+    ]
+  },
+  "bg": "assets/maps/map580.jpg",
+  "mask": "assets/masks/map580.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 120,
+    "y": 600,
+    "id": 55,
+    "prop": 1,
+    "tag": 3,
+    "ox": 118,
+    "oy": 592
+  },
+  "exit": {
+    "x": 120,
+    "y": 616,
+    "id": 57,
+    "prop": 242,
+    "tag": 400,
+    "ox": 116,
+    "oy": 622,
+    "source": "xml"
+  },
+  "cheeses": [
+    {
+      "x": 232,
+      "y": 312,
+      "source": "xml",
+      "id": 37,
+      "prop": 10,
+      "tag": 0,
+      "ox": 224,
+      "oy": 310
+    },
+    {
+      "x": 456,
+      "y": 248,
+      "source": "xml",
+      "id": 38,
+      "prop": 10,
+      "tag": 0,
+      "ox": 452,
+      "oy": 246
+    },
+    {
+      "x": 680,
+      "y": 344,
+      "source": "xml",
+      "id": 39,
+      "prop": 10,
+      "tag": 0,
+      "ox": 674,
+      "oy": 342
+    },
+    {
+      "x": 664,
+      "y": 552,
+      "source": "xml",
+      "id": 40,
+      "prop": 10,
+      "tag": 0,
+      "ox": 660,
+      "oy": 550
+    },
+    {
+      "x": 728,
+      "y": 440,
+      "source": "xml",
+      "id": 41,
+      "prop": 9,
+      "tag": 0,
+      "ox": 728,
+      "oy": 442
+    },
+    {
+      "x": 248,
+      "y": 648,
+      "source": "xml",
+      "id": 42,
+      "prop": 10,
+      "tag": 0,
+      "ox": 252,
+      "oy": 648
+    },
+    {
+      "x": 488,
+      "y": 648,
+      "source": "xml",
+      "id": 43,
+      "prop": 9,
+      "tag": 0,
+      "ox": 490,
+      "oy": 650
+    },
+    {
+      "x": 920,
+      "y": 584,
+      "source": "xml",
+      "id": 44,
+      "prop": 8,
+      "tag": 0,
+      "ox": 920,
+      "oy": 580
+    },
+    {
+      "x": 840,
+      "y": 312,
+      "source": "xml",
+      "id": 45,
+      "prop": 8,
+      "tag": 0,
+      "ox": 836,
+      "oy": 304
+    },
+    {
+      "x": 312,
+      "y": 504,
+      "source": "xml",
+      "id": 46,
+      "prop": 8,
+      "tag": 0,
+      "ox": 304,
+      "oy": 508
+    },
+    {
+      "x": 808,
+      "y": 168,
+      "source": "xml",
+      "id": 47,
+      "prop": 8,
+      "tag": 0,
+      "ox": 800,
+      "oy": 160
+    },
+    {
+      "x": 920,
+      "y": 216,
+      "source": "xml",
+      "id": 48,
+      "prop": 7,
+      "tag": 0,
+      "ox": 912,
+      "oy": 218
+    },
+    {
+      "x": 728,
+      "y": 664,
+      "source": "xml",
+      "id": 49,
+      "prop": 7,
+      "tag": 0,
+      "ox": 726,
+      "oy": 656
+    },
+    {
+      "x": 360,
+      "y": 168,
+      "source": "xml",
+      "id": 50,
+      "prop": 6,
+      "tag": 0,
+      "ox": 356,
+      "oy": 160
+    },
+    {
+      "x": 520,
+      "y": 472,
+      "source": "xml",
+      "id": 51,
+      "prop": 6,
+      "tag": 0,
+      "ox": 524,
+      "oy": 464
+    }
+  ],
+  "crumbs": [
+    {
+      "x": 312,
+      "y": 200,
+      "source": "xml",
+      "id": 58,
+      "prop": 260,
+      "tag": 1054,
+      "ox": 308,
+      "oy": 202
+    },
+    {
+      "x": 408,
+      "y": 200,
+      "source": "xml",
+      "id": 59,
+      "prop": 260,
+      "tag": 1055,
+      "ox": 404,
+      "oy": 202
+    },
+    {
+      "x": 504,
+      "y": 200,
+      "source": "xml",
+      "id": 60,
+      "prop": 260,
+      "tag": 1057,
+      "ox": 496,
+      "oy": 202
+    },
+    {
+      "x": 600,
+      "y": 200,
+      "source": "xml",
+      "id": 61,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 592,
+      "oy": 202
+    },
+    {
+      "x": 600,
+      "y": 616,
+      "source": "xml",
+      "id": 62,
+      "prop": 260,
+      "tag": 1055,
+      "ox": 592,
+      "oy": 610
+    },
+    {
+      "x": 680,
+      "y": 616,
+      "source": "xml",
+      "id": 63,
+      "prop": 260,
+      "tag": 1057,
+      "ox": 678,
+      "oy": 610
+    },
+    {
+      "x": 776,
+      "y": 616,
+      "source": "xml",
+      "id": 64,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 774,
+      "oy": 610
+    },
+    {
+      "x": 872,
+      "y": 616,
+      "source": "xml",
+      "id": 65,
+      "prop": 260,
+      "tag": 1061,
+      "ox": 864,
+      "oy": 610
+    },
+    {
+      "x": 600,
+      "y": 408,
+      "source": "xml",
+      "id": 66,
+      "prop": 260,
+      "tag": 1057,
+      "ox": 592,
+      "oy": 410
+    },
+    {
+      "x": 680,
+      "y": 408,
+      "source": "xml",
+      "id": 67,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 678,
+      "oy": 410
+    },
+    {
+      "x": 776,
+      "y": 408,
+      "source": "xml",
+      "id": 68,
+      "prop": 260,
+      "tag": 1061,
+      "ox": 774,
+      "oy": 410
+    },
+    {
+      "x": 872,
+      "y": 408,
+      "source": "xml",
+      "id": 69,
+      "prop": 260,
+      "tag": 1062,
+      "ox": 864,
+      "oy": 410
+    },
+    {
+      "x": 312,
+      "y": 408,
+      "source": "xml",
+      "id": 70,
+      "prop": 260,
+      "tag": 1062,
+      "ox": 308,
+      "oy": 410
+    },
+    {
+      "x": 408,
+      "y": 408,
+      "source": "xml",
+      "id": 71,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 408,
+      "oy": 410
+    },
+    {
+      "x": 504,
+      "y": 408,
+      "source": "xml",
+      "id": 72,
+      "prop": 260,
+      "tag": 1054,
+      "ox": 496,
+      "oy": 410
+    },
+    {
+      "x": 312,
+      "y": 264,
+      "source": "xml",
+      "id": 73,
+      "prop": 260,
+      "tag": 1052,
+      "ox": 308,
+      "oy": 270
+    },
+    {
+      "x": 312,
+      "y": 344,
+      "source": "xml",
+      "id": 74,
+      "prop": 260,
+      "tag": 1053,
+      "ox": 308,
+      "oy": 338
+    },
+    {
+      "x": 600,
+      "y": 264,
+      "source": "xml",
+      "id": 75,
+      "prop": 260,
+      "tag": 1060,
+      "ox": 592,
+      "oy": 270
+    },
+    {
+      "x": 600,
+      "y": 344,
+      "source": "xml",
+      "id": 76,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 592,
+      "oy": 338
+    },
+    {
+      "x": 600,
+      "y": 472,
+      "source": "xml",
+      "id": 77,
+      "prop": 260,
+      "tag": 1054,
+      "ox": 592,
+      "oy": 472
+    },
+    {
+      "x": 600,
+      "y": 536,
+      "source": "xml",
+      "id": 78,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 592,
+      "oy": 542
+    },
+    {
+      "x": 872,
+      "y": 472,
+      "source": "xml",
+      "id": 79,
+      "prop": 260,
+      "tag": 1061,
+      "ox": 864,
+      "oy": 472
+    },
+    {
+      "x": 872,
+      "y": 536,
+      "source": "xml",
+      "id": 80,
+      "prop": 260,
+      "tag": 1059,
+      "ox": 864,
+      "oy": 542
+    }
+  ],
+  "cats": [
+    {
+      "x": 312,
+      "y": 408,
+      "angle": -1.4983427307063082,
+      "type": 2,
+      "prop": 52,
+      "tag": 50,
+      "source": "xml",
+      "id": 81,
+      "ox": 314,
+      "oy": 412,
+      "route": [
+        {
+          "x": 330,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 568,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 568,
+          "y": 572,
+          "wait": 0
+        },
+        {
+          "x": 838,
+          "y": 572,
+          "wait": 0
+        },
+        {
+          "x": 838,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 336,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 364,
+          "wait": 0
+        }
+      ],
+      "routeMode": "loop",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [
+    {
+      "id": 56,
+      "prop": 20,
+      "tag": 6,
+      "x": 116,
+      "y": 178,
+      "dir": "u"
+    }
+  ],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 15,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 1,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 15,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 1,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 55,
+        "designX": 43,
+        "designY": 264,
+        "worldX": 118,
+        "worldY": 592
+      },
+      "imported": {
+        "x": 120,
+        "y": 600,
+        "source": "xml"
+      }
+    }
+  }
+}

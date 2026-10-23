@@ -1,0 +1,126 @@
+{
+  "world": 1,
+  "scene": "assets/menu/buildings/world-1/scene-merged.jpg",
+  "buildings": [
+    {
+      "id": "1",
+      "file": "assets/menu/buildings/world-1/building-01.png",
+      "x": 65,
+      "y": 0,
+      "w": 240,
+      "h": 190,
+      "cx": 185.0,
+      "cy": 95.0
+    },
+    {
+      "id": "2",
+      "file": "assets/menu/buildings/world-1/building-02.png",
+      "x": 293,
+      "y": 219,
+      "w": 215,
+      "h": 141,
+      "cx": 400.5,
+      "cy": 289.5
+    },
+    {
+      "id": "3",
+      "file": "assets/menu/buildings/world-1/building-03.png",
+      "x": 518,
+      "y": 348,
+      "w": 191,
+      "h": 142,
+      "cx": 613.5,
+      "cy": 419.0
+    },
+    {
+      "id": "4",
+      "file": "assets/menu/buildings/world-1/building-04.png",
+      "x": 339,
+      "y": 39,
+      "w": 136,
+      "h": 154,
+      "cx": 407.0,
+      "cy": 116.0
+    },
+    {
+      "id": "5",
+      "file": "assets/menu/buildings/world-1/building-05.png",
+      "x": 794,
+      "y": 407,
+      "w": 159,
+      "h": 126,
+      "cx": 873.5,
+      "cy": 470.0
+    },
+    {
+      "id": "6",
+      "file": "assets/menu/buildings/world-1/building-06.png",
+      "x": 511,
+      "y": 129,
+      "w": 148,
+      "h": 131,
+      "cx": 585.0,
+      "cy": 194.5
+    },
+    {
+      "id": "7",
+      "file": "assets/menu/buildings/world-1/building-07.png",
+      "x": 698,
+      "y": 271,
+      "w": 167,
+      "h": 130,
+      "cx": 781.5,
+      "cy": 336.0
+    },
+    {
+      "id": "8",
+      "file": "assets/menu/buildings/world-1/building-08.png",
+      "x": 350,
+      "y": 411,
+      "w": 180,
+      "h": 119,
+      "cx": 440.0,
+      "cy": 470.5
+    },
+    {
+      "id": "9",
+      "file": "assets/menu/buildings/world-1/building-09.png",
+      "x": 118,
+      "y": 229,
+      "w": 143,
+      "h": 125,
+      "cx": 189.5,
+      "cy": 291.5
+    },
+    {
+      "id": "10",
+      "file": "assets/menu/buildings/world-1/building-10.png",
+      "x": 196,
+      "y": 433,
+      "w": 132,
+      "h": 108,
+      "cx": 262.0,
+      "cy": 487.0
+    },
+    {
+      "id": "11",
+      "file": "assets/menu/buildings/world-1/building-11.png",
+      "x": 657,
+      "y": 50,
+      "w": 113,
+      "h": 138,
+      "cx": 713.5,
+      "cy": 119.0
+    },
+    {
+      "id": "12",
+      "file": "assets/menu/buildings/world-1/building-12.png",
+      "x": 12,
+      "y": 458,
+      "w": 126,
+      "h": 90,
+      "cx": 75.0,
+      "cy": 503.0
+    }
+  ]
+}

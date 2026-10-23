@@ -1,0 +1,139 @@
+{
+  "id": "map738",
+  "num": "",
+  "name": "LEVEL_8_H1",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 60,
+    "bronze": 20,
+    "silver": 25,
+    "gold": 28,
+    "platinum": 30
+  },
+  "goals": null,
+  "secret": true,
+  "music": "CM_Volcano",
+  "musicPath": "sound/music/CM_Volcano.sps",
+  "ambience": null,
+  "bg": "assets/maps/map738.jpg",
+  "mask": "assets/masks/map738.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 296,
+    "y": 584,
+    "id": 49,
+    "prop": 1,
+    "tag": 0,
+    "ox": 288,
+    "oy": 590
+  },
+  "exit": {
+    "x": 104,
+    "y": 584,
+    "id": 51,
+    "prop": 241,
+    "tag": 0,
+    "ox": 102,
+    "oy": 578,
+    "source": "xml"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [
+    {
+      "x": 152,
+      "y": 408,
+      "angle": 0,
+      "type": 2,
+      "prop": 52,
+      "tag": 2,
+      "source": "xml",
+      "id": 58,
+      "ox": 146,
+      "oy": 410,
+      "route": [
+        {
+          "x": 362,
+          "y": 408,
+          "wait": 0
+        },
+        {
+          "x": 728,
+          "y": 408,
+          "wait": 0
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 49,
+        "designX": 128,
+        "designY": 263,
+        "worldX": 288,
+        "worldY": 590
+      },
+      "imported": {
+        "x": 296,
+        "y": 584,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

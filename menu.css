@@ -1,0 +1,274 @@
+.front-end[hidden],.front-end [hidden]{display:none!important}
+.front-end{position:fixed;inset:0;z-index:15;overflow:hidden;--menu-scale:1;background:#246787;color:#fff8dc;isolation:isolate}
+.menu-backdrop{position:absolute;inset:0;background:url('assets/menu/main_menu_bg.png') center/auto 100% no-repeat;z-index:-1}
+.front-end[data-view=world] .menu-backdrop{background-image:var(--world-image);background-size:cover;filter:blur(4px);opacity:.8}
+.menu-stage{position:absolute;left:50%;top:50%;width:960px;height:640px;transform:translate(-50%,-50%) scale(var(--menu-scale));transform-origin:center}
+.front-end[data-view=home] .world-stage,.front-end[data-view=world] .home-stage{display:none}
+.menu-stage img{position:absolute;pointer-events:none;user-select:none}
+.menu-logo{width:430px;left:270px;top:22px}
+.menu-mouse{position:absolute;width:320px;height:385px;left:60px;top:245px}
+.menu-mouse .mouse-body{width:100%;height:auto;inset:0}
+.menu-mouse .mouse-eyes{width:17.7%;left:38.7%;top:26.4%}
+.front-end[data-view=home] .menu-backdrop:before,.front-end[data-view=home] .menu-backdrop:after{content:'';position:absolute;top:0;bottom:0;width:max(0px,calc((100vw - 160dvh)/2));background-size:auto 100%;background-repeat:repeat-x}
+.front-end[data-view=home] .menu-backdrop:before{left:0;background-image:url('assets/menu/main_menu_bg_padleft.png');background-position:right center}
+.front-end[data-view=home] .menu-backdrop:after{right:0;background-image:url('assets/menu/main_menu_bg_padright.png');background-position:left center}
+.menu-cheese{width:265px;left:525px;top:438px}
+.menu-start{position:absolute;left:480px;top:298px;width:270px;height:170px;padding:0 15px 33px 0;background:url('assets/menu/play.png') center/contain no-repeat;color:#f04c00;border:0;font-size:39px;font-weight:600;cursor:pointer;transform:rotate(-2deg)}
+.menu-start:hover{background-image:url('assets/menu/play_over.png')}
+.art-button{border:0;padding:0;background:transparent center/contain no-repeat;cursor:pointer;font-size:0;color:transparent;width:72px;height:78px}
+.menu-stage>.art-button{position:absolute;top:12px}
+.trophy-button{left:18px;background-image:url('assets/menu/btn_achievements.png')}
+.trophy-button:hover{background-image:url('assets/menu/btn_achievements_over.png')}
+.menu-utility{position:absolute;bottom:-5px;right:max(16px,calc((100vw - 960px * var(--menu-scale))/2 + 16px));display:flex}
+.menu-utility{--utility-height:clamp(40px,6vw,70px);align-items:flex-end}
+.menu-utility .art-button{height:var(--utility-height);background-size:100% 100%;flex-shrink:0}
+.menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}
+.menu-utility .help-button{width:calc(var(--utility-height) * 136 / 70);margin-left:calc(var(--utility-height) * -50 / 70);position:relative}
+.settings-button{background-image:url('assets/menu/btn_opt_settings.png')}
+.settings-button:hover{background-image:url('assets/menu/btn_opt_settings_over.png')}
+.help-button{background-image:url('assets/menu/btn_opt_help.png')}
+.help-button:hover{background-image:url('assets/menu/btn_opt_help_over.png')}
+.world-picture{inset:0;width:960px;height:640px}
+.world-heading{position:absolute;left:88px;right:78px;top:42px;height:40px;background:#29342388;display:flex;align-items:center;gap:6px;padding:2px 5px 2px 12px;font-size:25px;white-space:nowrap;overflow:hidden;box-sizing:border-box}
+.world-title{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;text-align:center;line-height:36px}
+.map-back{left:18px;background-image:url('assets/menu/btn_back.png')}
+.map-back:hover,.modal-back:hover{background-image:url('assets/menu/btn_back_over.png')}
+.backpack-button{right:12px;width:70px;height:90px;top:8px!important;background-image:url('assets/menu/btn_backpack.png')}
+.backpack-button:hover{background-image:url('assets/menu/btn_backpack_over.png')}
+.map-buildings{position:absolute;inset:0;width:960px;height:640px;pointer-events:none;z-index:0}
+.map-building{position:absolute;pointer-events:none;user-select:none;transform-origin:50% 100%;will-change:translate,scale;filter:drop-shadow(0 3px 2px #10200f22)}
+.map-building.bounce{animation:map-building-bounce .56s cubic-bezier(.3,.7,.3,1) both;z-index:1}
+@keyframes map-building-bounce{
+  0%{translate:0 0;scale:1}
+  16%{translate:0 -18px;scale:1.04}
+  34%{translate:0 0;scale:.985}
+  52%{translate:0 -9px;scale:1.02}
+  72%{translate:0 0;scale:.995}
+  100%{translate:0 0;scale:1}
+}
+.map-node{
+  position:absolute;width:64px;height:40px;transform:translate(-50%,-50%);
+  background:url('assets/menu/map_nodes.png') left center/800% 100% no-repeat;
+  border:0;padding:0;cursor:pointer;z-index:2;scale:1;
+  filter:brightness(1) drop-shadow(0 3px 1px #435d38) drop-shadow(0 7px 6px #172e1a55);
+  transition:filter .15s ease,scale .15s ease;
+  animation:map-node-in .4s ease-out both;
+  animation-delay:calc(var(--node-order,0) * 35ms);
+  will-change:translate,scale,filter;
+}
+.map-node.selected:before{content:'';position:absolute;inset:-3px;border:6px solid #ff7a1c;border-radius:50%;z-index:-1}
+.map-node:hover{filter:brightness(1.13) drop-shadow(0 4px 1px #435d38) drop-shadow(0 9px 8px #172e1a66);scale:1.08}
+.map-node:active{scale:.95}
+.map-node.selected{filter:brightness(1.08) drop-shadow(0 0 7px #ffb02e) drop-shadow(0 4px 2px #435d38)}
+@keyframes map-node-in{from{opacity:0}to{opacity:1}}
+.world-stage{touch-action:none;user-select:none}
+.map-drawing{position:absolute;inset:0;width:960px;height:640px;pointer-events:none;z-index:1}
+.map-drawing polyline{fill:none;stroke:#fff9df;stroke-width:5;stroke-dasharray:9 7;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 1px #586239)}
+.world-mouse{position:absolute;width:64px;height:64px;transform:translate(-50%,-100%);background:url('assets/sprites/player_idle.png') 0 -192px/512px 256px no-repeat;pointer-events:none;z-index:2}
+.world-mouse.walking{background-image:url('assets/sprites/player_run.png');background-size:256px 1024px}
+.map-play{
+  position:absolute;width:112px;height:120px;border:0;
+  background:url('assets/menu/btn_play_worldmap.png') center/contain no-repeat;
+  color:#fff8dc;font:27px inherit;cursor:pointer;font-family:inherit;font-size:27px;
+  text-shadow:0 2px #d35b14;z-index:3;
+  filter:drop-shadow(0 4px 0 #a84811) drop-shadow(0 10px 9px #10200f66);
+  animation:map-play-bob 1.8s ease-in-out infinite alternate;
+  transition:filter .15s ease,scale .15s ease;will-change:translate,scale,filter;
+}
+.map-play:hover{background-image:url('assets/menu/btn_play_worldmap_over.png');filter:brightness(1.08) drop-shadow(0 5px 0 #a84811) drop-shadow(0 12px 10px #10200f77);scale:1.04}
+.map-play:active{scale:.97}
+@keyframes map-play-bob{from{translate:0 0}to{translate:0 -5px}}
+.map-play.next-chapter{font-size:23px;padding:0 12px;line-height:1.15}
+.world-switch{display:flex;align-items:center;gap:2px;flex:0 0 auto;background:#2b4327a0;border-radius:16px;padding:1px 4px;box-shadow:inset 0 1px #ffffff33}
+.world-switch button,.world-switch select{color:#fff8dc;border:0;background:transparent;cursor:pointer;font-family:inherit;font-size:16px}
+.world-switch button{filter:drop-shadow(0 1px 0 #172e1a88);transition:translate .15s ease,filter .15s ease;border-radius:50%}
+.world-switch button:hover{translate:0 -1px;filter:brightness(1.2) drop-shadow(0 2px 2px #172e1a88)}
+.world-stage>.art-button{filter:drop-shadow(0 4px 2px #172e1a88) drop-shadow(0 8px 7px #10200f55);transition:translate .15s ease,filter .15s ease}
+.world-stage>.art-button:hover{translate:0 -3px;filter:brightness(1.1) drop-shadow(0 6px 2px #172e1a88) drop-shadow(0 10px 9px #10200f66)}
+.world-switch select option{color:#4b542d;background:#fff9e9}
+.world-switch button{width:26px;height:26px;font-size:22px;line-height:1}
+.world-switch select{max-width:76px;padding:0 1px}
+.menu-modal{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#174a7930;backdrop-filter:blur(8px);z-index:5;padding:58px 35px 14px}
+.modal-back{position:absolute;top:12px;left:max(12px,calc((100vw - 960px * var(--menu-scale))/2 + 16px));width:clamp(48px,6vw,76px);height:clamp(52px,6.5vw,82px);background-image:url('assets/menu/btn_back.png')}
+.options-card{position:relative;width:min(540px,85vw,calc(100dvh - 90px));aspect-ratio:1;background:url('assets/menu/popup_options.png') center/100% 100% no-repeat;color:#85785c;container-type:inline-size;padding:21% 0 0}
+.options-card h1{position:absolute;top:6%;left:0;width:100%;margin:0;color:#fff7c3;text-shadow:0 3px #9c4b13;text-align:center;font-size:8cqw;font-weight:500}
+.modal-body{position:absolute;inset:25% 14% 8%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;scrollbar-width:thin}
+.modal-body p{font-size:4.7cqw;line-height:1.6;margin:0 0 8%}
+.settings-body .volume-control{font-size:5cqw;margin-bottom:2%}
+.settings-body .volume-control input{height:6cqw;margin-top:2%}
+.settings-body .menu-long{height:9cqw;min-height:0;margin-top:2%}
+.modal-body .menu-disclaimer{font-size:2.8cqw;line-height:1.45;margin:3% 0 0;color:#827355}
+.volume-control{display:block;font-size:5.5cqw;margin-bottom:5%}
+.volume-control input{display:block;width:100%;margin:4% 0 0;appearance:none;height:7.5cqw;background:url('assets/menu/slider_h_bg.png') center/100% auto no-repeat;cursor:pointer;touch-action:pan-x}
+.volume-control input::-webkit-slider-thumb{appearance:none;width:9cqw;height:9cqw;background:url('assets/menu/slider_handle.png') center/contain no-repeat;border:0}
+.volume-control input::-moz-range-thumb{width:9cqw;height:9cqw;background:url('assets/menu/slider_handle.png') center/contain no-repeat;border:0}
+.menu-long{display:block;width:100%;height:10cqw;min-height:35px;margin-top:3%;padding:0 5px 1%;border:0;background:url('assets/menu/btn_long.png') center/100% 100% no-repeat;color:#fff8d6;text-shadow:0 1px #cd6516;font-family:inherit;font-size:4.7cqw;cursor:pointer}
+.menu-long:hover{background-image:url('assets/menu/btn_long_over.png')}
+.catalog-body{inset:25% 10% 8%}
+.catalog-body .menu-long{font-size:3.6cqw;height:9cqw}
+.front-end button:focus-visible,.front-end select:focus-visible,.front-end input:focus-visible{outline:3px solid #fff3a3;outline-offset:3px}
+@media(max-aspect-ratio:1/1){.menu-stage.home-stage{top:45%}.options-card{width:90vw;aspect-ratio:532/480}.modal-body{inset:25% 12% 8%}.menu-utility .art-button{width:84px;height:54px}.menu-utility{right:12px}.world-heading{font-size:22px}.world-switch button{width:22px;height:22px;font-size:18px}.world-switch select{max-width:58px;font-size:14px}.map-play{bottom:-52px;right:25px}.menu-stage>.art-button{top:-52px}.menu-stage>.backpack-button{top:-52px!important}.menu-modal{padding-left:15px;padding-right:15px}}
+@media(max-aspect-ratio:1/1){.options-card{aspect-ratio:1}.modal-body{bottom:6%}.volume-control{margin-bottom:3%}.menu-utility{--utility-height:54px}.menu-utility .art-button{height:var(--utility-height)}.map-play{right:auto;bottom:auto}}
+@media(prefers-reduced-motion:reduce){.world-mouse{transition:none}.map-node,.map-play{animation:none}.map-node,.map-play,.world-stage>.art-button,.world-switch button{transition:none}}
+@media(max-aspect-ratio:1/1){.menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}.menu-utility .help-button{width:calc(var(--utility-height) * 136 / 70)}}
+
+/* =========================================================================
+   Menu view transitions + slider textures (ui lane, task-6)
+   Native refs: Fade/Slide Frame widget classes (fcn.0x3b6b4 switch table),
+   options.gui HSLIDER_SFX + slider_h_bg.png / slider_handle.png.
+   ========================================================================= */
+
+/* Only .stage-swap animates a view change. Do NOT add an unconditional
+   .menu-stage entrance animation: animateStageSwap() removes .stage-swap after
+   280 ms, and the base animation would restart on that class change - the
+   "home/level-select appears twice" double flash. */
+.front-end.stage-swap .menu-stage { animation: stage-swap .26s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes stage-swap {
+  from { opacity: 0; translate: 0 18px; scale: .985; }
+  to { opacity: 1; translate: 0 0; scale: 1; }
+}
+.menu-modal:not([hidden]) .options-card { animation: modal-in .22s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes modal-in {
+  from { opacity: 0; translate: 0 18px; scale: .97; }
+}
+
+/* options sliders use the native slider_h_bg / slider_handle art */
+.volume-control input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 36px;
+  margin: 6px 0 0;
+  padding: 0;
+  border: 0;
+  background: url('assets/ui/slider_h_bg.png') center / 100% 100% no-repeat;
+  cursor: pointer;
+  outline: none;
+}
+.volume-control input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: url('assets/ui/slider_handle.png') center / contain no-repeat;
+  cursor: grab;
+}
+.volume-control input[type=range]::-webkit-slider-thumb:active { cursor: grabbing; }
+.volume-control input[type=range]:hover::-webkit-slider-thumb { background-image: url('assets/ui/slider_handle_over.png'); }
+.volume-control input[type=range]::-moz-range-thumb {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  background: url('assets/ui/slider_handle.png') center / contain no-repeat;
+  cursor: grab;
+}
+.volume-control input[type=range]:hover::-moz-range-thumb { background-image: url('assets/ui/slider_handle_over.png'); }
+.volume-control input[type=range]::-moz-range-track { background: transparent; }
+
+.menu-long:active, .btn:active { translate: 0 1px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-stage, .front-end.stage-swap .menu-stage, .menu-modal:not([hidden]) .options-card { animation: none; }
+  .menu-long:active, .btn:active { translate: none; }
+}
+
+/* =========================================================================
+   Round 3 UI (task-9)
+   1) home hero idle breathing (eyes are swapped by JS, native Posed Mouse)
+   2) selected map house one-shot jump
+   3) backpack (menu_backpack.gui) + dossier detail (dossier.gui)
+   ========================================================================= */
+
+/* ---- 1. home hero idle ----
+   The user prefers the main-menu parts static: no body sway/breathe. The hero
+   still blinks/looks around via the four eye frames (menu.js startHomeIdle). */
+.menu-mouse .mouse-eyes { transition: none; }
+
+/* ---- 2. selected map node jump (overrides the idle bob while active) ---- */
+/* ---- 3. backpack modal ---- */
+.menu-modal.backpack-mode .options-card {
+  width: min(920px, 94vw, calc((100dvh - 96px) * 960 / 492));
+  aspect-ratio: 960 / 492;
+  background: url('assets/ui/popup_backpack.png') center / 100% 100% no-repeat;
+  padding: 0;
+}
+.menu-modal.backpack-mode .options-card h1 { top: 6.5%; font-size: 6.2cqw; color: #fff4d6; text-shadow: 0 3px #7a3a12; }
+.menu-modal.backpack-mode .modal-body { inset: 24% 5.5% 7%; }
+
+.backpack-head {
+  display: flex; justify-content: center; gap: 2%; margin: 0 0 1.6%;
+  font-size: 3.2cqw; color: #f5e8c8; text-shadow: 0 1px #00000066;
+}
+.backpack-count { font-weight: 700; letter-spacing: .5px; }
+/* 3 columns, cards scaled to ~150-190 px tall and centred in the wide nativ panel. */
+.backpack-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 12px; align-items: start;
+  max-width: 480px; margin: 0 auto;
+}
+
+.backpack-body .dossier-card {
+  position: relative; width: 100%; aspect-ratio: 276 / 338;
+  border: 0; padding: 0; background-color: transparent;
+  background-position: center; background-size: 100% 100%; background-repeat: no-repeat;
+  cursor: pointer; filter: drop-shadow(0 4px 6px #0006);
+  transition: translate .12s ease, filter .15s ease;
+}
+.backpack-body .dossier-card.locked { cursor: default; filter: drop-shadow(0 3px 4px #0005); opacity: .92; }
+.backpack-body .dossier-card.unlocked:hover { translate: 0 -3px; filter: drop-shadow(0 8px 10px #0007) brightness(1.06); }
+.backpack-body .dossier-card.unlocked::after {
+  content: ''; position: absolute; inset: 0;
+  background: url('assets/ui/dossiers/dossier_over.png') center / 100% 100% no-repeat;
+  opacity: 0; pointer-events: none; transition: opacity .12s ease;
+}
+.backpack-body .dossier-card.unlocked:hover::after { opacity: 1; }
+.backpack-hint { font-size: 2.9cqw; color: #f0e2bd; text-shadow: 0 1px #00000066; text-align: center; margin: 2.2% 0 0; }
+
+/* ---- 3b. dossier detail: a portrait paper sheet (dossier.gui) ---- */
+.menu-modal.dossier-mode .options-card {
+  width: min(540px, 92vw, calc((100dvh - 96px) * 482 / 618));
+  aspect-ratio: 482 / 618;
+  background: #fffdf4 url('assets/ui/dossiers/paper.png') center / 100% 100% no-repeat;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px #0006;
+  container-type: inline-size;
+}
+.menu-modal.dossier-mode .options-card h1 {
+  top: 3.4%; color: #4a3416; text-shadow: none; font-size: 6.4cqw; font-weight: 700;
+  width: 84%; left: 8%;
+}
+.menu-modal.dossier-mode .modal-body { inset: 13% 8% 5%; }
+.dossier-body { position: absolute; overflow: auto; }
+.dossier-view {
+  position: relative; width: 100%; display: flex; flex-direction: column; gap: 2.4%;
+  padding: 0 0 2%;
+  color: #5b4a2f;
+}
+.dossier-portrait { width: 100%; height: auto; display: block; flex: none; filter: drop-shadow(0 4px 8px #0004); }
+.dossier-shot {
+  width: 100%; height: auto; display: block; flex: none;
+  border: 3px solid #d9c8a6; border-radius: 3px; background: #d9c8a6;
+}
+.dossier-shot[hidden] { display: none; }
+.dossier-summary { margin: 0; font-size: 3.4cqw; line-height: 1.55; color: #5b4a2f; flex: none; }
+.dossier-view .menu-long {
+  position: sticky; bottom: 0; z-index: 2;
+  height: 9cqw; min-height: 34px; margin-top: 1%; flex: none;
+}
+
+@media (max-width: 760px) {
+  .backpack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 420px; }
+  .menu-modal.backpack-mode .options-card {
+    width: 96vw; aspect-ratio: auto; height: min(86dvh, 780px); background-size: 100% 100%;
+  }
+  .menu-modal.backpack-mode .modal-body { inset: 16% 5% 6%; }
+  .backpack-head { font-size: 3.8cqw; }
+  .menu-modal.dossier-mode .options-card { width: 94vw; aspect-ratio: auto; height: min(88dvh, 780px); }
+  .menu-modal.dossier-mode .modal-body { inset: 11% 7% 4%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-mouse { animation: none; }
+  .map-building.bounce { animation: none; }
+  .backpack-body .dossier-card { transition: none; }
+}

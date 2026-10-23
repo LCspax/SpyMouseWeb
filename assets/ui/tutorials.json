@@ -1,0 +1,95 @@
+{
+ "generated": "2026-10-22",
+ "source": "com.ea.spymouse_row/files/res/popup_tutorials/*.xml",
+ "note": "title/body are native localisation IDs (MTF); the web port has no MTF table yet, so callers supply fallback text.",
+ "tutorials": [
+  {
+   "id": "level_goals",
+   "mouse": {
+    "pose": 7,
+    "flip": true
+   },
+   "titleId": "LEVEL_GOALS_TITLE",
+   "bodyId": "LEVEL_GOALS_ALT_17",
+   "image": "assets/ui/popup_tutorials/level_goals.png",
+   "wifiHint": false
+  },
+  {
+   "id": "new_cheese_slot01",
+   "mouse": {
+    "pose": 5,
+    "flip": false
+   },
+   "titleId": "CARRY_MORE_TITLE_ALT_01",
+   "bodyId": "CARRY_MORE_2_ALT_01",
+   "image": "assets/ui/popup_tutorials/new_cheese_slot01.png",
+   "wifiHint": false
+  },
+  {
+   "id": "new_cheese_slot02",
+   "mouse": {
+    "pose": 5,
+    "flip": false
+   },
+   "titleId": "CARRY_MORE_TITLE_ALT_01",
+   "bodyId": "CARRY_MORE_3_ALT_01",
+   "image": "assets/ui/popup_tutorials/new_cheese_slot02.png",
+   "wifiHint": false
+  },
+  {
+   "id": "new_cheese_slot03",
+   "mouse": {
+    "pose": 5,
+    "flip": false
+   },
+   "titleId": "CARRY_MORE_TITLE_ALT_01",
+   "bodyId": "CARRY_MORE_4_ALT_01",
+   "image": "assets/ui/popup_tutorials/new_cheese_slot03.png",
+   "wifiHint": false
+  },
+  {
+   "id": "new_cheese_slot04",
+   "mouse": {
+    "pose": 5,
+    "flip": false
+   },
+   "titleId": "CARRY_MORE_TITLE_ALT_01",
+   "bodyId": "CARRY_MORE_5_ALT_01",
+   "image": "assets/ui/popup_tutorials/new_cheese_slot04.png",
+   "wifiHint": false
+  },
+  {
+   "id": "safe_holes",
+   "mouse": {
+    "pose": 3,
+    "flip": true
+   },
+   "titleId": "SAFE_HOLE_TITLE",
+   "bodyId": "SAFE_HOLE_ALT_16",
+   "image": "assets/ui/popup_tutorials/safe_holes.png",
+   "wifiHint": false
+  },
+  {
+   "id": "squeak_mode",
+   "mouse": {
+    "pose": 0,
+    "flip": false
+   },
+   "titleId": "SQUEAK_IN_SPACE",
+   "bodyId": "SIS_TUTORIAL_12",
+   "image": "assets/ui/popup_tutorials/squeak_mode.png",
+   "wifiHint": true
+  },
+  {
+   "id": "squeak_mode_alone",
+   "mouse": {
+    "pose": 0,
+    "flip": false
+   },
+   "titleId": "SQUEAK_IN_SPACE",
+   "bodyId": "SIS_TUTORIAL_4_ALT_8",
+   "image": "assets/ui/popup_tutorials/squeak_mode02.png",
+   "wifiHint": true
+  }
+ ]
+}

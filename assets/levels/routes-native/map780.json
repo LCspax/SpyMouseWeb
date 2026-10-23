@@ -1,0 +1,28 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map780",
+  "mbn": "map780.mbn",
+  "routes": [
+    {
+      "tag": 100,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 146,
+          "y": 346,
+          "wait": 0
+        },
+        {
+          "x": 156,
+          "y": 354,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

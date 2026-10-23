@@ -1,0 +1,4 @@
+import fs from "fs";
+const xml=fs.readFileSync("com.ea.spymouse_row/files/res/level_data.xml","utf8");
+const re=/<level\b([^>]*)>([\s\S]*?)<\/level>/g; let m;
+while((m=re.exec(xml))){ const a={}; for(const x of m[1].matchAll(/(\w+)\s*=\s*"([^"]*)"/g)) a[x[1]]=x[2]; const g=m[2].match(/<goals\s+([^>]*)\/>/); if(!g) continue; const ga={}; for(const x of g[1].matchAll(/(\w+)\s*=\s*"([^"]*)"/g)) ga[x[1]]=x[2]; const types=(ga.type||"").split(",").map(s=>s.trim()); if(types.some(t=>/pipe|portal|hole|switch|furniture|safe/.test(t))) console.log(`${a.num} map=${a.map} uid=${a.uid} goals=${ga.type} values=${ga.value}`); }

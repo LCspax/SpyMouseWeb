@@ -1,0 +1,466 @@
+:root {
+  --bg: #101418;
+  --panel: #fff9e9;
+  --accent: #ffcf3f;
+  --accent2: #4fd1c5;
+  --text: #604022;
+  --muted: #886342;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", system-ui, sans-serif;
+  overscroll-behavior: none;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+}
+
+#game {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.hud {
+  position: absolute;
+  top: calc(8px + var(--safe-top));
+  left: calc(8px + env(safe-area-inset-left, 0px));
+  right: calc(8px + env(safe-area-inset-right, 0px));
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hud-btn {
+  pointer-events: auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: url('assets/ui/hud_paws.png') center / contain no-repeat;
+  color: transparent;
+  order: 4;
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.hud-time, .hud-lives, .hud-cheese, .hud-score {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 15px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hud-time {
+  min-width: 3.4em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+.hud-cheese, .hud-score {
+  height: 40px;
+  min-width: 84px;
+  padding: 0 24px;
+  color: #fff8d7;
+  font-size: 22px;
+  justify-content: center;
+  background: url('assets/ui/hud_elem_left.png') left / 30px 40px no-repeat,
+    url('assets/ui/hud_elem_right.png') right / 30px 40px no-repeat,
+    url('assets/ui/hud_elem_mid.png') center / calc(100% - 58px) 40px no-repeat;
+}
+.hud-cheese { order: 2; padding-left: 45px; position: relative; }
+.hud-cheese::before {
+  content: ''; position: absolute; left: 17px; width: 24px; height: 24px;
+  background: url('assets/ui/hud_cheese_icon.png') center / contain no-repeat;
+}
+.hud-score { order: 1; }
+.hud-time:empty, .hud-lives:empty { display: none; }
+.hud-btn:hover { background-image: url('assets/ui/hud_paws_over.png'); }
+.hud-btn:focus-visible, .btn:focus-visible, .level-grid button:focus-visible {
+  outline: 3px solid #fff3ad; outline-offset: 3px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(16px + var(--safe-top)) 16px calc(16px + var(--safe-bottom));
+  background: rgba(30, 48, 37, 0.65);
+  z-index: 20;
+  transition: opacity 0.25s ease;
+}
+
+.overlay.hidden { opacity: 0; pointer-events: none; }
+
+.panel {
+  width: min(560px, 100%);
+  max-height: 100%;
+  overflow: auto;
+  background: var(--panel);
+  border: 5px solid #ee7e27;
+  border-radius: 38px 48px 40px 48px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.panel h1 {
+  margin: 0 0 8px;
+  font-size: clamp(26px, 7vw, 40px);
+  letter-spacing: 3px;
+  color: #f4841e;
+  text-shadow: 0 2px #ffde83;
+}
+
+.panel p {
+  margin: 0 auto 18px;
+  max-width: 42ch;
+  color: var(--muted);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.level-grid button {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px solid #e6ad56;
+  background: #ffedbe;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.level-grid button.done { background: #dbedb2; border-color: #8caa46; }
+.level-grid button.playing { border-color: #ef7817; background: #ffcf72; }
+
+.row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+
+.btn {
+  pointer-events: auto;
+  padding: 12px 22px;
+  border-radius: 12px;
+  border: 2px solid #e7aa52;
+  background: #ffe8ac;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primary { background: var(--accent); color: #1b1400; border-color: transparent; }
+.btn:disabled { opacity: 0.4; cursor: default; }
+
+.pause-panel .panel {
+  width: min(440px, 95vw);
+  min-height: 400px;
+  padding: 66px 40px 50px;
+  border: 0;
+  background: url('assets/ui/popup_pause_2.png') center / 100% 100% no-repeat;
+  box-shadow: none;
+}
+.pause-panel .panel h1 { color: #fff9dc; text-shadow: 0 2px #d85c1c; }
+.pause-panel .panel p { margin-top: 50px; }
+.pause-panel .row { margin-top: 28px; gap: 34px; }
+.pause-panel .btn {
+  width: 78px; height: 86px; padding: 0; border: 0;
+  color: transparent; background: url('assets/ui/btn_pause_retry.png') center / contain no-repeat;
+}
+.pause-panel .btn.primary { background-image: url('assets/ui/btn_pause_continue.png'); }
+.pause-panel .btn:hover { background-image: url('assets/ui/btn_pause_retry_over.png'); }
+.pause-panel .btn.primary:hover { background-image: url('assets/ui/btn_pause_continue_over.png'); }
+.pause-panel .btn.menu-home { background-image: url('assets/ui/btn_pause_home.png'); }
+.pause-panel .btn.menu-home:hover { background-image: url('assets/ui/btn_pause_home_over.png'); }
+
+.completion-banner { background: transparent; pointer-events: none; }
+.completion-banner .panel { background: none; border: 0; box-shadow: none; overflow: visible; width: 100%; }
+.completion-banner h1 { color: #fff8c9; font-size: clamp(36px,7vw,76px); text-shadow: 0 4px #ec781e,0 7px 2px #7c3c20; animation: completion-pop .4s ease-out both; }
+@keyframes completion-pop { from { transform: scale(.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.results-panel { background: transparent; isolation: isolate; }
+.results-panel::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: #ffd343 url('assets/ui/bg_bonus.png') repeat;
+  background-size: clamp(200px,28vw,360px);
+  animation: results-bg-flow 10s linear infinite, results-circle-in 1s ease-in-out both;
+  clip-path: circle(0% at var(--results-origin-x,50%) var(--results-origin-y,112%));
+  will-change: clip-path, background-position;
+}
+.results-panel::after {
+  content: ''; position: absolute; left: 50%; top: 50%; width: 150vmax; height: 150vmax;
+  translate: -50% -50%; z-index: 0; pointer-events: none; mix-blend-mode: screen;
+  background: conic-gradient(from 0deg, transparent 0 12%, #ffffff24 20%, transparent 28% 52%, #ffffff1c 60%, transparent 68% 100%);
+  animation: results-swirl 18s linear infinite;
+  will-change: rotate;
+}
+@keyframes results-circle-in {
+  from { clip-path: circle(0% at var(--results-origin-x,50%) var(--results-origin-y,112%)); }
+  to { clip-path: circle(150% at var(--results-origin-x,50%) var(--results-origin-y,112%)); }
+}
+@keyframes results-bg-flow {
+  from { background-position: 0 0; }
+  to { background-position: 360px 360px; }
+}
+@keyframes results-swirl {
+  from { rotate: 0deg; }
+  to { rotate: 360deg; }
+}
+.results-panel .panel {
+  position: relative; z-index: 2; padding: 0; border: 0; border-radius: 0; overflow: visible; box-shadow: none;
+  width: min(500px,calc(100vw - 76px),calc((100dvh - 64px) * .895)); aspect-ratio: 496 / 554;
+  background: url('assets/ui/results_popup.png') center / 100% 100% no-repeat;
+  container-type: inline-size;
+  animation: results-pop .42s .94s cubic-bezier(.2,.9,.2,1.1) both;
+}
+@keyframes results-pop {
+  from { opacity: 0; scale: .86; translate: 0 16px; }
+  to { opacity: 1; scale: 1; translate: 0 0; }
+}
+.results-panel .panel h1 { position: absolute; top: 2.4%; left: 0; width: 100%; margin: 0; font-size: 9.5cqw; color: #fff8c9; text-shadow: 0 3px #a6480e; letter-spacing: 0; }
+.results-panel .panel p { position: absolute; top: 13%; left: 8%; width: 84%; max-width: none; margin: 0; font-size: 5cqw; line-height: 1.1; white-space: pre-line; color: #fff8df; text-shadow: 0 2px #b65317; }
+.results-details { position: absolute; inset: 28% 10% 0; color: #ff7732; text-align: left; }
+.result-score-row { display: flex; align-items: center; gap: 5%; font-size: 5.3cqw; padding: 0 2% 4%; }
+.result-score-row:first-child { border-bottom: 2px dashed #ffac77; margin-bottom: 4%; }
+.result-score-row strong { margin-left: auto; font-weight: 500; font-variant-numeric: tabular-nums; }
+.result-icon { width: 9%; aspect-ratio: 1; display: inline-block; position: relative; flex: none; }
+.result-icon.cheese { background: #ff7732; clip-path: polygon(0 35%,45% 0,100% 33%,100% 86%,10% 100%); }
+.result-icon.clock { border: 3px solid #ff7732; border-radius: 50%; transform: scale(.85); }
+.result-icon.clock::after { content: ''; position: absolute; left: 45%; top: 12%; width: 30%; height: 43%; border-left: 2px solid #ff7732; border-bottom: 2px solid #ff7732; }
+.result-duration { margin-left: 16%; font-size: 4cqw; margin-top: -2%; padding-bottom: 4%; }
+.result-total { display: flex; justify-content: space-between; align-items: center; border-top: 3px solid #ff7732; border-bottom: 2px dashed #c6c0ac; padding: 1% 0 3%; font-size: 7.3cqw; }
+.result-total strong { font-weight: 500; font-size: 10cqw; font-variant-numeric: tabular-nums; }
+.result-medals { display: flex; justify-content: space-around; gap: 3%; margin-top: 5%; }
+.result-medal { border: 0; padding: 0; background: none; width: 29%; cursor: pointer; }
+.result-medal img { width: 100%; display: block; }
+.result-goal-description { position: absolute; top: 101%; left: 50%; transform: translateX(-50%); white-space: nowrap; max-width: 110%; overflow: hidden; text-overflow: ellipsis; background: #53baf1; color: white; border: 2px solid #328fc5; border-radius: 30px; padding: 1% 4%; font-size: 4.2cqw; }
+.results-panel .row { position: absolute; inset: 0; z-index: 3; pointer-events: none; margin: 0; display: block; }
+.results-panel .btn { position: absolute; bottom: 0; width: 24%; aspect-ratio: 1; border: 0; padding: 0; color: transparent; font-size: 0; background: url('assets/ui/btn_results_retry.png') center / contain no-repeat; }
+.results-panel .btn:not(.primary) { left: -10%; }
+.results-panel .btn.primary { right: -10%; background-image: url('assets/ui/btn_results_cont.png'); }
+.results-panel .btn:not(.primary):hover { background-image: url('assets/ui/btn_results_retry_over.png'); }
+.results-panel .btn.primary:hover { background-image: url('assets/ui/btn_results_cont_over.png'); }
+@media (prefers-reduced-motion: reduce) {
+  .completion-banner h1 { animation: none; }
+  .results-panel::before { animation: none; clip-path: none; }
+  .results-panel::after { animation: none; }
+  .results-panel .panel { animation: none; }
+}
+
+/* =========================================================================
+   UI interaction FX (ui lane, task-6)
+   Native refs: HUD fcn.0xe0c94 (hud_elem_* / hud_glow / hud_score_bonus /
+   hud_star_particle), results starfade_speed, achievement popup slide-in
+   (fcn.0xaef78).  Kept additive so older rules keep working.
+   ========================================================================= */
+
+/* ---- HUD puzzle + feedback ---- */
+.hud-slot { position: relative; display: flex; align-items: center; }
+.hud-slot-cheese { order: 2; }
+.hud-slot-score { order: 1; }
+.hud-cheese, .hud-score {
+  position: relative;
+  height: 44px;
+  background:
+    url('assets/ui/hud_elem_left.png') left center / 33px 44px no-repeat,
+    url('assets/ui/hud_elem_right.png') right center / 15px 44px no-repeat,
+    url('assets/ui/hud_elem_mid.png') 33px center / 34px 44px repeat-x;
+}
+.hud-cheese { padding-left: 40px; }
+.hud-cheese::before { left: 8px; width: 26px; height: 26px; }
+.hud-fx { position: absolute; pointer-events: none; opacity: 0; object-fit: contain; }
+.hud-fx-glow { left: 50%; top: 50%; width: 148px; height: 58px; translate: -50% -50%; }
+.hud-fx-bonus { left: 50%; top: -22px; width: 133px; height: 21px; translate: -50% 0; }
+.hud-fx-particle { left: 12px; top: 50%; width: 46px; height: 46px; translate: 0 -50%; }
+.hud-slot.hud-bump .hud-fx-glow { animation: hud-glow .34s ease-out both; }
+.hud-slot.hud-bump .hud-fx-bonus { animation: hud-bonus .6s ease-out both; }
+.hud-slot.hud-bump .hud-fx-particle { animation: hud-particle .45s ease-out both; }
+.hud-bump { animation: hud-bump .3s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes hud-bump { 0% { transform: scale(1); } 40% { transform: scale(1.22); } 100% { transform: scale(1); } }
+@keyframes hud-glow { 0% { opacity: 0; } 35% { opacity: .95; } 100% { opacity: 0; } }
+@keyframes hud-bonus {
+  0% { opacity: 0; translate: -50% 8px; scale: .7; }
+  30% { opacity: 1; }
+  100% { opacity: 0; translate: -50% -16px; scale: 1; }
+}
+@keyframes hud-particle {
+  0% { opacity: 0; scale: .4; }
+  30% { opacity: 1; }
+  100% { opacity: 0; scale: 1.5; }
+}
+
+/* ---- results star medals (native starfade_speed) ---- */
+.result-medal { opacity: 0; animation: star-pop .42s cubic-bezier(.2,1.5,.4,1) both; }
+.result-medal.missed img { filter: grayscale(1) brightness(.85); opacity: .55; }
+@keyframes star-pop {
+  from { opacity: 0; scale: .4; translate: 0 10px; }
+  to { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+/* ---- popups (tip / achievement / tutorial / msgbox) ---- */
+.game-popup-layer { position: fixed; inset: 0; z-index: 40; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.game-popup {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  pointer-events: auto; background: rgba(18,28,22,.45); opacity: 0;
+  transition: opacity .2s ease;
+}
+.game-popup.open { opacity: 1; }
+.game-popup__panel {
+  position: relative; width: min(520px,92vw); max-height: 88vh; overflow: auto;
+  padding: 18px 18px 22px; text-align: center; border-radius: 26px;
+  background: rgba(255,248,220,.96); border: 4px solid #e58b32;
+  box-shadow: 0 18px 50px rgba(0,0,0,.45);
+  transform: translateX(24%); transition: transform .24s cubic-bezier(.2,.8,.2,1);
+}
+.game-popup.open .game-popup__panel { transform: translateX(0); }
+.game-popup--achievement .game-popup__panel {
+  background: rgba(28,44,36,.94); color: #fff8dc; border-color: #ffc94a;
+  transform: translateX(110%);
+}
+.game-popup--achievement.open .game-popup__panel { transform: translateX(0); }
+.game-popup__banner { display: block; width: 100%; max-width: 486px; margin: 0 auto 10px; height: auto; }
+.game-popup--tip .game-popup__banner,
+.game-popup--tutorial .game-popup__banner,
+.game-popup--msgbox .game-popup__banner { display: none; }
+.game-popup__title { margin: 0 0 8px; font-size: 26px; letter-spacing: 1px; }
+.game-popup__body { font-size: 16px; line-height: 1.4; white-space: pre-line; }
+.game-popup__art { display: block; width: 100%; max-width: 420px; margin: 10px auto 0; height: auto; }
+.game-popup--achievement .game-popup__art { display: none; }
+.game-popup__progress { height: 12px; margin: 14px auto 4px; width: 86%; border-radius: 8px; background: #1c2b24; overflow: hidden; }
+.game-popup__progress-fill { height: 100%; background: linear-gradient(90deg,#ffcf4a,#ff8a2a); border-radius: 8px; transition: width .4s ease; }
+.game-popup__close {
+  position: absolute; right: 8px; top: 6px; width: 34px; height: 34px; border: 0; border-radius: 50%;
+  background: #00000033; color: #fff; font-size: 22px; line-height: 1; cursor: pointer;
+}
+.game-popup.closing { opacity: 0; }
+.game-popup.closing .game-popup__panel { transform: translateX(110%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-bump, .hud-score.hud-bump::before, .hud-score.hud-bump::after, .hud-cheese.hud-bump::after { animation: none; }
+  .result-medal { opacity: 1; animation: none; }
+  .game-popup, .game-popup__panel, .game-popup--achievement .game-popup__panel { transition: none; transform: none; }
+}
+
+/* =========================================================================
+   Caught / fail panel (round 2, task-8)
+   Native refs: PinholeManager case 2 draws cat_silhoutte.png + ui/bg_death.png
+   (purple) on the canvas; levelOver/gameOver.gui adds the Retry prompt.  The
+   overlay therefore stays translucent so the death scene shows through.
+   ========================================================================= */
+
+.overlay.caught-panel {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(92, 38, 140, .30) 0%, rgba(48, 18, 82, .52) 58%, rgba(20, 7, 34, .70) 100%);
+  backdrop-filter: none;
+}
+
+.caught-panel .panel {
+  position: relative;
+  width: min(560px, 92vw);
+  padding: 26px 26px 22px;
+  color: #f6ecff;
+  background: linear-gradient(180deg, rgba(86, 40, 132, .66), rgba(48, 19, 80, .62));
+  border: 2px solid rgba(214, 170, 255, .55);
+  border-radius: 26px;
+  box-shadow: 0 14px 44px rgba(18, 5, 36, .42), inset 0 0 70px rgba(150, 80, 220, .20);
+  overflow: hidden;
+  animation: caught-in .28s cubic-bezier(.2,.8,.2,1) both;
+}
+
+.caught-panel .panel::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url('assets/ui/bg_pattern.png') center / 220px repeat;
+  opacity: .14;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.caught-panel .panel h1 {
+  position: relative;
+  margin: 0 0 4px;
+  font-size: clamp(30px, 6.6vw, 46px);
+  letter-spacing: 2px;
+  color: #ffd9ff;
+  text-shadow: 0 2px #7a2fb0, 0 0 22px rgba(255, 120, 255, .55);
+}
+
+.caught-panel .panel p {
+  position: relative;
+  margin: 0 auto 10px;
+  max-width: 34ch;
+  color: #e6d6f8;
+  font-size: 15px;
+}
+
+.caught-panel .panel .row {
+  position: relative;
+  margin-top: 16px;
+  gap: 22px;
+}
+
+.caught-panel .panel .btn {
+  width: 104px;
+  height: 120px;
+  padding: 0;
+  border: 0;
+  background: url('assets/ui/btn_results_retry.png') center / contain no-repeat;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.caught-panel .panel .btn.primary {
+  background-color: transparent;
+  background-image: url('assets/ui/btn_results_retry.png');
+}
+
+.caught-panel .panel .btn.primary:hover { background-image: url('assets/ui/btn_results_retry_over.png'); }
+.caught-panel .panel .btn:not(.primary) { background-image: url('assets/ui/btn_pause_home.png'); }
+.caught-panel .panel .btn:not(.primary):hover { background-image: url('assets/ui/btn_pause_home_over.png'); }
+.caught-panel .panel .btn:active { translate: 0 2px; }
+.caught-panel .panel .btn:focus-visible { outline: 3px solid #fff3ad; outline-offset: 3px; }
+
+@keyframes caught-in {
+  from { opacity: 0; scale: .94; translate: 0 12px; }
+  to { opacity: 1; scale: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caught-panel .panel { animation: none; }
+  .caught-panel .panel .btn:active { translate: none; }
+}

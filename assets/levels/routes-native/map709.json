@@ -1,0 +1,126 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map709",
+  "mbn": "map709.mbn",
+  "routes": [
+    {
+      "tag": 99,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 804,
+          "y": 250,
+          "wait": 0
+        },
+        {
+          "x": 738,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 300,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 208,
+          "y": 252,
+          "wait": 0
+        },
+        {
+          "x": 208,
+          "y": 522,
+          "wait": 0
+        },
+        {
+          "x": 270,
+          "y": 600,
+          "wait": 0
+        },
+        {
+          "x": 748,
+          "y": 600,
+          "wait": 0
+        },
+        {
+          "x": 804,
+          "y": 522,
+          "wait": 0
+        },
+        {
+          "x": 804,
+          "y": 250,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 42,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 474,
+          "y": 584,
+          "wait": 0
+        },
+        {
+          "x": 474,
+          "y": 580,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 8,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 732,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 732,
+          "y": 264,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 7,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 286,
+          "y": 264,
+          "wait": 0
+        },
+        {
+          "x": 286,
+          "y": 512,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

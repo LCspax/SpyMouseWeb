@@ -1,0 +1,56 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local secrets / environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Original game data / reverse-engineering inputs (never commit)
+analysis/
+com.ea.spymouse_row/
+间谍鼠1.0.7.apk
+*.apk
+libSpyMouse.so
+*.so
+*.sav
+*.sav.bak
+
+# Build/test artifacts
+tools/__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.log
+playwright-report/
+test-results/
+blob-report/
+coverage/
+.cache/
+tmp/
+temp/
+
+# Large local media / captures
+analysis/**
+docs/*.mp4
+docs/*.wav
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace

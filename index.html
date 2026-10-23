@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="theme-color" content="#101418" />
+<title>Spy Mouse Web</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="menu.css" />
+</head>
+<body>
+<div id="app">
+  <div id="frontEnd" class="front-end" hidden></div>
+  <canvas id="game" aria-label="Spy Mouse game canvas"></canvas>
+
+  <div id="hud" class="hud">
+    <button id="btnPause" class="hud-btn" aria-label="Pause">II</button>
+    <div id="hudTime" class="hud-time" aria-label="Time"></div>
+    <div id="hudLives" class="hud-lives" aria-label="Lives"></div>
+    <div class="hud-slot hud-slot-cheese">
+      <img class="hud-fx hud-fx-glow" src="assets/ui/hud_glow.png" alt="" aria-hidden="true" />
+      <img class="hud-fx hud-fx-particle" src="assets/ui/hud_star_particle.png" alt="" aria-hidden="true" />
+      <div id="hudCheese" class="hud-cheese" aria-label="Cheese remaining"></div>
+    </div>
+    <div class="hud-slot hud-slot-score">
+      <img class="hud-fx hud-fx-glow" src="assets/ui/hud_glow.png" alt="" aria-hidden="true" />
+      <img class="hud-fx hud-fx-bonus" src="assets/ui/hud_score_bonus.png" alt="" aria-hidden="true" />
+      <div id="hudScore" class="hud-score" aria-label="Score"></div>
+    </div>
+  </div>
+
+  <div id="overlay" class="overlay">
+    <div class="panel">
+      <h1 id="ovTitle">SPY MOUSE</h1>
+      <p id="ovText">Draw a path for Agent Squeek. Grab every wedge of cheese and slip past the cats.</p>
+      <div id="resultsDetails" class="results-details" style="display:none"></div>
+      <div id="ovLevels" class="level-grid"></div>
+      <div class="row">
+        <button id="ovPrimary" class="btn primary">Start</button>
+        <button id="ovSecondary" class="btn">Reset Progress</button>
+        <button id="ovTertiary" class="btn menu-home" style="display:none">返回选关</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

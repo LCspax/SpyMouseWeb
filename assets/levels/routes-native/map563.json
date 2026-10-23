@@ -1,0 +1,688 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map563",
+  "mbn": "map563.mbn",
+  "routes": [
+    {
+      "tag": 50,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 902,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 762,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 762,
+          "y": 552,
+          "wait": 0
+        },
+        {
+          "x": 910,
+          "y": 552,
+          "wait": 0
+        },
+        {
+          "x": 910,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 902,
+          "y": 208,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 51,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 264,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 264,
+          "y": 484,
+          "wait": 0
+        },
+        {
+          "x": 474,
+          "y": 484,
+          "wait": 0
+        },
+        {
+          "x": 474,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 620,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 620,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 266,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 264,
+          "y": 622,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 52,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 112,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 112,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 144,
+          "wait": 0
+        },
+        {
+          "x": 114,
+          "y": 144,
+          "wait": 0
+        },
+        {
+          "x": 112,
+          "y": 150,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 105,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 762,
+          "y": 210,
+          "wait": 0
+        },
+        {
+          "x": 908,
+          "y": 210,
+          "wait": 0
+        },
+        {
+          "x": 908,
+          "y": 556,
+          "wait": 0
+        },
+        {
+          "x": 764,
+          "y": 556,
+          "wait": 0
+        },
+        {
+          "x": 762,
+          "y": 210,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 106,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 766,
+          "y": 560,
+          "wait": 0
+        },
+        {
+          "x": 766,
+          "y": 212,
+          "wait": 0
+        },
+        {
+          "x": 904,
+          "y": 212,
+          "wait": 0
+        },
+        {
+          "x": 904,
+          "y": 558,
+          "wait": 0
+        },
+        {
+          "x": 766,
+          "y": 560,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 101,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 622,
+          "y": 616,
+          "wait": 0
+        },
+        {
+          "x": 622,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 474,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 474,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 258,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 258,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 622,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 622,
+          "y": 616,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 102,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 258,
+          "y": 620,
+          "wait": 0
+        },
+        {
+          "x": 628,
+          "y": 620,
+          "wait": 0
+        },
+        {
+          "x": 628,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 472,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 472,
+          "y": 492,
+          "wait": 0
+        },
+        {
+          "x": 256,
+          "y": 492,
+          "wait": 0
+        },
+        {
+          "x": 258,
+          "y": 620,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 103,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 118,
+          "y": 346,
+          "wait": 0
+        },
+        {
+          "x": 328,
+          "y": 346,
+          "wait": 0
+        },
+        {
+          "x": 328,
+          "y": 148,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 148,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 346,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 77,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 474,
+          "y": 516,
+          "wait": 0
+        },
+        {
+          "x": 488,
+          "y": 488,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 89,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 906,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 906,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 768,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 768,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 898,
+          "y": 208,
+          "wait": 0
+        },
+        {
+          "x": 906,
+          "y": 208,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 88,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 906,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 764,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 764,
+          "y": 214,
+          "wait": 0
+        },
+        {
+          "x": 906,
+          "y": 214,
+          "wait": 0
+        },
+        {
+          "x": 906,
+          "y": 550,
+          "wait": 0
+        },
+        {
+          "x": 906,
+          "y": 554,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 87,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 324,
+          "y": 346,
+          "wait": 0
+        },
+        {
+          "x": 324,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 116,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 116,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 320,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 324,
+          "y": 346,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 86,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 254,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 332,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 332,
+          "y": 142,
+          "wait": 0
+        },
+        {
+          "x": 110,
+          "y": 142,
+          "wait": 0
+        },
+        {
+          "x": 110,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 248,
+          "y": 350,
+          "wait": 0
+        },
+        {
+          "x": 254,
+          "y": 350,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 85,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 188,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 114,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 114,
+          "y": 344,
+          "wait": 0
+        },
+        {
+          "x": 332,
+          "y": 344,
+          "wait": 0
+        },
+        {
+          "x": 332,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 192,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 188,
+          "y": 150,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 83,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 624,
+          "y": 506,
+          "wait": 0
+        },
+        {
+          "x": 624,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 476,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 476,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 262,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 262,
+          "y": 620,
+          "wait": 0
+        },
+        {
+          "x": 624,
+          "y": 620,
+          "wait": 0
+        },
+        {
+          "x": 624,
+          "y": 510,
+          "wait": 0
+        },
+        {
+          "x": 624,
+          "y": 506,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 84,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 112,
+          "y": 626,
+          "wait": 0
+        },
+        {
+          "x": 626,
+          "y": 626,
+          "wait": 0
+        },
+        {
+          "x": 626,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 470,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 470,
+          "y": 490,
+          "wait": 0
+        },
+        {
+          "x": 256,
+          "y": 490,
+          "wait": 0
+        },
+        {
+          "x": 256,
+          "y": 626,
+          "wait": 0
+        },
+        {
+          "x": 112,
+          "y": 626,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

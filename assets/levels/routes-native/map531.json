@@ -1,0 +1,576 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map531",
+  "mbn": "map531.mbn",
+  "routes": [
+    {
+      "tag": 80,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 506,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 640,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 738,
+          "y": 390,
+          "wait": 0
+        },
+        {
+          "x": 812,
+          "y": 390,
+          "wait": 0
+        },
+        {
+          "x": 932,
+          "y": 314,
+          "wait": 0
+        },
+        {
+          "x": 1096,
+          "y": 314,
+          "wait": 0
+        },
+        {
+          "x": 1220,
+          "y": 438,
+          "wait": 0
+        },
+        {
+          "x": 1220,
+          "y": 564,
+          "wait": 0
+        },
+        {
+          "x": 1258,
+          "y": 602,
+          "wait": 0
+        },
+        {
+          "x": 1474,
+          "y": 602,
+          "wait": 0
+        },
+        {
+          "x": 1570,
+          "y": 506,
+          "wait": 0
+        },
+        {
+          "x": 1570,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 1602,
+          "y": 384,
+          "wait": 0
+        },
+        {
+          "x": 2066,
+          "y": 384,
+          "wait": 0
+        },
+        {
+          "x": 2256,
+          "y": 384,
+          "wait": 0
+        },
+        {
+          "x": 2288,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 2288,
+          "y": 516,
+          "wait": 0
+        },
+        {
+          "x": 2326,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 2436,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 2642,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 2938,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 2938,
+          "y": 302,
+          "wait": 0
+        },
+        {
+          "x": 3054,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 3080,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 3080,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 3224,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 3224,
+          "y": 514,
+          "wait": 0
+        },
+        {
+          "x": 3252,
+          "y": 514,
+          "wait": 0
+        },
+        {
+          "x": 3368,
+          "y": 398,
+          "wait": 0
+        },
+        {
+          "x": 3368,
+          "y": 370,
+          "wait": 0
+        },
+        {
+          "x": 3390,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 3494,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 3518,
+          "y": 324,
+          "wait": 0
+        },
+        {
+          "x": 3518,
+          "y": 234,
+          "wait": 0
+        },
+        {
+          "x": 3560,
+          "y": 192,
+          "wait": 0
+        },
+        {
+          "x": 3808,
+          "y": 192,
+          "wait": 0
+        },
+        {
+          "x": 3850,
+          "y": 234,
+          "wait": 0
+        },
+        {
+          "x": 3850,
+          "y": 320,
+          "wait": 0
+        },
+        {
+          "x": 3878,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 4124,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 4250,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 4286,
+          "y": 312,
+          "wait": 0
+        },
+        {
+          "x": 4286,
+          "y": 196,
+          "wait": 0
+        },
+        {
+          "x": 4322,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 4500,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 4536,
+          "y": 196,
+          "wait": 0
+        },
+        {
+          "x": 4536,
+          "y": 466,
+          "wait": 0
+        },
+        {
+          "x": 4558,
+          "y": 488,
+          "wait": 0
+        },
+        {
+          "x": 4762,
+          "y": 488,
+          "wait": 0
+        },
+        {
+          "x": 4784,
+          "y": 466,
+          "wait": 0
+        },
+        {
+          "x": 4784,
+          "y": 410,
+          "wait": 0
+        },
+        {
+          "x": 4808,
+          "y": 386,
+          "wait": 0
+        },
+        {
+          "x": 5012,
+          "y": 386,
+          "wait": 0
+        },
+        {
+          "x": 5168,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 6174,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 6394,
+          "y": 416,
+          "wait": 0
+        },
+        {
+          "x": 6600,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 6746,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 7210,
+          "y": 180,
+          "wait": 0
+        },
+        {
+          "x": 7234,
+          "y": 180,
+          "wait": 0
+        },
+        {
+          "x": 7252,
+          "y": 198,
+          "wait": 0
+        },
+        {
+          "x": 7252,
+          "y": 426,
+          "wait": 0
+        },
+        {
+          "x": 7280,
+          "y": 454,
+          "wait": 0
+        },
+        {
+          "x": 7478,
+          "y": 454,
+          "wait": 0
+        },
+        {
+          "x": 7504,
+          "y": 428,
+          "wait": 0
+        },
+        {
+          "x": 7504,
+          "y": 340,
+          "wait": 0
+        },
+        {
+          "x": 7530,
+          "y": 314,
+          "wait": 0
+        },
+        {
+          "x": 7700,
+          "y": 314,
+          "wait": 0
+        },
+        {
+          "x": 7770,
+          "y": 384,
+          "wait": 0
+        },
+        {
+          "x": 8222,
+          "y": 384,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 50,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 1908,
+          "y": 348,
+          "wait": 0
+        },
+        {
+          "x": 1900,
+          "y": 364,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 550,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 2792,
+          "y": 492,
+          "wait": 0
+        },
+        {
+          "x": 2804,
+          "y": 504,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 241,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 3582,
+          "y": 620,
+          "wait": 0
+        },
+        {
+          "x": 3922,
+          "y": 620,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 55,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 5780,
+          "y": 194,
+          "wait": 0
+        },
+        {
+          "x": 5780,
+          "y": 336,
+          "wait": 0
+        },
+        {
+          "x": 5852,
+          "y": 468,
+          "wait": 0
+        },
+        {
+          "x": 5852,
+          "y": 602,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 53,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 5350,
+          "y": 606,
+          "wait": 0
+        },
+        {
+          "x": 5350,
+          "y": 476,
+          "wait": 0
+        },
+        {
+          "x": 5278,
+          "y": 354,
+          "wait": 0
+        },
+        {
+          "x": 5278,
+          "y": 194,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 54,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 5492,
+          "y": 236,
+          "wait": 0
+        },
+        {
+          "x": 5492,
+          "y": 330,
+          "wait": 0
+        },
+        {
+          "x": 5560,
+          "y": 462,
+          "wait": 0
+        },
+        {
+          "x": 5560,
+          "y": 520,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 56,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 6066,
+          "y": 580,
+          "wait": 0
+        },
+        {
+          "x": 6066,
+          "y": 450,
+          "wait": 0
+        },
+        {
+          "x": 5996,
+          "y": 338,
+          "wait": 0
+        },
+        {
+          "x": 5996,
+          "y": 242,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 238,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 6964,
+          "y": 408,
+          "wait": 0
+        },
+        {
+          "x": 6964,
+          "y": 416,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

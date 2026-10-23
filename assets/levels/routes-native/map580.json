@@ -1,0 +1,58 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map580",
+  "mbn": "map580.mbn",
+  "routes": [
+    {
+      "tag": 50,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 330,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 568,
+          "y": 160,
+          "wait": 0
+        },
+        {
+          "x": 568,
+          "y": 572,
+          "wait": 0
+        },
+        {
+          "x": 838,
+          "y": 572,
+          "wait": 0
+        },
+        {
+          "x": 838,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 336,
+          "y": 364,
+          "wait": 0
+        },
+        {
+          "x": 330,
+          "y": 364,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map739",
+  "mbn": "map739.mbn",
+  "routes": [
+    {
+      "tag": 3,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 808,
+          "y": 528,
+          "wait": 0
+        },
+        {
+          "x": 782,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 210,
+          "y": 250,
+          "wait": 0
+        },
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 4,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 130,
+          "y": 588,
+          "wait": 0
+        },
+        {
+          "x": 130,
+          "y": 216,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 5,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 890,
+          "y": 588,
+          "wait": 0
+        },
+        {
+          "x": 890,
+          "y": 220,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 200,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 768,
+          "y": 170,
+          "wait": 0
+        },
+        {
+          "x": 768,
+          "y": 188,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 201,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 228,
+          "y": 166,
+          "wait": 0
+        },
+        {
+          "x": 228,
+          "y": 186,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 27,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 808,
+          "y": 528,
+          "wait": 0
+        },
+        {
+          "x": 782,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 210,
+          "y": 250,
+          "wait": 0
+        },
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 99,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 236,
+          "y": 154,
+          "wait": 0
+        },
+        {
+          "x": 780,
+          "y": 154,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 66,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        },
+        {
+          "x": 808,
+          "y": 528,
+          "wait": 0
+        },
+        {
+          "x": 782,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 210,
+          "y": 250,
+          "wait": 0
+        },
+        {
+          "x": 236,
+          "y": 554,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 207,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 106,
+          "y": 244,
+          "wait": 0
+        },
+        {
+          "x": 126,
+          "y": 244,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 2,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 418,
+          "y": 388,
+          "wait": 0
+        },
+        {
+          "x": 408,
+          "y": 388,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 1,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 918,
+          "y": 142,
+          "wait": 0
+        },
+        {
+          "x": 910,
+          "y": 150,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

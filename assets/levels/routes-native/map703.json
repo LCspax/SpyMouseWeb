@@ -1,0 +1,48 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map703",
+  "mbn": "map703.mbn",
+  "routes": [
+    {
+      "tag": 1,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 400,
+          "y": 534,
+          "wait": 0
+        },
+        {
+          "x": 400,
+          "y": 262,
+          "wait": 0
+        },
+        {
+          "x": 804,
+          "y": 262,
+          "wait": 0
+        },
+        {
+          "x": 804,
+          "y": 534,
+          "wait": 0
+        },
+        {
+          "x": 412,
+          "y": 534,
+          "wait": 0
+        },
+        {
+          "x": 400,
+          "y": 534,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

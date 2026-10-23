@@ -1,0 +1,126 @@
+{
+  "world": 3,
+  "scene": "assets/menu/buildings/world-3/scene.png",
+  "buildings": [
+    {
+      "id": "1",
+      "file": "assets/menu/buildings/world-3/building-01.png",
+      "x": 304,
+      "y": 0,
+      "w": 251,
+      "h": 152,
+      "cx": 429.5,
+      "cy": 76.0,
+      "nodeTag": 30,
+      "nodeDistance": 80.6
+    },
+    {
+      "id": "2",
+      "file": "assets/menu/buildings/world-3/building-02.png",
+      "x": 614,
+      "y": 0,
+      "w": 195,
+      "h": 161,
+      "cx": 711.5,
+      "cy": 80.5,
+      "nodeTag": 31,
+      "nodeDistance": 76.4
+    },
+    {
+      "id": "3",
+      "file": "assets/menu/buildings/world-3/building-03.png",
+      "x": 120,
+      "y": 90,
+      "w": 162,
+      "h": 152,
+      "cx": 201.0,
+      "cy": 166.0,
+      "nodeTag": 29,
+      "nodeDistance": 107.1
+    },
+    {
+      "id": "4",
+      "file": "assets/menu/buildings/world-3/building-04.png",
+      "x": 494,
+      "y": 99,
+      "w": 242,
+      "h": 211,
+      "cx": 615.0,
+      "cy": 204.5,
+      "nodeTag": 31,
+      "nodeDistance": 97.9
+    },
+    {
+      "id": "5",
+      "file": "assets/menu/buildings/world-3/building-05.png",
+      "x": 368,
+      "y": 138,
+      "w": 222,
+      "h": 175,
+      "cx": 479.0,
+      "cy": 225.5,
+      "nodeTag": 30,
+      "nodeDistance": 91.2
+    },
+    {
+      "id": "6",
+      "file": "assets/menu/buildings/world-3/building-06.png",
+      "x": 787,
+      "y": 170,
+      "w": 173,
+      "h": 144,
+      "cx": 873.5,
+      "cy": 242.0,
+      "nodeTag": 32,
+      "nodeDistance": 81.1
+    },
+    {
+      "id": "7",
+      "file": "assets/menu/buildings/world-3/building-07.png",
+      "x": 168,
+      "y": 237,
+      "w": 156,
+      "h": 173,
+      "cx": 246.0,
+      "cy": 323.5,
+      "nodeTag": 26,
+      "nodeDistance": 75.9
+    },
+    {
+      "id": "8",
+      "file": "assets/menu/buildings/world-3/building-08.png",
+      "x": 800,
+      "y": 283,
+      "w": 160,
+      "h": 152,
+      "cx": 880.0,
+      "cy": 359.0,
+      "nodeTag": 34,
+      "nodeDistance": 108.5
+    },
+    {
+      "id": "9",
+      "file": "assets/menu/buildings/world-3/building-09.png",
+      "x": 438,
+      "y": 253,
+      "w": 126,
+      "h": 156,
+      "cx": 501.0,
+      "cy": 331.0,
+      "nodeTag": 28,
+      "nodeDistance": 110.0
+    },
+    {
+      "id": "10",
+      "file": "assets/menu/buildings/world-3/building-10.png",
+      "x": 53,
+      "y": 464,
+      "w": 212,
+      "h": 176,
+      "cx": 159.0,
+      "cy": 552.0,
+      "nodeTag": 25,
+      "nodeDistance": 96.6
+    }
+  ]
+}

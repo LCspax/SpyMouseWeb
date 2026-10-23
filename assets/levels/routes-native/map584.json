@@ -1,0 +1,110 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map584",
+  "mbn": "map584.mbn",
+  "routes": [
+    {
+      "tag": 50,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 870,
+          "y": 146,
+          "wait": 0
+        },
+        {
+          "x": 364,
+          "y": 146,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 51,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 692,
+          "y": 414,
+          "wait": 0
+        },
+        {
+          "x": 908,
+          "y": 414,
+          "wait": 0
+        },
+        {
+          "x": 908,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 692,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 692,
+          "y": 422,
+          "wait": 0
+        },
+        {
+          "x": 692,
+          "y": 414,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 52,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 546,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 258,
+          "y": 622,
+          "wait": 0
+        },
+        {
+          "x": 258,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 546,
+          "y": 486,
+          "wait": 0
+        },
+        {
+          "x": 546,
+          "y": 616,
+          "wait": 0
+        },
+        {
+          "x": 546,
+          "y": 622,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

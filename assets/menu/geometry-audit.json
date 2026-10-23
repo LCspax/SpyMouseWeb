@@ -1,0 +1,1715 @@
+[
+  {
+    "world": 1,
+    "meshes": [
+      {
+        "file": "world01_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world01_grass01.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass03.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass05.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass06.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass07.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass08.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass09.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass11.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass12.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_grass13.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world01_road_01.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_02.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_03.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_04.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_05.obj",
+        "triangles": 3,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_06.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_07.obj",
+        "triangles": 14,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_08.obj",
+        "triangles": 3,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_09.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_10.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_10b.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_11.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_road_12.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_hroad.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_hroad2.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world01_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node10.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node12.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_node13.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world01_background_details.obj",
+        "triangles": 46,
+        "depth": -0.02
+      }
+    ],
+    "junctionSamples": []
+  },
+  {
+    "world": 2,
+    "meshes": [
+      {
+        "file": "world02_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world02_grass01.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass03.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass05.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass06.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass07.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass09.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass11.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_grass12.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world02_road_01.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_02.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_03.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_04.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_05.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_06.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_07.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_08.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_09.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_10.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_11.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_12.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_road_13.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world02_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node12.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node13.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_node14.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world02_hiddenroad_217.obj",
+        "triangles": 2,
+        "depth": -0.011
+      },
+      {
+        "file": "world02_hiddenroad_223.obj",
+        "triangles": 5,
+        "depth": -0.011
+      },
+      {
+        "file": "world02_node10.obj",
+        "triangles": 2,
+        "depth": -0.5445
+      },
+      {
+        "file": "world02_hiddenroad_220.obj",
+        "triangles": 6,
+        "depth": -0.790625
+      },
+      {
+        "file": "world02_background_details.obj",
+        "triangles": 32,
+        "depth": -0.6545
+      }
+    ],
+    "junctionSamples": [
+      {
+        "x": 800,
+        "y": 350,
+        "rgb": [
+          116,
+          106,
+          95
+        ]
+      }
+    ]
+  },
+  {
+    "world": 3,
+    "meshes": [
+      {
+        "file": "world03_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world03_grass01.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass02b.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass03.obj",
+        "triangles": 4,
+        "depth": -0.1
+      },
+      {
+        "file": "world03_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass05.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass06.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass07.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass08.obj",
+        "triangles": 4,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass08b.obj",
+        "triangles": 2,
+        "depth": -0.1
+      },
+      {
+        "file": "world03_grass09.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world03_grass11.obj",
+        "triangles": 2,
+        "depth": -0.1
+      },
+      {
+        "file": "world03_road.obj",
+        "triangles": 34,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_01.obj",
+        "triangles": 9,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_02.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_03.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_04.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_05.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_06.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_07.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_08.obj",
+        "triangles": 5,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_09.obj",
+        "triangles": 3,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_road_10.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world03_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node10.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_node12.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world03_hiddenroad_26.obj",
+        "triangles": 3,
+        "depth": -0.02
+      },
+      {
+        "file": "world03_hiddenroad_32.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world03_hiddenroad_33.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world03_hiddenroad_334.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world03_road_03b.obj",
+        "triangles": 2,
+        "depth": -0.021
+      },
+      {
+        "file": "world03_hiddenroad_335.obj",
+        "triangles": 2,
+        "depth": -0.021
+      },
+      {
+        "file": "world03_hiddenroad_336.obj",
+        "triangles": 2,
+        "depth": -0.185
+      },
+      {
+        "file": "world03_hiddenroad_336b.obj",
+        "triangles": 2,
+        "depth": -0.185
+      },
+      {
+        "file": "world03_background_details.obj",
+        "triangles": 10,
+        "depth": -0.2692
+      }
+    ],
+    "junctionSamples": [
+      {
+        "x": 395,
+        "y": 450,
+        "rgb": [
+          119,
+          107,
+          98
+        ]
+      }
+    ]
+  },
+  {
+    "world": 4,
+    "meshes": [
+      {
+        "file": "world04_background_main.obj",
+        "triangles": 2,
+        "depth": 0.0175
+      },
+      {
+        "file": "world04_grass01.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass03.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass05.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass06.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass07.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass08.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass09.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_grass11.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world04_road_01.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_02.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_03.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_04.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_05.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_06.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_07.obj",
+        "triangles": 8,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_08.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_09.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_10.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world04_road_11.obj",
+        "triangles": 4,
+        "depth": 0.0149
+      },
+      {
+        "file": "world04_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node07.obj",
+        "triangles": 8,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node10.obj",
+        "triangles": 8,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_node11.obj",
+        "triangles": 4,
+        "depth": -0.01
+      },
+      {
+        "file": "world04_road_01b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world04_road_03b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world04_road_06b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world04_road_12.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world04_road_785.obj",
+        "triangles": 8,
+        "depth": -0.020083
+      },
+      {
+        "file": "world04_background_details.obj",
+        "triangles": 28,
+        "depth": -0.2693
+      }
+    ],
+    "junctionSamples": [
+      {
+        "x": 650,
+        "y": 397,
+        "rgb": [
+          99,
+          92,
+          83
+        ]
+      }
+    ]
+  },
+  {
+    "world": 5,
+    "meshes": [
+      {
+        "file": "world05_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world05_grass01.obj",
+        "triangles": 4,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass03.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass05.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass06.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass07.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass08.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass09.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass11.obj",
+        "triangles": 3,
+        "depth": 0.005
+      },
+      {
+        "file": "world05_grass12.obj",
+        "triangles": 3,
+        "depth": -0.2
+      },
+      {
+        "file": "world05_road01.obj",
+        "triangles": 5,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road03.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road04.obj",
+        "triangles": 5,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_01.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_02.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_03.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_04.obj",
+        "triangles": 5,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_06.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_07.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_08.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_10.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_10b.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_11.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_12.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_road_13.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_hiddenroad_53.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world05_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node10.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node12.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node13.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_node14.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world05_hiddenroad_48.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world05_hiddenroad_48b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world05_hiddenroad_50.obj",
+        "triangles": 6,
+        "depth": -0.02
+      },
+      {
+        "file": "world05_hiddenroad_52.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world05_hiddenroad_56.obj",
+        "triangles": 1,
+        "depth": -0.02
+      },
+      {
+        "file": "world05_road_09b.obj",
+        "triangles": 4,
+        "depth": -0.1
+      },
+      {
+        "file": "world05_hiddenroad_787.obj",
+        "triangles": 2,
+        "depth": -0.5778
+      },
+      {
+        "file": "world05_background_details.obj",
+        "triangles": 30,
+        "depth": -0.2692
+      }
+    ],
+    "junctionSamples": []
+  },
+  {
+    "world": 6,
+    "meshes": [
+      {
+        "file": "world06_background_main.obj",
+        "triangles": 2,
+        "depth": 0.0175
+      },
+      {
+        "file": "world06_grass01.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass02.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass03.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass04.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass05.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass06.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass07.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass08.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass09.obj",
+        "triangles": 4,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass10.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass11.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass12.obj",
+        "triangles": 2,
+        "depth": -0.2
+      },
+      {
+        "file": "world06_grass13.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_grass14.obj",
+        "triangles": 2,
+        "depth": -0.2
+      },
+      {
+        "file": "world06_grass15.obj",
+        "triangles": 2,
+        "depth": 0.005
+      },
+      {
+        "file": "world06_road_09.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world06_road_01.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_02.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_03.obj",
+        "triangles": 5,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_04.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_05.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_06.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_07.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_08.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_10.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_11.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_12.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_13.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_road_13_tmp.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world06_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node02.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node08.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node10.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node12.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node13_tmp.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node14.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_node15.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world06_road_02b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_road_03b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_road_04b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_road_05b.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_hiddenroad_669.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_hiddenroad_671.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_hiddenroad_6777.obj",
+        "triangles": 2,
+        "depth": -0.02
+      },
+      {
+        "file": "world06_road_14b.obj",
+        "triangles": 2,
+        "depth": -0.5195
+      },
+      {
+        "file": "world06_hiddenroad_666.obj",
+        "triangles": 2,
+        "depth": -0.5195
+      },
+      {
+        "file": "world06_background_details.obj",
+        "triangles": 16,
+        "depth": -0.3
+      }
+    ],
+    "junctionSamples": []
+  },
+  {
+    "world": 7,
+    "meshes": [
+      {
+        "file": "world07_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world07_road_01.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_02.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_03.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_04.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_05.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_06.obj",
+        "triangles": 4,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_08.obj",
+        "triangles": 6,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_10.obj",
+        "triangles": 2,
+        "depth": 0.015
+      },
+      {
+        "file": "world07_road_09.obj",
+        "triangles": 12,
+        "depth": 0.000437
+      },
+      {
+        "file": "world07_node01.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node02.obj",
+        "triangles": 3,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node03.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node04.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node05.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node06.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node07.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node08.obj",
+        "triangles": 4,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node09.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node10.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_node11.obj",
+        "triangles": 2,
+        "depth": -0.01
+      },
+      {
+        "file": "world07_road_07.obj",
+        "triangles": 4,
+        "depth": -0.011
+      },
+      {
+        "file": "world07_hiddenroad_76.obj",
+        "triangles": 4,
+        "depth": -0.011
+      },
+      {
+        "file": "world07_hiddenroad_788.obj",
+        "triangles": 4,
+        "depth": -0.011
+      },
+      {
+        "file": "world07_background_details.obj",
+        "triangles": 13,
+        "depth": -0.6161
+      }
+    ],
+    "junctionSamples": []
+  },
+  {
+    "world": 8,
+    "meshes": [
+      {
+        "file": "world08_background_main.obj",
+        "triangles": 2,
+        "depth": 0.025
+      },
+      {
+        "file": "world08_road_01.obj",
+        "triangles": 2,
+        "depth": 0.0
+      },
+      {
+        "file": "world08_road_02.obj",
+        "triangles": 2,
+        "depth": 0.0
+      },
+      {
+        "file": "world08_road_03.obj",
+        "triangles": 2,
+        "depth": -0.05
+      },
+      {
+        "file": "world08_node03.obj",
+        "triangles": 2,
+        "depth": -0.06
+      },
+      {
+        "file": "world08_road_04.obj",
+        "triangles": 2,
+        "depth": -0.07
+      },
+      {
+        "file": "world08_node04.obj",
+        "triangles": 2,
+        "depth": -0.08
+      },
+      {
+        "file": "world08_road_05.obj",
+        "triangles": 2,
+        "depth": -0.09
+      },
+      {
+        "file": "world08_node05.obj",
+        "triangles": 2,
+        "depth": -0.1
+      },
+      {
+        "file": "world08_road_06.obj",
+        "triangles": 2,
+        "depth": -0.11
+      },
+      {
+        "file": "world08_node06.obj",
+        "triangles": 2,
+        "depth": -0.12
+      },
+      {
+        "file": "world08_road_07.obj",
+        "triangles": 2,
+        "depth": -0.13
+      },
+      {
+        "file": "world08_node07.obj",
+        "triangles": 2,
+        "depth": -0.14
+      },
+      {
+        "file": "world08_road_08.obj",
+        "triangles": 2,
+        "depth": -0.15
+      },
+      {
+        "file": "world08_node08.obj",
+        "triangles": 2,
+        "depth": -0.16
+      },
+      {
+        "file": "world08_road_09.obj",
+        "triangles": 2,
+        "depth": -0.17
+      },
+      {
+        "file": "world08_road_10.obj",
+        "triangles": 4,
+        "depth": -0.19
+      },
+      {
+        "file": "world08_node10.obj",
+        "triangles": 2,
+        "depth": -0.2
+      },
+      {
+        "file": "world08_node12.obj",
+        "triangles": 4,
+        "depth": -0.21
+      },
+      {
+        "file": "world08_road_00.obj",
+        "triangles": 2,
+        "depth": -0.22
+      },
+      {
+        "file": "world08_road_05b.obj",
+        "triangles": 2,
+        "depth": -0.22
+      },
+      {
+        "file": "world08_node09.obj",
+        "triangles": 2,
+        "depth": -0.22
+      },
+      {
+        "file": "world08_node11.obj",
+        "triangles": 2,
+        "depth": -0.22
+      },
+      {
+        "file": "world08_road_13.obj",
+        "triangles": 2,
+        "depth": -0.7474
+      }
+    ],
+    "junctionSamples": []
+  }
+]

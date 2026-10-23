@@ -1,0 +1,1216 @@
+{
+ "map": "map711",
+ "cell": 16,
+ "source": "analysis/parallel/I2/proposal_711.json (H1 rule) + independent I2 verification (analysis/parallel/I2/verify_711.json, samples_711.json, crops/)",
+ "rule": {
+  "artFloorFracMin": 0.5,
+  "insideFracMin": 0.5,
+  "sealPx": 20,
+  "mouthCellInsideFracStrictMin": 0.5,
+  "mouthOffsetsPx": [
+   10,
+   15.6
+  ],
+  "note": "wall cell -> floor iff (a) art floor-likeness majority AND inside the gap-sealed XML prop-0 enclosure, or (b) authored hole mouth (offset 10..15.6 px) lands in the cell and the cell is inside the UNSEALED XML prop-0 enclosure (hole sprite overprints floor in art). Existing floor and all entities/coordinates untouched. I2 verification per region notes in analysis/parallel/I2/notes.md."
+ },
+ "changedCells": [
+  {
+   "tx": 8,
+   "ty": 8,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.563
+  },
+  {
+   "tx": 8,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.988
+  },
+  {
+   "tx": 7,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.828
+  },
+  {
+   "tx": 9,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 10,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.902
+  },
+  {
+   "tx": 10,
+   "ty": 10,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 11,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 12,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 13,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 14,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 15,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 16,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 17,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 18,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 19,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 20,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 21,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 22,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 23,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 24,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 25,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 26,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 27,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 28,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 29,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 30,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 32,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 33,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 34,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.984,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 9,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 8,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 8,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 34,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 33,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 32,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 30,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 29,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 28,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 27,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 26,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 25,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 24,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 23,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 22,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 21,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 20,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 19,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 18,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 17,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 16,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 15,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 8,
+   "ty": 14,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 14,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 13,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.844
+  },
+  {
+   "tx": 7,
+   "ty": 15,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 16,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 17,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 18,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 19,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 20,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 21,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 22,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 23,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 24,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 25,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 26,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 27,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.961,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 28,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 29,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 30,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 32,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 33,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 34,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 7,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 11,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 12,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 12,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.984,
+   "insideFrac": 1
+  },
+  {
+   "tx": 12,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 12,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.996,
+   "insideFrac": 1
+  },
+  {
+   "tx": 12,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.656
+  },
+  {
+   "tx": 13,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 14,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 14,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 14,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 14,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 15,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.5
+  },
+  {
+   "tx": 15,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.5
+  },
+  {
+   "tx": 15,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.5
+  },
+  {
+   "tx": 13,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 13,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.969,
+   "insideFrac": 1
+  },
+  {
+   "tx": 13,
+   "ty": 39,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.875
+  },
+  {
+   "tx": 9,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.984,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 38,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 37,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 36,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 35,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 34,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 34,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 33,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 33,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 32,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 32,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 30,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 30,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 29,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 29,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 28,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 28,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 27,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 27,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 26,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 26,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 25,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 25,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 24,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 24,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 23,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 23,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 22,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 22,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 21,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 21,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 20,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 20,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 19,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 19,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 18,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 18,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 17,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 17,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 16,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 16,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 15,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 15,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 14,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 14,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.988,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 13,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.691
+  },
+  {
+   "tx": 11,
+   "ty": 13,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 12,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 11,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 12,
+   "ty": 11,
+   "reason": "hole-access+enclosure",
+   "artFloorFrac": 0.925,
+   "insideFrac": 0.102
+  },
+  {
+   "tx": 12,
+   "ty": 10,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.914,
+   "insideFrac": 0.727
+  },
+  {
+   "tx": 12,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 0.929,
+   "insideFrac": 0.746
+  },
+  {
+   "tx": 11,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 11,
+   "ty": 8,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.563
+  },
+  {
+   "tx": 10,
+   "ty": 8,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.563
+  },
+  {
+   "tx": 13,
+   "ty": 11,
+   "reason": "hole-mouth+enclosure",
+   "artFloorFrac": 0.125,
+   "insideFrac": 0
+  },
+  {
+   "tx": 11,
+   "ty": 10,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 10,
+   "ty": 9,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 1
+  },
+  {
+   "tx": 9,
+   "ty": 8,
+   "reason": "floor-art+enclosure",
+   "artFloorFrac": 1,
+   "insideFrac": 0.563
+  }
+ ],
+ "adjustments": [
+  {
+   "tx": 15,
+   "ty": 31,
+   "reason": "floor-art+enclosure",
+   "note": "region 1: single-cell sliver at the window-band/step junction (x240-256,y496-512): only 0.56 of the cell inside the sealed prop-0 enclosure, art mixes the dark wall band (2/9 samples (117,64,22)/(119,61,21)); the flip would create an isolated 1-cell floor island not connected to the room (tx12-14,ty31 stay wall) and is not a hole mouth. Excluded by adjustment."
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map787",
+  "mbn": "map787.mbn",
+  "routes": [
+    {
+      "tag": 50,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 402,
+          "y": 558,
+          "wait": 0
+        },
+        {
+          "x": 512,
+          "y": 448,
+          "wait": 0
+        },
+        {
+          "x": 628,
+          "y": 564,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

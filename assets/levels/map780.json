@@ -1,0 +1,452 @@
+{
+  "id": "map780",
+  "num": "",
+  "name": "LEVEL_8_Boss2",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 0,
+    "bronze": 0,
+    "silver": 30,
+    "gold": 10,
+    "platinum": 8
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Volcano",
+  "musicPath": "sound/music/CM_Volcano.sps",
+  "ambience": null,
+  "bg": "assets/maps/map780.jpg",
+  "mask": "assets/masks/map780.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 136,
+    "y": 664,
+    "id": 205,
+    "prop": 1,
+    "tag": 0,
+    "ox": 128,
+    "oy": 662
+  },
+  "exit": {
+    "x": 232,
+    "y": 616,
+    "source": "synthesized"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [],
+  "bosses": [
+    {
+      "id": 208,
+      "prop": 304,
+      "tag": 100,
+      "x": 88,
+      "y": 406,
+      "source": "xml",
+      "levelPhase": 0,
+      "parts": [
+        {
+          "id": 212,
+          "prop": 353,
+          "tag": 123,
+          "x": 316,
+          "y": 526,
+          "source": "xml"
+        },
+        {
+          "id": 213,
+          "prop": 353,
+          "tag": 124,
+          "x": 314,
+          "y": 446,
+          "source": "xml"
+        },
+        {
+          "id": 214,
+          "prop": 353,
+          "tag": 125,
+          "x": 312,
+          "y": 364,
+          "source": "xml"
+        },
+        {
+          "id": 215,
+          "prop": 353,
+          "tag": 126,
+          "x": 308,
+          "y": 278,
+          "source": "xml"
+        },
+        {
+          "id": 216,
+          "prop": 353,
+          "tag": 135,
+          "x": 456,
+          "y": 538,
+          "source": "xml"
+        },
+        {
+          "id": 217,
+          "prop": 353,
+          "tag": 134,
+          "x": 452,
+          "y": 458,
+          "source": "xml"
+        },
+        {
+          "id": 218,
+          "prop": 353,
+          "tag": 132,
+          "x": 452,
+          "y": 376,
+          "source": "xml"
+        },
+        {
+          "id": 219,
+          "prop": 353,
+          "tag": 130,
+          "x": 450,
+          "y": 286,
+          "source": "xml"
+        },
+        {
+          "id": 220,
+          "prop": 353,
+          "tag": 140,
+          "x": 582,
+          "y": 288,
+          "source": "xml"
+        },
+        {
+          "id": 221,
+          "prop": 353,
+          "tag": 141,
+          "x": 584,
+          "y": 372,
+          "source": "xml"
+        },
+        {
+          "id": 222,
+          "prop": 353,
+          "tag": 143,
+          "x": 584,
+          "y": 456,
+          "source": "xml"
+        },
+        {
+          "id": 223,
+          "prop": 353,
+          "tag": 145,
+          "x": 584,
+          "y": 538,
+          "source": "xml"
+        },
+        {
+          "id": 224,
+          "prop": 353,
+          "tag": 150,
+          "x": 712,
+          "y": 286,
+          "source": "xml"
+        },
+        {
+          "id": 225,
+          "prop": 353,
+          "tag": 151,
+          "x": 716,
+          "y": 374,
+          "source": "xml"
+        },
+        {
+          "id": 226,
+          "prop": 353,
+          "tag": 153,
+          "x": 718,
+          "y": 456,
+          "source": "xml"
+        },
+        {
+          "id": 227,
+          "prop": 353,
+          "tag": 155,
+          "x": 726,
+          "y": 540,
+          "source": "xml"
+        },
+        {
+          "id": 228,
+          "prop": 353,
+          "tag": 163,
+          "x": 868,
+          "y": 546,
+          "source": "xml"
+        },
+        {
+          "id": 229,
+          "prop": 353,
+          "tag": 161,
+          "x": 868,
+          "y": 462,
+          "source": "xml"
+        },
+        {
+          "id": 230,
+          "prop": 353,
+          "tag": 160,
+          "x": 868,
+          "y": 378,
+          "source": "xml"
+        }
+      ]
+    }
+  ],
+  "bossParts": [
+    {
+      "id": 212,
+      "prop": 353,
+      "tag": 123,
+      "x": 316,
+      "y": 526,
+      "source": "xml"
+    },
+    {
+      "id": 213,
+      "prop": 353,
+      "tag": 124,
+      "x": 314,
+      "y": 446,
+      "source": "xml"
+    },
+    {
+      "id": 214,
+      "prop": 353,
+      "tag": 125,
+      "x": 312,
+      "y": 364,
+      "source": "xml"
+    },
+    {
+      "id": 215,
+      "prop": 353,
+      "tag": 126,
+      "x": 308,
+      "y": 278,
+      "source": "xml"
+    },
+    {
+      "id": 216,
+      "prop": 353,
+      "tag": 135,
+      "x": 456,
+      "y": 538,
+      "source": "xml"
+    },
+    {
+      "id": 217,
+      "prop": 353,
+      "tag": 134,
+      "x": 452,
+      "y": 458,
+      "source": "xml"
+    },
+    {
+      "id": 218,
+      "prop": 353,
+      "tag": 132,
+      "x": 452,
+      "y": 376,
+      "source": "xml"
+    },
+    {
+      "id": 219,
+      "prop": 353,
+      "tag": 130,
+      "x": 450,
+      "y": 286,
+      "source": "xml"
+    },
+    {
+      "id": 220,
+      "prop": 353,
+      "tag": 140,
+      "x": 582,
+      "y": 288,
+      "source": "xml"
+    },
+    {
+      "id": 221,
+      "prop": 353,
+      "tag": 141,
+      "x": 584,
+      "y": 372,
+      "source": "xml"
+    },
+    {
+      "id": 222,
+      "prop": 353,
+      "tag": 143,
+      "x": 584,
+      "y": 456,
+      "source": "xml"
+    },
+    {
+      "id": 223,
+      "prop": 353,
+      "tag": 145,
+      "x": 584,
+      "y": 538,
+      "source": "xml"
+    },
+    {
+      "id": 224,
+      "prop": 353,
+      "tag": 150,
+      "x": 712,
+      "y": 286,
+      "source": "xml"
+    },
+    {
+      "id": 225,
+      "prop": 353,
+      "tag": 151,
+      "x": 716,
+      "y": 374,
+      "source": "xml"
+    },
+    {
+      "id": 226,
+      "prop": 353,
+      "tag": 153,
+      "x": 718,
+      "y": 456,
+      "source": "xml"
+    },
+    {
+      "id": 227,
+      "prop": 353,
+      "tag": 155,
+      "x": 726,
+      "y": 540,
+      "source": "xml"
+    },
+    {
+      "id": 228,
+      "prop": 353,
+      "tag": 163,
+      "x": 868,
+      "y": 546,
+      "source": "xml"
+    },
+    {
+      "id": 229,
+      "prop": 353,
+      "tag": 161,
+      "x": 868,
+      "y": 462,
+      "source": "xml"
+    },
+    {
+      "id": 230,
+      "prop": 353,
+      "tag": 160,
+      "x": 868,
+      "y": 378,
+      "source": "xml"
+    }
+  ],
+  "pipes": [],
+  "pipePieces": [
+    {
+      "id": 209,
+      "prop": 201,
+      "tag": 97,
+      "x": 218,
+      "y": 660,
+      "dir": "r"
+    },
+    {
+      "id": 210,
+      "prop": 207,
+      "tag": 97,
+      "x": 288,
+      "y": 662,
+      "dir": "l"
+    }
+  ],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 1,
+      "transportsSameComponent": 1,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 1,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "details": [
+        {
+          "kind": "exit",
+          "id": 206,
+          "prop": 243,
+          "tag": 0,
+          "designX": 462,
+          "designY": 45,
+          "worldX": 956,
+          "worldY": 154
+        }
+      ]
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 1,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 205,
+        "designX": 48,
+        "designY": 299,
+        "worldX": 128,
+        "worldY": 662
+      },
+      "imported": {
+        "x": 136,
+        "y": 664,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

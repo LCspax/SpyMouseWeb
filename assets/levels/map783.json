@@ -1,0 +1,112 @@
+{
+  "id": "map783",
+  "num": "",
+  "name": "LEVEL_8_Boss2",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 0,
+    "bronze": 0,
+    "silver": 30,
+    "gold": 10,
+    "platinum": 8
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Volcano",
+  "musicPath": "sound/music/CM_Volcano.sps",
+  "ambience": null,
+  "bg": "assets/maps/map783.jpg",
+  "mask": "assets/masks/map783.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 136,
+    "y": 424,
+    "id": 79,
+    "prop": 1,
+    "tag": 1,
+    "ox": 128,
+    "oy": 420
+  },
+  "exit": {
+    "x": 728,
+    "y": 408,
+    "id": 80,
+    "prop": 243,
+    "tag": -20,
+    "ox": 722,
+    "oy": 402,
+    "source": "xml"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 79,
+        "designX": 48,
+        "designY": 178,
+        "worldX": 128,
+        "worldY": 420
+      },
+      "imported": {
+        "x": 136,
+        "y": 424,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

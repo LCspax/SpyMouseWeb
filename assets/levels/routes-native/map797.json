@@ -1,0 +1,145 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map797",
+  "mbn": "map797.mbn",
+  "routes": [
+    {
+      "tag": 900,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": -28,
+          "y": 568,
+          "wait": 0
+        },
+        {
+          "x": 138,
+          "y": 568,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 901,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 884,
+          "y": 566,
+          "wait": 0
+        },
+        {
+          "x": 1018,
+          "y": 566,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 2,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 510,
+          "y": 298,
+          "wait": 0
+        },
+        {
+          "x": 510,
+          "y": 392,
+          "wait": 0
+        },
+        {
+          "x": 390,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 276,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 276,
+          "y": 406,
+          "wait": 0
+        },
+        {
+          "x": 120,
+          "y": 406,
+          "wait": 0
+        },
+        {
+          "x": 120,
+          "y": 298,
+          "wait": 0
+        },
+        {
+          "x": 276,
+          "y": 298,
+          "wait": 0
+        },
+        {
+          "x": 276,
+          "y": 190,
+          "wait": 0
+        },
+        {
+          "x": 392,
+          "y": 190,
+          "wait": 0
+        },
+        {
+          "x": 392,
+          "y": 394,
+          "wait": 0
+        },
+        {
+          "x": 510,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 404,
+          "wait": 0
+        },
+        {
+          "x": 734,
+          "y": 404,
+          "wait": 0
+        },
+        {
+          "x": 734,
+          "y": 298,
+          "wait": 0
+        },
+        {
+          "x": 512,
+          "y": 298,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

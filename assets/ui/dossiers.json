@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "source": "libSpyMouse.so dossier id table 0x2af2dc (GAME_NUM_DOSSIERS=17) + res_960x640/ui/dossiers",
+  "dossiers": [
+    {
+      "id": "ghost",
+      "tag": 0,
+      "type": "cat",
+      "title": { "en": "Ghost Cat", "zh": "幽灵猫" },
+      "summary": {
+        "en": "It can pass straight through walls. Hide in the shadows to get it off your tail.",
+        "zh": "它能直接穿墙。躲进阴影里才能甩掉它。"
+      }
+    },
+    {
+      "id": "chilli",
+      "tag": 1,
+      "type": "item",
+      "title": { "en": "Chilli", "zh": "辣椒" },
+      "summary": {
+        "en": "Eat a chilli to get a burst of speed when your cheese trail weighs you down.",
+        "zh": "当携带的奶酪拖慢速度时，吃下辣椒可以获得短暂加速。"
+      }
+    },
+    {
+      "id": "cwmouse",
+      "tag": 2,
+      "type": "item",
+      "title": { "en": "Wind-up Mouse", "zh": "发条老鼠" },
+      "summary": {
+        "en": "Use the fake mouse to spring a mousetrap and take the cheese. Wherever there is a trap, its fake mouse is close by.",
+        "zh": "用发条老鼠触发鼠夹并取走奶酪。有鼠夹的地方附近一定有发条老鼠。"
+      }
+    },
+    {
+      "id": "boss1",
+      "tag": 3,
+      "type": "cat",
+      "title": { "en": "Boss Cat", "zh": "猫老大" },
+      "summary": {
+        "en": "The boss of the first hideout. Learn its pattern and use the arena's traps against it.",
+        "zh": "第一个据点里的猫老大。摸清它的行动规律，利用场地里的机关对付它。"
+      }
+    },
+    {
+      "id": "TV",
+      "tag": 4,
+      "type": "mechanism",
+      "title": { "en": "Television", "zh": "电视" },
+      "summary": {
+        "en": "Walk past a television to switch it on and hypnotise nearby cats.",
+        "zh": "从电视旁走过即可打开电视，催眠附近的猫。"
+      }
+    },
+    {
+      "id": "blind",
+      "tag": 5,
+      "type": "cat",
+      "title": { "en": "Blind Cat", "zh": "盲猫" },
+      "summary": {
+        "en": "It may not see well, but it keeps to its path and waits for your final, fatal mistake.",
+        "zh": "它视力不好，但会沿固定路线巡逻，等待你犯下致命的错误。"
+      }
+    },
+    {
+      "id": "balloon",
+      "tag": 6,
+      "type": "item",
+      "title": { "en": "Balloon", "zh": "气球" },
+      "summary": {
+        "en": "A balloon eases the weight of carried cheese. Balloons do not like being taken into hiding spots.",
+        "zh": "气球可以减轻携带奶酪的重量，但气球不能被带进藏身点。"
+      }
+    },
+    {
+      "id": "cheesemachine",
+      "tag": 7,
+      "type": "mechanism",
+      "title": { "en": "Cheese Machine", "zh": "奶酪机" },
+      "summary": {
+        "en": "Find the matching button, step on it, and the machine coughs up its cheese.",
+        "zh": "找到对应按钮并踩上去，奶酪机就会吐出奶酪。"
+      }
+    },
+    {
+      "id": "catswitch",
+      "tag": 8,
+      "type": "mechanism",
+      "title": { "en": "Cat Button", "zh": "猫按钮" },
+      "summary": {
+        "en": "These buttons can only be operated by cats. Trick a cat into running over one.",
+        "zh": "这种按钮只有猫能踩动。想办法引一只猫跑过去。"
+      }
+    },
+    {
+      "id": "ninja",
+      "tag": 9,
+      "type": "cat",
+      "title": { "en": "Ninja Cat", "zh": "忍者猫" },
+      "summary": {
+        "en": "It attacks on sight with a punishing stream of shuriken. Stay on the move and time your cheese runs.",
+        "zh": "它一发现你就会连续投掷手里剑。保持移动，算好取奶酪的时机。"
+      }
+    },
+    {
+      "id": "stringfish",
+      "tag": 10,
+      "type": "item",
+      "title": { "en": "Fish / Ball of String", "zh": "鱼 / 线团" },
+      "summary": {
+        "en": "Offer a fish or a ball of string to distract a cat. Fish is one-use; string can be reused.",
+        "zh": "把鱼或线团丢给猫可以分散它的注意力。鱼只能用一次，线团可以反复使用。"
+      }
+    },
+    {
+      "id": "house",
+      "tag": 11,
+      "type": "cat",
+      "title": { "en": "House Cat", "zh": "家猫" },
+      "summary": {
+        "en": "It lazes around the house all day but is pure evil. If it spots you, run and hide.",
+        "zh": "它整天懒洋洋地待在家里，却坏得很。一旦发现你就快跑并躲起来。"
+      }
+    },
+    {
+      "id": "cannon",
+      "tag": 12,
+      "type": "mechanism",
+      "title": { "en": "Mouse Cannon", "zh": "老鼠大炮" },
+      "summary": {
+        "en": "A big cannon that shoots mice. Use it for a quick getaway or to reach an out-of-the-way area.",
+        "zh": "一门能把老鼠发射出去的大炮。可以用它快速逃离或到达偏僻区域。"
+      }
+    },
+    {
+      "id": "thief",
+      "tag": 13,
+      "type": "cat",
+      "title": { "en": "Thief Cat", "zh": "贼猫" },
+      "summary": {
+        "en": "It does not eat cheese, it steals it. Be vigilant or it will rob you blind.",
+        "zh": "它不吃奶酪，只偷奶酪。提高警惕，否则会被它偷个精光。"
+      }
+    },
+    {
+      "id": "teacup",
+      "tag": 14,
+      "type": "item",
+      "title": { "en": "Teacup / Bucket", "zh": "茶杯 / 桶" },
+      "summary": {
+        "en": "Mobile hiding spots. If one starts to flash, find another place to hide.",
+        "zh": "可以移动的藏身点。如果它开始闪烁，就赶紧换一个地方躲。"
+      }
+    },
+    {
+      "id": "scary",
+      "tag": 15,
+      "type": "cat",
+      "title": { "en": "Scary Cat", "zh": "吓人猫" },
+      "summary": {
+        "en": "Scary cats come straight for you. Stay on the move and time your runs carefully.",
+        "zh": "吓人猫会径直冲向你。保持移动，小心计算每一次行动。"
+      }
+    },
+    {
+      "id": "switch",
+      "tag": 16,
+      "type": "mechanism",
+      "title": { "en": "Button", "zh": "按钮" },
+      "summary": {
+        "en": "Buttons open nearby doors and barricades. Some are timed and almost all are colour-coded.",
+        "zh": "按钮可以打开附近的门和路障。有些带时间限制，而且几乎都按颜色对应。"
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "id": "map98",
+  "num": "1-7",
+  "name": "LEVEL_1_7",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 1,
+  "times": {
+    "start": 180,
+    "bronze": 30,
+    "silver": 40,
+    "gold": 50,
+    "platinum": 1000
+  },
+  "goals": [
+    {
+      "type": "spotted",
+      "value": 0
+    },
+    {
+      "type": "paths",
+      "value": 1
+    },
+    {
+      "type": "all_crumbs",
+      "value": 0
+    }
+  ],
+  "secret": false,
+  "music": "CM_Apartments",
+  "musicPath": "sound/music/CM_Apartments.sps",
+  "ambience": {
+    "scheme": "int_house_fire",
+    "loop": "int_house_fire_loop.sps",
+    "groups": [
+      {
+        "minDelay": 2,
+        "maxDelay": 5,
+        "sounds": [
+          "bird_filter_b1.sps",
+          "bird_filter_b2.sps",
+          "bird_filter_b3.sps",
+          "bird_filter_b4.sps"
+        ]
+      }
+    ]
+  },
+  "bg": "assets/maps/map98.jpg",
+  "mask": "assets/masks/map98.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 536,
+    "y": 600,
+    "id": 35,
+    "prop": 1,
+    "tag": 3,
+    "ox": 532,
+    "oy": 606
+  },
+  "exit": {
+    "x": 472,
+    "y": 440,
+    "id": 38,
+    "prop": 241,
+    "tag": 1024,
+    "ox": 476,
+    "oy": 438,
+    "source": "xml"
+  },
+  "cheeses": [
+    {
+      "x": 376,
+      "y": 504,
+      "source": "xml",
+      "id": 39,
+      "prop": 8,
+      "tag": 0,
+      "ox": 376,
+      "oy": 496
+    }
+  ],
+  "crumbs": [
+    {
+      "x": 920,
+      "y": 472,
+      "source": "xml",
+      "id": 45,
+      "prop": 260,
+      "tag": 1062,
+      "ox": 916,
+      "oy": 470
+    },
+    {
+      "x": 872,
+      "y": 456,
+      "source": "xml",
+      "id": 46,
+      "prop": 260,
+      "tag": 1060,
+      "ox": 878,
+      "oy": 450
+    },
+    {
+      "x": 840,
+      "y": 440,
+      "source": "xml",
+      "id": 47,
+      "prop": 260,
+      "tag": 1058,
+      "ox": 836,
+      "oy": 438
+    },
+    {
+      "x": 792,
+      "y": 440,
+      "source": "xml",
+      "id": 48,
+      "prop": 260,
+      "tag": 1057,
+      "ox": 792,
+      "oy": 432
+    },
+    {
+      "x": 744,
+      "y": 424,
+      "source": "xml",
+      "id": 49,
+      "prop": 260,
+      "tag": 1058,
+      "ox": 748,
+      "oy": 430
+    }
+  ],
+  "cats": [
+    {
+      "x": 472,
+      "y": 280,
+      "angle": -2.994514298201391,
+      "type": 0,
+      "prop": 50,
+      "tag": 10,
+      "source": "xml",
+      "id": 40,
+      "ox": 470,
+      "oy": 282,
+      "route": [
+        {
+          "x": 468,
+          "y": 248,
+          "wait": 0
+        },
+        {
+          "x": 256,
+          "y": 248,
+          "wait": 0
+        },
+        {
+          "x": 256,
+          "y": 454,
+          "wait": 13
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 1,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 1,
+      "cats": 1,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 35,
+        "designX": 250,
+        "designY": 271,
+        "worldX": 532,
+        "worldY": 606
+      },
+      "imported": {
+        "x": 536,
+        "y": 600,
+        "source": "xml"
+      }
+    }
+  }
+}

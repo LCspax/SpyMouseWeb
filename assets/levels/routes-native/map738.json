@@ -1,0 +1,28 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map738",
+  "mbn": "map738.mbn",
+  "routes": [
+    {
+      "tag": 2,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 362,
+          "y": 408,
+          "wait": 0
+        },
+        {
+          "x": 728,
+          "y": 408,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Spy Mouse sprite lab</title>
+    <style>
+      body { background: #10151c; color: #dfe6ee; font: 13px/1.4 monospace; margin: 16px; }
+      h1 { font-size: 16px; }
+      h2 { font-size: 14px; margin-top: 22px; color: #8ff0e4; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start; }
+      .card { background: #182029; border: 1px solid #2a3540; padding: 6px; }
+      .card b { display: block; margin-bottom: 4px; color: #ffcf3f; }
+      canvas { image-rendering: pixelated; background: #0d1117; }
+      .legend span { margin-right: 12px; }
+      .walk { color: #7bdc6a; }
+      .alert { color: #ff8a3d; }
+      .spec { color: #ff5a5a; }
+      .note { color: #9aa4b2; max-width: 900px; }
+    </style>
+  </head>
+  <body>
+    <h1>Spy Mouse sprite lab (original sheets, native frame ranges)</h1>
+    <p class="note">
+      Cheese: each <code>cheese0N</code> strip has 16 coloured frames (native factory
+      0x924b8, prop 6..10). Cats: columns 0-3 walk, 5-8 alert/chase, 9+ specials;
+      sheets with fewer columns clamp to walk. Verify no blank/magenta frames and
+      that patrol never shows the alert frames at runtime.
+    </p>
+    <p class="legend">
+      <span class="walk">0-3 walk</span><span class="alert">5-8 alert/chase</span><span class="spec">9+ specials</span>
+    </p>
+    <h2>Cheese</h2>
+    <div id="cheese" class="row"></div>
+    <h2>Cats (per type, all four directions)</h2>
+    <div id="cats" class="row"></div>
+    <script type="module">
+      import { Sprites } from "./src/sprites.js";
+      const sprites = new Sprites();
+      sprites.load();
+      const scale = 3;
+
+      function card(title, draw) {
+        const div = document.createElement("div");
+        div.className = "card";
+        const b = document.createElement("b");
+        b.textContent = title;
+        div.appendChild(b);
+        const cv = document.createElement("canvas");
+        div.appendChild(cv);
+        draw(cv);
+        return div;
+      }
+
+      function drawStrip(cv, def, ranges) {
+        const img = def.image;
+        if (!img) return;
+        const cols = def.cols || Math.round(img.naturalWidth / def.fw);
+        cv.width = cols * def.fw * scale;
+        cv.height = def.fh * scale + 16;
+        const ctx = cv.getContext("2d");
+        ctx.imageSmoothingEnabled = false;
+        for (let c = 0; c < cols; c++) {
+          ctx.drawImage(img, c * def.fw, 0, def.fw, def.fh, c * def.fw * scale, 0, def.fw * scale, def.fh * scale);
+          ctx.fillStyle = "#9aa4b2";
+          ctx.font = "10px monospace";
+          ctx.fillText(String(c), c * def.fw * scale + 2, def.fh * scale + 12);
+          const cls = ranges(c);
+          if (cls) {
+            ctx.strokeStyle = cls;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(c * def.fw * scale + 1, 1, def.fw * scale - 2, def.fh * scale - 2);
+          }
+        }
+      }
+
+      const cheeseHost = document.getElementById("cheese");
+      for (const key of ["cheese01", "cheese02", "cheese03", "cheese04", "cheese05", "cheese"]) {
+        const def = sprites.images[key];
+        if (!def) continue;
+        cheeseHost.appendChild(card(key, (cv) => drawStrip(cv, def, () => null)));
+      }
+
+      const prefixes = [
+        "browncat",
+        "orangecat",
+        "blackcat",
+        "bosscat",
+        "blindcat",
+        "ghostcat_slow",
+        "ghostcat_fast",
+        "ninjacat",
+        "lavacat",
+        "junglecat",
+      ];
+      const dirs = ["01", "02", "04", "05"];
+      const catsHost = document.getElementById("cats");
+      for (const prefix of prefixes) {
+        for (const d of dirs) {
+          const def = sprites.images[`${prefix}_${d}`];
+          if (!def) continue;
+          catsHost.appendChild(
+            card(`${prefix} ${d}`, (cv) =>
+              drawStrip(cv, def, (c) => {
+                if (c <= 3) return "#7bdc6a";
+                if (c >= 5 && c <= 8) return "#ff8a3d";
+                if (c >= 9) return "#ff5a5a";
+                return null;
+              })
+            )
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

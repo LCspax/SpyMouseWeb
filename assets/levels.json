@@ -1,0 +1,1091 @@
+[
+  {
+    "uid": 1,
+    "map": "10",
+    "num": "1-1",
+    "name": "LEVEL_1_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 2,
+    "map": "703",
+    "num": "1-2",
+    "name": "LEVEL_1_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 3,
+    "map": "704",
+    "num": "1-3",
+    "name": "LEVEL_1_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 4,
+    "map": "705",
+    "num": "1-4",
+    "name": "LEVEL_1_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 5,
+    "map": "790",
+    "num": "1-5",
+    "name": "LEVEL_1_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 6,
+    "map": "707",
+    "num": "1-6",
+    "name": "LEVEL_1_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 7,
+    "map": "98",
+    "num": "1-7",
+    "name": "LEVEL_1_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 8,
+    "map": "11",
+    "num": "1-8",
+    "name": "LEVEL_1_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 9,
+    "map": "708",
+    "num": "1-9",
+    "name": "LEVEL_1_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 10,
+    "map": "534",
+    "num": "1-10",
+    "name": "LEVEL_1_10",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 101,
+    "map": "507",
+    "num": "1-11",
+    "name": "LEVEL_1_11",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 102,
+    "map": "736",
+    "num": "1-Boss",
+    "name": "LEVEL_1_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 2
+  },
+  {
+    "uid": 103,
+    "map": "791",
+    "num": "1-Boss",
+    "name": "LEVEL_1_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 2
+  },
+  {
+    "uid": 106,
+    "map": "786",
+    "num": "",
+    "name": "LEVEL_GOALS_TITLE",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 111,
+    "map": "798",
+    "num": "1-S",
+    "name": "LEVEL_1_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 1
+  },
+  {
+    "uid": 213,
+    "map": "714",
+    "num": "2-1",
+    "name": "LEVEL_2_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 214,
+    "map": "553",
+    "num": "2-2",
+    "name": "LEVEL_2_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 215,
+    "map": "759",
+    "num": "2-3",
+    "name": "LEVEL_2_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 216,
+    "map": "26",
+    "num": "2-4",
+    "name": "LEVEL_2_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 217,
+    "map": "52",
+    "num": "2-5",
+    "name": "LEVEL_2_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 218,
+    "map": "18",
+    "num": "2-6",
+    "name": "LEVEL_2_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 2
+  },
+  {
+    "uid": 219,
+    "map": "207",
+    "num": "2-7",
+    "name": "LEVEL_2_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 220,
+    "map": "758",
+    "num": "2-8",
+    "name": "LEVEL_2_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 221,
+    "map": "712",
+    "num": "2-9",
+    "name": "LEVEL_2_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 222,
+    "map": "536",
+    "num": "2-10",
+    "name": "LEVEL_2_10",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 223,
+    "map": "713",
+    "num": "2-11",
+    "name": "LEVEL_2_11",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 224,
+    "map": "555",
+    "num": "2-Boss",
+    "name": "LEVEL_2_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 3
+  },
+  {
+    "uid": 2101,
+    "map": "795",
+    "num": "2-Boss",
+    "name": "LEVEL_2_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 3
+  },
+  {
+    "uid": 2107,
+    "map": "579",
+    "num": "2-S",
+    "name": "LEVEL_2_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 25,
+    "map": "716",
+    "num": "3-1",
+    "name": "LEVEL_3_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 26,
+    "map": "724",
+    "num": "3-2",
+    "name": "LEVEL_3_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 28,
+    "map": "528",
+    "num": "3-3",
+    "name": "LEVEL_3_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 29,
+    "map": "51",
+    "num": "3-4",
+    "name": "LEVEL_3_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 30,
+    "map": "743",
+    "num": "3-5",
+    "name": "LEVEL_3_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 31,
+    "map": "521",
+    "num": "3-6",
+    "name": "LEVEL_3_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 32,
+    "map": "570",
+    "num": "3-7",
+    "name": "LEVEL_3_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 33,
+    "map": "709",
+    "num": "3-8",
+    "name": "LEVEL_3_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 34,
+    "map": "565",
+    "num": "3-Boss",
+    "name": "LEVEL_3_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 4
+  },
+  {
+    "uid": 35,
+    "map": "733",
+    "num": "3-Boss",
+    "name": "LEVEL_3_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 4
+  },
+  {
+    "uid": 335,
+    "map": "584",
+    "num": "3-H1",
+    "name": "LEVEL_3_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 3
+  },
+  {
+    "uid": 334,
+    "map": "522",
+    "num": "3-H2",
+    "name": "LEVEL_3_H2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 336,
+    "map": "784",
+    "num": "3-S",
+    "name": "LEVEL_3_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 36,
+    "map": "731",
+    "num": "4-1",
+    "name": "LEVEL_4_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 37,
+    "map": "719",
+    "num": "4-2",
+    "name": "LEVEL_4_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 38,
+    "map": "721",
+    "num": "4-3",
+    "name": "LEVEL_4_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 39,
+    "map": "554",
+    "num": "4-4",
+    "name": "LEVEL_4_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 40,
+    "map": "711",
+    "num": "4-5",
+    "name": "LEVEL_4_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 41,
+    "map": "577",
+    "num": "4-6",
+    "name": "LEVEL_4_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 42,
+    "map": "729",
+    "num": "4-7",
+    "name": "LEVEL_4_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 43,
+    "map": "726",
+    "num": "4-8",
+    "name": "LEVEL_4_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 44,
+    "map": "723",
+    "num": "4-9",
+    "name": "LEVEL_4_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 46,
+    "map": "556",
+    "num": "4-Boss",
+    "name": "LEVEL_4_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 5
+  },
+  {
+    "uid": 4101,
+    "map": "789",
+    "num": "4-Boss",
+    "name": "LEVEL_4_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 4451,
+    "map": "730",
+    "num": "4-S2",
+    "name": "LEVEL_4_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 4207,
+    "map": "785",
+    "num": "4-S1",
+    "name": "LEVEL_4_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 4
+  },
+  {
+    "uid": 47,
+    "map": "727",
+    "num": "5-1",
+    "name": "LEVEL_5_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 48,
+    "map": "525",
+    "num": "5-2",
+    "name": "LEVEL_5_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 49,
+    "map": "561",
+    "num": "5-3",
+    "name": "LEVEL_5_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 50,
+    "map": "500",
+    "num": "5-4",
+    "name": "LEVEL_5_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 51,
+    "map": "564",
+    "num": "5-5",
+    "name": "LEVEL_5_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 52,
+    "map": "506",
+    "num": "5-6",
+    "name": "LEVEL_5_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 53,
+    "map": "526",
+    "num": "5-7",
+    "name": "LEVEL_5_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 54,
+    "map": "562",
+    "num": "5-8",
+    "name": "LEVEL_5_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 55,
+    "map": "510",
+    "num": "5-9",
+    "name": "LEVEL_5_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 56,
+    "map": "728",
+    "num": "5-10",
+    "name": "LEVEL_5_10",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 57,
+    "map": "541",
+    "num": "5-11",
+    "name": "LEVEL_5_11",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 58,
+    "map": "568",
+    "num": "5-Boss",
+    "name": "LEVEL_5_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 5
+  },
+  {
+    "uid": 5159,
+    "map": "787",
+    "num": "5-S",
+    "name": "LEVEL_5_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 5101,
+    "map": "782",
+    "num": "5-Boss",
+    "name": "LEVEL_5_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 5127,
+    "map": "756",
+    "num": "5-H1",
+    "name": "LEVEL_5_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 658,
+    "map": "518",
+    "num": "6-1",
+    "name": "LEVEL_6_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 659,
+    "map": "563",
+    "num": "6-2",
+    "name": "LEVEL_6_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 661,
+    "map": "745",
+    "num": "6-3",
+    "name": "LEVEL_6_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 662,
+    "map": "747",
+    "num": "6-4",
+    "name": "LEVEL_6_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 663,
+    "map": "523",
+    "num": "6-5",
+    "name": "LEVEL_6_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 664,
+    "map": "21",
+    "num": "6-6",
+    "name": "LEVEL_6_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 665,
+    "map": "509",
+    "num": "6-7",
+    "name": "LEVEL_6_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 666,
+    "map": "753",
+    "num": "6-8",
+    "name": "LEVEL_6_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 668,
+    "map": "746",
+    "num": "6-9",
+    "name": "LEVEL_6_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 669,
+    "map": "737",
+    "num": "6-10",
+    "name": "LEVEL_6_10",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 670,
+    "map": "735",
+    "num": "6-11",
+    "name": "LEVEL_6_11",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 671,
+    "map": "531",
+    "num": "6-Boss",
+    "name": "LEVEL_6_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 5
+  },
+  {
+    "uid": 6102,
+    "map": "797",
+    "num": "6-Boss",
+    "name": "LEVEL_6_Boss",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 6660,
+    "map": "732",
+    "num": "6-H1",
+    "name": "LEVEL_6_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 6667,
+    "map": "558",
+    "num": "6-H2",
+    "name": "LEVEL_6_H2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 6777,
+    "map": "557",
+    "num": "6-S",
+    "name": "LEVEL_6_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 72,
+    "map": "809",
+    "num": "7-1",
+    "name": "LEVEL_7_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 73,
+    "map": "810",
+    "num": "7-2",
+    "name": "LEVEL_7_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 74,
+    "map": "578",
+    "num": "7-3",
+    "name": "LEVEL_7_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 75,
+    "map": "571",
+    "num": "7-4",
+    "name": "LEVEL_7_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 76,
+    "map": "580",
+    "num": "7-5",
+    "name": "LEVEL_7_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 77,
+    "map": "540",
+    "num": "7-6",
+    "name": "LEVEL_7_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 78,
+    "map": "741",
+    "num": "7-7",
+    "name": "LEVEL_7_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 79,
+    "map": "725",
+    "num": "7-8",
+    "name": "LEVEL_7_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 80,
+    "map": "576",
+    "num": "7-9",
+    "name": "LEVEL_7_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 801,
+    "map": "816",
+    "num": "7-Boss",
+    "name": "LEVEL_7_BOSS",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 5
+  },
+  {
+    "uid": 802,
+    "map": "817",
+    "num": "7-Boss",
+    "name": "LEVEL_7_BOSS",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 8001,
+    "map": "788",
+    "num": "7-H1",
+    "name": "LEVEL_7_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 81,
+    "map": "734",
+    "num": "",
+    "name": "LEVEL_8_1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 82,
+    "map": "740",
+    "num": "",
+    "name": "LEVEL_8_2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 83,
+    "map": "739",
+    "num": "",
+    "name": "LEVEL_8_3",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 84,
+    "map": "742",
+    "num": "",
+    "name": "LEVEL_8_4",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 85,
+    "map": "755",
+    "num": "",
+    "name": "LEVEL_8_5",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 86,
+    "map": "581",
+    "num": "",
+    "name": "LEVEL_8_6",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 88,
+    "map": "763",
+    "num": "",
+    "name": "LEVEL_8_7",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 89,
+    "map": "744",
+    "num": "",
+    "name": "LEVEL_8_8",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 90,
+    "map": "582",
+    "num": "",
+    "name": "LEVEL_8_9",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 91,
+    "map": "575",
+    "num": "",
+    "name": "LEVEL_8_Boss",
+    "theme": "house",
+    "mode": "infinite",
+    "trailLength": 5
+  },
+  {
+    "uid": 92,
+    "map": "529",
+    "num": "",
+    "name": "LEVEL_8_S",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 887,
+    "map": "738",
+    "num": "",
+    "name": "LEVEL_8_H1",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8200,
+    "map": "764",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8203,
+    "map": "767",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8204,
+    "map": "768",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8205,
+    "map": "769",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8206,
+    "map": "770",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8207,
+    "map": "771",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8210,
+    "map": "774",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8211,
+    "map": "783",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  },
+  {
+    "uid": 8214,
+    "map": "781",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 8215,
+    "map": "779",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "boss",
+    "trailLength": 5
+  },
+  {
+    "uid": 8216,
+    "map": "780",
+    "num": "",
+    "name": "LEVEL_8_Boss2",
+    "theme": "house",
+    "mode": "normal",
+    "trailLength": 5
+  }
+]

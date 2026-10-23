@@ -1,0 +1,110 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map729",
+  "mbn": "map729.mbn",
+  "routes": [
+    {
+      "tag": 1,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 218,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 544,
+          "y": 186,
+          "wait": 0
+        },
+        {
+          "x": 544,
+          "y": 444,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 444,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 380,
+          "wait": 0
+        },
+        {
+          "x": 682,
+          "y": 320,
+          "wait": 5
+        }
+      ]
+    },
+    {
+      "tag": 2,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 272,
+          "y": 448,
+          "wait": 5
+        },
+        {
+          "x": 272,
+          "y": 386,
+          "wait": 0
+        },
+        {
+          "x": 272,
+          "y": 318,
+          "wait": 0
+        },
+        {
+          "x": 414,
+          "y": 318,
+          "wait": 0
+        },
+        {
+          "x": 414,
+          "y": 584,
+          "wait": 0
+        },
+        {
+          "x": 730,
+          "y": 584,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 9,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 894,
+          "y": 378,
+          "wait": 0
+        },
+        {
+          "x": 854,
+          "y": 392,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

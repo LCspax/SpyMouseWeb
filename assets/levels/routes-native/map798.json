@@ -1,0 +1,70 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map798",
+  "mbn": "map798.mbn",
+  "routes": [
+    {
+      "tag": 101,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 284,
+          "y": 188,
+          "wait": 0
+        },
+        {
+          "x": 284,
+          "y": 368,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 102,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 586,
+          "y": 460,
+          "wait": 0
+        },
+        {
+          "x": 586,
+          "y": 278,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 103,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 888,
+          "y": 284,
+          "wait": 0
+        },
+        {
+          "x": 888,
+          "y": 532,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

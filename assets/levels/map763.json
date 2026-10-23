@@ -1,0 +1,112 @@
+{
+  "id": "map763",
+  "num": "",
+  "name": "LEVEL_8_7",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 5,
+  "times": {
+    "start": 90,
+    "bronze": 150,
+    "silver": 180,
+    "gold": 200,
+    "platinum": 260
+  },
+  "goals": null,
+  "secret": false,
+  "music": "CM_Volcano",
+  "musicPath": "sound/music/CM_Volcano.sps",
+  "ambience": null,
+  "bg": "assets/maps/map763.jpg",
+  "mask": "assets/masks/map763.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 120,
+    "y": 648,
+    "id": 111,
+    "prop": 1,
+    "tag": 19,
+    "ox": 112,
+    "oy": 654
+  },
+  "exit": {
+    "x": 104,
+    "y": 696,
+    "id": 112,
+    "prop": 242,
+    "tag": 0,
+    "ox": 110,
+    "oy": 700,
+    "source": "xml"
+  },
+  "cheeses": [],
+  "crumbs": [],
+  "cats": [],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 111,
+        "designX": 40,
+        "designY": 295,
+        "worldX": 112,
+        "worldY": 654
+      },
+      "imported": {
+        "x": 120,
+        "y": 648,
+        "source": "xml"
+      }
+    },
+    "noAuthoredCheese": true
+  }
+}

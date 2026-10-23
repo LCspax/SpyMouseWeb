@@ -1,0 +1,111 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map727",
+  "mbn": "map727.mbn",
+  "routes": [
+    {
+      "tag": 1,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 286,
+          "y": 244,
+          "wait": 0
+        },
+        {
+          "x": 314,
+          "y": 244,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 11,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 828,
+          "y": 400,
+          "wait": 0
+        },
+        {
+          "x": 816,
+          "y": 400,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 12,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 294,
+          "y": 256,
+          "wait": 0
+        },
+        {
+          "x": 390,
+          "y": 176,
+          "wait": 0
+        },
+        {
+          "x": 440,
+          "y": 176,
+          "wait": 0
+        },
+        {
+          "x": 496,
+          "y": 176,
+          "wait": 0
+        },
+        {
+          "x": 628,
+          "y": 244,
+          "wait": 0
+        },
+        {
+          "x": 776,
+          "y": 244,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 47,
+      "mode": "pingpong",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": true,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 360,
+          "y": 592,
+          "wait": 0
+        },
+        {
+          "x": 720,
+          "y": 592,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

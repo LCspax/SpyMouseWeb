@@ -1,0 +1,227 @@
+{
+  "id": "map759",
+  "num": "2-3",
+  "name": "LEVEL_2_3",
+  "theme": "house",
+  "mode": "normal",
+  "trailLength": 2,
+  "times": {
+    "start": 320,
+    "bronze": 16,
+    "silver": 22,
+    "gold": 30,
+    "platinum": 1000
+  },
+  "goals": [
+    {
+      "type": "spotted",
+      "value": 0
+    },
+    {
+      "type": "paths",
+      "value": 3
+    },
+    {
+      "type": "time",
+      "value": 40
+    }
+  ],
+  "secret": false,
+  "music": "CM_Homes",
+  "musicPath": "sound/music/CM_Homes.sps",
+  "ambience": {
+    "scheme": "int_apartment",
+    "loop": "int_apartment_loop.sps",
+    "groups": []
+  },
+  "bg": "assets/maps/map759.jpg",
+  "mask": "assets/masks/map759.json",
+  "source": "xml",
+  "mouseStart": {
+    "x": 392,
+    "y": 440,
+    "id": 51,
+    "prop": 1,
+    "tag": 0,
+    "ox": 398,
+    "oy": 440
+  },
+  "exit": {
+    "x": 344,
+    "y": 424,
+    "id": 50,
+    "prop": 241,
+    "tag": 1024,
+    "ox": 336,
+    "oy": 416,
+    "source": "xml"
+  },
+  "cheeses": [
+    {
+      "x": 408,
+      "y": 616,
+      "source": "xml",
+      "id": 55,
+      "prop": 10,
+      "tag": 0,
+      "ox": 414,
+      "oy": 610
+    },
+    {
+      "x": 904,
+      "y": 648,
+      "source": "xml",
+      "id": 56,
+      "prop": 10,
+      "tag": 0,
+      "ox": 904,
+      "oy": 646
+    }
+  ],
+  "crumbs": [],
+  "cats": [
+    {
+      "x": 120,
+      "y": 248,
+      "angle": 1.5769312191527727,
+      "type": 2,
+      "prop": 52,
+      "tag": 11,
+      "source": "xml",
+      "id": 57,
+      "ox": 118,
+      "oy": 240,
+      "route": [
+        {
+          "x": 118,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 574,
+          "wait": 0
+        },
+        {
+          "x": 244,
+          "y": 574,
+          "wait": 0
+        },
+        {
+          "x": 244,
+          "y": 220,
+          "wait": 0
+        },
+        {
+          "x": 118,
+          "y": 220,
+          "wait": 0
+        }
+      ],
+      "routeMode": "loop",
+      "routeSource": "mbn-graph-walk"
+    },
+    {
+      "x": 760,
+      "y": 568,
+      "angle": -1.5917722708289195,
+      "type": 2,
+      "prop": 52,
+      "tag": 12,
+      "source": "xml",
+      "id": 58,
+      "ox": 754,
+      "oy": 570,
+      "route": [
+        {
+          "x": 754,
+          "y": 534,
+          "wait": 0
+        },
+        {
+          "x": 754,
+          "y": 282,
+          "wait": 0
+        },
+        {
+          "x": 898,
+          "y": 282,
+          "wait": 0
+        },
+        {
+          "x": 898,
+          "y": 534,
+          "wait": 0
+        }
+      ],
+      "routeMode": "pingpong",
+      "routeSource": "mbn-graph-walk"
+    }
+  ],
+  "bosses": [],
+  "bossParts": [],
+  "pipes": [],
+  "pipePieces": [],
+  "transports": [],
+  "hideables": [],
+  "cwmice": [],
+  "cwmouseHoles": [],
+  "hazardMask": null,
+  "diagnostics": {
+    "original": {
+      "cheese": 2,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "imported": {
+      "cheese": 2,
+      "cats": 2,
+      "exit": 1,
+      "pipes": 0,
+      "transports": 0,
+      "transportsSameComponent": 0,
+      "hideables": 0,
+      "holeLinks": 0,
+      "holeLinksSameComponent": 0
+    },
+    "droppedUnreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "details": []
+    },
+    "unreachable": {
+      "cheese": 0,
+      "cats": 0,
+      "exit": 0,
+      "cwmice": 0,
+      "details": []
+    },
+    "duplicateCheese": 0,
+    "synthesized": {
+      "cheese": 0,
+      "exit": 0,
+      "mouseStart": false
+    },
+    "mouseStart": {
+      "original": {
+        "id": 51,
+        "designX": 183,
+        "designY": 188,
+        "worldX": 398,
+        "worldY": 440
+      },
+      "imported": {
+        "x": 392,
+        "y": 440,
+        "source": "xml"
+      }
+    }
+  }
+}

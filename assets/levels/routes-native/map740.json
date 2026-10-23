@@ -1,0 +1,271 @@
+{
+  "source": "mbn-graph-walk",
+  "map": "map740",
+  "mbn": "map740.mbn",
+  "routes": [
+    {
+      "tag": 101,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 460,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 308,
+          "y": 516,
+          "wait": 0
+        },
+        {
+          "x": 226,
+          "y": 482,
+          "wait": 0
+        },
+        {
+          "x": 226,
+          "y": 404,
+          "wait": 0
+        },
+        {
+          "x": 324,
+          "y": 388,
+          "wait": 0
+        },
+        {
+          "x": 338,
+          "y": 312,
+          "wait": 0
+        },
+        {
+          "x": 382,
+          "y": 266,
+          "wait": 0
+        },
+        {
+          "x": 462,
+          "y": 256,
+          "wait": 0
+        },
+        {
+          "x": 552,
+          "y": 294,
+          "wait": 0
+        },
+        {
+          "x": 630,
+          "y": 256,
+          "wait": 0
+        },
+        {
+          "x": 786,
+          "y": 290,
+          "wait": 0
+        },
+        {
+          "x": 800,
+          "y": 374,
+          "wait": 0
+        },
+        {
+          "x": 714,
+          "y": 390,
+          "wait": 0
+        },
+        {
+          "x": 676,
+          "y": 320,
+          "wait": 0
+        },
+        {
+          "x": 614,
+          "y": 376,
+          "wait": 0
+        },
+        {
+          "x": 692,
+          "y": 510,
+          "wait": 0
+        },
+        {
+          "x": 532,
+          "y": 524,
+          "wait": 0
+        },
+        {
+          "x": 562,
+          "y": 356,
+          "wait": 0
+        },
+        {
+          "x": 502,
+          "y": 424,
+          "wait": 0
+        },
+        {
+          "x": 412,
+          "y": 336,
+          "wait": 0
+        },
+        {
+          "x": 348,
+          "y": 456,
+          "wait": 0
+        },
+        {
+          "x": 462,
+          "y": 512,
+          "wait": 0
+        },
+        {
+          "x": 460,
+          "y": 512,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 127,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 556,
+          "y": 164,
+          "wait": 0
+        },
+        {
+          "x": 226,
+          "y": 164,
+          "wait": 0
+        },
+        {
+          "x": 240,
+          "y": 302,
+          "wait": 0
+        },
+        {
+          "x": 112,
+          "y": 286,
+          "wait": 0
+        },
+        {
+          "x": 128,
+          "y": 630,
+          "wait": 0
+        },
+        {
+          "x": 808,
+          "y": 616,
+          "wait": 0
+        },
+        {
+          "x": 794,
+          "y": 476,
+          "wait": 0
+        },
+        {
+          "x": 914,
+          "y": 490,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 556,
+          "y": 164,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 111,
+      "mode": "stop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": false,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 924,
+          "y": 614,
+          "wait": 0
+        },
+        {
+          "x": 924,
+          "y": 608,
+          "wait": 0
+        }
+      ]
+    },
+    {
+      "tag": 128,
+      "mode": "loop",
+      "modeEvidence": "mbn-0x66/0x67/0x83-rule",
+      "modeFlag": false,
+      "closeLoop": true,
+      "regenerate": false,
+      "stationary": false,
+      "points": [
+        {
+          "x": 808,
+          "y": 614,
+          "wait": 0
+        },
+        {
+          "x": 794,
+          "y": 474,
+          "wait": 0
+        },
+        {
+          "x": 914,
+          "y": 490,
+          "wait": 0
+        },
+        {
+          "x": 900,
+          "y": 150,
+          "wait": 0
+        },
+        {
+          "x": 226,
+          "y": 164,
+          "wait": 0
+        },
+        {
+          "x": 240,
+          "y": 302,
+          "wait": 0
+        },
+        {
+          "x": 112,
+          "y": 286,
+          "wait": 0
+        },
+        {
+          "x": 128,
+          "y": 630,
+          "wait": 0
+        },
+        {
+          "x": 808,
+          "y": 614,
+          "wait": 0
+        }
+      ]
+    }
+  ]
+}

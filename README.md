@@ -6,6 +6,8 @@
 >
 > 仓库默认 **Private**。请先阅读文末的[完整免责声明](#完整免责声明--disclaimer)。如果你不是权利方，或不确定所在司法辖区的法律要求，请不要公开分发本仓库或其中的游戏资源。
 
+**在线演示：** <https://lcspax.space/games/spymouse-web/>（作为 LCspax 作品集的子页面发布）
+
 ![游戏预览](docs/preview.png)
 
 ---

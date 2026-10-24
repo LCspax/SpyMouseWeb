@@ -90,6 +90,7 @@ export const MECHANISM_SHEETS={
   flare:[128,128],
   flame_block:[90,48],flames:[130,54],flame_rotate_base:[32,32],flame_rotate:[32,32],
   gas_vent:[58,74],gas_stream:[64,44],gas_puff:[56,86],gas_vent_top:[58,74],
+  bush:[72,72],ambush_01:[188,175],ambush_02:[154,142],
   wallspawner_u:[64,64],wallspawner_l:[64,64],wallspawner_d:[64,64],wallspawner_r:[64,64],
   shuriken_launcher:[72,81],
   trigger_2:[40,40],trigger_3:[40,40],trigger_4:[40,40],trigger_5:[40,40],

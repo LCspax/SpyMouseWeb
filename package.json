@@ -24,6 +24,7 @@
     "audio": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/transcode-sps.ps1",
     "verify:audio": "node tools/verify-audio.mjs",
     "audit:entrances": "node tools/audit-entrances.mjs",
+    "audit:decor": "node tools/audit-decorations.mjs",
     "backgrounds": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/walkmask.ps1 -BackgroundsOnly"
   },
   "devDependencies": {

@@ -425,6 +425,14 @@ check('boss entrance/exit doors import as native exits and bridges become walkab
  const b=bridge.level.mechanisms.bridges[0];
  assert.equal(bridge.level.world.isWallAt(b.x,b.y),false);
 });
+check('balloon pickup loops only native frames 0..3 and never the pop frames',()=>{
+ const g=make([{kind:'item',prop:18,item:'balloon',tag:0,id:1,x:240,y:160}],{cheeses:[]});
+ const m=g.level.mechanisms,frames=[];
+ g.sprites.frame=(_ctx,key,frame)=>{frames.push({key,frame});return true;};
+ for(const t of [0,.4,.8,1.2,1.6]){g.time=t;m.draw(g,{});}
+ const balloon=frames.filter(f=>f.key==='balloon').map(f=>f.frame);
+ assert(balloon.length===5);assert(balloon.every(f=>f>=0&&f<4));assert.deepEqual([...new Set(balloon)].sort(),[0,1,2,3]);
+});
 fs.writeFileSync('analysis/mechanisms-regression.json',JSON.stringify({passed:results.length,checks:results},null,2));
 console.log(`Mechanism regressions: ${results.length} groups passed (${levels.length} maps, 61 additional floors).`);
 

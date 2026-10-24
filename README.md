@@ -192,7 +192,7 @@ npm test
 ```text
 All levels passed
 Repair regressions: 43 passed
-Mechanism regressions: 45 groups passed (121 maps, 61 additional floors)
+Mechanism regressions: 46 groups passed (121 maps, 61 additional floors)
 platform verification OK: 20 final-chapter platforms move without carrying riders or writing terrain
 TV verification OK (facing, 128px frame, sitting hypnosis + icon)
 Entrance audit passed: 121 maps / 182 floors, 299 holes, 540 paired directions
@@ -226,6 +226,7 @@ badResponses: []
 node tools/verify-platforms.mjs
 node tools/verify-tv.mjs
 node tools/audit-entrances.mjs
+node tools/audit-decorations.mjs
 node tools/verify-audio.mjs
 ```
 

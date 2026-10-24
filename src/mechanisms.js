@@ -14,6 +14,11 @@ function segmentDistance(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,t=Math.max(0,Math.mi
 function angleDiff(a,b){return ((a-b+Math.PI*3)%(Math.PI*2))-Math.PI;}
 const ITEM_ART={chilli:'cheese_speed',chilli2:'speedy',string:'twine_ball',fish:'catnip',balloon:'balloon',cover:'teacup',dossier:'dossier_icon',robodog:'robodog_broken01',keepsake:'keepsake',cheese_inf:'cheese_inf'};
 const INSTANT_ITEMS=new Set(['dossier','robodog','keepsake','cheese_inf']);
+const STATIC_ITEMS=new Set(['cover','chilli','chilli2','string','fish']);
+// Native pickup 0x920e0: balloon SetSequence(0,3,mode 3,400ms). The sheet has
+// seven columns, but columns 4-6 are the pop/deflate art and must never loop
+// while the balloon is still held on the floor or by the hero.
+const ITEM_ANIM={balloon:{frames:4,frameTime:.4}};
 // Numeric chilli defaults come from the shipped player property initializer.
 export const EFFECTS={chilli:{multiplier:4,duration:16},chilli2:{multiplier:7.2,duration:8},cover:10,distraction:8.2,string:15};
 
@@ -591,7 +596,7 @@ export class Mechanisms{
     return false;
   }
   onHide(){this.balloon=false;this.coverTime=0;}
-  absorbProjectile(){if(!this.balloon)return false;this.balloon=false;return true;}
+  absorbProjectile(){if(!this.balloon)return false;this.balloon=false;audio.playSound(4,{priority:6});return true;}
   handleTap(game,point){
     const m=game.mouse,w=this.level.world;
     if(m.furnitureId!=null){m.hidden=false;m.furnitureId=null;m.hiddenTag=null;const open=w.closestOpen(point.x,point.y,m.radius);const route=w.bfsToWorld(m.x,m.y,open.x,open.y);if(route)m.setPath(route);return true;}
@@ -654,7 +659,8 @@ export class Mechanisms{
           if(sprites.images[variant])key=variant;
         }
         const s=sprites.images[key];if(s){width=s.fw;height=s.fh;}
-        frame=o.item==='cheese_inf'?(o.itemFrame||0):INSTANT_ITEMS.has(o.item)?0:Math.floor(game.time*5);
+        const anim=ITEM_ANIM[o.item];
+        frame=o.item==='cheese_inf'?(o.itemFrame||0):INSTANT_ITEMS.has(o.item)?0:STATIC_ITEMS.has(o.item)?0:anim?Math.floor(game.time/anim.frameTime+1e-6)%anim.frames:Math.floor(game.time*5);
       }else if(o.kind==='switch'){
         key=this.switchSprite(o);width=40;height=40;
         if(key==='trigger_set_mayan'){width=76;height=34;}
@@ -751,7 +757,7 @@ export class Mechanisms{
   drawPlayer(game,ctx){
     const m=game.mouse,s=game.sprites;
     if(m.hidden)return;
-    if(this.balloon){ctx.save();ctx.strokeStyle='#eed5a7';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(m.x,m.y-10);ctx.lineTo(m.x-12,m.y-65);ctx.stroke();ctx.restore();s.frame(ctx,'balloon',Math.floor(game.time*5),m.x-12,m.y-80,48,64);}
+    if(this.balloon){ctx.save();ctx.strokeStyle='#eed5a7';ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(m.x,m.y-10);ctx.lineTo(m.x-12,m.y-65);ctx.stroke();ctx.restore();s.frame(ctx,'balloon',Math.floor(game.time/.4+1e-6)%4,m.x-12,m.y-80,48,64);}
     if(this.coverTime>0&&(this.coverTime>2||Math.floor(game.time*8)%2===0))s.frame(ctx,this.isBucket?'bucket':'teacup',0,m.x,m.y-5,64,64);
   }
 }

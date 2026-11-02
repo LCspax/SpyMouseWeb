@@ -21,20 +21,22 @@ export function worldNodes(world,levels,foundSecrets=null) {
 }
 const TEXT={
   zh:{
-    start:'开始游戏！',play:'游戏！',options:'选项',effects:'音效',music:'音乐',language:'选择语言',erase:'清除游戏存档',back:'返回',help:'玩法帮助',bag:'关卡列表',achievements:'完成记录',cancel:'取消',confirm:'确认清除',
+    start:'开始游戏！',play:'游戏！',options:'选项',effects:'音效',music:'音乐',language:'选择语言',erase:'清除游戏存档',back:'返回',help:'玩法帮助',bag:'关卡列表',achievements:'完成记录',progressLabel:'进度',sponsor:'赞助',cancel:'取消',confirm:'确认清除',
     eraseText:'清除所有关卡完成记录？此操作无法撤销。',
     helpText:'从地图上的主角开始画线，松手后跟随路线移动；在关卡点附近结束路线会吸附停下，点击旁边的“游戏！”进入。也可以直接点击关卡点走过去。画线引导老鼠收集奶酪并回到出口。避开猫，利用拐角、鼠洞和管道甩开追捕。',
     world:'场景',
     backpack:'背包',collected:'已收集',dossierBack:'返回档案',dossierLocked:'???',
     dossierHint:'在关卡里找到档案后解锁',dossierUnknown:'未解锁',
+    portraitHint:'横屏游玩最佳',
   },
   en:{
-    start:'Play!',play:'Play!',options:'Options',effects:'Sound',music:'Music',language:'Language',erase:'Erase Game Progress',back:'Back',help:'How to Play',bag:'All Levels',achievements:'Progress',cancel:'Cancel',confirm:'Erase Progress',
+    start:'Play!',play:'Play!',options:'Options',effects:'Sound',music:'Music',language:'Language',erase:'Erase Game Progress',back:'Back',help:'How to Play',bag:'All Levels',achievements:'Progress',progressLabel:'Progress',sponsor:'Sponsor',cancel:'Cancel',confirm:'Erase Progress',
     eraseText:'Erase all level completion records? This cannot be undone.',
     helpText:'Draw from the mouse on the map, then release to walk. End near a level node to stop there, then press the Play button beside it. You can also click a node to walk to it. Draw a path to collect cheese and reach the exit. Avoid cats and use corners, mouse holes and pipes to escape.',
     world:'World',
     backpack:'BACKPACK',collected:'Collected',dossierBack:'Back',dossierLocked:'???',
     dossierHint:'Find dossiers in levels to unlock them',dossierUnknown:'Locked',
+    portraitHint:'Best played in landscape',
   },
 };
 
@@ -51,7 +53,10 @@ export class FrontEnd {
       <div class="menu-mouse"><img class="mouse-body" src="assets/menu/mm_mouse.png" alt="Agent Squeak"><img class="mouse-eyes" src="assets/menu/mm_mouse_open.png" alt=""></div>
       <img class="menu-cheese" src="assets/menu/main_menu_cheese.png" alt="">
       <button class="menu-start" data-action="start"></button>
-      <button class="art-button trophy-button" data-action="achievements"></button>
+      <div class="home-badges">
+        <div class="badge"><button class="art-button trophy-button" data-action="achievements"></button><span class="badge-label" data-badge="achievements"></span></div>
+        <div class="badge"><a class="art-button sponsor-button" data-action="sponsor" href="https://afdian.com/a/lcspax" target="_blank" rel="noopener noreferrer"></a><span class="badge-label" data-badge="sponsor"></span></div>
+      </div>
     </div><div class="menu-stage world-stage">
       <img class="world-picture" alt=""><div class="map-buildings" aria-hidden="true"></div><svg class="map-drawing" viewBox="0 0 960 640" aria-hidden="true"><polyline/></svg>
       <div class="world-nodes"></div><div class="world-mouse" aria-hidden="true"></div>
@@ -59,6 +64,7 @@ export class FrontEnd {
       <button class="art-button backpack-button" data-action="bag"></button>
       <button class="map-play" data-action="play"></button>
     </div><div class="menu-utility"><button class="art-button settings-button" data-action="settings"></button><button class="art-button help-button" data-action="help"></button></div>
+    <div class="portrait-hint" role="note"><span class="portrait-hint-icon" aria-hidden="true"></span><span class="portrait-hint-text"></span></div>
     <div class="menu-modal" hidden><button class="art-button modal-back" data-action="dismiss"></button><section class="options-card"><h1></h1><div class="modal-body"></div></section></div>`;
     root.addEventListener('click',event=>{
       const action=event.target.closest('[data-action]')?.dataset.action;
@@ -110,12 +116,18 @@ export class FrontEnd {
   }
   translate(){
     this.root.lang=this.settings.language==='en'?'en':'zh-CN';
-    const labels={start:this.text.start,play:this.text.play,settings:this.text.options,help:this.text.help,home:this.text.back,bag:this.text.backpack,achievements:this.text.achievements,dismiss:this.text.back};
+    const labels={start:this.text.start,play:this.text.play,settings:this.text.options,help:this.text.help,home:this.text.back,bag:this.text.backpack,achievements:this.text.achievements,sponsor:this.text.sponsor,dismiss:this.text.back};
     for(const [action,label] of Object.entries(labels)){
       const button=this.find(`[data-action="${action}"]`);button.setAttribute('aria-label',label);button.title=label;
       if(action==='start'||action==='play')button.textContent=label;
     }
+    const badgeLabels={achievements:this.text.progressLabel,sponsor:this.text.sponsor};
+    for(const [key,label] of Object.entries(badgeLabels)){
+      const badge=this.find(`[data-badge="${key}"]`);if(badge)badge.textContent=label;
+    }
     for(const option of this.find('.world-switch select').options)option.textContent=`${this.text.world} ${option.value}`;
+    const portraitHint=this.find('.portrait-hint-text');
+    if(portraitHint)portraitHint.textContent=this.text.portraitHint;
     this.find('[data-action="previous"]').setAttribute('aria-label',this.settings.language==='en'?'Previous World':'上一个场景');
     this.find('[data-action="next"]').setAttribute('aria-label',this.settings.language==='en'?'Next World':'下一个场景');
     this.find('.world-switch select').setAttribute('aria-label',this.settings.language==='en'?'Choose World':'选择场景');
@@ -153,6 +165,9 @@ export class FrontEnd {
     this.ensureBuildingData(world);
     this.find('.world-switch select').value=world.id;
     const parent=this.find('.world-nodes');parent.replaceChildren();
+    // An unfinished boss run marks its chapter node so a pause/reload is
+    // resumable straight from the map, and the label says so.
+    const bossRun=this.callbacks.getProgress?.()?.bossRun||null;
     for(const [order,node] of nodes.entries()){
       const button=document.createElement('button');button.className='map-node';button.style.left=`${node.x*2}px`;button.style.top=`${node.y*2}px`;
       button.style.setProperty('--node-order',String(order));
@@ -160,6 +175,12 @@ export class FrontEnd {
       button.setAttribute('aria-label',node.kind==='next'?name:`${level.num||level.id} ${name}`);button.title=button.getAttribute('aria-label');
       const done=this.callbacks.getProgress().done.includes(node.index),frame=node.kind==='next'?6:done?2:level.mode==='boss'||level.mode==='infinite'?4:0;
       button.style.backgroundPosition=`${frame*100/7}% center`;
+      if(bossRun&&level&&(bossRun.entrance===level.id||bossRun.arena===level.id)){
+        const resumeLabel=this.settings.language==='en'?' (Continue)':'（继续挑战）';
+        button.classList.add('boss-resume');
+        button.setAttribute('aria-label',button.getAttribute('aria-label')+resumeLabel);
+        button.title=button.getAttribute('aria-label');
+      }
       button.addEventListener('click',()=>{if(Date.now()<this.suppressMapClickUntil)return;this.sound(42);this.walkToNode(node);});button.dataset.index=node.index;parent.appendChild(button);
     }
     const index=nodes.some(node=>node.index===preferred)?preferred:nodes[0]?.index;

@@ -17,9 +17,15 @@
 .menu-start:hover{background-image:url('assets/menu/play_over.png')}
 .art-button{border:0;padding:0;background:transparent center/contain no-repeat;cursor:pointer;font-size:0;color:transparent;width:72px;height:78px}
 .menu-stage>.art-button{position:absolute;top:12px}
-.trophy-button{left:18px;background-image:url('assets/menu/btn_achievements.png')}
+.home-badges{position:absolute;left:18px;top:12px;display:flex;align-items:flex-start;gap:8px}
+.home-badges .badge{display:flex;flex-direction:column;align-items:center;width:72px}
+.home-badges .art-button{position:relative;display:block;width:72px;height:78px;flex:0 0 auto}
+.trophy-button{background-image:url('assets/menu/btn_achievements.png')}
 .trophy-button:hover{background-image:url('assets/menu/btn_achievements_over.png')}
-.menu-utility{position:absolute;bottom:-5px;right:max(16px,calc((100vw - 960px * var(--menu-scale))/2 + 16px));display:flex}
+.sponsor-button{background-image:url('assets/menu/btn_sponsor.png')}
+.sponsor-button:hover{background-image:url('assets/menu/btn_sponsor_over.png')}
+.badge-label{margin-top:1px;color:#fff8dc;font-size:15px;font-weight:600;line-height:1.15;text-align:center;white-space:nowrap;text-shadow:0 2px 0 #8a3b0d,0 0 4px #00000077;pointer-events:none;user-select:none}
+.menu-utility{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) - 5px);right:max(calc(16px + env(safe-area-inset-right,0px)),calc((100vw - 960px * var(--menu-scale))/2 + 16px));display:flex}
 .menu-utility{--utility-height:clamp(40px,6vw,70px);align-items:flex-end}
 .menu-utility .art-button{height:var(--utility-height);background-size:100% 100%;flex-shrink:0}
 .menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}
@@ -107,7 +113,7 @@
 .catalog-body{inset:25% 10% 8%}
 .catalog-body .menu-long{font-size:3.6cqw;height:9cqw}
 .front-end button:focus-visible,.front-end select:focus-visible,.front-end input:focus-visible{outline:3px solid #fff3a3;outline-offset:3px}
-@media(max-aspect-ratio:1/1){.menu-stage.home-stage{top:45%}.options-card{width:90vw;aspect-ratio:532/480}.modal-body{inset:25% 12% 8%}.menu-utility .art-button{width:84px;height:54px}.menu-utility{right:12px}.world-heading{font-size:22px}.world-switch button{width:22px;height:22px;font-size:18px}.world-switch select{max-width:58px;font-size:14px}.map-play{bottom:-52px;right:25px}.menu-stage>.art-button{top:-52px}.menu-stage>.backpack-button{top:-52px!important}.menu-modal{padding-left:15px;padding-right:15px}}
+@media(max-aspect-ratio:1/1){.menu-stage.home-stage{top:45%}.options-card{width:90vw;aspect-ratio:532/480}.modal-body{inset:25% 12% 8%}.menu-utility .art-button{width:84px;height:54px}.menu-utility{right:12px}.world-heading{font-size:22px}.world-switch button{width:22px;height:22px;font-size:18px}.world-switch select{max-width:58px;font-size:14px}.map-play{bottom:-52px;right:25px}.menu-stage>.art-button{top:-52px}.home-badges{top:-52px}.menu-stage>.backpack-button{top:-52px!important}.menu-modal{padding-left:15px;padding-right:15px}}
 @media(max-aspect-ratio:1/1){.options-card{aspect-ratio:1}.modal-body{bottom:6%}.volume-control{margin-bottom:3%}.menu-utility{--utility-height:54px}.menu-utility .art-button{height:var(--utility-height)}.map-play{right:auto;bottom:auto}}
 @media(prefers-reduced-motion:reduce){.world-mouse{transition:none}.map-node,.map-play{animation:none}.map-node,.map-play,.world-stage>.art-button,.world-switch button{transition:none}}
 @media(max-aspect-ratio:1/1){.menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}.menu-utility .help-button{width:calc(var(--utility-height) * 136 / 70)}}
@@ -271,4 +277,148 @@
   .menu-mouse { animation: none; }
   .map-building.bounce { animation: none; }
   .backpack-body .dossier-card { transition: none; }
+}
+
+/* =========================================================================
+   Multi-device home framing
+   The home view is authored on a 960x640 stage, but its backdrop art is
+   1024x640.  The backdrop used to be sized from the viewport height, so on a
+   phone in portrait it was magnified independently while the stage (mouse,
+   logo, button) stayed at fit-width scale.  Pin the art to the stage
+   transform instead, so the whole scene scales and moves as one unit.
+   The pad strips now hang outside the art instead of overlaying it.
+   ========================================================================= */
+
+.front-end { --home-center-y: 50%; }
+
+.front-end[data-view=home] .menu-stage.home-stage { top: var(--home-center-y); }
+
+.front-end[data-view=home] .menu-backdrop {
+  inset: auto;
+  left: 50%;
+  top: var(--home-center-y);
+  width: calc(1024px * var(--menu-scale));
+  height: calc(640px * var(--menu-scale));
+  transform: translate(-50%, -50%);
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.front-end[data-view=home] .menu-backdrop:before,
+.front-end[data-view=home] .menu-backdrop:after {
+  width: max(0px, calc((100vw - 1024px * var(--menu-scale)) / 2));
+  background-size: auto 100%;
+}
+.front-end[data-view=home] .menu-backdrop:before { left: auto; right: 100%; }
+.front-end[data-view=home] .menu-backdrop:after { right: auto; left: 100%; }
+
+@media (max-aspect-ratio: 1/1) {
+  .front-end { --home-center-y: 45%; }
+}
+
+/* ---- portrait guidance ----
+   In portrait the 3:2 scene is letterboxed.  The spare area below it carries
+   a language-aware "best played in landscape" note. */
+.portrait-hint {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: calc(var(--home-center-y) + 33.333vw + clamp(16px, 4vh, 36px));
+  z-index: 1;
+  transform: translateX(-50%);
+  align-items: center;
+  gap: .55em;
+  padding: .62em 1.15em .62em .9em;
+  border: 1px solid rgba(255, 248, 220, .28);
+  border-radius: 999px;
+  background: rgba(10, 38, 52, .58);
+  box-shadow: 0 8px 26px rgba(3, 16, 24, .28);
+  color: #fff8dc;
+  font-size: clamp(13px, 4vw, 17px);
+  font-weight: 600;
+  letter-spacing: .03em;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, .45);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.portrait-hint-icon {
+  position: relative;
+  width: 1.15em;
+  height: 1.95em;
+  border: 2px solid currentColor;
+  border-radius: .28em;
+  animation: portrait-hint-tilt 3.2s ease-in-out infinite;
+}
+
+.portrait-hint-icon:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: .16em;
+  width: .14em;
+  height: .14em;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translateX(-50%);
+}
+
+@keyframes portrait-hint-tilt {
+  0%, 30% { rotate: 0deg; }
+  48%, 78% { rotate: 90deg; }
+  96%, 100% { rotate: 0deg; }
+}
+
+/* Ambient, blurred continuation of the artwork around the crisp panel.
+   It fills portrait letterboxing and the thin bars on 4:3 landscape screens;
+   overflows are clipped by .front-end. */
+.front-end[data-view=home]::before {
+  content: '';
+  position: absolute;
+  inset: -12%;
+  z-index: -1;
+  background: url('assets/menu/main_menu_bg.png') center / cover no-repeat;
+  filter: blur(26px) brightness(.52) saturate(.92);
+  transform: scale(1.04);
+  pointer-events: none;
+}
+
+.front-end[data-view=home] .menu-backdrop {
+  box-shadow: 0 18px 60px rgba(4, 20, 30, .55);
+}
+
+@media (orientation: portrait) {
+  .front-end[data-view=home] .portrait-hint { display: flex; }
+}
+
+/* Very short portrait windows leave no clean space below the scene. */
+@media (orientation: portrait) and (max-height: 520px) {
+  .front-end[data-view=home] .portrait-hint { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-hint-icon { animation: none; }
+}
+
+/* --- Boss run: unfinished fight marker on the chapter node ------------- */
+.map-node.boss-resume:after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 3px solid rgba(255, 209, 102, .9);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: boss-resume-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes boss-resume-pulse {
+  0%, 100% { opacity: .35; transform: scale(.94); }
+  50% { opacity: .95; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .map-node.boss-resume:after { animation: none; opacity: .8; }
 }

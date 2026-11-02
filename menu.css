@@ -127,6 +127,14 @@
 @media(max-aspect-ratio:1/1){.options-card{aspect-ratio:1}.modal-body{bottom:6%}.volume-control{margin-bottom:3%}.menu-utility{--utility-height:54px}.menu-utility .art-button{height:var(--utility-height)}.map-play{right:auto;bottom:auto}}
 @media(prefers-reduced-motion:reduce){.world-mouse{transition:none}.map-node,.map-play{animation:none}.map-node,.map-play,.world-stage>.art-button,.world-switch button{transition:none}}
 @media(max-aspect-ratio:1/1){.menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}.menu-utility .help-button{width:calc(var(--utility-height) * 136 / 70)}}
+/* Portrait: keep the map's back/pack controls readable instead of shrinking
+   them with the 960x640 stage. They sit above the scene, at the screen edges. */
+@media(max-aspect-ratio:1/1){
+  .world-stage>.art-button{top:calc(-60px / var(--menu-scale));width:calc(48px / var(--menu-scale));height:calc(52px / var(--menu-scale))}
+  .world-stage>.backpack-button{top:calc(-60px / var(--menu-scale))!important;width:calc(48px / var(--menu-scale));height:calc(52px / var(--menu-scale))}
+  .world-stage>.map-back{left:calc(12px / var(--menu-scale))}
+  .world-stage>.backpack-button{right:calc(12px / var(--menu-scale))}
+}
 
 /* =========================================================================
    Menu view transitions + slider textures (ui lane, task-6)

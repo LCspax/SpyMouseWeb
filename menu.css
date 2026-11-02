@@ -17,7 +17,9 @@
 .menu-start:hover{background-image:url('assets/menu/play_over.png')}
 .art-button{border:0;padding:0;background:transparent center/contain no-repeat;cursor:pointer;font-size:0;color:transparent;width:72px;height:78px}
 .menu-stage>.art-button{position:absolute;top:12px}
-.home-badges{position:absolute;left:18px;top:12px;display:flex;align-items:flex-start;gap:8px}
+.home-badges{position:absolute;left:max(calc(18px * var(--menu-scale)),calc((100vw - 960px * var(--menu-scale))/2 + 18px * var(--menu-scale)));top:calc(var(--home-center-y) - 308px * var(--menu-scale));display:flex;align-items:flex-start;gap:8px;transform:scale(var(--menu-scale));transform-origin:top left;z-index:2}
+.front-end[data-view=world] .home-badges{display:none}
+.front-end.stage-swap[data-view=home] .home-badges{animation:stage-swap .26s cubic-bezier(.2,.8,.2,1) both}
 .home-badges .badge{display:flex;flex-direction:column;align-items:center;width:72px}
 .home-badges .art-button{position:relative;display:block;width:72px;height:78px;flex:0 0 auto}
 .trophy-button{background-image:url('assets/menu/btn_achievements.png')}
@@ -25,6 +27,14 @@
 .sponsor-button{background-image:url('assets/menu/btn_sponsor.png')}
 .sponsor-button:hover{background-image:url('assets/menu/btn_sponsor_over.png')}
 .badge-label{margin-top:1px;color:#fff8dc;font-size:15px;font-weight:600;line-height:1.15;text-align:center;white-space:nowrap;text-shadow:0 2px 0 #8a3b0d,0 0 4px #00000077;pointer-events:none;user-select:none}
+/* Portrait: the scene is letterboxed, so float a readable badge row above it
+   instead of shrinking the buttons with the 960x640 stage. */
+@media(max-aspect-ratio:1/1){
+  .home-badges{left:50%;top:calc(var(--home-center-y) - 320px * var(--menu-scale) - 78px);transform:translateX(-50%);gap:12px}
+  .home-badges .badge{width:48px}
+  .home-badges .art-button{width:48px;height:52px}
+  .badge-label{margin-top:2px;font-size:12px;line-height:1.1}
+}
 .menu-utility{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) - 5px);right:max(calc(16px + env(safe-area-inset-right,0px)),calc((100vw - 960px * var(--menu-scale))/2 + 16px));display:flex}
 .menu-utility{--utility-height:clamp(40px,6vw,70px);align-items:flex-end}
 .menu-utility .art-button{height:var(--utility-height);background-size:100% 100%;flex-shrink:0}
@@ -113,7 +123,7 @@
 .catalog-body{inset:25% 10% 8%}
 .catalog-body .menu-long{font-size:3.6cqw;height:9cqw}
 .front-end button:focus-visible,.front-end select:focus-visible,.front-end input:focus-visible{outline:3px solid #fff3a3;outline-offset:3px}
-@media(max-aspect-ratio:1/1){.menu-stage.home-stage{top:45%}.options-card{width:90vw;aspect-ratio:532/480}.modal-body{inset:25% 12% 8%}.menu-utility .art-button{width:84px;height:54px}.menu-utility{right:12px}.world-heading{font-size:22px}.world-switch button{width:22px;height:22px;font-size:18px}.world-switch select{max-width:58px;font-size:14px}.map-play{bottom:-52px;right:25px}.menu-stage>.art-button{top:-52px}.home-badges{top:-52px}.menu-stage>.backpack-button{top:-52px!important}.menu-modal{padding-left:15px;padding-right:15px}}
+@media(max-aspect-ratio:1/1){.menu-stage.home-stage{top:45%}.options-card{width:90vw;aspect-ratio:532/480}.modal-body{inset:25% 12% 8%}.menu-utility .art-button{width:84px;height:54px}.menu-utility{right:12px}.world-heading{font-size:22px}.world-switch button{width:22px;height:22px;font-size:18px}.world-switch select{max-width:58px;font-size:14px}.map-play{bottom:-52px;right:25px}.menu-stage>.art-button{top:-52px}.menu-stage>.backpack-button{top:-52px!important}.menu-modal{padding-left:15px;padding-right:15px}}
 @media(max-aspect-ratio:1/1){.options-card{aspect-ratio:1}.modal-body{bottom:6%}.volume-control{margin-bottom:3%}.menu-utility{--utility-height:54px}.menu-utility .art-button{height:var(--utility-height)}.map-play{right:auto;bottom:auto}}
 @media(prefers-reduced-motion:reduce){.world-mouse{transition:none}.map-node,.map-play{animation:none}.map-node,.map-play,.world-stage>.art-button,.world-switch button{transition:none}}
 @media(max-aspect-ratio:1/1){.menu-utility .settings-button{width:calc(var(--utility-height) * 152 / 70)}.menu-utility .help-button{width:calc(var(--utility-height) * 136 / 70)}}
@@ -174,7 +184,7 @@
 .menu-long:active, .btn:active { translate: 0 1px; }
 
 @media (prefers-reduced-motion: reduce) {
-  .menu-stage, .front-end.stage-swap .menu-stage, .menu-modal:not([hidden]) .options-card { animation: none; }
+  .menu-stage, .front-end.stage-swap .menu-stage, .front-end.stage-swap[data-view=home] .home-badges, .menu-modal:not([hidden]) .options-card { animation: none; }
   .menu-long:active, .btn:active { translate: none; }
 }
 

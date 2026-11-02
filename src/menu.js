@@ -53,10 +53,9 @@ export class FrontEnd {
       <div class="menu-mouse"><img class="mouse-body" src="assets/menu/mm_mouse.png" alt="Agent Squeak"><img class="mouse-eyes" src="assets/menu/mm_mouse_open.png" alt=""></div>
       <img class="menu-cheese" src="assets/menu/main_menu_cheese.png" alt="">
       <button class="menu-start" data-action="start"></button>
-      <div class="home-badges">
-        <div class="badge"><button class="art-button trophy-button" data-action="achievements"></button><span class="badge-label" data-badge="achievements"></span></div>
-        <div class="badge"><a class="art-button sponsor-button" data-action="sponsor" href="https://afdian.com/a/lcspax" target="_blank" rel="noopener noreferrer"></a><span class="badge-label" data-badge="sponsor"></span></div>
-      </div>
+    </div><div class="home-badges">
+      <div class="badge"><button class="art-button trophy-button" data-action="achievements"></button><span class="badge-label" data-badge="achievements"></span></div>
+      <div class="badge"><a class="art-button sponsor-button" data-action="sponsor" href="https://afdian.com/a/lcspax" target="_blank" rel="noopener noreferrer"></a><span class="badge-label" data-badge="sponsor"></span></div>
     </div><div class="menu-stage world-stage">
       <img class="world-picture" alt=""><div class="map-buildings" aria-hidden="true"></div><svg class="map-drawing" viewBox="0 0 960 640" aria-hidden="true"><polyline/></svg>
       <div class="world-nodes"></div><div class="world-mouse" aria-hidden="true"></div>
@@ -290,7 +289,7 @@ export class FrontEnd {
     modalEl.hidden=false;
     modalEl.classList.remove('backpack-mode','dossier-mode');
     if(mode==='backpack')modalEl.classList.add('backpack-mode');
-    for(const part of this.root.querySelectorAll('.menu-stage,.menu-utility'))part.inert=true;
+    for(const part of this.root.querySelectorAll('.menu-stage,.menu-utility,.home-badges'))part.inert=true;
     this.find('.options-card h1').textContent=title;
     const body=this.find('.modal-body');body.classList.remove('catalog-body','settings-body','backpack-body','dossier-body');body.replaceChildren();
     this.dossierOpen=false;
@@ -303,7 +302,7 @@ export class FrontEnd {
     this.find('.menu-modal').hidden=true;
     this.find('.menu-modal').classList.remove('backpack-mode','dossier-mode');
     this.dossierOpen=false;
-    for(const part of this.root.querySelectorAll('.menu-stage,.menu-utility'))part.inert=false;
+    for(const part of this.root.querySelectorAll('.menu-stage,.menu-utility,.home-badges'))part.inert=false;
     if(wasOpen){this.playTransition(true);this.playViewMusic(this.view);}
   }
   button(parent,label,handler){const button=document.createElement('button');button.className='menu-long';button.textContent=label;button.addEventListener('click',()=>{this.sound(1);handler();});parent.appendChild(button);return button;}

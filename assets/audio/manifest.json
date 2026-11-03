@@ -1,6 +1,6 @@
 {
     "version":  1,
-    "generated":  "2026-10-22",
+    "generated":  "2026-11-03",
     "source":  "EAAC v1 SPS / EA-XAS 4-bit ADPCM v1, 22050 Hz (libSpyMouse.so, EA Audio Core 7.03.01)",
     "counts":  {
                    "sfx":  177,
@@ -10,6 +10,7 @@
                 "0":  {
                           "name":  "ui_achievement",
                           "file":  "assets/audio/sfx/0_ui_achievement.ogg",
+                          "fileMp3":  "assets/audio/sfx/0_ui_achievement.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  44412,
@@ -21,6 +22,7 @@
                 "1":  {
                           "name":  "ui_button",
                           "file":  "assets/audio/sfx/1_ui_button.ogg",
+                          "fileMp3":  "assets/audio/sfx/1_ui_button.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  13230,
@@ -32,6 +34,7 @@
                 "2":  {
                           "name":  "ui_button2",
                           "file":  "assets/audio/sfx/2_ui_button2.ogg",
+                          "fileMp3":  "assets/audio/sfx/2_ui_button2.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  6512,
@@ -43,6 +46,7 @@
                 "3":  {
                           "name":  "key_drop",
                           "file":  "assets/audio/sfx/3_key_drop.ogg",
+                          "fileMp3":  "assets/audio/sfx/3_key_drop.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  3273,
@@ -54,6 +58,7 @@
                 "4":  {
                           "name":  "balloon_pop",
                           "file":  "assets/audio/sfx/4_balloon_pop.ogg",
+                          "fileMp3":  "assets/audio/sfx/4_balloon_pop.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  12416,
@@ -65,6 +70,7 @@
                 "5":  {
                           "name":  "boss_robot_idle_loop",
                           "file":  "assets/audio/sfx/5_boss_robot_idle_loop.ogg",
+                          "fileMp3":  "assets/audio/sfx/5_boss_robot_idle_loop.mp3",
                           "loop":  true,
                           "loopStart":  0,
                           "loopEnd":  8832,
@@ -76,6 +82,7 @@
                 "6":  {
                           "name":  "boss_robot_run_loop",
                           "file":  "assets/audio/sfx/6_boss_robot_run_loop.ogg",
+                          "fileMp3":  "assets/audio/sfx/6_boss_robot_run_loop.mp3",
                           "loop":  true,
                           "loopStart":  0,
                           "loopEnd":  8825,
@@ -87,6 +94,7 @@
                 "7":  {
                           "name":  "boss_robot_walk_loop",
                           "file":  "assets/audio/sfx/7_boss_robot_walk_loop.ogg",
+                          "fileMp3":  "assets/audio/sfx/7_boss_robot_walk_loop.mp3",
                           "loop":  true,
                           "loopStart":  0,
                           "loopEnd":  8838,
@@ -98,6 +106,7 @@
                 "8":  {
                           "name":  "boss_robot_agro",
                           "file":  "assets/audio/sfx/8_boss_robot_agro.ogg",
+                          "fileMp3":  "assets/audio/sfx/8_boss_robot_agro.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  35774,
@@ -109,6 +118,7 @@
                 "9":  {
                           "name":  "boss_robot_hit",
                           "file":  "assets/audio/sfx/9_boss_robot_hit.ogg",
+                          "fileMp3":  "assets/audio/sfx/9_boss_robot_hit.mp3",
                           "loop":  false,
                           "loopStart":  null,
                           "loopEnd":  15440,
@@ -120,6 +130,7 @@
                 "10":  {
                            "name":  "boss_sniff",
                            "file":  "assets/audio/sfx/10_boss_sniff.ogg",
+                           "fileMp3":  "assets/audio/sfx/10_boss_sniff.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7306,
@@ -131,6 +142,7 @@
                 "11":  {
                            "name":  "oil_fast",
                            "file":  "assets/audio/sfx/11_oil_fast.ogg",
+                           "fileMp3":  "assets/audio/sfx/11_oil_fast.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  22050,
@@ -142,6 +154,7 @@
                 "12":  {
                            "name":  "fly",
                            "file":  "assets/audio/sfx/12_fly.ogg",
+                           "fileMp3":  "assets/audio/sfx/12_fly.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  30856,
@@ -153,6 +166,7 @@
                 "13":  {
                            "name":  "water_splash",
                            "file":  "assets/audio/sfx/13_water_splash.ogg",
+                           "fileMp3":  "assets/audio/sfx/13_water_splash.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11043,
@@ -164,6 +178,7 @@
                 "14":  {
                            "name":  "lightning_1",
                            "file":  "assets/audio/sfx/14_lightning_1.ogg",
+                           "fileMp3":  "assets/audio/sfx/14_lightning_1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  31377,
@@ -175,6 +190,7 @@
                 "15":  {
                            "name":  "lightning_2",
                            "file":  "assets/audio/sfx/15_lightning_2.ogg",
+                           "fileMp3":  "assets/audio/sfx/15_lightning_2.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  39698,
@@ -186,6 +202,7 @@
                 "16":  {
                            "name":  "lightning_3",
                            "file":  "assets/audio/sfx/16_lightning_3.ogg",
+                           "fileMp3":  "assets/audio/sfx/16_lightning_3.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38604,
@@ -197,6 +214,7 @@
                 "17":  {
                            "name":  "glass_break",
                            "file":  "assets/audio/sfx/17_glass_break.ogg",
+                           "fileMp3":  "assets/audio/sfx/17_glass_break.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  13881,
@@ -208,6 +226,7 @@
                 "18":  {
                            "name":  "cat_agro_brown",
                            "file":  "assets/audio/sfx/18_cat_agro_brown.ogg",
+                           "fileMp3":  "assets/audio/sfx/18_cat_agro_brown.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -219,6 +238,7 @@
                 "19":  {
                            "name":  "cat_agro_black",
                            "file":  "assets/audio/sfx/19_cat_agro_black.ogg",
+                           "fileMp3":  "assets/audio/sfx/19_cat_agro_black.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -230,6 +250,7 @@
                 "20":  {
                            "name":  "cat_agro_ghost",
                            "file":  "assets/audio/sfx/20_cat_agro_ghost.ogg",
+                           "fileMp3":  "assets/audio/sfx/20_cat_agro_ghost.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -241,6 +262,7 @@
                 "21":  {
                            "name":  "cat_agro_fire",
                            "file":  "assets/audio/sfx/21_cat_agro_fire.ogg",
+                           "fileMp3":  "assets/audio/sfx/21_cat_agro_fire.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -252,6 +274,7 @@
                 "22":  {
                            "name":  "cat_agro_ninja",
                            "file":  "assets/audio/sfx/22_cat_agro_ninja.ogg",
+                           "fileMp3":  "assets/audio/sfx/22_cat_agro_ninja.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -263,6 +286,7 @@
                 "23":  {
                            "name":  "cat_agro_thief",
                            "file":  "assets/audio/sfx/23_cat_agro_thief.ogg",
+                           "fileMp3":  "assets/audio/sfx/23_cat_agro_thief.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -274,6 +298,7 @@
                 "24":  {
                            "name":  "cat_agro_jungle",
                            "file":  "assets/audio/sfx/24_cat_agro_jungle.ogg",
+                           "fileMp3":  "assets/audio/sfx/24_cat_agro_jungle.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  38400,
@@ -285,6 +310,7 @@
                 "25":  {
                            "name":  "cat_aim",
                            "file":  "assets/audio/sfx/25_cat_aim.ogg",
+                           "fileMp3":  "assets/audio/sfx/25_cat_aim.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  6762,
@@ -296,6 +322,7 @@
                 "26":  {
                            "name":  "cat_charge",
                            "file":  "assets/audio/sfx/26_cat_charge.ogg",
+                           "fileMp3":  "assets/audio/sfx/26_cat_charge.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  8840,
@@ -307,6 +334,7 @@
                 "27":  {
                            "name":  "cat_crash",
                            "file":  "assets/audio/sfx/27_cat_crash.ogg",
+                           "fileMp3":  "assets/audio/sfx/27_cat_crash.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  20819,
@@ -318,6 +346,7 @@
                 "28":  {
                            "name":  "cat_eat",
                            "file":  "assets/audio/sfx/28_cat_eat.ogg",
+                           "fileMp3":  "assets/audio/sfx/28_cat_eat.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  31135,
@@ -329,6 +358,7 @@
                 "29":  {
                            "name":  "cat_purr_loop",
                            "file":  "assets/audio/sfx/29_cat_purr_loop.ogg",
+                           "fileMp3":  "assets/audio/sfx/29_cat_purr_loop.mp3",
                            "loop":  true,
                            "loopStart":  0,
                            "loopEnd":  17931,
@@ -340,6 +370,7 @@
                 "30":  {
                            "name":  "cat_purr_end",
                            "file":  "assets/audio/sfx/30_cat_purr_end.ogg",
+                           "fileMp3":  "assets/audio/sfx/30_cat_purr_end.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  55176,
@@ -351,6 +382,7 @@
                 "31":  {
                            "name":  "cat_steal",
                            "file":  "assets/audio/sfx/31_cat_steal.ogg",
+                           "fileMp3":  "assets/audio/sfx/31_cat_steal.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11034,
@@ -362,6 +394,7 @@
                 "32":  {
                            "name":  "cat_string",
                            "file":  "assets/audio/sfx/32_cat_string.ogg",
+                           "fileMp3":  "assets/audio/sfx/32_cat_string.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7132,
@@ -373,6 +406,7 @@
                 "33":  {
                            "name":  "cat_trance",
                            "file":  "assets/audio/sfx/33_cat_trance.ogg",
+                           "fileMp3":  "assets/audio/sfx/33_cat_trance.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  44074,
@@ -384,6 +418,7 @@
                 "34":  {
                            "name":  "eat_food",
                            "file":  "assets/audio/sfx/34_eat_food.ogg",
+                           "fileMp3":  "assets/audio/sfx/34_eat_food.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7728,
@@ -395,6 +430,7 @@
                 "35":  {
                            "name":  "exit_ready",
                            "file":  "assets/audio/sfx/35_exit_ready.ogg",
+                           "fileMp3":  "assets/audio/sfx/35_exit_ready.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  26468,
@@ -406,6 +442,7 @@
                 "36":  {
                            "name":  "fan_loop",
                            "file":  "assets/audio/sfx/36_fan_loop.ogg",
+                           "fileMp3":  "assets/audio/sfx/36_fan_loop.mp3",
                            "loop":  true,
                            "loopStart":  0,
                            "loopEnd":  28983,
@@ -417,6 +454,7 @@
                 "37":  {
                            "name":  "floor_switch",
                            "file":  "assets/audio/sfx/37_floor_switch.ogg",
+                           "fileMp3":  "assets/audio/sfx/37_floor_switch.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4166,
@@ -428,6 +466,7 @@
                 "38":  {
                            "name":  "hatch_open",
                            "file":  "assets/audio/sfx/38_hatch_open.ogg",
+                           "fileMp3":  "assets/audio/sfx/38_hatch_open.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7525,
@@ -439,6 +478,7 @@
                 "39":  {
                            "name":  "hide",
                            "file":  "assets/audio/sfx/39_hide.ogg",
+                           "fileMp3":  "assets/audio/sfx/39_hide.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4246,
@@ -450,6 +490,7 @@
                 "40":  {
                            "name":  "hide_out",
                            "file":  "assets/audio/sfx/40_hide_out.ogg",
+                           "fileMp3":  "assets/audio/sfx/40_hide_out.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  3312,
@@ -461,6 +502,7 @@
                 "41":  {
                            "name":  "map_house",
                            "file":  "assets/audio/sfx/41_map_house.ogg",
+                           "fileMp3":  "assets/audio/sfx/41_map_house.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11010,
@@ -472,6 +514,7 @@
                 "42":  {
                            "name":  "map_node",
                            "file":  "assets/audio/sfx/42_map_node.ogg",
+                           "fileMp3":  "assets/audio/sfx/42_map_node.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11047,
@@ -483,6 +526,7 @@
                 "43":  {
                            "name":  "map_path",
                            "file":  "assets/audio/sfx/43_map_path.ogg",
+                           "fileMp3":  "assets/audio/sfx/43_map_path.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  18464,
@@ -494,6 +538,7 @@
                 "44":  {
                            "name":  "mouse_walk_left1",
                            "file":  "assets/audio/sfx/44_mouse_walk_left1.ogg",
+                           "fileMp3":  "assets/audio/sfx/44_mouse_walk_left1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  680,
@@ -505,6 +550,7 @@
                 "45":  {
                            "name":  "mouse_walk_left2",
                            "file":  "assets/audio/sfx/45_mouse_walk_left2.ogg",
+                           "fileMp3":  "assets/audio/sfx/45_mouse_walk_left2.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  666,
@@ -516,6 +562,7 @@
                 "46":  {
                            "name":  "mouse_walk_right1",
                            "file":  "assets/audio/sfx/46_mouse_walk_right1.ogg",
+                           "fileMp3":  "assets/audio/sfx/46_mouse_walk_right1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  664,
@@ -527,6 +574,7 @@
                 "47":  {
                            "name":  "mouse_walk_right2",
                            "file":  "assets/audio/sfx/47_mouse_walk_right2.ogg",
+                           "fileMp3":  "assets/audio/sfx/47_mouse_walk_right2.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  666,
@@ -538,6 +586,7 @@
                 "48":  {
                            "name":  "mouse_swim_left1",
                            "file":  "assets/audio/sfx/48_mouse_swim_left1.ogg",
+                           "fileMp3":  "assets/audio/sfx/48_mouse_swim_left1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4410,
@@ -549,6 +598,7 @@
                 "49":  {
                            "name":  "mouse_swim_right1",
                            "file":  "assets/audio/sfx/49_mouse_swim_right1.ogg",
+                           "fileMp3":  "assets/audio/sfx/49_mouse_swim_right1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  6292,
@@ -560,6 +610,7 @@
                 "50":  {
                            "name":  "mousehole_enter",
                            "file":  "assets/audio/sfx/50_mousehole_enter.ogg",
+                           "fileMp3":  "assets/audio/sfx/50_mousehole_enter.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  1907,
@@ -571,6 +622,7 @@
                 "51":  {
                            "name":  "mousehole_exit",
                            "file":  "assets/audio/sfx/51_mousehole_exit.ogg",
+                           "fileMp3":  "assets/audio/sfx/51_mousehole_exit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  1907,
@@ -582,6 +634,7 @@
                 "52":  {
                            "name":  "mystery_loop",
                            "file":  "assets/audio/sfx/52_mystery_loop.ogg",
+                           "fileMp3":  "assets/audio/sfx/52_mystery_loop.mp3",
                            "loop":  true,
                            "loopStart":  0,
                            "loopEnd":  55167,
@@ -593,6 +646,7 @@
                 "53":  {
                            "name":  "pickup_balloon",
                            "file":  "assets/audio/sfx/53_pickup_balloon.ogg",
+                           "fileMp3":  "assets/audio/sfx/53_pickup_balloon.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  15176,
@@ -604,6 +658,7 @@
                 "54":  {
                            "name":  "pickup_chilli",
                            "file":  "assets/audio/sfx/54_pickup_chilli.ogg",
+                           "fileMp3":  "assets/audio/sfx/54_pickup_chilli.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  20325,
@@ -615,6 +670,7 @@
                 "55":  {
                            "name":  "pickup_fish",
                            "file":  "assets/audio/sfx/55_pickup_fish.ogg",
+                           "fileMp3":  "assets/audio/sfx/55_pickup_fish.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  10397,
@@ -626,6 +682,7 @@
                 "56":  {
                            "name":  "ammo_bounce",
                            "file":  "assets/audio/sfx/56_ammo_bounce.ogg",
+                           "fileMp3":  "assets/audio/sfx/56_ammo_bounce.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  1654,
@@ -637,6 +694,7 @@
                 "57":  {
                            "name":  "ammo_ricochet1",
                            "file":  "assets/audio/sfx/57_ammo_ricochet1.ogg",
+                           "fileMp3":  "assets/audio/sfx/57_ammo_ricochet1.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  3791,
@@ -648,6 +706,7 @@
                 "58":  {
                            "name":  "ammo_ricochet2",
                            "file":  "assets/audio/sfx/58_ammo_ricochet2.ogg",
+                           "fileMp3":  "assets/audio/sfx/58_ammo_ricochet2.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  3632,
@@ -659,6 +718,7 @@
                 "59":  {
                            "name":  "ammo_ricochet3",
                            "file":  "assets/audio/sfx/59_ammo_ricochet3.ogg",
+                           "fileMp3":  "assets/audio/sfx/59_ammo_ricochet3.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  3855,
@@ -670,6 +730,7 @@
                 "60":  {
                            "name":  "ammo_spoon_shoot",
                            "file":  "assets/audio/sfx/60_ammo_spoon_shoot.ogg",
+                           "fileMp3":  "assets/audio/sfx/60_ammo_spoon_shoot.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4414,
@@ -681,6 +742,7 @@
                 "61":  {
                            "name":  "ammo_spoon_hit",
                            "file":  "assets/audio/sfx/61_ammo_spoon_hit.ogg",
+                           "fileMp3":  "assets/audio/sfx/61_ammo_spoon_hit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7724,
@@ -692,6 +754,7 @@
                 "62":  {
                            "name":  "ammo_star_shoot",
                            "file":  "assets/audio/sfx/62_ammo_star_shoot.ogg",
+                           "fileMp3":  "assets/audio/sfx/62_ammo_star_shoot.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  2756,
@@ -703,6 +766,7 @@
                 "63":  {
                            "name":  "ammo_star_hit",
                            "file":  "assets/audio/sfx/63_ammo_star_hit.ogg",
+                           "fileMp3":  "assets/audio/sfx/63_ammo_star_hit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  2076,
@@ -714,6 +778,7 @@
                 "64":  {
                            "name":  "ammo_fire_shoot",
                            "file":  "assets/audio/sfx/64_ammo_fire_shoot.ogg",
+                           "fileMp3":  "assets/audio/sfx/64_ammo_fire_shoot.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7470,
@@ -725,6 +790,7 @@
                 "65":  {
                            "name":  "ammo_fire_hit",
                            "file":  "assets/audio/sfx/65_ammo_fire_hit.ogg",
+                           "fileMp3":  "assets/audio/sfx/65_ammo_fire_hit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  3532,
@@ -736,6 +802,7 @@
                 "66":  {
                            "name":  "ammo_dart_shoot",
                            "file":  "assets/audio/sfx/66_ammo_dart_shoot.ogg",
+                           "fileMp3":  "assets/audio/sfx/66_ammo_dart_shoot.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4388,
@@ -747,6 +814,7 @@
                 "67":  {
                            "name":  "ammo_dart_hit",
                            "file":  "assets/audio/sfx/67_ammo_dart_hit.ogg",
+                           "fileMp3":  "assets/audio/sfx/67_ammo_dart_hit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  34996,
@@ -758,6 +826,7 @@
                 "68":  {
                            "name":  "trap_deactivate",
                            "file":  "assets/audio/sfx/68_trap_deactivate.ogg",
+                           "fileMp3":  "assets/audio/sfx/68_trap_deactivate.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11874,
@@ -769,6 +838,7 @@
                 "69":  {
                            "name":  "use_cannon",
                            "file":  "assets/audio/sfx/69_use_cannon.ogg",
+                           "fileMp3":  "assets/audio/sfx/69_use_cannon.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  33096,
@@ -780,6 +850,7 @@
                 "70":  {
                            "name":  "use_exit",
                            "file":  "assets/audio/sfx/70_use_exit.ogg",
+                           "fileMp3":  "assets/audio/sfx/70_use_exit.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  33108,
@@ -791,6 +862,7 @@
                 "71":  {
                            "name":  "use_pipe",
                            "file":  "assets/audio/sfx/71_use_pipe.ogg",
+                           "fileMp3":  "assets/audio/sfx/71_use_pipe.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  4638,
@@ -802,6 +874,7 @@
                 "72":  {
                            "name":  "use_tv",
                            "file":  "assets/audio/sfx/72_use_tv.ogg",
+                           "fileMp3":  "assets/audio/sfx/72_use_tv.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  54251,
@@ -813,6 +886,7 @@
                 "73":  {
                            "name":  "eat_munch",
                            "file":  "assets/audio/sfx/73_eat_munch.ogg",
+                           "fileMp3":  "assets/audio/sfx/73_eat_munch.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  24149,
@@ -824,6 +898,7 @@
                 "74":  {
                            "name":  "ui_slider_set",
                            "file":  "assets/audio/sfx/74_ui_slider_set.ogg",
+                           "fileMp3":  "assets/audio/sfx/74_ui_slider_set.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  12320,
@@ -835,6 +910,7 @@
                 "75":  {
                            "name":  "ui_snap",
                            "file":  "assets/audio/sfx/75_ui_snap.ogg",
+                           "fileMp3":  "assets/audio/sfx/75_ui_snap.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  1948,
@@ -846,6 +922,7 @@
                 "76":  {
                            "name":  "ui_speech",
                            "file":  "assets/audio/sfx/76_ui_speech.ogg",
+                           "fileMp3":  "assets/audio/sfx/76_ui_speech.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  14241,
@@ -857,6 +934,7 @@
                 "77":  {
                            "name":  "mouse_dies",
                            "file":  "assets/audio/sfx/77_mouse_dies.ogg",
+                           "fileMp3":  "assets/audio/sfx/77_mouse_dies.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  76618,
@@ -868,6 +946,7 @@
                 "78":  {
                            "name":  "squeek_hi_01",
                            "file":  "assets/audio/sfx/78_squeek_hi_01.ogg",
+                           "fileMp3":  "assets/audio/sfx/78_squeek_hi_01.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  12272,
@@ -879,6 +958,7 @@
                 "79":  {
                            "name":  "squeek_hi_02",
                            "file":  "assets/audio/sfx/79_squeek_hi_02.ogg",
+                           "fileMp3":  "assets/audio/sfx/79_squeek_hi_02.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  10976,
@@ -890,6 +970,7 @@
                 "80":  {
                            "name":  "squeek_hi_03",
                            "file":  "assets/audio/sfx/80_squeek_hi_03.ogg",
+                           "fileMp3":  "assets/audio/sfx/80_squeek_hi_03.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  8320,
@@ -901,6 +982,7 @@
                 "81":  {
                            "name":  "squeek_hi_04",
                            "file":  "assets/audio/sfx/81_squeek_hi_04.ogg",
+                           "fileMp3":  "assets/audio/sfx/81_squeek_hi_04.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7096,
@@ -912,6 +994,7 @@
                 "82":  {
                            "name":  "squeek_hi_05",
                            "file":  "assets/audio/sfx/82_squeek_hi_05.ogg",
+                           "fileMp3":  "assets/audio/sfx/82_squeek_hi_05.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7536,
@@ -923,6 +1006,7 @@
                 "83":  {
                            "name":  "squeek_hi_06",
                            "file":  "assets/audio/sfx/83_squeek_hi_06.ogg",
+                           "fileMp3":  "assets/audio/sfx/83_squeek_hi_06.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  9537,
@@ -934,6 +1018,7 @@
                 "84":  {
                            "name":  "squeek_bye_01",
                            "file":  "assets/audio/sfx/84_squeek_bye_01.ogg",
+                           "fileMp3":  "assets/audio/sfx/84_squeek_bye_01.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  6496,
@@ -945,6 +1030,7 @@
                 "85":  {
                            "name":  "squeek_bye_02",
                            "file":  "assets/audio/sfx/85_squeek_bye_02.ogg",
+                           "fileMp3":  "assets/audio/sfx/85_squeek_bye_02.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  12672,
@@ -956,6 +1042,7 @@
                 "86":  {
                            "name":  "squeek_bye_03",
                            "file":  "assets/audio/sfx/86_squeek_bye_03.ogg",
+                           "fileMp3":  "assets/audio/sfx/86_squeek_bye_03.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  12720,
@@ -967,6 +1054,7 @@
                 "87":  {
                            "name":  "squeek_bye_04",
                            "file":  "assets/audio/sfx/87_squeek_bye_04.ogg",
+                           "fileMp3":  "assets/audio/sfx/87_squeek_bye_04.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  9288,
@@ -978,6 +1066,7 @@
                 "88":  {
                            "name":  "barrier_down",
                            "file":  "assets/audio/sfx/88_barrier_down.ogg",
+                           "fileMp3":  "assets/audio/sfx/88_barrier_down.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  7568,
@@ -989,6 +1078,7 @@
                 "89":  {
                            "name":  "barrier_up",
                            "file":  "assets/audio/sfx/89_barrier_up.ogg",
+                           "fileMp3":  "assets/audio/sfx/89_barrier_up.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  6829,
@@ -1000,6 +1090,7 @@
                 "90":  {
                            "name":  "cat_dizzy",
                            "file":  "assets/audio/sfx/90_cat_dizzy.ogg",
+                           "fileMp3":  "assets/audio/sfx/90_cat_dizzy.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  25996,
@@ -1011,6 +1102,7 @@
                 "91":  {
                            "name":  "cat_lost",
                            "file":  "assets/audio/sfx/91_cat_lost.ogg",
+                           "fileMp3":  "assets/audio/sfx/91_cat_lost.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  17650,
@@ -1022,6 +1114,7 @@
                 "92":  {
                            "name":  "close_call",
                            "file":  "assets/audio/sfx/92_close_call.ogg",
+                           "fileMp3":  "assets/audio/sfx/92_close_call.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  19944,
@@ -1033,6 +1126,7 @@
                 "93":  {
                            "name":  "cp_close",
                            "file":  "assets/audio/sfx/93_cp_close.ogg",
+                           "fileMp3":  "assets/audio/sfx/93_cp_close.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  22080,
@@ -1044,6 +1138,7 @@
                 "94":  {
                            "name":  "cp_enter",
                            "file":  "assets/audio/sfx/94_cp_enter.ogg",
+                           "fileMp3":  "assets/audio/sfx/94_cp_enter.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  24149,
@@ -1055,6 +1150,7 @@
                 "95":  {
                            "name":  "cp_open",
                            "file":  "assets/audio/sfx/95_cp_open.ogg",
+                           "fileMp3":  "assets/audio/sfx/95_cp_open.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  30885,
@@ -1066,6 +1162,7 @@
                 "96":  {
                            "name":  "death_cloud",
                            "file":  "assets/audio/sfx/96_death_cloud.ogg",
+                           "fileMp3":  "assets/audio/sfx/96_death_cloud.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  36434,
@@ -1077,6 +1174,7 @@
                 "97":  {
                            "name":  "dog_alarm_loop",
                            "file":  "assets/audio/sfx/97_dog_alarm_loop.ogg",
+                           "fileMp3":  "assets/audio/sfx/97_dog_alarm_loop.mp3",
                            "loop":  true,
                            "loopStart":  0,
                            "loopEnd":  11039,
@@ -1088,6 +1186,7 @@
                 "98":  {
                            "name":  "dog_off",
                            "file":  "assets/audio/sfx/98_dog_off.ogg",
+                           "fileMp3":  "assets/audio/sfx/98_dog_off.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  13362,
@@ -1099,6 +1198,7 @@
                 "99":  {
                            "name":  "dog_on",
                            "file":  "assets/audio/sfx/99_dog_on.ogg",
+                           "fileMp3":  "assets/audio/sfx/99_dog_on.mp3",
                            "loop":  false,
                            "loopStart":  null,
                            "loopEnd":  11618,
@@ -1110,6 +1210,7 @@
                 "100":  {
                             "name":  "dog_walk_loop",
                             "file":  "assets/audio/sfx/100_dog_walk_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/100_dog_walk_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  20960,
@@ -1121,6 +1222,7 @@
                 "101":  {
                             "name":  "magic_pad",
                             "file":  "assets/audio/sfx/101_magic_pad.ogg",
+                            "fileMp3":  "assets/audio/sfx/101_magic_pad.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  73876,
@@ -1132,6 +1234,7 @@
                 "102":  {
                             "name":  "spark_twinkle",
                             "file":  "assets/audio/sfx/102_spark_twinkle.ogg",
+                            "fileMp3":  "assets/audio/sfx/102_spark_twinkle.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  22080,
@@ -1143,6 +1246,7 @@
                 "103":  {
                             "name":  "fw_bang1",
                             "file":  "assets/audio/sfx/103_fw_bang1.ogg",
+                            "fileMp3":  "assets/audio/sfx/103_fw_bang1.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13231,
@@ -1154,6 +1258,7 @@
                 "104":  {
                             "name":  "fw_bang2",
                             "file":  "assets/audio/sfx/104_fw_bang2.ogg",
+                            "fileMp3":  "assets/audio/sfx/104_fw_bang2.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13248,
@@ -1165,6 +1270,7 @@
                 "105":  {
                             "name":  "fw_bang3",
                             "file":  "assets/audio/sfx/105_fw_bang3.ogg",
+                            "fileMp3":  "assets/audio/sfx/105_fw_bang3.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13243,
@@ -1176,6 +1282,7 @@
                 "106":  {
                             "name":  "fw_bang4",
                             "file":  "assets/audio/sfx/106_fw_bang4.ogg",
+                            "fileMp3":  "assets/audio/sfx/106_fw_bang4.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13243,
@@ -1187,6 +1294,7 @@
                 "107":  {
                             "name":  "fw_shoot1",
                             "file":  "assets/audio/sfx/107_fw_shoot1.ogg",
+                            "fileMp3":  "assets/audio/sfx/107_fw_shoot1.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  9295,
@@ -1198,6 +1306,7 @@
                 "108":  {
                             "name":  "fw_shoot2",
                             "file":  "assets/audio/sfx/108_fw_shoot2.ogg",
+                            "fileMp3":  "assets/audio/sfx/108_fw_shoot2.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  9298,
@@ -1209,6 +1318,7 @@
                 "109":  {
                             "name":  "fw_shoot3",
                             "file":  "assets/audio/sfx/109_fw_shoot3.ogg",
+                            "fileMp3":  "assets/audio/sfx/109_fw_shoot3.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  9295,
@@ -1220,6 +1330,7 @@
                 "110":  {
                             "name":  "pickup_food",
                             "file":  "assets/audio/sfx/110_pickup_food.ogg",
+                            "fileMp3":  "assets/audio/sfx/110_pickup_food.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  15406,
@@ -1231,6 +1342,7 @@
                 "111":  {
                             "name":  "pickup_key",
                             "file":  "assets/audio/sfx/111_pickup_key.ogg",
+                            "fileMp3":  "assets/audio/sfx/111_pickup_key.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  15406,
@@ -1242,6 +1354,7 @@
                 "112":  {
                             "name":  "pickup_string",
                             "file":  "assets/audio/sfx/112_pickup_string.ogg",
+                            "fileMp3":  "assets/audio/sfx/112_pickup_string.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13759,
@@ -1253,6 +1366,7 @@
                 "113":  {
                             "name":  "pickup_toy",
                             "file":  "assets/audio/sfx/113_pickup_toy.ogg",
+                            "fileMp3":  "assets/audio/sfx/113_pickup_toy.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  6171,
@@ -1264,6 +1378,7 @@
                 "114":  {
                             "name":  "platform_loop",
                             "file":  "assets/audio/sfx/114_platform_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/114_platform_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  26469,
@@ -1275,6 +1390,7 @@
                 "115":  {
                             "name":  "switch_reset",
                             "file":  "assets/audio/sfx/115_switch_reset.ogg",
+                            "fileMp3":  "assets/audio/sfx/115_switch_reset.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  4410,
@@ -1286,6 +1402,7 @@
                 "116":  {
                             "name":  "timer_alarm",
                             "file":  "assets/audio/sfx/116_timer_alarm.ogg",
+                            "fileMp3":  "assets/audio/sfx/116_timer_alarm.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  17640,
@@ -1297,6 +1414,7 @@
                 "117":  {
                             "name":  "timer_fast_loop",
                             "file":  "assets/audio/sfx/117_timer_fast_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/117_timer_fast_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  10430,
@@ -1308,6 +1426,7 @@
                 "118":  {
                             "name":  "timer_slow_loop",
                             "file":  "assets/audio/sfx/118_timer_slow_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/118_timer_slow_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  20862,
@@ -1319,6 +1438,7 @@
                 "119":  {
                             "name":  "trap_activate",
                             "file":  "assets/audio/sfx/119_trap_activate.ogg",
+                            "fileMp3":  "assets/audio/sfx/119_trap_activate.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  9022,
@@ -1330,6 +1450,7 @@
                 "120":  {
                             "name":  "vendor",
                             "file":  "assets/audio/sfx/120_vendor.ogg",
+                            "fileMp3":  "assets/audio/sfx/120_vendor.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  9744,
@@ -1341,6 +1462,7 @@
                 "121":  {
                             "name":  "burn",
                             "file":  "assets/audio/sfx/121_burn.ogg",
+                            "fileMp3":  "assets/audio/sfx/121_burn.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  16340,
@@ -1352,6 +1474,7 @@
                 "122":  {
                             "name":  "death_fire",
                             "file":  "assets/audio/sfx/122_death_fire.ogg",
+                            "fileMp3":  "assets/audio/sfx/122_death_fire.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  30885,
@@ -1363,6 +1486,7 @@
                 "123":  {
                             "name":  "prefall",
                             "file":  "assets/audio/sfx/123_prefall.ogg",
+                            "fileMp3":  "assets/audio/sfx/123_prefall.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  15588,
@@ -1374,6 +1498,7 @@
                 "124":  {
                             "name":  "score_note01",
                             "file":  "assets/audio/sfx/124_score_note01.ogg",
+                            "fileMp3":  "assets/audio/sfx/124_score_note01.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1385,6 +1510,7 @@
                 "125":  {
                             "name":  "score_note02",
                             "file":  "assets/audio/sfx/125_score_note02.ogg",
+                            "fileMp3":  "assets/audio/sfx/125_score_note02.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1396,6 +1522,7 @@
                 "126":  {
                             "name":  "score_note03",
                             "file":  "assets/audio/sfx/126_score_note03.ogg",
+                            "fileMp3":  "assets/audio/sfx/126_score_note03.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1407,6 +1534,7 @@
                 "127":  {
                             "name":  "score_note04",
                             "file":  "assets/audio/sfx/127_score_note04.ogg",
+                            "fileMp3":  "assets/audio/sfx/127_score_note04.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1418,6 +1546,7 @@
                 "128":  {
                             "name":  "score_note05",
                             "file":  "assets/audio/sfx/128_score_note05.ogg",
+                            "fileMp3":  "assets/audio/sfx/128_score_note05.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1429,6 +1558,7 @@
                 "129":  {
                             "name":  "score_note06",
                             "file":  "assets/audio/sfx/129_score_note06.ogg",
+                            "fileMp3":  "assets/audio/sfx/129_score_note06.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1440,6 +1570,7 @@
                 "130":  {
                             "name":  "score_note07",
                             "file":  "assets/audio/sfx/130_score_note07.ogg",
+                            "fileMp3":  "assets/audio/sfx/130_score_note07.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1451,6 +1582,7 @@
                 "131":  {
                             "name":  "score_note08",
                             "file":  "assets/audio/sfx/131_score_note08.ogg",
+                            "fileMp3":  "assets/audio/sfx/131_score_note08.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1462,6 +1594,7 @@
                 "132":  {
                             "name":  "score_note09",
                             "file":  "assets/audio/sfx/132_score_note09.ogg",
+                            "fileMp3":  "assets/audio/sfx/132_score_note09.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1473,6 +1606,7 @@
                 "133":  {
                             "name":  "score_note10",
                             "file":  "assets/audio/sfx/133_score_note10.ogg",
+                            "fileMp3":  "assets/audio/sfx/133_score_note10.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1484,6 +1618,7 @@
                 "134":  {
                             "name":  "score_note11",
                             "file":  "assets/audio/sfx/134_score_note11.ogg",
+                            "fileMp3":  "assets/audio/sfx/134_score_note11.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1495,6 +1630,7 @@
                 "135":  {
                             "name":  "score_note12",
                             "file":  "assets/audio/sfx/135_score_note12.ogg",
+                            "fileMp3":  "assets/audio/sfx/135_score_note12.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1506,6 +1642,7 @@
                 "136":  {
                             "name":  "score_note13",
                             "file":  "assets/audio/sfx/136_score_note13.ogg",
+                            "fileMp3":  "assets/audio/sfx/136_score_note13.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14688,
@@ -1517,6 +1654,7 @@
                 "137":  {
                             "name":  "score_bonus",
                             "file":  "assets/audio/sfx/137_score_bonus.ogg",
+                            "fileMp3":  "assets/audio/sfx/137_score_bonus.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  17640,
@@ -1528,6 +1666,7 @@
                 "138":  {
                             "name":  "ui_wobble",
                             "file":  "assets/audio/sfx/138_ui_wobble.ogg",
+                            "fileMp3":  "assets/audio/sfx/138_ui_wobble.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  7912,
@@ -1539,6 +1678,7 @@
                 "139":  {
                             "name":  "ui_newroom",
                             "file":  "assets/audio/sfx/139_ui_newroom.ogg",
+                            "fileMp3":  "assets/audio/sfx/139_ui_newroom.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  33078,
@@ -1550,6 +1690,7 @@
                 "140":  {
                             "name":  "ui_woosh",
                             "file":  "assets/audio/sfx/140_ui_woosh.ogg",
+                            "fileMp3":  "assets/audio/sfx/140_ui_woosh.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  2496,
@@ -1561,6 +1702,7 @@
                 "141":  {
                             "name":  "ui_findsecret",
                             "file":  "assets/audio/sfx/141_ui_findsecret.ogg",
+                            "fileMp3":  "assets/audio/sfx/141_ui_findsecret.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  35282,
@@ -1572,6 +1714,7 @@
                 "142":  {
                             "name":  "twang",
                             "file":  "assets/audio/sfx/142_twang.ogg",
+                            "fileMp3":  "assets/audio/sfx/142_twang.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  5525,
@@ -1583,6 +1726,7 @@
                 "143":  {
                             "name":  "boss_robot_die",
                             "file":  "assets/audio/sfx/143_boss_robot_die.ogg",
+                            "fileMp3":  "assets/audio/sfx/143_boss_robot_die.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  30873,
@@ -1594,6 +1738,7 @@
                 "144":  {
                             "name":  "ui_reward",
                             "file":  "assets/audio/sfx/144_ui_reward.ogg",
+                            "fileMp3":  "assets/audio/sfx/144_ui_reward.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  15643,
@@ -1605,6 +1750,7 @@
                 "145":  {
                             "name":  "ui_scorecount_loop",
                             "file":  "assets/audio/sfx/145_ui_scorecount_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/145_ui_scorecount_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  2591,
@@ -1616,6 +1762,7 @@
                 "146":  {
                             "name":  "ui_banner",
                             "file":  "assets/audio/sfx/146_ui_banner.ogg",
+                            "fileMp3":  "assets/audio/sfx/146_ui_banner.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  22286,
@@ -1627,6 +1774,7 @@
                 "147":  {
                             "name":  "ui_textpop",
                             "file":  "assets/audio/sfx/147_ui_textpop.ogg",
+                            "fileMp3":  "assets/audio/sfx/147_ui_textpop.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13232,
@@ -1638,6 +1786,7 @@
                 "148":  {
                             "name":  "metaldoor_close",
                             "file":  "assets/audio/sfx/148_metaldoor_close.ogg",
+                            "fileMp3":  "assets/audio/sfx/148_metaldoor_close.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  31840,
@@ -1649,6 +1798,7 @@
                 "149":  {
                             "name":  "mouse_sneak_left1",
                             "file":  "assets/audio/sfx/149_mouse_sneak_left1.ogg",
+                            "fileMp3":  "assets/audio/sfx/149_mouse_sneak_left1.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  3970,
@@ -1660,6 +1810,7 @@
                 "150":  {
                             "name":  "mouse_sneak_right1",
                             "file":  "assets/audio/sfx/150_mouse_sneak_right1.ogg",
+                            "fileMp3":  "assets/audio/sfx/150_mouse_sneak_right1.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  3970,
@@ -1671,6 +1822,7 @@
                 "151":  {
                             "name":  "hide_alert",
                             "file":  "assets/audio/sfx/151_hide_alert.ogg",
+                            "fileMp3":  "assets/audio/sfx/151_hide_alert.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  2207,
@@ -1682,6 +1834,7 @@
                 "152":  {
                             "name":  "hide_end",
                             "file":  "assets/audio/sfx/152_hide_end.ogg",
+                            "fileMp3":  "assets/audio/sfx/152_hide_end.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  6376,
@@ -1693,6 +1846,7 @@
                 "153":  {
                             "name":  "boss_ghost_agro",
                             "file":  "assets/audio/sfx/153_boss_ghost_agro.ogg",
+                            "fileMp3":  "assets/audio/sfx/153_boss_ghost_agro.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  35774,
@@ -1704,6 +1858,7 @@
                 "154":  {
                             "name":  "bigcat_agro",
                             "file":  "assets/audio/sfx/154_bigcat_agro.ogg",
+                            "fileMp3":  "assets/audio/sfx/154_bigcat_agro.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  22061,
@@ -1715,6 +1870,7 @@
                 "155":  {
                             "name":  "bigcat_eat",
                             "file":  "assets/audio/sfx/155_bigcat_eat.ogg",
+                            "fileMp3":  "assets/audio/sfx/155_bigcat_eat.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  37126,
@@ -1726,6 +1882,7 @@
                 "156":  {
                             "name":  "cat_dizzy",
                             "file":  "assets/audio/sfx/156_cat_dizzy.ogg",
+                            "fileMp3":  "assets/audio/sfx/156_cat_dizzy.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  25996,
@@ -1737,6 +1894,7 @@
                 "157":  {
                             "name":  "organic_spray",
                             "file":  "assets/audio/sfx/157_organic_spray.ogg",
+                            "fileMp3":  "assets/audio/sfx/157_organic_spray.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  8831,
@@ -1748,6 +1906,7 @@
                 "158":  {
                             "name":  "organic_rumble",
                             "file":  "assets/audio/sfx/158_organic_rumble.ogg",
+                            "fileMp3":  "assets/audio/sfx/158_organic_rumble.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  30889,
@@ -1759,6 +1918,7 @@
                 "159":  {
                             "name":  "organic_ooze_loop",
                             "file":  "assets/audio/sfx/159_organic_ooze_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/159_organic_ooze_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  38608,
@@ -1770,6 +1930,7 @@
                 "160":  {
                             "name":  "launcher_move",
                             "file":  "assets/audio/sfx/160_launcher_move.ogg",
+                            "fileMp3":  "assets/audio/sfx/160_launcher_move.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  16013,
@@ -1781,6 +1942,7 @@
                 "161":  {
                             "name":  "reflector_turn",
                             "file":  "assets/audio/sfx/161_reflector_turn.ogg",
+                            "fileMp3":  "assets/audio/sfx/161_reflector_turn.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  4905,
@@ -1792,6 +1954,7 @@
                 "162":  {
                             "name":  "boss_water_die",
                             "file":  "assets/audio/sfx/162_boss_water_die.ogg",
+                            "fileMp3":  "assets/audio/sfx/162_boss_water_die.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  24403,
@@ -1803,6 +1966,7 @@
                 "163":  {
                             "name":  "boss_rail_loop",
                             "file":  "assets/audio/sfx/163_boss_rail_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/163_boss_rail_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  24075,
@@ -1814,6 +1978,7 @@
                 "164":  {
                             "name":  "boss_vacuum_loop",
                             "file":  "assets/audio/sfx/164_boss_vacuum_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/164_boss_vacuum_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  24075,
@@ -1825,6 +1990,7 @@
                 "165":  {
                             "name":  "boss_vacuum_off",
                             "file":  "assets/audio/sfx/165_boss_vacuum_off.ogg",
+                            "fileMp3":  "assets/audio/sfx/165_boss_vacuum_off.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13249,
@@ -1836,6 +2002,7 @@
                 "166":  {
                             "name":  "boss_rail_turn",
                             "file":  "assets/audio/sfx/166_boss_rail_turn.ogg",
+                            "fileMp3":  "assets/audio/sfx/166_boss_rail_turn.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  14809,
@@ -1847,6 +2014,7 @@
                 "167":  {
                             "name":  "dynamite_loop",
                             "file":  "assets/audio/sfx/167_dynamite_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/167_dynamite_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  8820,
@@ -1858,6 +2026,7 @@
                 "168":  {
                             "name":  "dynamite_explode",
                             "file":  "assets/audio/sfx/168_dynamite_explode.ogg",
+                            "fileMp3":  "assets/audio/sfx/168_dynamite_explode.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  17662,
@@ -1869,6 +2038,7 @@
                 "169":  {
                             "name":  "zapper_on",
                             "file":  "assets/audio/sfx/169_zapper_on.ogg",
+                            "fileMp3":  "assets/audio/sfx/169_zapper_on.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  20480,
@@ -1880,6 +2050,7 @@
                 "170":  {
                             "name":  "zapper_off",
                             "file":  "assets/audio/sfx/170_zapper_off.ogg",
+                            "fileMp3":  "assets/audio/sfx/170_zapper_off.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  19865,
@@ -1891,6 +2062,7 @@
                 "171":  {
                             "name":  "zapper_loop",
                             "file":  "assets/audio/sfx/171_zapper_loop.ogg",
+                            "fileMp3":  "assets/audio/sfx/171_zapper_loop.mp3",
                             "loop":  true,
                             "loopStart":  0,
                             "loopEnd":  30888,
@@ -1902,6 +2074,7 @@
                 "172":  {
                             "name":  "bush",
                             "file":  "assets/audio/sfx/172_bush.ogg",
+                            "fileMp3":  "assets/audio/sfx/172_bush.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  17507,
@@ -1913,6 +2086,7 @@
                 "173":  {
                             "name":  "ui_woosh_dossier",
                             "file":  "assets/audio/sfx/173_ui_woosh_dossier.ogg",
+                            "fileMp3":  "assets/audio/sfx/173_ui_woosh_dossier.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  4030,
@@ -1924,6 +2098,7 @@
                 "174":  {
                             "name":  "ui_photo",
                             "file":  "assets/audio/sfx/174_ui_photo.ogg",
+                            "fileMp3":  "assets/audio/sfx/174_ui_photo.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  13234,
@@ -1935,6 +2110,7 @@
                 "175":  {
                             "name":  "ui_woosh_quick",
                             "file":  "assets/audio/sfx/175_ui_woosh_quick.ogg",
+                            "fileMp3":  "assets/audio/sfx/175_ui_woosh_quick.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  3948,
@@ -1946,6 +2122,7 @@
                 "176":  {
                             "name":  "pickup_dossier",
                             "file":  "assets/audio/sfx/176_pickup_dossier.ogg",
+                            "fileMp3":  "assets/audio/sfx/176_pickup_dossier.mp3",
                             "loop":  false,
                             "loopStart":  null,
                             "loopEnd":  8064,
@@ -1958,6 +2135,7 @@
     "music":  {
                   "CM_Alleys":  {
                                     "file":  "assets/audio/music/CM_Alleys.ogg",
+                                    "fileMp3":  "assets/audio/music/CM_Alleys.mp3",
                                     "loop":  true,
                                     "loopStart":  0,
                                     "loopEnd":  2137088,
@@ -1967,6 +2145,7 @@
                                 },
                   "CM_Alleys_Win":  {
                                         "file":  "assets/audio/music/CM_Alleys_Win.ogg",
+                                        "fileMp3":  "assets/audio/music/CM_Alleys_Win.mp3",
                                         "loop":  false,
                                         "loopStart":  null,
                                         "loopEnd":  145408,
@@ -1976,6 +2155,7 @@
                                     },
                   "CM_Apartments":  {
                                         "file":  "assets/audio/music/CM_Apartments.ogg",
+                                        "fileMp3":  "assets/audio/music/CM_Apartments.mp3",
                                         "loop":  true,
                                         "loopStart":  0,
                                         "loopEnd":  2904064,
@@ -1985,6 +2165,7 @@
                                     },
                   "CM_Apartments_Win":  {
                                             "file":  "assets/audio/music/CM_Apartments_Win.ogg",
+                                            "fileMp3":  "assets/audio/music/CM_Apartments_Win.mp3",
                                             "loop":  false,
                                             "loopStart":  null,
                                             "loopEnd":  157696,
@@ -1994,6 +2175,7 @@
                                         },
                   "CM_Factories":  {
                                        "file":  "assets/audio/music/CM_Factories.ogg",
+                                       "fileMp3":  "assets/audio/music/CM_Factories.mp3",
                                        "loop":  true,
                                        "loopStart":  0,
                                        "loopEnd":  2118656,
@@ -2003,6 +2185,7 @@
                                    },
                   "CM_Factories_Win":  {
                                            "file":  "assets/audio/music/CM_Factories_Win.ogg",
+                                           "fileMp3":  "assets/audio/music/CM_Factories_Win.mp3",
                                            "loop":  false,
                                            "loopStart":  null,
                                            "loopEnd":  183296,
@@ -2012,6 +2195,7 @@
                                        },
                   "CM_Haunted":  {
                                      "file":  "assets/audio/music/CM_Haunted.ogg",
+                                     "fileMp3":  "assets/audio/music/CM_Haunted.mp3",
                                      "loop":  true,
                                      "loopStart":  0,
                                      "loopEnd":  1995776,
@@ -2021,6 +2205,7 @@
                                  },
                   "CM_Haunted_Win":  {
                                          "file":  "assets/audio/music/CM_Haunted_Win.ogg",
+                                         "fileMp3":  "assets/audio/music/CM_Haunted_Win.mp3",
                                          "loop":  false,
                                          "loopStart":  null,
                                          "loopEnd":  225280,
@@ -2030,6 +2215,7 @@
                                      },
                   "CM_Homes":  {
                                    "file":  "assets/audio/music/CM_Homes.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Homes.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  2543616,
@@ -2039,6 +2225,7 @@
                                },
                   "CM_Homes_Win":  {
                                        "file":  "assets/audio/music/CM_Homes_Win.ogg",
+                                       "fileMp3":  "assets/audio/music/CM_Homes_Win.mp3",
                                        "loop":  false,
                                        "loopStart":  null,
                                        "loopEnd":  259072,
@@ -2048,6 +2235,7 @@
                                    },
                   "CM_IntroSting":  {
                                         "file":  "assets/audio/music/CM_IntroSting.ogg",
+                                        "fileMp3":  "assets/audio/music/CM_IntroSting.mp3",
                                         "loop":  false,
                                         "loopStart":  null,
                                         "loopEnd":  301056,
@@ -2057,6 +2245,7 @@
                                     },
                   "CM_Japan":  {
                                    "file":  "assets/audio/music/CM_Japan.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Japan.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  2036736,
@@ -2066,6 +2255,7 @@
                                },
                   "CM_Japan_Win":  {
                                        "file":  "assets/audio/music/CM_Japan_Win.ogg",
+                                       "fileMp3":  "assets/audio/music/CM_Japan_Win.mp3",
                                        "loop":  false,
                                        "loopStart":  null,
                                        "loopEnd":  180224,
@@ -2075,6 +2265,7 @@
                                    },
                   "CM_Jungle":  {
                                     "file":  "assets/audio/music/CM_Jungle.ogg",
+                                    "fileMp3":  "assets/audio/music/CM_Jungle.mp3",
                                     "loop":  true,
                                     "loopStart":  0,
                                     "loopEnd":  2140160,
@@ -2084,6 +2275,7 @@
                                 },
                   "CM_Jungle_Win":  {
                                         "file":  "assets/audio/music/CM_Jungle_Win.ogg",
+                                        "fileMp3":  "assets/audio/music/CM_Jungle_Win.mp3",
                                         "loop":  false,
                                         "loopStart":  null,
                                         "loopEnd":  223232,
@@ -2093,6 +2285,7 @@
                                     },
                   "CM_KiskaSting":  {
                                         "file":  "assets/audio/music/CM_KiskaSting.ogg",
+                                        "fileMp3":  "assets/audio/music/CM_KiskaSting.mp3",
                                         "loop":  false,
                                         "loopStart":  null,
                                         "loopEnd":  111616,
@@ -2102,6 +2295,7 @@
                                     },
                   "CM_Menu_Loop":  {
                                        "file":  "assets/audio/music/CM_Menu_Loop.ogg",
+                                       "fileMp3":  "assets/audio/music/CM_Menu_Loop.mp3",
                                        "loop":  true,
                                        "loopStart":  0,
                                        "loopEnd":  969728,
@@ -2111,6 +2305,7 @@
                                    },
                   "CM_Menu1":  {
                                    "file":  "assets/audio/music/CM_Menu1.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Menu1.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  1964032,
@@ -2120,6 +2315,7 @@
                                },
                   "CM_Menu2":  {
                                    "file":  "assets/audio/music/CM_Menu2.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Menu2.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  1986560,
@@ -2129,6 +2325,7 @@
                                },
                   "CM_Menu3":  {
                                    "file":  "assets/audio/music/CM_Menu3.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Menu3.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  2007040,
@@ -2138,6 +2335,7 @@
                                },
                   "CM_Space":  {
                                    "file":  "assets/audio/music/CM_Space.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Space.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  1258496,
@@ -2147,6 +2345,7 @@
                                },
                   "CM_Urban":  {
                                    "file":  "assets/audio/music/CM_Urban.ogg",
+                                   "fileMp3":  "assets/audio/music/CM_Urban.mp3",
                                    "loop":  true,
                                    "loopStart":  0,
                                    "loopEnd":  2101248,
@@ -2156,6 +2355,7 @@
                                },
                   "CM_Urban_Win":  {
                                        "file":  "assets/audio/music/CM_Urban_Win.ogg",
+                                       "fileMp3":  "assets/audio/music/CM_Urban_Win.mp3",
                                        "loop":  false,
                                        "loopStart":  null,
                                        "loopEnd":  204800,
@@ -2165,6 +2365,7 @@
                                    },
                   "CM_Volcano":  {
                                      "file":  "assets/audio/music/CM_Volcano.ogg",
+                                     "fileMp3":  "assets/audio/music/CM_Volcano.mp3",
                                      "loop":  true,
                                      "loopStart":  0,
                                      "loopEnd":  2780160,
@@ -2174,6 +2375,7 @@
                                  },
                   "CM_Volcano_Win":  {
                                          "file":  "assets/audio/music/CM_Volcano_Win.ogg",
+                                         "fileMp3":  "assets/audio/music/CM_Volcano_Win.mp3",
                                          "loop":  false,
                                          "loopStart":  null,
                                          "loopEnd":  171008,
@@ -2183,6 +2385,7 @@
                                      },
                   "CM_WinGame":  {
                                      "file":  "assets/audio/music/CM_WinGame.ogg",
+                                     "fileMp3":  "assets/audio/music/CM_WinGame.mp3",
                                      "loop":  false,
                                      "loopStart":  null,
                                      "loopEnd":  412672,

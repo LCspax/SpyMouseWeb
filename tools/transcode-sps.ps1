@@ -1,11 +1,14 @@
-﻿# Transcode the shipped EAAC (.sps) audio into browser-playable OGG files.
+﻿# Transcode the shipped EAAC (.sps) audio into browser-playable OGG files,
+# plus MP3 fallbacks for Safari/iOS (which cannot decode Ogg Vorbis).
 #
 # Source (read-only):  com.ea.spymouse_row/files/res/sound/{sound,music}/**/*.sps
 # Output:              assets/audio/sfx/<id>_<name>.ogg   (177 sounds, ids 0..176)
+#                      assets/audio/sfx/<id>_<name>.mp3   (Safari/iOS fallback)
 #                      assets/audio/music/<name>.ogg      (26 tracks)
+#                      assets/audio/music/<name>.mp3      (Safari/iOS fallback)
 #                      assets/audio/manifest.json
 #
-# Tooling: vgmstream-cli (decodes EAAC/EA-XAS) + ffmpeg (Vorbis encode).
+# Tooling: vgmstream-cli (decodes EAAC/EA-XAS) + ffmpeg (Vorbis + MP3 encode).
 # The id -> path table and the per-file loop metadata come from the REA evidence
 # produced by analysis/rea/audio (analysis/rea/evidence/audio_id_table.json and
 # audio_sps_scan.json); re-run those scripts if the .so or data pack changes.
@@ -59,18 +62,30 @@ $converted = 0
 $skipped = 0
 
 function Encode-One([string]$sps, [string]$outFile, [string]$label, [bool]$music) {
-    if ((-not $Force) -and (Test-Path $outFile) -and ((Get-Item $outFile).Length -gt 0)) {
+    $mp3File = [IO.Path]::ChangeExtension($outFile, '.mp3')
+    $needOgg = $Force -or (-not (Test-Path $outFile)) -or ((Get-Item $outFile).Length -le 0)
+    $needMp3 = $Force -or (-not (Test-Path $mp3File)) -or ((Get-Item $mp3File).Length -le 0)
+    if ((-not $needOgg) -and (-not $needMp3)) {
         return 'skipped'
     }
     $wav = Join-Path $tmpDir ($label + '.wav')
     try {
         $null = & $Vgmstream -i -o $wav $sps 2>&1
         if (-not (Test-Path $wav)) { throw 'vgmstream produced no wav' }
-        $quality = if ($music) { '4' } else { '3' }
-        $ffArgs = @('-hide_banner', '-loglevel', 'error', '-y', '-i', $wav,
-                    '-c:a', 'libvorbis', '-q:a', $quality, $outFile)
-        $null = & $Ffmpeg @ffArgs 2>&1
-        if (-not (Test-Path $outFile) -or (Get-Item $outFile).Length -le 0) { throw 'ffmpeg produced no ogg' }
+        if ($needOgg) {
+            $quality = if ($music) { '4' } else { '3' }
+            $ffArgs = @('-hide_banner', '-loglevel', 'error', '-y', '-i', $wav,
+                        '-c:a', 'libvorbis', '-q:a', $quality, $outFile)
+            $null = & $Ffmpeg @ffArgs 2>&1
+            if (-not (Test-Path $outFile) -or (Get-Item $outFile).Length -le 0) { throw 'ffmpeg produced no ogg' }
+        }
+        if ($needMp3) {
+            $bitrate = if ($music) { '128k' } else { '96k' }
+            $ffArgs = @('-hide_banner', '-loglevel', 'error', '-y', '-i', $wav,
+                        '-c:a', 'libmp3lame', '-b:a', $bitrate, '-map_metadata', '-1', $mp3File)
+            $null = & $Ffmpeg @ffArgs 2>&1
+            if (-not (Test-Path $mp3File) -or (Get-Item $mp3File).Length -le 0) { throw 'ffmpeg produced no mp3' }
+        }
         return 'converted'
     } catch {
         [void]$failed.Add([ordered]@{ file = $label; source = (Split-Path $sps -Leaf); error = $_.Exception.Message })
@@ -100,6 +115,7 @@ if (-not $MusicOnly) {
         $sfxManifest[[string]$row.id] = [ordered]@{
             name = $name
             file = 'assets/audio/sfx/' + $row.id + '_' + $name + '.ogg'
+            fileMp3 = 'assets/audio/sfx/' + $row.id + '_' + $name + '.mp3'
             loop = if ($meta) { [bool]$meta.loopFlag } else { $false }
             loopStart = if ($meta) { $meta.loopStart } else { $null }
             loopEnd = if ($meta) { $meta.numSamples } else { $null }
@@ -123,6 +139,7 @@ if (-not $SfxOnly) {
         $meta = $scanByRel[($relKey -replace '/', '\')]
         $musicManifest[$name] = [ordered]@{
             file = 'assets/audio/music/' + $name + '.ogg'
+            fileMp3 = 'assets/audio/music/' + $name + '.mp3'
             loop = if ($meta) { [bool]$meta.loopFlag } else { $false }
             loopStart = if ($meta) { $meta.loopStart } else { $null }
             loopEnd = if ($meta) { $meta.numSamples } else { $null }

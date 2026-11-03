@@ -4,6 +4,9 @@ import { resultsModel, renderResults, RESULTS_COUNT_TIME } from './results.js';
 import { FrontEnd } from './menu.js';
 import { audio } from './audio.js';
 import { showTipPopup } from './popups.js';
+import { normaliseBossRun } from './boss-flow.js';
+import { arenaLink } from './boss-links.js';
+import { LoadingScreen, MENU_ART, loadImages, warmLevelArt } from './loader.js';
 
 const canvas = document.getElementById("game");
 const overlay = document.getElementById("overlay");
@@ -24,6 +27,17 @@ const resultsDetails = document.getElementById('resultsDetails');
 const game = new Game(canvas);
 window.__game = game;
 
+// iOS Safari only unlocks Web Audio inside a real user gesture. Capture every
+// tap/click, including overlay buttons outside the menu and canvas, so the
+// first interaction is enough to start menu/game audio.
+window.addEventListener('pointerdown', () => audio.unlock(), { capture: true, passive: true });
+window.addEventListener('keydown', () => audio.unlock(), { capture: true });
+
+// Yellow loading transition (see src/loader.js). It is a plain DOM layer, so it
+// keeps working while the canvas is frozen behind it.
+const loader = new LoadingScreen(document.getElementById('loader'));
+let levelLoading = false;
+
 // Dossiers are permanent collectibles (native collected_all_dossiers): the
 // pickup handler reports the native dossier id (0..16) and the backpack UI
 // reads progress.dossiers.
@@ -39,6 +53,27 @@ game.onSecretFound = (levelId) => {
     saveProgress();
   }
 };
+// Boss run snapshots are written by src/boss-flow.js through Game.saveBossRun.
+// Every checkpoint (sector change, hit, intro end, death) lands here, so a
+// reload or a trip to the level select resumes the same fight.
+game.onBossRun = (run) => {
+  progress.bossRun = run ? normaliseBossRun(run) : null;
+  saveProgress();
+};
+// Reward-room payout: recorded once per parent level, keyed by level id.
+game.onBonusReward = ({ levelId, targetId, multiplier }) => {
+  progress.bonus[levelId] = { targetId, multiplier, at: Date.now() };
+  progress.secrets = progress.secrets.includes(targetId) ? progress.secrets : [...progress.secrets, targetId];
+  game.bonusClaims[levelId] = true;
+  saveProgress();
+};
+// A wall crack is spent per ENTRANCE: only the one that was pushed through and
+// cleared closes, so another door into the same hidden level stays open.
+game.onCrackUsed = (crackId) => {
+  if (!crackId) return;
+  progress.cracks[crackId] = true;
+  saveProgress();
+};
 
 const SAVE_KEY = "spymouse.progress.v1";
 const progress = loadProgress();
@@ -50,16 +85,22 @@ let tipShown = false;
 function loadProgress() {
   try {
     const raw = localStorage.getItem(SAVE_KEY);
-    if (!raw) return { done: [], last: 0, dossiers: [], secrets: [] };
+    if (!raw) return { done: [], last: 0, dossiers: [], secrets: [], boss: {}, bonus: {}, cracks: {}, bossRun: null };
     const p = JSON.parse(raw);
     return {
       done: Array.isArray(p.done) ? p.done : [],
       last: p.last || 0,
       dossiers: Array.isArray(p.dossiers) ? p.dossiers.filter((n) => Number.isInteger(n) && n >= 0) : [],
       secrets: Array.isArray(p.secrets) ? p.secrets.filter((id) => typeof id === 'string') : [],
+      // Boss chapter records (cleared/rewarded) and the resumable run.
+      boss: p.boss && typeof p.boss === 'object' ? p.boss : {},
+      bonus: p.bonus && typeof p.bonus === 'object' ? p.bonus : {},
+      // Wall-crack entrances already pushed through and cleared (src/secrets.js).
+      cracks: p.cracks && typeof p.cracks === 'object' ? p.cracks : {},
+      bossRun: normaliseBossRun(p.bossRun),
     };
   } catch {
-    return { done: [], last: 0, dossiers: [], secrets: [] };
+    return { done: [], last: 0, dossiers: [], secrets: [], boss: {}, bonus: {}, cracks: {}, bossRun: null };
   }
 }
 function saveProgress() {
@@ -173,21 +214,54 @@ function showOverlay(mode) {
     // bg_death + cat silhouette stay visible behind it.
     const english = frontEnd?.settings.language === 'en';
     overlay.classList.add('caught-panel');
-    ovTitle.textContent = english ? 'CAUGHT!' : '被抓住了！';
-    ovText.textContent = english ? 'The cat got you. Try again?' : '猫抓到了你，再试一次？';
-    ovPrimary.textContent = english ? 'Retry' : '再试一次';
+    const bossFight = game.bossFlow?.kind === 'arena';
+    const rewardRoom = !!game.bonusReturn;
+    // Boss entrance: the losing condition is the forced advance catching up,
+    // not a cat - say so, or the player has no idea what killed them.
+    const scrollRun = !!game.death?.cause && game.death.cause === 'scroll';
+    ovTitle.textContent = rewardRoom
+      ? (english ? 'BONUS FAILED' : '奖励关失败')
+      : bossFight ? (english ? 'BOSS WINS' : 'Boss 击败了你')
+        : scrollRun ? (english ? 'LEFT BEHIND' : '被推进甩下了！')
+          : (english ? 'CAUGHT!' : '被抓住了！');
+    ovText.textContent = rewardRoom
+      ? (english ? 'The reward room is still open. Back to the level?' : '奖励关可以再来，也可以先回本关。')
+      : bossFight
+        ? (english ? 'The boss got you. Try the fight again?' : '被 Boss 击中，要再来一次吗？')
+        : scrollRun
+          ? (english ? 'The advance caught up. Keep moving to stay ahead!' : '推进追上了你，别停下，跟着卷轴往前跑！')
+          : (english ? 'The cat got you. Try again?' : '猫抓到了你，再试一次？');
+    ovPrimary.textContent = rewardRoom
+      ? (english ? 'Back to Level' : '返回本关')
+      : (english ? 'Retry' : '再试一次');
     ovPrimary.setAttribute('aria-label', ovPrimary.textContent);
     ovPrimary.onclick = () => {
       hideOverlay();
       overlay.classList.remove('caught-panel');
+      // A failed reward room restores the parent exactly where it was left and
+      // keeps the entrance claimable (no lost or duplicated reward).
+      if (rewardRoom) {
+        game.finishBonus(false);
+        return;
+      }
       if (typeof game.retryLevel === 'function') game.retryLevel();
       else if (typeof game.resumeAfterCaught === 'function') game.resumeAfterCaught();
       else startLevel(game.levelIndex);
     };
     ovSecondary.style.display = '';
-    ovSecondary.textContent = english ? 'Level Select' : '返回选关';
+    ovSecondary.textContent = rewardRoom
+      ? (english ? 'Try Room Again' : '再进奖励关')
+      : (english ? 'Level Select' : '返回选关');
     ovSecondary.setAttribute('aria-label', ovSecondary.textContent);
-    ovSecondary.onclick = () => showOverlay('menu');
+    ovSecondary.onclick = () => {
+      if (rewardRoom) {
+        hideOverlay();
+        overlay.classList.remove('caught-panel');
+        game.retryLevel();
+        return;
+      }
+      showOverlay('menu');
+    };
     if (ovTertiary) ovTertiary.style.display = 'none';
     ovLevels.style.display = 'none';
   } else if (mode === "timeout") {
@@ -230,7 +304,18 @@ function showOverlay(mode) {
     }
     const english=frontEnd?.settings.language==='en';
     const model=resultsModel(game.level,game.lastSettlement,english?'en':'zh');
-    ovTitle.textContent=game.bossWorldComplete?(english?'World Complete!':'世界通关'):(english?'Results!':'结果');ovText.textContent=`${model.number}\n${model.title}`;
+    const bossRun = game.lastBossDefeat || null;
+    const bossLink = bossRun ? arenaLink(game.level?.id) : null;
+    if (bossLink) {
+      // Boss settlement: the chapter name + world-complete banner replace the
+      // generic "Results!" heading; the score panel stays untouched.
+      ovTitle.textContent = game.bossWorldComplete
+        ? (english ? 'World Complete!' : '世界通关')
+        : (english ? 'Boss Defeated!' : 'Boss 击败');
+      ovText.textContent = `${model.number}\n${bossLink.num}${english ? '' : ' · '}${model.title}`;
+    } else {
+      ovTitle.textContent=game.bossWorldComplete?(english?'World Complete!':'世界通关'):(english?'Results!':'结果');ovText.textContent=`${model.number}\n${model.title}`;
+    }
     audio.playSound(144, { priority: 7 });
     // Native tip.gui ("CONGRATULATIONS" + popup_first_item) is the reward
     // popup.  Show it once per session when a level clears all three goals.
@@ -247,9 +332,14 @@ function showOverlay(mode) {
       }, 1400);
     }
     if(resultsDetails) {resultsDetails.style.display='';renderResults(resultsDetails,model,{countDuration:RESULTS_COUNT_TIME});}
-    ovPrimary.textContent=english?'Next':'下一关';ovPrimary.title=english?'Next: Level Select':'下一关：进入选关';
+    ovPrimary.textContent=bossLink
+      ? (english?'Back to Map':'返回地图')
+      : (english?'Next':'下一关');
+    ovPrimary.title=english?'Next: Level Select':'下一关：进入选关';
     ovPrimary.onclick=()=>{game.state='menu';showOverlay('menu');if(!frontEnd)ovTitle.textContent='选择关卡';};
-    ovSecondary.style.display='';ovSecondary.textContent=english?'Retry':'重玩本关';
+    ovSecondary.style.display='';ovSecondary.textContent=bossLink
+      ? (english?'Challenge Again':'再次挑战')
+      : (english?'Retry':'重玩本关');
     ovSecondary.onclick=()=>{hideOverlay();game.restart();};
   }
 }
@@ -261,12 +351,59 @@ function hideOverlay() {
 
 function startLevel(i) {
   if (!LEVELS.length) return;
+  // A load is already on screen: ignore queued clicks instead of stacking two.
+  if (levelLoading) return;
   i = Math.max(0, Math.min(LEVELS.length - 1, i));
   audio.stopMusic(0.25);
   game.abandonBonus?.();
-  game.loadLevel(LEVELS[i], i);
+  game.bossTransition = null;
+  game.inputLocked = false;
+  // A live boss run resumes in the arena even when the player picks the
+  // entrance node; picking that node again from scratch restarts the approach.
+  let index = i;
+  let resume = null;
+  const run = normaliseBossRun(progress.bossRun);
+  if (run) {
+    const arenaIndex = LEVELS.findIndex((level) => level && level.id === run.arena);
+    const entranceIndex = LEVELS.findIndex((level) => level && level.id === run.entrance);
+    const fighting = ['arena', 'intro', 'fight', 'win', 'lose'].includes(run.stage);
+    if (fighting && arenaIndex >= 0 && (i === arenaIndex || i === entranceIndex)) {
+      // A live fight always resumes in the arena, even when the player picks
+      // the entrance node (the map only knows the entrance).
+      index = arenaIndex;
+      resume = run;
+    } else if (run.stage === 'approach' && i === entranceIndex) {
+      // Quitting during the scroll advance resumes at the last sector
+      // checkpoint instead of throwing the run away.
+      resume = run;
+    } else if (i === entranceIndex) {
+      progress.bossRun = null;
+      saveProgress();
+    }
+  }
+  game.bossResume = resume;
+  // The level object is built synchronously, then the yellow screen holds until
+  // its art has decoded. Freezing the state is what keeps cats from walking
+  // (and the timer from running) while the player still sees the loader.
+  levelLoading = true;
+  loader.show();
+  game.loadLevel(LEVELS[index], index);
+  game.state = 'loading';
   progress.last = i;
   saveProgress();
+  loader.setProgress(0.35);
+  void (async () => {
+    try {
+      await warmLevelArt(game, (p) => loader.setProgress(0.35 + p * 0.6));
+    } catch {
+      /* a missing background must never block the level */
+    } finally {
+      loader.setProgress(1);
+      await loader.hide();
+      if (game.state === 'loading') game.state = 'playing';
+      levelLoading = false;
+    }
+  })();
 }
 
 function bumpHud(el) {
@@ -308,8 +445,26 @@ game.onLevelEnd = ({ type, level }) => {
   activePointer = null;
   game.cancelStroke();
   if (type === "clear") {
-    if (!progress.done.includes(level)) progress.done.push(level);
-    progress.last = Math.min(level + 1, LEVELS.length - 1);
+    // The world map only knows the ENTRANCE map of a boss chapter, while the
+    // fight runs in the arena map (native autostart). Record completion against
+    // the entrance index or the map node would never turn "done".
+    const cleared = LEVELS[level] || null;
+    const link = cleared ? arenaLink(cleared.id) : null;
+    const entranceIndex = link ? LEVELS.findIndex((def) => def && def.id === link.entrance) : -1;
+    const recorded = entranceIndex >= 0 ? entranceIndex : level;
+    if (!progress.done.includes(recorded)) progress.done.push(recorded);
+    if (link) {
+      const previous = progress.boss[link.num] || {};
+      progress.boss[link.num] = {
+        cleared: true,
+        clears: (previous.clears || 0) + 1,
+        attempts: game.bossRun?.attempts || previous.attempts || 1,
+        at: Date.now(),
+      };
+      // The run is finished; a later replay starts a fresh attempt.
+      progress.bossRun = null;
+    }
+    progress.last = Math.min(recorded + 1, LEVELS.length - 1);
     saveProgress();
     // The hero has finished shrinking into the exit. Start the results
     // scrolling-background mask around the exit; the panel itself is delayed
@@ -402,38 +557,56 @@ window.addEventListener("resize", () => game.resize());
 window.addEventListener("orientationchange", () => game.resize());
 
 async function boot() {
-  showOverlay("loading");
-  const content = await loadContent();
-  LEVELS = content.levels;
-  SOURCE = content.source;
-  window.__levels = LEVELS;
-  game.levelCatalog = LEVELS;
-  for (const tag of progress.dossiers) game.dossiers.add(tag);
-  for (const id of progress.secrets) game.secretsFound.add(id);
-  const menuRoot=document.getElementById('frontEnd');
-  if(menuRoot && typeof menuRoot.querySelector==='function') {
-    try {
-      const response=await fetch('assets/menu/worlds.json');
-      if(!response.ok)throw new Error('world menu data unavailable');
-      const worlds=await response.json();
-      frontEnd=new FrontEnd(menuRoot,LEVELS,worlds,{
-        getProgress:()=>progress,
-        onPlay:index=>{hideOverlay();startLevel(index);},
-        onErase:()=>{progress.done=[];progress.last=0;progress.dossiers=[];progress.secrets=[];game.dossiers.clear();game.secretsFound.clear();saveProgress();},
-      });
-    } catch(error) {console.warn('original menu could not load',error);}
+  // The loader is already painted by index.html; drive it with real milestones.
+  loader.show();
+  try {
+    const content = await loadContent((progress) => loader.setProgress(0.04 + progress * 0.7));
+    LEVELS = content.levels;
+    SOURCE = content.source;
+    window.__levels = LEVELS;
+    game.levelCatalog = LEVELS;
+    for (const tag of progress.dossiers) game.dossiers.add(tag);
+    for (const id of progress.secrets) game.secretsFound.add(id);
+    // Reward rooms already paid in a previous session stay closed.
+    game.bonusClaims = { ...(progress.bonus || {}) };
+    game.crackClaims = { ...(progress.cracks || {}) };
+    loader.setProgress(0.78);
+    const menuRoot=document.getElementById('frontEnd');
+    if(menuRoot && typeof menuRoot.querySelector==='function') {
+      try {
+        const response=await fetch('assets/menu/worlds.json');
+        if(!response.ok)throw new Error('world menu data unavailable');
+        const worlds=await response.json();
+        frontEnd=new FrontEnd(menuRoot,LEVELS,worlds,{
+          getProgress:()=>progress,
+          onPlay:index=>{game.language=frontEnd?.settings.language==='en'?'en':'zh';hideOverlay();startLevel(index);},
+          onErase:()=>{progress.done=[];progress.last=0;progress.dossiers=[];progress.secrets=[];progress.boss={};progress.bonus={};progress.cracks={};progress.bossRun=null;game.dossiers.clear();game.secretsFound.clear();game.bonusClaims={};game.crackClaims={};saveProgress();},
+        });
+        game.language = frontEnd.settings.language === 'en' ? 'en' : 'zh';
+      } catch(error) {console.warn('original menu could not load',error);}
+    }
+    // Decode the home-stage art behind the loader so the menu does not appear
+    // one image at a time when the yellow screen fades.
+    loader.setProgress(0.86);
+    await loadImages(MENU_ART, (p) => loader.setProgress(0.86 + p * 0.08));
+    if (SOURCE === "builtin") {
+      console.warn("Imported content not found - using built-in sample levels.");
+    }
+    const first = Math.max(0, Math.min(progress.last, LEVELS.length - 1));
+    if (LEVELS[first]) game.loadLevel(LEVELS[first], first);
+    game.state = "menu";
+    game.emitHud();
+    hudLives.textContent = "";
+    hudCheese.textContent = "0";
+    if (hudScore) hudScore.textContent = "";
+    loader.setProgress(1);
+    // Paint the menu underneath first: the loader then fades out onto a settled
+    // screen instead of flashing the bare canvas.
+    showOverlay(frontEnd?'home':'menu');
+  } finally {
+    requestAnimationFrame(frame);
+    await loader.hide();
   }
-  if (SOURCE === "builtin") {
-    console.warn("Imported content not found - using built-in sample levels.");
-  }
-  game.loadLevel(LEVELS[Math.min(progress.last, LEVELS.length - 1)], Math.min(progress.last, LEVELS.length - 1));
-  game.state = "menu";
-  game.emitHud();
-  hudLives.textContent = "";
-  hudCheese.textContent = "0";
-  if (hudScore) hudScore.textContent = "";
-  showOverlay(frontEnd?'home':'menu');
-  requestAnimationFrame(frame);
 }
 
 boot();

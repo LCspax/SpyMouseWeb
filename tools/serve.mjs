@@ -22,6 +22,7 @@ const MIME = {
   ".mp3": "audio/mpeg",
   ".wav": "audio/wav",
   ".ogg": "audio/ogg",
+  ".mp3": "audio/mpeg",
 };
 
 const server = http.createServer((req, res) => {

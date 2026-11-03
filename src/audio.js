@@ -47,6 +47,9 @@ export class AudioEngine {
     this._pendingMusic = null;    // { name, opts }
     this._initPromise = null;
     this._manifestTried = false;
+    this._gestureSeen = false;
+    this._preferMp3 = false;
+    this._unlockPulseDone = false;
   }
 
   /** True once the manifest is loaded and an AudioContext exists. */
@@ -70,9 +73,17 @@ export class AudioEngine {
         const data = await res.json();
         if (!data || typeof data !== 'object') return this;
         this.manifest = data;
-        this._createContext();
-        this._preloadCore();
-        this._flushPendingMusic();
+        // Safari/iOS cannot decode Ogg Vorbis. The manifest carries MP3
+        // fallbacks generated from the same source, so pick those up front.
+        this._preferMp3 = !this._supportsOgg();
+        // Do not create the AudioContext before a user gesture on iOS: Safari
+        // may leave it suspended for the rest of the session. unlock() creates
+        // it inside the first pointer/key gesture instead.
+        if (this._gestureSeen) {
+          this._createContext();
+          this._preloadCore();
+          this._flushPendingMusic();
+        }
       } catch {
         // no manifest yet / file:// / blocked: stay silent, playSound is a no-op
       }
@@ -90,8 +101,12 @@ export class AudioEngine {
 
   /** Must be called from a user gesture (click/keydown) on mobile browsers. */
   async unlock() {
+    this._gestureSeen = true;
     this._createContext();
     if (!this.ctx) return;
+    // iOS Safari is much more reliable when a buffer source is started
+    // synchronously inside the gesture; resume() alone is not always enough.
+    this._playUnlockPulse();
     try {
       if (this.ctx.state !== 'running') await this.ctx.resume();
     } catch {
@@ -100,6 +115,48 @@ export class AudioEngine {
     // Some browsers only allow audio after a gesture; retry a music request
     // that arrived before init()/unlock().
     this._flushPendingMusic();
+  }
+
+  /** Ogg Vorbis is not available in Safari/iOS (decodeAudioData fails). */
+  _supportsOgg() {
+    try {
+      if (typeof document === 'undefined' || typeof document.createElement !== 'function') return true;
+      const probe = document.createElement('audio');
+      if (!probe || typeof probe.canPlayType !== 'function') return true;
+      const result = probe.canPlayType('audio/ogg; codecs="vorbis"');
+      return result === 'probably' || result === 'maybe';
+    } catch {
+      return true;
+    }
+  }
+
+  /** Manifest entries carry `file` (Ogg) and `fileMp3` (Safari fallback). */
+  _pickFile(entry) {
+    if (!entry) return null;
+    if (this._preferMp3) {
+      if (entry.fileMp3) return entry.fileMp3;
+      // Be tolerant of a cached pre-fallback manifest: the MP3 assets use the
+      // same name as the Ogg ones.
+      if (typeof entry.file === 'string' && entry.file.endsWith('.ogg')) {
+        return entry.file.slice(0, -4) + '.mp3';
+      }
+    }
+    return entry.file || entry.fileMp3 || null;
+  }
+
+  /** One silent sample inside the first gesture; unlocks iOS Web Audio. */
+  _playUnlockPulse() {
+    if (!this.ctx || this._unlockPulseDone) return;
+    this._unlockPulseDone = true;
+    try {
+      const buffer = this.ctx.createBuffer(1, 1, this.ctx.sampleRate || 22050);
+      const source = this.ctx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(this.ctx.destination);
+      source.start(0);
+    } catch {
+      /* ignored */
+    }
   }
 
   /**
@@ -123,7 +180,7 @@ export class AudioEngine {
 
       const vol = clamp01(volume, 1);
       const epoch = this.stopEpoch.get(key) || 0;
-      this._getBuffer(entry.file).then((buffer) => {
+      this._getBuffer(this._pickFile(entry)).then((buffer) => {
         if (!buffer || !this.ctx) return;
         if ((this.stopEpoch.get(key) || 0) !== epoch) return; // stopSound() raced the load
         const source = this.ctx.createBufferSource();
@@ -186,7 +243,7 @@ export class AudioEngine {
       const vol = clamp01(volume, 1);
       const fadeSec = Math.max(0, Number(fade) || 0);
 
-      this._getBuffer(entry.file).then((buffer) => {
+      this._getBuffer(this._pickFile(entry)).then((buffer) => {
         if (!buffer || !this.ctx || token !== this._musicToken) return;
         const source = this.ctx.createBufferSource();
         source.buffer = buffer;
@@ -305,6 +362,13 @@ export class AudioEngine {
       this.musicBus.connect(this.master);
       this.effectsBus.connect(this.master);
       this.master.connect(this.ctx.destination);
+      // If iOS resumes the context later (e.g. after the first gesture), start
+      // any music request that was queued while the context was suspended.
+      if (typeof this.ctx.addEventListener === 'function') {
+        this.ctx.addEventListener('statechange', () => {
+          if (this.ctx && this.ctx.state === 'running') this._flushPendingMusic();
+        });
+      }
     } catch {
       this.ctx = null;
       this.master = null;
@@ -353,7 +417,7 @@ export class AudioEngine {
     // Small set used on the very first interactions; everything else loads on demand.
     ['1', '110', '113', '39', '40', '77', '96', '140'].forEach((id) => {
       const entry = this.manifest && this.manifest.sfx && this.manifest.sfx[id];
-      if (entry && entry.file) this._getBuffer(entry.file);
+      if (entry) this._getBuffer(this._pickFile(entry));
     });
   }
 

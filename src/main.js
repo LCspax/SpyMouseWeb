@@ -557,6 +557,12 @@ window.addEventListener("resize", () => game.resize());
 window.addEventListener("orientationchange", () => game.resize());
 
 async function boot() {
+  // Warm the menu music (and the first UI sounds) while the yellow screen is
+  // up. Playback still waits for the first gesture, but the bytes are ready, so
+  // the home track starts immediately instead of after a network round-trip.
+  audio.preloadMusic('CM_Menu1');
+  audio.preloadMusic('CM_Menu2');
+  audio.preloadSfx(['1', '140', '175']);
   // The loader is already painted by index.html; drive it with real milestones.
   loader.show();
   try {

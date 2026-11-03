@@ -50,6 +50,12 @@ export class AudioEngine {
     this._gestureSeen = false;
     this._preferMp3 = false;
     this._unlockPulseDone = false;
+    // Menu audio is fetched while the yellow loading screen is up, so the first
+    // gesture can start playback from memory instead of waiting on the network.
+    this._pendingPreloadMusic = new Set();
+    this._pendingPreloadSfx = new Set();
+    this.preloadBytes = new Map();
+    this.preloadPromises = new Map();
   }
 
   /** True once the manifest is loaded and an AudioContext exists. */
@@ -76,6 +82,17 @@ export class AudioEngine {
         // Safari/iOS cannot decode Ogg Vorbis. The manifest carries MP3
         // fallbacks generated from the same source, so pick those up front.
         this._preferMp3 = !this._supportsOgg();
+        // Preload requests may have arrived before the manifest resolved.
+        if (this._pendingPreloadMusic.size) {
+          const names = [...this._pendingPreloadMusic];
+          this._pendingPreloadMusic.clear();
+          for (const name of names) this.preloadMusic(name);
+        }
+        if (this._pendingPreloadSfx.size) {
+          const ids = [...this._pendingPreloadSfx];
+          this._pendingPreloadSfx.clear();
+          for (const id of ids) this.preloadSfx([id]);
+        }
         // Do not create the AudioContext before a user gesture on iOS: Safari
         // may leave it suspended for the rest of the session. unlock() creates
         // it inside the first pointer/key gesture instead.
@@ -97,6 +114,37 @@ export class AudioEngine {
     this.settings = { music: clamp01(music, 0.55), effects: clamp01(effects, 0.8) };
     if (this.musicBus) this.musicBus.gain.value = this.settings.music;
     if (this.effectsBus) this.effectsBus.gain.value = this.settings.effects;
+  }
+
+  /**
+   * Fetch a music track's bytes while the loading screen is visible.
+   * Playback still waits for the first user gesture on mobile, but the network
+   * round-trip is already done, so the menu track starts immediately.
+   */
+  preloadMusic(name) {
+    if (!name) return;
+    if (!this.manifest) {
+      this._pendingPreloadMusic.add(name);
+      return;
+    }
+    const key = this._musicKey(name);
+    const entry = this.manifest.music && this.manifest.music[key];
+    const file = this._pickFile(entry);
+    if (file) this._preloadFile(file);
+  }
+
+  /** Fetch sound-effect bytes ahead of the first interaction. */
+  preloadSfx(ids = []) {
+    for (const id of ids) {
+      const key = String(id);
+      if (!this.manifest) {
+        this._pendingPreloadSfx.add(key);
+        continue;
+      }
+      const entry = this.manifest.sfx && this.manifest.sfx[key];
+      const file = this._pickFile(entry);
+      if (file) this._preloadFile(file);
+    }
   }
 
   /** Must be called from a user gesture (click/keydown) on mobile browsers. */
@@ -380,10 +428,31 @@ export class AudioEngine {
 
   _musicKey(name) {
     if (!name) return null;
-    const base = String(name).split(/[\\/]/).pop().replace(/\.sps$/i, '').replace(/\.ogg$/i, '');
+    const base = String(name).split(/[\\/]/).pop().replace(/\.sps$/i, '').replace(/\.ogg$/i, '').replace(/\.mp3$/i, '');
     if (this.manifest && this.manifest.music && this.manifest.music[base]) return base;
     if (this.manifest && this.manifest.music && this.manifest.music[name]) return String(name);
     return base || null;
+  }
+
+  _fileUrl(file) {
+    return new URL('../' + String(file).replace(/^\/+/, ''), import.meta.url).href;
+  }
+
+  /** Best-effort byte prefetch; decoding still happens once a context exists. */
+  _preloadFile(file) {
+    if (!file || this.buffers.has(file) || this.preloadBytes.has(file) || this.preloadPromises.has(file)) return;
+    const promise = (async () => {
+      try {
+        const res = await fetch(this._fileUrl(file));
+        if (!res.ok) throw new Error('http ' + res.status);
+        this.preloadBytes.set(file, await res.arrayBuffer());
+      } catch {
+        // Ignore: _getBuffer() retries on demand and reports failures there.
+      } finally {
+        this.preloadPromises.delete(file);
+      }
+    })();
+    this.preloadPromises.set(file, promise);
   }
 
   _getBuffer(file) {
@@ -391,10 +460,18 @@ export class AudioEngine {
     if (this.buffers.has(file)) return this.buffers.get(file);
     const promise = (async () => {
       try {
-        const url = new URL('../' + String(file).replace(/^\/+/, ''), import.meta.url);
-        const res = await fetch(url.href);
-        if (!res.ok) throw new Error('http ' + res.status);
-        const bytes = await res.arrayBuffer();
+        let bytes = this.preloadBytes.get(file);
+        if (!bytes && this.preloadPromises.has(file)) {
+          await this.preloadPromises.get(file);
+          bytes = this.preloadBytes.get(file);
+        }
+        if (bytes) {
+          this.preloadBytes.delete(file);
+        } else {
+          const res = await fetch(this._fileUrl(file));
+          if (!res.ok) throw new Error('http ' + res.status);
+          bytes = await res.arrayBuffer();
+        }
         return await new Promise((resolve, reject) => {
           // decodeAudioData callback form for older Safari
           try {

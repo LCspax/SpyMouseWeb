@@ -141,6 +141,38 @@ try {
   report.checks.homeStageInReplayed = homeSamples.some((names) => names.includes('stage-in'));
   await shot('03-home-again.png');
 
+  // Portrait home (multi-device): the 1024x640 backdrop must follow the stage
+  // transform as one unit, and the landscape recommendation must be visible in
+  // the spare space below the letterboxed scene.
+  const portraitContext = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    isMobile: true,
+    hasTouch: true,
+  });
+  const portraitPage = await portraitContext.newPage();
+  const portraitErrors = [];
+  portraitPage.on('pageerror', (err) => portraitErrors.push(String(err)));
+  await portraitPage.goto(baseUrl, { waitUntil: 'networkidle' });
+  await portraitPage.waitForSelector('#frontEnd:not([hidden])', { timeout: 15000 });
+  await portraitPage.waitForTimeout(400);
+  report.checks.portraitHome = await portraitPage.evaluate(() => {
+    const stage = document.querySelector('.menu-stage.home-stage')?.getBoundingClientRect();
+    const backdrop = document.querySelector('.menu-backdrop')?.getBoundingClientRect();
+    const hint = document.querySelector('.portrait-hint');
+    return {
+      hintVisible: !!hint && getComputedStyle(hint).display !== 'none',
+      hintText: document.querySelector('.portrait-hint-text')?.textContent || '',
+      stageBackdropAligned: !!stage && !!backdrop
+        && Math.abs(stage.top - backdrop.top) < 1
+        && Math.abs(stage.height - backdrop.height) < 1
+        && Math.abs((stage.left + stage.width / 2) - (backdrop.left + backdrop.width / 2)) < 1,
+    };
+  });
+  report.checks.portraitHome.errors = portraitErrors;
+  await portraitPage.screenshot({ path: 'analysis/screenshots/05-home-portrait.png' });
+  report.screenshots.push('analysis/screenshots/05-home-portrait.png');
+  await portraitContext.close();
+
   // Backpack: all 17 cards exist and the modal body can scroll to the last one.
   await page.locator('#frontEnd [data-action="start"]').click();
   await page.waitForSelector('#frontEnd[data-view="world"]', { timeout: 8000 });

@@ -31,6 +31,36 @@ assert(tvFrames.every((f) => f.w === 128 && f.h === 128), "TV frame is one full 
 // Suffix is the wall/back side: facing right => tv_l, facing down => tv_u.
 assert.deepEqual(tvFrames.map((f) => f.key), ["tv_l", "tv_u", "tv_r", "tv_d"]);
 
+// Native tv_* sheets: frame 0 is the dark/off screen, frames 1..4 are lit. An ON
+// TV also draws two native spiral.png hypnotic discs over the screen (verified
+// in MuMu 2-2 "Tune In, Drop Out" after the fail/tutorial replay).
+const origReady = game.sprites.ready.bind(game.sprites);
+game.sprites.ready = () => true;
+frames.length = 0;
+mech.draw(game, ctx);
+assert(frames.filter((f) => f.key.startsWith("tv_")).every((f) => f.frame === 0), "off TVs use the dark frame 0");
+assert.equal(frames.filter((f) => f.key === "spiral").length, 0, "off TVs have no hypnotic spirals");
+frames.length = 0;
+tvs.forEach((t) => { t.active = true; });
+mech.draw(game, ctx);
+assert(frames.filter((f) => f.key.startsWith("tv_")).every((f) => f.frame >= 1 && f.frame <= 4),
+  "lit TVs cycle frames 1..4, never the off frame");
+assert.equal(frames.filter((f) => f.key === "spiral").length, 8, "each lit TV draws two spirals");
+tvs.forEach((t) => { t.active = false; });
+game.sprites.ready = origReady;
+
+// Walking past a TV switches it on; a tap is not required any more. Taps near
+// the screen must stay ordinary move commands instead of toggling it.
+const walkTv = tvs[1];
+assert.equal(walkTv.active, false, "TVs start off");
+const walkPoint = mech.interactionPoint(walkTv);
+game.mouse.x = walkPoint.x; game.mouse.y = walkPoint.y;
+mech.update(game, 1 / 60, { x: walkPoint.x, y: walkPoint.y });
+assert.equal(walkTv.active, true, "passing by the TV turns it on");
+assert.equal(game.stats.items?.tv, 1, "the native use_tv statistic is counted once");
+assert.equal(mech.handleTap(game, { x: walkTv.x, y: walkTv.y }), false,
+  "a tap near the TV is not swallowed as a TV interaction");
+
 // Place a cat at the right TV's viewing point and hypnotise it.
 const tv = tvs[0];
 tv.active = true;
@@ -50,5 +80,5 @@ frames.length = 0;
 game.drawCatIndicators(ctx, game.level.world.cell);
 assert(frames.some((f) => f.key === "cat_stun"), "cat_stun icon over the head");
 
-console.log("TV verification OK (facing, 128px frame, sitting hypnosis + icon)");
+console.log("TV verification OK (facing, 128px frame, walk-past activation, off/on frames 0|1..4, native idle_tv + spirals + stun icon)");
 

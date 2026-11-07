@@ -11,6 +11,7 @@ import fs from "fs";
 import path from "path";
 import { World } from "../src/world.js";
 import { propDirection } from "../src/props.js";
+import { assignTraps, trapCost } from "./pair-cwmice.mjs";
 
 const ROOT = path.resolve(".");
 const RES = path.join(ROOT, "com.ea.spymouse_row", "files", "res");
@@ -765,23 +766,24 @@ for (const lv of ordered) {
     exit = null;
   }
 
-  // Pair each cwmouse with its prop-60 companion (smallest id gap, then
-  // nearest distance; all authored pairs are 1:1).
-  for (const m of cwmice) {
-    let best = null;
-    for (const h of cwHoles) {
-      const idGap = Math.abs(h.id - m.id);
-      const d = Math.hypot(h.x - m.x, h.y - m.y);
-      if (!best || idGap < best.idGap || (idGap === best.idGap && d < best.d)) best = { h, idGap, d };
-    }
-    m.hole = best ? { x: best.h.x, y: best.h.y, id: best.h.id } : null;
-  }
   for (let i = cwmice.length - 1; i >= 0; i--) {
     if (!reachable(cwmice[i])) {
       diagnostics.droppedUnreachable.cwmice = (diagnostics.droppedUnreachable.cwmice || 0) + 1;
       diagnostics.droppedUnreachable.details.push(describeDropped("cwmouse", cwmice[i]));
       cwmice.splice(i, 1);
     }
+  }
+
+  // Pair the surviving cwmice with their prop-60 companions ONE-TO-ONE.
+  // The old per-mouse "smallest id gap" rule let every cwmouse in map565,
+  // map556 and map575 claim the same trap, leaving the other authored traps
+  // unreachable at runtime. See tools/pair-cwmice.mjs for the native evidence.
+  const assignment = assignTraps(cwmice, cwHoles, trapCost);
+  for (let i = 0; i < cwmice.length; i++) {
+    const h = assignment[i] == null ? null : cwHoles[assignment[i]];
+    const trap = h ? { x: h.x, y: h.y, id: h.id } : null;
+    cwmice[i].trap = trap;
+    cwmice[i].hole = trap; // deprecated alias, still read by src/cwmouse.js
   }
 
   // Grid snapping can put distinct authored pickups into the same cell.

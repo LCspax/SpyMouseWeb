@@ -25,6 +25,10 @@ const SPRITES = [
   "browncat_common", "browncat_idle01", "browncat_rotate",
   "orangecat01", "orangecat02", "orangecat03", "orangecat04", "orangecat05",
   "blackcat01", "blackcat02", "blackcat03", "blackcat04", "blackcat05", "blackcat_common",
+  // anim_sequences/black_cat_idle.xml: idle_tv_00..04 (rows cy=5..9), the
+  // native sitting-watching-TV animation. 64px cells = 2x the XML's 32
+  // design units. Not part of the old <prefix>_common strip.
+  "blackcat_idle",
   "bosscat01", "bosscat02", "bosscat03", "bosscat04", "bosscat05", "bosscat_common",
   "blindcat01", "blindcat02", "blindcat03", "blindcat04", "blindcat05",
   "ghostcat_slow01", "ghostcat_slow02", "ghostcat_slow03", "ghostcat_slow04", "ghostcat_slow05",

@@ -417,7 +417,7 @@
           "wait": 0
         },
         {
-          "x": 8222,
+          "x": 8184,
           "y": 384,
           "wait": 0
         }
@@ -801,14 +801,19 @@
   ],
   "cwmice": [
     {
-      "x": 6536,
-      "y": 232,
+      "x": 6530,
+      "y": 228,
       "source": "xml",
       "id": 626,
       "prop": 11,
       "tag": 0,
       "ox": 6530,
       "oy": 228,
+      "trap": {
+        "x": 7974,
+        "y": 236,
+        "id": 625
+      },
       "hole": {
         "x": 7974,
         "y": 236,
@@ -883,6 +888,14 @@
         "source": "xml"
       }
     },
-    "noAuthoredCheese": true
+    "noAuthoredCheese": true,
+    "bossEntranceRepair": {
+      "source": "xml-prop11-prop60",
+      "mice": 1,
+      "traps": 1,
+      "paired": 1,
+      "maxSpawnDrift": 0,
+      "clampedCatWaypoints": 1
+    }
   }
 }

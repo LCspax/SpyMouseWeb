@@ -202,7 +202,7 @@
           "wait": 0
         },
         {
-          "x": 4126,
+          "x": 4088,
           "y": 362,
           "wait": 0
         }
@@ -220,13 +220,18 @@
   "cwmice": [
     {
       "x": 792,
-      "y": 584,
+      "y": 576,
       "source": "xml",
       "id": 131,
       "prop": 11,
       "tag": 0,
       "ox": 792,
       "oy": 576,
+      "trap": {
+        "x": 1564,
+        "y": 582,
+        "id": 132
+      },
       "hole": {
         "x": 1564,
         "y": 582,
@@ -234,29 +239,19 @@
       }
     },
     {
-      "x": 2536,
-      "y": 312,
+      "x": 2532,
+      "y": 304,
       "source": "xml",
       "id": 162,
       "prop": 11,
       "tag": 0,
       "ox": 2532,
       "oy": 304,
-      "hole": {
+      "trap": {
         "x": 2928,
-        "y": 604,
-        "id": 164
-      }
-    },
-    {
-      "x": 2760,
-      "y": 616,
-      "source": "xml",
-      "id": 170,
-      "prop": 11,
-      "tag": 0,
-      "ox": 2762,
-      "oy": 610,
+        "y": 540,
+        "id": 171
+      },
       "hole": {
         "x": 2928,
         "y": 540,
@@ -264,14 +259,39 @@
       }
     },
     {
+      "x": 2762,
+      "y": 610,
+      "source": "xml",
+      "id": 170,
+      "prop": 11,
+      "tag": 0,
+      "ox": 2762,
+      "oy": 610,
+      "trap": {
+        "x": 2928,
+        "y": 604,
+        "id": 164
+      },
+      "hole": {
+        "x": 2928,
+        "y": 604,
+        "id": 164
+      }
+    },
+    {
       "x": 3208,
-      "y": 328,
+      "y": 324,
       "source": "xml",
       "id": 186,
       "prop": 11,
       "tag": 0,
       "ox": 3208,
       "oy": 324,
+      "trap": {
+        "x": 3744,
+        "y": 512,
+        "id": 188
+      },
       "hole": {
         "x": 3744,
         "y": 512,
@@ -370,6 +390,14 @@
         "source": "xml"
       }
     },
-    "noAuthoredCheese": true
+    "noAuthoredCheese": true,
+    "bossEntranceRepair": {
+      "source": "xml-prop11-prop60",
+      "mice": 4,
+      "traps": 4,
+      "paired": 4,
+      "maxSpawnDrift": 0,
+      "clampedCatWaypoints": 1
+    }
   }
 }

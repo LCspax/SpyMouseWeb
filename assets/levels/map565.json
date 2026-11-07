@@ -149,7 +149,7 @@
           "wait": 0
         },
         {
-          "x": 4126,
+          "x": 4088,
           "y": 248,
           "wait": 0
         }
@@ -307,7 +307,7 @@
   ],
   "cwmice": [
     {
-      "x": 3448,
+      "x": 3442,
       "y": 216,
       "source": "xml",
       "id": 188,
@@ -315,21 +315,31 @@
       "tag": 0,
       "ox": 3442,
       "oy": 216,
+      "trap": {
+        "x": 3342,
+        "y": 402,
+        "id": 193
+      },
       "hole": {
-        "x": 3016,
-        "y": 604,
-        "id": 191
+        "x": 3342,
+        "y": 402,
+        "id": 193
       }
     },
     {
       "x": 2584,
-      "y": 616,
+      "y": 608,
       "source": "xml",
       "id": 189,
       "prop": 11,
       "tag": 0,
       "ox": 2584,
       "oy": 608,
+      "trap": {
+        "x": 3016,
+        "y": 604,
+        "id": 191
+      },
       "hole": {
         "x": 3016,
         "y": 604,
@@ -337,7 +347,7 @@
       }
     },
     {
-      "x": 3656,
+      "x": 3660,
       "y": 408,
       "source": "xml",
       "id": 190,
@@ -345,10 +355,15 @@
       "tag": 0,
       "ox": 3660,
       "oy": 408,
+      "trap": {
+        "x": 3878,
+        "y": 612,
+        "id": 192
+      },
       "hole": {
-        "x": 3016,
-        "y": 604,
-        "id": 191
+        "x": 3878,
+        "y": 612,
+        "id": 192
       }
     }
   ],
@@ -435,6 +450,14 @@
         "source": "xml"
       }
     },
-    "noAuthoredCheese": true
+    "noAuthoredCheese": true,
+    "bossEntranceRepair": {
+      "source": "xml-prop11-prop60",
+      "mice": 3,
+      "traps": 3,
+      "paired": 3,
+      "maxSpawnDrift": 0,
+      "clampedCatWaypoints": 1
+    }
   }
 }

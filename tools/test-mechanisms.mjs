@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {Game} from '../src/game.js';
 import {loadContent} from '../src/content.js';
-import {MECHANISM_SHEETS,portalColor,gateVertical} from '../src/mechanism-types.js';
+import {MECHANISM_SHEETS,portalColor,gateVertical,floorDoorSheet} from '../src/mechanism-types.js';
 import {CFG} from '../src/config.js';
 import {Cat} from '../src/entities.js';
 import {advanceMover} from '../src/movers.js';
@@ -387,6 +387,74 @@ check('1-1 tutorial guide line is not solid; spawn-to-cheese and exit paths stay
  const route=w.bfsToWorld(m.x,m.y,exit.x,exit.y);
  assert(route&&route.length,'spawn/cheese to exit remains connected');
  assert(!route.some(p=>w.circleHitsWall(p.x,p.y,1)),'route avoids native walls');
+});
+check('3-1 lowered barriers open a real doorway in grid, MBN contour and BFS',()=>{
+ const g=make([],levels.find(d=>d.id==='map716')),w=g.level.world,m=g.level.mechanisms;
+ const gate=m.gates.find(o=>o.prop===215&&o.y===312);
+ const tx=Math.floor(gate.x/w.cell),ty=Math.floor(gate.y/w.cell);
+ // Closed: the authored linesA contour at x=244 keeps the doorway solid even
+ // though the colour-mask grid is already cleared by applyGateGrid().
+ assert(w.circleHitsWall(gate.x,gate.y,5.6));assert(w.segmentNear(gate.x,gate.y,5.6));
+ assert(w.isNavWall(tx,ty));
+ // Press the tag-200 latch; one prepare() tick lowers both 215 barriers.
+ m.signals.set(200,true);m.prepare(g,1/60);
+ assert.equal(gate.open,true);
+ assert(!w.circleHitsWall(gate.x,gate.y,5.6),'lowered gate must be walkable');
+ assert(!w.segmentNear(gate.x,gate.y,5.6),'authored wall contour must be cut at the opening');
+ assert(!w.isNavWall(tx,ty),'BFS must be able to route through the opening');
+ assert(w.lineClear(gate.x-34,gate.y,gate.x+34,gate.y,5.6),'a full-width crossing is clear');
+ assert(w.bfsToWorld(gate.x-34,gate.y,gate.x+34,gate.y),'pathfinding crosses the lowered gate');
+ // Raising it again restores the imported contour (no permanent map mutation).
+ m.signals.set(200,false);m.prepare(g,1/60);
+ assert(w.segmentNear(gate.x,gate.y,5.6));
+ assert.equal(w.baseSegments.length,JSON.parse(fs.readFileSync('assets/collision/map716.json','utf8')).segments.length);
+});
+check('floor door sheets use the authored 192px frames, not 80px slices',()=>{
+ for(const key of ['door_house','trapdoor_house','trapdoor_factory','trapdoor_spooky']){
+  assert.deepEqual(MECHANISM_SHEETS[key],[192,80],`${key} is 960x80 / 5 frames`);
+ }
+ assert.deepEqual(MECHANISM_SHEETS.trapdoor_lava,[80,64]);
+ assert.deepEqual(MECHANISM_SHEETS.trapdoor_manhole,[108,108]);
+});
+check('native per-map FloorTransport door overrides (0x8bd8c) are wired',()=>{
+ // Native door_helper 0x8bd8c switches on the map number. 5-1 (map727)
+ // uses a 128x64 hatch, NOT the generic 192x80 standing house door.
+ assert.equal(floorDoorSheet({id:'map727',num:'5-1',floor:0},33),'door_house_map727');
+ assert.equal(floorDoorSheet({id:'map728',num:'5-10',floor:0},33),'door_house_map728');
+ assert.equal(floorDoorSheet({id:'map728',num:'5-10',floor:1},33),'door_house_map728_1');
+ assert.equal(floorDoorSheet({id:'map729',num:'4-7',floor:0},33),'slidingdoor_map729');
+ assert.equal(floorDoorSheet({id:'map729',num:'4-7',floor:1},33),'slidingdoor_map729_1');
+ assert.equal(floorDoorSheet({id:'map730',num:'4-S2',floor:0},33),'slidingdoor_map730');
+ assert.equal(floorDoorSheet({id:'map711',num:'4-5',floor:0},33),'slidingdoor_map711');
+ assert.equal(floorDoorSheet({id:'map576',num:'7-9',floor:1},33),'trapdoor_lava','chapters 6/7 use the lava hatch');
+ assert.equal(floorDoorSheet({id:'map727',num:'5-1',floor:0},36),null,'trapdoor props are not overridden');
+ const nativeSizes={door_house_map727:[640,64],door_house_map728:[320,128],door_house_map728_1:[640,64],
+  slidingdoor_map711:[576,48],slidingdoor_map729:[352,109],slidingdoor_map729_1:[440,115],slidingdoor_map730:[240,112]};
+ for(const [key,[w,h]] of Object.entries(nativeSizes)){
+  const png=fs.readFileSync(`assets/sprites/${key}.png`);
+  assert.equal(png.readUInt32BE(16),w,`${key} width`);
+  assert.equal(png.readUInt32BE(20),h,`${key} height`);
+  assert.equal(png.readUInt32BE(16)%MECHANISM_SHEETS[key][0],0,`${key} frame width divides the sheet`);
+  assert.equal(png.readUInt32BE(20)%MECHANISM_SHEETS[key][1],0,`${key} frame height divides the sheet`);
+ }
+});
+check('hypnotised cats use the native idle_tv atlas, not the blue-blanket strip',()=>{
+ const s=new Sprites();
+ s.images.blackcat_idle={file:'blackcat_idle.png',fw:64,fh:64,rows:13,cols:8,image:{naturalWidth:512,naturalHeight:832}};
+ const calls=[];
+ const drawing=new Proxy({},{get:(_o,k)=>(...a)=>calls.push([k,...a]),set:()=>true});
+ const cat={angle:0};
+ assert(s.catHypnotizedFrame(drawing,'blackcat',cat,100,100,54,54,0));
+ const image=calls.find(c=>c[0]==='drawImage');
+ assert(image,'a native atlas cell is drawn');
+ assert.equal(image[2],0,'idle_tv holds cx=0 for the first second');
+ assert.equal(image[3],7*64,'a side-facing cat uses idle_tv_02 (cy=7)');
+ assert(!s.catHypnotizedFrame(drawing,'ninjacat',cat,100,100,54,54,0),'other cat types fall back to catFrame');
+ calls.length=0;
+ assert(s.catHypnotizedFrame(drawing,'blackcat',{angle:Math.PI/2},100,100,54,54,1.3));
+ const later=calls.find(c=>c[0]==='drawImage');
+ assert.equal(later[3],9*64,'a cat facing the camera uses idle_tv_04 (cy=9)');
+ assert(later[2]>0,'the 0.2 s animation frames advance');
 });
 check('native MBN wall contours block the red divider and BFS routes around it',()=>{
  const g=make([],levels.find(d=>d.num==='1-8'));

@@ -42,6 +42,11 @@ const SHEETS = {
   cat_angry: { file: "cat_angry.png", fw: 60, fh: 32, rows: 1 },
   cat_stun: { file: "cat_stun.png", fw: 32, fh: 32, rows: 1 },
   sleep_ptcl: { file: 'sleep_ptcl.png', fw: 32, fh: 32, rows: 1 },
+  // Native anim_sequences/black_cat_idle.xml: 8 columns x 13 rows of 64x64
+  // cells (the XML's 32 design units are 2 web px). Rows cy=5..9 are
+  // idle_tv_00..04, the five sitting-watching-TV views. The shipped atlas is
+  // 512x832, so `cols` resolves to 8 during load().
+  blackcat_idle: { file: "blackcat_idle.png", fw: 64, fh: 64, rows: 13 },
   ghostcat_exclamation: { file: "ghostcat_exclamation.png", fw: 14, fh: 32, rows: 1 },
   // Native pipe pieces (parallel-N2): 200-203 1 frame, 204-207 3 frames.
   pipe_d: { file: "pipe_d.png", fw: 64, fh: 64, rows: 1 },
@@ -294,20 +299,31 @@ export class Sprites {
   // 5-8 alert/chase, 9+ specials. Selecting the state's range stops the
   // constant animation switching. Sheets with fewer columns clamp to walk.
   catHypnotizedFrame(ctx,prefix,cat,x,y,w,h,elapsedSeconds){
-    // Native ObjControllerCat loads `idle_tv_0..3` from <prefix>_common
-    // (`cat_hypnotized_speed`). Those are the four sitting-watching-TV frames
-    // after the sleep/wake strip (black/boss/ninja/lava commons have 23/24
-    // columns; brown common only has 14 and falls back).
-    const key=`${prefix}_common`,sheet=this.images[key];
+    // Native ObjControllerCat (analysis/decompiled_cat_group2.c) builds the
+    // sequence name "idle_tv_0<direction>". Those live in
+    // anim_sequences/black_cat_idle.xml on sprites/blackcat_idle.png, NOT in
+    // the <prefix>_common strip: columns 14-17 of blackcat_common are the
+    // blue-blanket sleep/wake frames, which is why a hypnotised cat used to be
+    // drawn wrapped in a blanket. Only the black-cat atlas ships idle_tv;
+    // other types fall back to catFrame's sitting frame.
+    if(prefix!=='blackcat')return false;
+    const key='blackcat_idle',sheet=this.images[key];
     if(!this.ready(key))return false;
-    const cols=sheet.cols||Math.floor(sheet.image.width/sheet.fw);
-    if(cols<18)return false;
-    const frame=14+Math.floor(elapsedSeconds/0.22)%4;
-    const fw=sheet.fw,fh=sheet.fh,width=w*fw/64,height=h*fh/64;
-    if(Math.cos(cat.angle)>0){
+    const fw=sheet.fw,fh=sheet.fh;
+    if(sheet.image.naturalHeight<10*fh)return false;
+    // idle_tv_00..04 are rows 5..9: back, 3/4 back, side, 3/4 front, front.
+    // Pick the authored view from the vertical component of the cat's facing.
+    const sy=Math.sin(cat.angle||0);
+    const row=7+Math.round(Math.max(-1,Math.min(1,sy))*2);
+    // Each sequence holds cx=0 for 1.0 s then plays cx=1..7 at 0.2 s and
+    // loops (2.4 s total).
+    const t=Math.max(0,elapsedSeconds)%2.4;
+    const col=t<1?0:Math.min(7,1+Math.floor((t-1)/0.2));
+    const srcX=col*fw,srcY=row*fh;
+    if(Math.cos(cat.angle||0)>0){
       ctx.save();ctx.translate(x,y);ctx.scale(-1,1);
-      ctx.drawImage(sheet.image,frame*fw,0,fw,fh,-width/2,-height/2,width,height);ctx.restore();
-    }else ctx.drawImage(sheet.image,frame*fw,0,fw,fh,x-width/2,y-height/2,width,height);
+      ctx.drawImage(sheet.image,srcX,srcY,fw,fh,-w/2,-h/2,w,h);ctx.restore();
+    }else ctx.drawImage(sheet.image,srcX,srcY,fw,fh,x-w/2,y-h/2,w,h);
     return true;
   }
 

@@ -16,6 +16,9 @@
 
 - [项目简介](#项目简介)
 - [当前内容](#当前内容)
+- [加载界面与过渡](#加载界面与过渡)
+- [Boss 关卡与奖励关](#boss-关卡与奖励关)
+- [碰撞数据：墙线与"看不见的墙"](#碰撞数据墙线与看不见的墙)
 - [快速开始](#快速开始)
 - [操作方式](#操作方式)
 - [目录结构](#目录结构)
@@ -72,6 +75,18 @@
 
 > 说明：仓库中的菜单/存档解锁范围受当前资源与本地存档影响；某些章节（尤其 world 7/8）在现有 APK/存档中不可直接进入，相关验证以 REA + 模拟为主。不要把“资源里存在”理解为“所有章节都已完整可玩”。
 
+## 加载界面与过渡
+
+页面打开时（首次进入主菜单）和每次进入关卡前，都会先盖一层黄色加载界面：**同一张结算界面用的 `#ffd343` + `assets/ui/bg_bonus.png` 壁纸**、同一套流动（`results-bg-flow`）与旋转光晕（`results-swirl`）动画，中间是菜单同款 `assets/menu/logo.png`，下方一条奶酪色进度条加百分比。所以它看起来是结算界面的"同一家族"，而不是另做的一套 UI。
+
+- **触发时机**：① 首次进入 —— 加载 121 个关卡文件 + 菜单美术；② 每次进入关卡 —— 构建关卡并解码该关的背景图与精灵表。从关卡返回选关时不再显示（资源已在内存里，多一层反而打断节奏）。
+- **进度是真的**：`loadContent(onProgress)` 按已完成的关卡文件数上报，`warmLevelArt()` 按"背景图解码 → 精灵表就绪"上报；没有任何假计时器。本地缓存全命中时进度会在最短展示时间（560 ms）内平滑走完，慢网则是真实分档（可用 Playwright 拦截请求复现）。等待单个大文件（整张关卡背景）超过 0.8 s 时，条会向 92% 缓慢蠕动（约 3%/s）并停在真实值之前，靠条纹动画说明"还在工作"，真实里程碑一到就跳上去。
+- **不闪、不卡操作**：加载期间 `game.state = 'loading'`，模拟（猫的巡逻、计时）整体冻结，画布在加载层下面先把新关卡画好；淡出用 320 ms 透明度过渡，淡出时目标界面已经就位，所以不会闪出裸画布。`MIN_VISIBLE_MS = 560` 保证即使全缓存也有一个明确的过场节拍。
+- **兜底**：`html:not(.loader-armed) .loading-screen` 有一条 9 秒后自动隐藏的动画，模块图跑不起来时也不会把页面锁死在加载层。
+- **无障碍/减弱动画**：加载层带 `role="progressbar"` 与 `aria-valuenow`，`prefers-reduced-motion` 下关闭壁纸流动、光晕、条纹和 logo 浮动。
+
+相关文件：`index.html`（`#loader` 结构，保证首屏第一帧就盖住）、`styles.css` 末尾的加载层样式、`src/loader.js`（`LoadingScreen` / `loadImage` / `warmLevelArt` / `MENU_ART`）、`src/main.js`（`boot()` 与 `startLevel()` 接入点）。
+
 ### 已覆盖的机制（摘要）
 
 | 类别 | 内容 |
@@ -83,6 +98,132 @@
 | 目标 | 奶酪、crumbs、cheese_inf、出口开启条件、Boss |
 | 表现 | 逐帧动画、音效/循环音、HUD、结算、地图选关 |
 | 工具 | 关卡编辑器、Sprite Lab、资源导入、审计/回归脚本 |
+
+---
+
+## Boss 关卡与奖励关
+
+这一节记录 Boss 流程与关卡内奖励关入口的实现方式、参数来源，以及"原生已定位"和"网页兼容参数"的边界。代码分别在 `src/boss-links.js`（链路数据）、`src/boss-flow.js`（入口推进 + 竞技场战斗）、`src/bonus.js`（奖励关入口）。
+
+### 1. 入口关 → 竞技场（原生 `autostart`）
+
+`res/level_data.xml` 里每个 Boss 章节都写了**两**关：`mode="infinite"` 的入口关带 `autostart="<竞技场 uid>"`，竞技场关是 `mode="boss"`。世界地图节点指向入口关，所以"进入 Boss 章节"实际要先走完入口关。网页把这条链做成一条显式的数据表 `BOSS_LINKS`：
+
+| 章节 | 入口关 | 竞技场关 | 胜利计数 `hits` | 计数来源 |
+|---|---|---|---|---|
+| 1-Boss | map736 | map791 | 9 | 原生 `levelPhase == 9` |
+| 2-Boss | map555 | map795 | 6 | 原生 `collisionBits & 0x40`；次数为网页参数 |
+| 3-Boss | map565 | map733 | 8 | 原生 `hitCounter == 8` |
+| 4-Boss | map556 | map789 | 5 | 原生 5 个炮塔目标（prop 282 tag 1–5）；胜利发射点未定位 |
+| 5-Boss | map568 | map782 | 6 | 原生 `custom_02 → win`；触发区不在数据里，次数为网页参数 |
+| 6-Boss | map531 | map797 | 8 | 未定位击败流程，整段为网页参数 |
+| 7-Boss | map816 | map817 | 16 | 原生 16 槽清空 + `collisionBits & 0x20` |
+| 8-Boss | map575 | map781 | 6 | prop 304 更新函数未解码，整段为网页参数 |
+
+### 2. 入口关：卷轴式推进（白猫水平位移驱动）
+
+- **推进跟随白猫，而不是计时器**：`BossApproach.trail`（画面左边缘 / 失败线）每帧累加的是**关内唯一那只白猫（`bosscat`，prop 53 / cat type 3）的水平位移** `dx = cat.x - 上一帧的 cat.x`，不是 `速度 × dt`。白猫垂直向下走时 `dx = 0`，镜头推进立即停止；掉头往回走时 `dx < 0`，棘轮保持不回退。旧实现的"永远 60 px/s 匀速传送带"已移除；
+- `CFG.cat.patrolCells(3.75) × cell(16) = 60` 世界像素/秒现在**只用作单帧位移上限**（`catStepSlack = 1.5`，防传送/高刷新率突进）和**无白猫时的兜底步速**，不再是推进速度；主角最高速 `speedCells(9) × cell = 144` 世界像素/秒，只要在动就一直领先；
+- **落后即失败**：主角中心越过推进末尾就判负（`game.caught(null, 'scroll')`），失败面板会显示"被推进甩下了！"而不是"被猫抓住"；画面上**没有**红色危险带、也没有"别被甩下"之类的文字提示——落后与否直接看画面左边缘那条线；
+- 推进是一条**只进不退的棘轮**：不会因为主角往回走而倒退，所以卷轴关没有回头路；主角跑得快时推进会被"拖"着走（最多领先 0.78 屏），镜头永远跟得上。这条牵引也是 `map816` 的安全网：它没有 prop 359 闸门，合成出口落在背景右侧约 3000 px 的空白延伸区，白猫路线只覆盖原生几何部分，最后一段由主角牵引完成；
+- **相机按整幅地图高度适配**：`scale = min(cssW / 960, (cssH - 16) / world.h)`，纵向**固定在地图中心、不跟随主角上下移动**（卷轴关是横向追逐，主角在楼层间上下换道时画面不会跟着晃）；横向仍按原生 960 宽的比例，**左边缘就是推进末尾**（这也是"落后"能被读懂的原因）；推进在离闸门 0.25 屏处停住，把最后一段留给 Boss 出场；
+- 按**推进位置**（不是主角位置）切 4 个区段（0 / 0.34 / 0.66 / 0.82），切段时只写一次断点，**不再显示"第 n 区段"字样**（底部 4 个进度点已经足够表意）；
+- 最后一段触发 Boss 出场演出（冲入 → 咆哮 → 退场，约 2.9 s）：演出期间冻结推进（否则会趁玩家不能动把他甩下），只锁演出、不锁鼠标，演出结束前不会提前把玩家送进竞技场；
+- **重开（Retry）会重建整段推进**：`BossApproach.onRetry()` 把推进末尾、Boss 出场演出、闸门状态全部清掉，再按重生位置把末尾放到主角身后（`heroStart = 0.3` 屏）；旧实现只 `resetLevel()`，末尾停在失败时的位置（例如 274），主角在 272 重生就立刻再判负；
+- 走到闸门（出口）时不开普通结算面板，而是黑场淡入淡出后载入竞技场——这就是原生 `autostart` 的网页等价物。闸门判定用"出口前的可站立点"而不是出口中心（出口本身在墙里，主角站不上去）。
+
+> 单帧位移上限（= 白猫步速）、领先量、闸门停靠距离都是 WEB-COMPATIBLE 参数（原生只给出"这是追逐关"这一事实，速度值未解码）。推进量本身来自原生 `linesB` 白猫路线在运行时产生的真实水平位移。
+
+### 3. 竞技场：挑战、胜负、结算与退出
+
+- 状态机 `intro → fight → win → cleared`：intro 约 2.6 s（砸门、咆哮、关门），期间锁输入；`win` 播放 1.3 s 死亡演出后才把结果交给 `bossDefeated()`；
+- 战斗规则：Boss 定期蓄力（telegraph 红环提示）后朝主角冲锋，撞到地形即"撞击"记一次命中并被震晕；碰到活着的 Boss 立即失败（原生 0x80b8c 的接触即死）；
+- 原生计数（`levelPhase` / `hitCounter` / `collisionBits` / 16 槽）会随命中同步，但**封顶在胜利值之下**，胜利只由 `bossDefeated()` 一条路径产生，避免两条胜利线互相抢；
+- 结算面板：Boss 关显示 `World Complete! / Boss Defeated!`，主按钮回地图、次按钮再次挑战；普通关的结算完全不变。
+
+### 4. 断点、重复挑战与异常退出
+
+- 运行状态存在 `localStorage` 的 `spymouse.progress.v1` 里：`bossRun`（`entrance/arena/stage/sector/hits/attempts/x/y`）、`boss[章节]`（通关次数与尝试数）、`bonus[关卡]`（奖励关领取记录）、`cracks[裂缝]`（已用掉的墙缝入口）；
+- 断点粒度：入口关按区段 + 坐标写；竞技场在 intro 结束、每次命中、胜利时写；暂停/退出/刷新都不会丢进度；
+- 从地图再次点进该章节时：只要存档里还有未完成的战斗，就直接载入竞技场并恢复命中数（即使点的是入口节点）；只有停在"入口推进"阶段的存档会从最近的区段断点续跑；已完成或没有存档时从入口重新开始；
+- 世界地图上对应节点会带金色脉冲圈和"（继续挑战）"提示；
+- 失败后 `attempt` 计数保留（HUD 显示"第 N 次挑战"），再次挑战跳过长 intro；损坏或非法的存档会被 `normaliseBossRun()` 丢弃，不会卡死关卡。
+
+### 5. 关卡内奖励关入口（WEB-COMPATIBLE）
+
+原生资源里**没有**关卡内的隐藏入口道具（`secret="true"` 关卡只靠世界地图 prop 121/125 隐藏道路揭示），所以这里的入口是网页补齐的，不是还原原生行为：
+
+- 出现条件：本关奶酪全部收集（`cheeseLeft === 0` 且没有待出机器的奶酪）后，在出口旁的可站立点浮现金色传送门（带音效 `ui_findsecret`）；
+- 目标：同章节的 `secret="true"` 关卡（`num` 形如 `"N-S"`），例如 `map10 → map798`；
+- 交互：点击/轻触传送门即进入（离得远时主角先沿 BFS 路径走过去），进入有 0.42 s 收缩演出；
+- 奖励：清空奖励关后按原生 `exit_bonus_multiplier`（2.0，原生分支不可达）把本关结算分数翻倍，并记录 `progress.bonus[父关 id]`；已领取的关卡不再出现入口，重复领取会被 `bonusClaims` 拦住；
+- 失败/中途退出：回到原位、入口仍然可用、不发奖励也不记账（墙上裂缝入口同理：只有**清空**才标记 `used`）。
+
+### 6. 墙上裂缝入口（隐藏关）
+
+有些关卡的背景美术里画着墙缝。原生数据中确实存在的 3 条（`level_data.xml` 的 `by1` 指向父关 uid）登记在 `src/secrets.js` 的 `SECRET_CRACKS`：
+
+| 父关 | 裂缝 | 目标 | 证据 |
+|---|---|---|---|
+| 3-2 map724 | (430,300) | 3-H1 map584 | 原生 `by1=26` |
+| 3-8 map709 | (760,432) | 3-H2 map522 | 原生 `by1=33` |
+| 5-2 map525 | (103,302) | 5-H1 map756 | 原生 `by1=48` |
+
+另外补了一条 **WEB-COMPATIBLE** 入口：1-7（map98）右侧走廊尽头画着一道墙缝，但 `level_data.xml` 里 uid 7 没有任何 secret 子关，1-S（map798）的 `by1=-1`（地图上无从解锁）。网页把这道"看得见却走不进去"的墙缝接到本章的 1-S 上，坐标取自背景美术（裂缝 ~926,452，触发点 904,456）。
+
+消费规则是**按入口**记的，不是按目标关：只有从某条裂缝走进去并清空隐藏关，才写 `progress.cracks[裂缝 id]` 并让该裂缝消失；从别处（例如 map10 的奖励门）通关 1-S 不会关掉 1-7 的裂缝。
+
+进入判定用**两条并联规则**（`game.step()` 里的 `this.cracks` 循环），因为裂缝贴花是画在墙上的，`trigger` 只是"旁边可站立点"的估值：
+
+1. 离解析后的 `trigger` 点在 `cell × 1.1`（17.6 px）以内 —— 无条件触发；
+2. 离**裂缝贴花本身**在 `cell × 2`（32 px）以内，且主角**已停住**（`!mouse.moving`）—— 贴脸推墙就会进。
+
+第二条是 1-7 修好的关键：主角被走廊拐角挡在 `(887,458)`／`(920,456)`，到 `trigger(904,456)` 分别是 17.0 px 与 16 px，而其余三条裂缝（3-2 / 3-8 / 5-2）的可站立点到各自 `trigger` 是 **32 px**，只靠第一条规则永远进不去。现在四条裂缝都以"贴花距离 6–8 px"命中第二条规则，实测全部可以进入（`tools/verify-boss-run.mjs`）。进入有 0.42 s 的过场，退出来回到裂缝原位。
+
+> 新增/改动墙缝时务必跑 `node tools/verify-boss-run.mjs` 与 `node tools/test-bonus.mjs`：前者用真实浏览器站到裂缝旁，后者断言"裂缝旁的可站立点在贴花 2 格内、从出生点可走到"。
+
+### 7. 已知边界
+
+- `hits`、区段阈值、推进速度、演出时长等都是网页参数，上文表格已逐条标注，**不要把标注为"网页参数"的数值当成原生解码结果**；
+- 8-Boss 在原生里是一串 `autostart` 相连的地图（map781 → 769 → 768 → 783 → 764 → 770 → 780 → 771 → 767 → 779），网页目前只把第一张 map781 当作竞技场，通关即结束本章；后续阶段地图的 prop 304 控制器未解码，没有凭空实现。链路数据保留在 `BOSS_CHAIN_NEXT`；
+- 4-Boss 的竞技场本体是用它自己的炮塔部件（prop 283/282）现拼的"合成本体"，原生 282/283 控制器未解码。
+
+---
+
+## 碰撞数据：墙线与"看不见的墙"
+
+`assets/collision/<map>.json` 来自 MBN 的 `linesA`（原生墙/边界轮廓），`linesB` 是同一份数据里的**路线图**（猫巡逻、脚本行走用）。导入脚本 `tools/import-collision.mjs` 按一条实测规则决定"哪条线是墙"：
+
+- **被路线穿过的线不可能是墙**：原生会让身体沿 `linesB` 走过去，路线穿过某条轮廓就说明那里是通的。整类都被穿过的线（prop 114：16/16、140：18/19、143：1/1、142 教程虚线）直接整类丢弃；
+- 单条墙线被穿过时只在该处**减掉 30 像素宽的门口**，墙的其余部分照旧保留（prop 0：91/9673 条、110：192/1737 条被穿过）；
+- 交互开口（prop 20–39 / 200–207 / 240–247 / 357–359 等）附近的整条线按原逻辑丢弃，跟颜色遮罩挖开的洞对齐（**全库默认行为**，见下段入口关修复）。
+
+这条规则修掉的具体 bug：1-Boss 入口关 `map736` 走廊 x≈1550 处曾有一条 prop 114 竖直"墙"，背景图那里什么都没画，主角走过去就卡死（推进变成自动后更是必死）。`tools/test-repairs.mjs` 里有对应的不变量检查（碰撞线段不得穿过任何原生路线 + `map736` x=1550 必须可站立），`World.lineClear()` 也新增了可选的身体半径参数，画线时用主角半径而不是 2.4 px 的视线余量判定，避免"画得过去、走不过去"。
+
+### 8 张 Boss 入口关的原文件一致性修复
+
+长横向入口关暴露了上面规则的副作用，"卡脚"分两类，分别由两个 opt-in 工具修复（都接进了 `npm run build`，只作用于 8 张入口关，其余 195 张 collision 数据保持逐字节不变）：
+
+- **整条墙线被误删**：开口点离某条 `linesA` 不足 26 px 就丢掉整条线，`map531` 因此丢了 2048 px 的底边界。`node tools/import-collision.mjs --doorway-gaps --only=...` 改为在开口处剪出 34 px 门口、在 `linesB` 路点/转角剪 18 px 间隙、在路线中段贴墙处再剪 18 px，墙的其余部分照旧保留。修复后 `rawWallLength` 与 `shippedWallLength` 只差 1–3%（全是门口），`droppedLongLines = 0`；
+- **颜色遮罩把原生走廊判成墙**：`assets/masks/<map>.json` 是背景图颜色分类的结果，深色地毯/阴影/家具/空白延伸区会被判为墙。`tools/carve-approach-masks.mjs` 沿原生 `linesB` 每条腿、以及每个 prop 11 / prop 60 作者坐标，按主角身体半径（5.6 px + 余量）只**开挖**、绝不封墙，并保留一格边界防止走出地图。修复后 8 张图的原生路线采样 `snagRuns` 从 84 段降到 **0**；
+- **机器鼠 / 捕鼠夹生成位置**：原生 prop 60 一一对应 prop 11，但旧导入器对每只机器鼠独立取"最近的夹子"，`map565` / `map556` / `map575` 出现 3~4 只鼠共用一个夹子、其余夹子永远不触发；`map575` 的 id 989 还被 mask 吸附到 105 px 外并落进碰撞体。`tools/pair-cwmice.mjs` 用 Kuhn-Munkres 做**全局一对一最小距离配对**，`tools/fix-boss-entrances.mjs` 用修复后的 mask **和** 原生墙线重新从 XML 推导 23 只机器鼠 / 23 个夹子（坐标零漂移），并把超出画面 32 px letterbox 的白猫末路点夹回可玩区域（`snapAll` 吸附从最大 150 px 降到 ≤ 11.3 px）。
+
+复核入口：`npm run audit:approach`（逐图报告）或 `node tools/audit-boss-approach.mjs --strict --quiet`（CI，已并入 `npm test`）。它同时检查相机驱动、墙线覆盖、路线卡脚、生成点与 1:1 配对；`--json` 输出完整机器可读报告。
+
+### 动态闸门与四个交互修复（2026-11-07）
+
+- **降下的拦路机关仍不可通行（3-1 / `map716`）**：`Mechanisms.applyGateGrid()` 过去只清 `world.grid`，但 `World.segmentNear()` 还会检查静态 MBN `linesA` 墙线。`x=244, y=250..398` 那条原生墙正好穿过 prop 215 的门口，所以门"降下"后视觉开了、身体仍被挡住。现在 `World` 保留 `baseSegments`，`setOpenAreas()` 用 Liang–Barsky 把**已开启闸门/桥**的矩形从墙线上剪掉，再重建 `segments` 与 BFS 用的 `segmentCells`；关门时自动还原，导入数据不被改写。`tools/test-mechanisms.mjs` 断言 `circleHitsWall / segmentNear / isNavWall / lineClear / bfsToWorld` 五层一致。
+- **换层门被切坏（5-1 / `map727`）**：`door_house.png` / `trapdoor_*.png` 是 `960×80 = 5 帧 × 192px`，`MECHANISM_SHEETS` 却按 `80×80` 切帧，于是门只剩一条白色窄边。改为 `[192,80]`；同时给原生原本无贴图的 prop 30/31/34/35 换层触发点补上工厂里的 `arrow.png` 标记，避免走进无出口的小房间后找不到回路。**REA 复核后追加**：原生 `door_helper 0x8bd8c` 还会按关卡号替换 prop 33 的贴图（727/728/729/730/711），5-1 用的是 `door_house_map727.png`（`640×64 = 5×128`，一个金色地面翻板）而不是通用站立房门；`floorDoorSheet()` 已按原生实现，详见 `analysis/REA-MUMU-RECHECK-2026-11-07.md`。
+- **电视机交互 / 催眠动画**：电视改为**经过即开启**（不再需要点击），点击也不再吞掉附近的移动指令；猫的催眠坐姿改用原生 `anim_sequences/black_cat_idle.xml` 的 `idle_tv_00..04`（`blackcat_idle.png`，64px 单元，cy=5..9，前 1 秒停 cx=0 后按 0.2 秒播 cx=1..7）。旧实现误用 `blackcat_common.png` 的 14–17 帧，那其实是**蓝毯子睡眠帧**。图集已加入 `tools/import-assets.mjs` 的导入清单。**REA 复核后追加**：原生 `tv_*.png` 第 0 帧是关机画面（开启时只循环 1..4），且开机后会在屏幕上叠两个 `spiral.png` 催眠螺旋；网页已补齐。
+- **开门光效分离 + 虚线圈**：`BonusPortal.draw()` 曾叠加地面金光、竖直光柱、tinted `flare` 和 `setLineDash` 旋转虚线环，紧挨原生 `home_mousehole_*` 自带的光晕，看起来像门光"裂成两块"。现改为一个紧凑实心金色徽章 + 奶酪角，不再产生第二光源或虚线圈；`tools/test-bonus.mjs` 断言不再调用 `setLineDash` / `createLinearGradient`。原生 `home_mousehole_r.png` 逐帧复核确认光晕是**烘焙在洞口贴图里**的，没有任何独立光柱或虚线圈。
+
+### REA + MuMu 原机对照复核（2026-11-07）
+
+用 `analysis/rea/` 的反编译证据与已运行的 MuMu（`127.0.0.1:7555`，Android 6.0.1 / 2176×1224，原生包 `com.ea.spymouse_row`）逐项复核了上面四个修复。完整结论、证据路径与限制见 `analysis/REA-MUMU-RECHECK-2026-11-07.md`；重点：
+- 场景 1–3 已解锁，实机进入 **3-1 Step On**（`map716`）与 **2-2 Tune In, Drop Out**（`map553`）；场景 4–6 锁定，所以 5-1 / 5-10 用原生资源 + 反编译对照，未做实机进关。
+- 原生 `door_house.png` 的 `SetScale 96` 设计单位（= 192 web px）**证实** 5 帧 ×192px 的切法；REA 文档里"12 帧 ×80px"的文字记录是错的，已在复核报告中更正。
+- 原生 5-1 第二层（`map727_2.xml`）确实没有出口实体、只有 prop 34 返回触发点，"基本无法游玩的小房间"是原生作者化设计，不是导入丢数据；网页的可见箭头属于**有意的可玩性增强**。
+- 原生 `tv_l/u/d/r.png` 帧 0 是关机画面；MuMu 2-2 教程回放显示开机电视带两个螺旋、两只猫背对镜头坐着，与 `blackcat_idle.png` 的 `idle_tv` 背面坐姿行一致。
 
 ---
 
@@ -148,8 +289,12 @@ http://127.0.0.1:5173/spritelab.html
 ├─ styles.css / menu.css       # 游戏与菜单样式
 ├─ src/
 │  ├─ main.js                  # 启动、主循环、输入
+│  ├─ loader.js                # 黄色加载界面 + 关卡/菜单资源预热
 │  ├─ game.js                  # 游戏状态、楼层、碰撞、结算
 │  ├─ level.js / levels.js     # 关卡数据与世界
+│  ├─ boss-links.js            # Boss 入口/竞技场 autostart 链路数据
+│  ├─ boss-flow.js             # Boss 入口卷轴推进 + 竞技场战斗流程
+│  ├─ bonus.js                 # 关卡内奖励关入口
 │  ├─ mechanisms.js            # 门/桥/开关/电视/平台等机制
 │  ├─ mechanism-types.js       # 机制图集/类型常量
 │  ├─ entities.js              # 猫、敌人、Boss
@@ -191,13 +336,24 @@ npm test
 
 ```text
 All levels passed
-Repair regressions: 43 passed
-Mechanism regressions: 46 groups passed (121 maps, 61 additional floors)
+Repair regressions: 44 passed
+Mechanism regressions: 50 groups passed (121 maps, 61 additional floors)
+Boss flow regressions: 18 groups passed
+Reward room regressions: 10 groups passed
 platform verification OK: 20 final-chapter platforms move without carrying riders or writing terrain
-TV verification OK (facing, 128px frame, sitting hypnosis + icon)
+TV verification OK (facing, 128px frame, walk-past activation, off/on frames 0|1..4, native idle_tv + spirals + stun icon)
 Entrance audit passed: 121 maps / 182 floors, 299 holes, 540 paired directions
+summary: 8 maps, problems {}          # audit-boss-approach.mjs --strict --quiet
 audio assets OK
 ```
+
+### 卷轴关 / 墙缝的真实浏览器验证
+
+```bash
+npm run verify:boss            # 加 --headed 可看着它跑
+```
+
+用本机 Chrome 跑一遍需要真实画布和 rAF 循环的验证：四条墙缝能否走进隐藏关、**推进量是否等于白猫水平位移**（`3a`：`trailDx = catDx`，明显小于同一时长的匀速时钟值）、**白猫垂直走时镜头静止**（`3b`）、**白猫水平走时推进等于 `catDx`**（`3c`）、镜头是否整幅高度且不上下晃、HUD 有没有"区段"字样/红色危险带/进度点以外的内容、被甩下后重开能否正常继续。失败时退出码为 1，并输出截图到 `analysis/screenshots/boss-run-verify.png`。
 
 ### 冒烟测试
 
@@ -223,12 +379,17 @@ badResponses: []
 ### 单独运行验证
 
 ```bash
+node tools/test-boss-flow.mjs
+node tools/test-bonus.mjs
 node tools/verify-platforms.mjs
 node tools/verify-tv.mjs
 node tools/audit-entrances.mjs
+node tools/audit-boss-approach.mjs            # 或 --strict --quiet / --json
 node tools/audit-decorations.mjs
 node tools/verify-audio.mjs
 ```
+
+> `test-boss-flow.mjs` 覆盖入口卷轴的**白猫水平位移驱动推进**（`trailDx == catDx`、垂直腿停止、无白猫兜底）、棘轮不倒退、站着不动被判负且 `cause === 'scroll'`、跟着推进跑则安全、区段断点、Boss 出场与闸门交接、竞技场胜负/接触死亡/重试/断点续战；`test-bonus.mjs` 覆盖奖励关入口的出现条件、进入/返回、失败不吞奖励、2× 结算只发一次，以及墙上裂缝（3 个隐藏关 + 1-7→1-S）的进入/消费与"别处通关不会关掉本关裂缝"的回归；`test-repairs.mjs` 里有一条碰撞不变量：碰撞线段不得穿过任何原生路线，且 `map736` x=1550 必须可站立。
 
 > 这些脚本依赖仓库内 `assets/` 的预构建资源；如果只克隆了代码而没有资源，相关测试会失败。
 
@@ -248,7 +409,7 @@ node tools/verify-audio.mjs
 npm run build
 ```
 
-该命令会依次执行资源导入、遮罩、实体、碰撞、动画、UI、菜单、机制与音频转码。不同版本的 APK/数据包可能路径或格式不同，脚本不保证跨版本兼容。
+该命令会依次执行资源导入、遮罩、实体、碰撞、动画、UI、菜单、机制与音频转码。入口关相关的三步按顺序插在中间：`carve-approach-masks.mjs` 排在 `carve-entities.mjs` 之后（后续实体吸附要看到修好的遮罩）、`import-collision.mjs --doorway-gaps --only=...` 排在全库 `import-collision.mjs` 之后（覆盖 8 张图）、`fix-boss-entrances.mjs` 排在两者之后（重新推导机器鼠/夹子坐标需要修好的遮罩和墙线）。单独重跑可用 `npm run carve:approach && npm run collision:approach && npm run fix:entrances`。不同版本的 APK/数据包可能路径或格式不同，脚本不保证跨版本兼容。
 
 可选分析工具还可能需要：
 
@@ -269,7 +430,8 @@ npm run build
 - **猫的偷奶酪/吃奶酪**等行为尚未完整实现；
 - **部分家具资源缺失**：数据包本身没有 `bathtub`、`metallic_shelve`、`metallic_drawer`、`wooden_barrel`、`wooden_chest` 等 PNG，对应道具会跳过绘制；
 - 个别附加楼层的入口/猫状态可能存在数据异常，已加入安全出生点保护，但仍建议逐关复核；
-- 音频/动画时序、Boss 流程、部分 UI 细节仍可能与原版有差异；
+- 音频/动画时序、部分 UI 细节仍可能与原版有差异；
+- **Boss 关卡的驱动细节是网页实现的**：入口卷轴推进、Boss 冲锋/撞击计数、出场演出都是按原生链路（`autostart`、胜利触发条件）重写的行为，其中 `hits` 等参数是网页可玩性参数而非解码值；8-Boss 的原生多地图 `autostart` 链只实现了第一张图（详见 [Boss 关卡与奖励关](#boss-关卡与奖励关)）；
 - 没有后端、没有存档云同步；进度保存在浏览器本地存储中；
 - 不保证在所有浏览器/设备/分辨率上完全一致。
 

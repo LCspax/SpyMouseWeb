@@ -9,6 +9,9 @@ import { updateCarried, resetCarried } from './carried.js';
 import {pipeDestination} from './pipe-portals.js';
 import {entranceScale} from './entrance-feedback.js';
 import {bossDefeated} from './boss.js';
+import {createBossFlow, normaliseBossRun, newBossRun} from './boss-flow.js';
+import {arenaLink, entranceLink} from './boss-links.js';
+import {BonusPortal, bonusTargetFor, EXIT_BONUS_MULTIPLIER} from './bonus.js';
 import {audio} from './audio.js';
 import {updateHazards} from './hazards.js';
 import {SECRET_CRACKS} from './secrets.js';
@@ -83,6 +86,25 @@ export class Game {
     this.crackEnter = null;
     this.bonusReturn = null;
     this.bonusLevelId = null;
+    // Reward-room entrance (src/bonus.js) + its one-shot payout.
+    this.bonusPortal = null;
+    this.bonusMultiplier = 1;
+    this.bonusClaimed = false;
+    this.bonusClaims = {};
+    this.onBonusReward = null;
+    // Wall-crack entrances that were pushed through and cleared, keyed by the
+    // authored crack id. main.js persists it as `progress.cracks`.
+    this.crackClaims = {};
+    this.onCrackUsed = null;
+    // Boss run (src/boss-flow.js): `bossRun` mirrors the persisted save, the
+    // flow owns the entrance/arena presentation for the loaded level.
+    this.bossFlow = null;
+    this.bossRun = null;
+    this.bossResume = null;
+    this.bossTransition = null;
+    this.inputLocked = false;
+    this.language = 'zh';
+    this.onBossRun = null;
     this.onSecretFound = null;
     this.envSpeedMult = 1;
     // Audio is optional: init() resolves to a no-op when there is no browser
@@ -112,11 +134,20 @@ export class Game {
     const viewH = 640;
     const fit = Math.min((this.cssW - pad * 2) / w, (this.cssH - pad * 2) / h);
     const zoom = Math.min(this.cssW / viewW, this.cssH / viewH);
-    const scale = Math.min(zoom, fit);
+    // Boss entrance maps are 4-6 screen widths wide. Fitting them would show
+    // the whole run at once, which is exactly what a scroll advance must not
+    // do: those levels pan horizontally with the advance
+    // (src/boss-flow.js BossApproach.cameraFocus). Vertically they DO fit the
+    // whole map: the run is horizontal and every floor lane has to stay visible,
+    // so the camera never pans up/down with the hero.
+    const scroll = this.bossFlow?.cameraMode === 'scroll';
+    const fitHeight = (this.cssH - pad * 2) / Math.max(1, h);
+    const scale = scroll ? Math.max(1e-4, Math.min(zoom, fitHeight)) : Math.min(zoom, fit);
     this.cam.scale = scale;
     const m = this.mouse || { x: w / 2, y: h / 2 };
-    let ox = this.cssW / 2 - m.x * scale;
-    let oy = this.cssH / 2 - m.y * scale;
+    const focus = (scroll && this.bossFlow?.cameraFocus?.(this, scale)) || { x: m.x, y: m.y };
+    let ox = this.cssW / 2 - focus.x * scale;
+    let oy = this.cssH / 2 - focus.y * scale;
     if (w * scale <= this.cssW - pad * 2) ox = (this.cssW - w * scale) / 2;
     else ox = Math.max(this.cssW - pad - w * scale, Math.min(pad, ox));
     if (h * scale <= this.cssH - pad * 2) oy = (this.cssH - h * scale) / 2;
@@ -129,10 +160,10 @@ export class Game {
     this.levelIndex = index;
     this.level = new Level(def);
     this.crackEnter = null;
+    this.bonusPortal = null; // re-created by setupBonusPortal() after resetLevel
     this.floorLevels=new Map([[0,this.level]]);
     for(const floor of def.extraFloors||[])this.floorLevels.set(floor.floor,new Level({...floor,num:def.num,name:def.name,times:def.times,goals:def.goals,mode:def.mode}));
-    this.updateCamera();
-    this.bgImg = null;
+    this.updateCamera();    this.bgImg = null;
     if (def.bg) {
       const img = new Image();
       img.onload = () => {
@@ -154,13 +185,82 @@ export class Game {
         ...crack,
         trigger: loose,
         returnTo: back,
-        used: this.secretsFound.has(crack.target),
+        // Spent only when THIS entrance was pushed through and the room was
+        // cleared (crackClaims, persisted by main.js). Keying it on the target's
+        // "discovered" flag would close every other door into the same hidden
+        // level as soon as one of them was used.
+        used: !!(this.crackClaims && this.crackClaims[crack.id]),
       };
     });
+    // Boss run: an entrance map starts the scroll run, an arena map starts (or
+    // resumes) the fight. `bossResume` is consumed once so a stale save can
+    // never hijack a normal level load, while a run that is already live is
+    // carried across the entrance -> arena hand-over (attempts, sector).
+    const resume = this.bossResume && (this.bossResume.entrance === def.id || this.bossResume.arena === def.id)
+      ? this.bossResume
+      : null;
+    const carry = this.bossRun && (this.bossRun.arena === def.id || this.bossRun.entrance === def.id)
+      ? this.bossRun
+      : null;
+    this.bossFlow = createBossFlow(this, def, resume || carry);
+    this.bossResume = null;
+    if (this.bossFlow) {
+      this.bossRun = resume || carry || newBossRun(this.bossFlow.link, {
+        stage: def.mode === 'boss' ? 'arena' : 'approach',
+      });
+      this.bossFlow.attach?.(this);
+      // The arena has its own slam/roar intro; the level iris would hide it.
+      if (this.bossFlow.kind === 'arena') this.intro = null;
+      this.updateCamera();
+      // Persist the moment the run becomes live, so quitting during the intro
+      // is resumable like any fight checkpoint.
+      if (!resume) this.saveBossRun({ stage: def.mode === 'boss' ? 'intro' : 'approach' });
+    }
+    // In-level reward-room entrance (see src/bonus.js for the evidence limits).
+    this.setupBonusPortal(def);
     // Per-level music from level_data.xml <music play="…sps"/> (imported as
     // def.music). Safe when the field or the audio manifest is missing.
     this.currentMusic = def.music || null;
     if (def.music) audio.playMusic(def.music, { loop: true });
+  }
+
+  setupBonusPortal(def) {
+    this.bonusPortal = null;
+    this.bonusMultiplier = 1;
+    this.bonusClaimed = false;
+    const target = bonusTargetFor(def, this.levelCatalog || []);
+    if (!target) return;
+    const claimed = !!(this.bonusClaims && this.bonusClaims[def.id]);
+    this.bonusPortal = new BonusPortal(this, target, { claimed });
+    if (claimed) this.bonusClaimed = true;
+  }
+
+  // ---- boss run persistence seam ---------------------------------------
+  // Everything is plain data so main.js owns localStorage; the flow only says
+  // what changed. Returning null means "this level is not part of a boss run".
+  saveBossRun(patch = {}) {
+    const link = this.bossFlow?.link || arenaLink(patch.arena) || entranceLink(patch.entrance);
+    if (!link) return null;
+    const base = this.bossRun && this.bossRun.arena === link.arena
+      ? this.bossRun
+      : newBossRun(link, { stage: patch.stage || 'approach' });
+    const next = normaliseBossRun({
+      ...base,
+      ...patch,
+      arena: link.arena,
+      entrance: link.entrance,
+      updatedAt: Date.now(),
+    });
+    if (!next) return null;
+    next.updatedAt = Date.now();
+    this.bossRun = next;
+    this.onBossRun?.(next);
+    return next;
+  }
+
+  clearBossRun() {
+    this.bossRun = null;
+    this.onBossRun?.(null);
   }
 
   // ---- wall-crack / hidden levels ---------------------------------------
@@ -168,13 +268,14 @@ export class Game {
   // the live parent level (so cheese/cat/switch state is preserved) and loads
   // the hidden level; clearing the hidden level restores the parent at the
   // crack's specific return point.
+  //
+  // Claim order matters: the crack is NOT marked used here. A hidden level that
+  // is abandoned or failed must stay reachable, otherwise the entrance's reward
+  // is lost without ever being paid (the old code marked it on entry).
   enterCrack(crack) {
     if (this.crackEnter || this.bonusReturn) return false;
     const target = this.levelCatalog.find((level) => level.id === crack.target);
     if (!target) return false;
-    crack.used = true;
-    this.secretsFound.add(target.id);
-    this.onSecretFound?.(target.id);
     audio.playSound(141, { priority: 7 }); // ui_findsecret
     this.crackEnter = { elapsed: 0, duration: 0.42, crack, target };
     this.mouse.clearPath();
@@ -182,7 +283,22 @@ export class Game {
     return true;
   }
 
-  beginBonus(target, crack) {
+  /** Reward-room portal entry (src/bonus.js). */
+  enterBonusFromPortal(portal) {
+    if (!portal || this.bonusReturn) return false;
+    const target = this.levelCatalog?.[portal.targetIndex];
+    if (!target) return false;
+    return this.beginBonus(target, {
+      kind: 'portal',
+      id: `bonus:${target.id}`,
+      returnTo: { x: portal.x, y: portal.y },
+      portal,
+    });
+  }
+
+  beginBonus(target, origin) {
+    if (!target || this.bonusReturn) return false;
+    const returnTo = origin?.returnTo || origin?.trigger || { x: this.mouse.x, y: this.mouse.y };
     const saved = {
       level: this.level,
       floorLevels: this.floorLevels,
@@ -202,24 +318,43 @@ export class Game {
       bgImg: this.bgImg,
       cracks: this.cracks,
       currentMusic: this.currentMusic,
-      crack,
+      // Run/portal objects are stashed by reference: they hold the live claim
+      // flags and the boss flow, which must not be rebuilt on return.
+      bossFlow: this.bossFlow,
+      bossRun: this.bossRun,
+      portal: this.bonusPortal,
+      bonusMultiplier: this.bonusMultiplier,
+      bonusClaimed: this.bonusClaimed,
+      arrowTimer: this.arrowTimer,
+      exitWasOpen: this.exitWasOpen,
+      exitOpenTime: this.exitOpenTime,
+      origin: { kind: origin?.kind || 'crack', id: origin?.id ?? null, returnTo },
       targetId: target.id,
     };
     this.bonusReturn = saved;
     this.loadLevel(target, this.levelCatalog.indexOf(target));
     this.intro = null;
     this.state = 'playing';
+    this.bonusLevelId = target.id;
     this.emitHud();
     return true;
   }
 
   abandonBonus() {
+    // Dropping the parent stash (level select / new level) must never consume
+    // a reward: the claim is only written by a successful finishBonus().
     this.bonusReturn = null;
     this.crackEnter = null;
     this.bonusLevelId = null;
   }
 
-  finishBonus() {    const saved = this.bonusReturn;
+  /**
+   * Restore the parent level after a reward room. `success` pays the reward
+   * exactly once; a failed/aborted run returns to the same spot with the
+   * entrance still usable.
+   */
+  finishBonus(success = true) {
+    const saved = this.bonusReturn;
     if (!saved) return false;
     this.level = saved.level;
     this.floorLevels = saved.floorLevels;
@@ -239,35 +374,87 @@ export class Game {
     this.bgImg = saved.bgImg;
     this.currentMusic = saved.currentMusic;
     this.cracks = saved.cracks;
-    for (const crack of this.cracks) if (crack.target === saved.targetId) crack.used = true;
-    // Specific return position beside the crack, never the parent level start.
-    this.mouse.x = saved.crack.returnTo?.x ?? saved.crack.trigger.x;
-    this.mouse.y = saved.crack.returnTo?.y ?? saved.crack.trigger.y;
+    this.bossFlow = saved.bossFlow || null;
+    this.bossRun = saved.bossRun || null;
+    this.bonusPortal = saved.portal || null;
+    this.bonusMultiplier = saved.bonusMultiplier ?? 1;
+    this.bonusClaimed = saved.bonusClaimed ?? false;
+    this.arrowTimer = saved.arrowTimer ?? 0;
+    this.exitWasOpen = saved.exitWasOpen ?? false;
+    this.exitOpenTime = saved.exitOpenTime ?? null;
+    if (success) {
+      // Only the entrance that was actually used is spent. Keying it on the
+      // target instead would close every other door into the same hidden level
+      // (e.g. 1-7's painted crack once 1-S was cleared from map10's reward
+      // room). The record is persisted so it survives a reload.
+      if (saved.origin?.kind === 'crack' && saved.origin.id) {
+        this.crackClaims = this.crackClaims || {};
+        this.crackClaims[saved.origin.id] = true;
+        this.onCrackUsed?.(saved.origin.id);
+      }
+      for (const crack of this.cracks || []) {
+        if (crack.id === saved.origin?.id) crack.used = true;
+      }
+      this.secretsFound.add(saved.targetId);
+      this.onSecretFound?.(saved.targetId);
+      if (!this.bonusClaimed) {
+        this.bonusClaimed = true;
+        this.bonusMultiplier = EXIT_BONUS_MULTIPLIER;
+        this.bonusClaims = this.bonusClaims || {};
+        this.bonusClaims[saved.level.id] = true;
+        this.onBonusReward?.({
+          levelId: saved.level.id,
+          targetId: saved.targetId,
+          multiplier: EXIT_BONUS_MULTIPLIER,
+        });
+      }
+      audio.playSound(144, { priority: 7 }); // ui_reward
+    }
+    this.bonusPortal?.onReturn(this, success);
+    // Specific return position beside the entrance, never the parent start.
+    const back = saved.origin?.returnTo;
+    if (back) {
+      const open = this.level.world.closestOpen(back.x, back.y, this.mouse.radius);
+      this.mouse.x = open.x;
+      this.mouse.y = open.y;
+    }
     this.mouse.angle = 0;
     this.mouse.lift = 0;
     this.mouse.hidden = false;
     this.mouse.hiddenTag = null;
+    this.mouse.furnitureId = null;
     this.mouse.clearPath();
     this.mouse.moving = false;
+    if (success) {
+      // Payout feedback where the player left: the pickup float layer is the
+      // existing "text above the hero" surface.
+      this.floats.push({
+        x: this.mouse.x,
+        y: this.mouse.y,
+        t: 0,
+        text: this.language === 'en' ? 'x2 BONUS' : '奖励 x2',
+        color: '#ffd166',
+      });
+    }
     this.bonusReturn = null;
     this.bonusLevelId = null;
     this.crackEnter = null;
     this.clearPresentation = null;
     this.death = null;
     this.intro = null;
+    this.pipeTransit = null;
     this.emergeGrow = { elapsed: 0, duration: CFG.game.emergeGrowSeconds };
     this.state = 'playing';
     this.updateCamera();
     if (saved.currentMusic) audio.playMusic(saved.currentMusic, { loop: true });
-    audio.playSound(144, { priority: 7 }); // ui_reward
     this.emitHud();
-    this.onBonusReturn?.(saved.targetId);
     return true;
   }
 
   resetLevel(fullReset) {
     this.death = null;
     this.clearPresentation = null;
+    this.inputLocked = false;
     this.bumpedCats = new Set();
     this.pipeTransit = null;
     this.emergeGrow = null;
@@ -367,6 +554,9 @@ export class Game {
     this.pipeExitLock=null;
     this.floorExitLock=null;
     this.entrancePulses=new Map();this.pipeGlow=null;
+    // Reward-room entrance presentation resets with the level, but its claim
+    // flag is never cleared here (that would allow a duplicate payout).
+    this.bonusPortal?.reset(this);
     // Native teleport state machine (0xfda2c: states 0/1/2, 50 ms sprite
     // sequences): the player shrinks into the entry mouth, swaps to the exit
     // mouth, then grows back out. `pipeTransit` drives that brief lock.
@@ -441,6 +631,8 @@ export class Game {
 
   onPointerDown(pt) {
     if (this.state !== "playing") return;
+    // Boss intro/approach cinematics lock drawing but never the simulation.
+    if (this.inputLocked || this.bossFlow?.inputLocked) return;
     let w = this.screenToWorld(pt.x, pt.y);
     const rawPoint={...w};
     const wasHidden=this.mouse.hidden;
@@ -571,6 +763,7 @@ export class Game {
   // units of a same-Tag hole (the scan reference is the screen->world input
   // point) emerges there; otherwise the hidden mouse stays put.
   handleTap(p) {
+    if(this.bonusPortal?.tryTap(this, p))return;
     if(this.handlePipeTap(p))return;
     if(this.level.mechanisms.handleTap(this,p))return;
     const holes = this.level.hideables || [];
@@ -649,6 +842,10 @@ export class Game {
   // ---- update ----------------------------------------------------------
 
   update(dt) {
+    if (this.bossTransition) {
+      this.updateBossTransition(dt);
+      return;
+    }
     if (this.state === 'levelclear' && this.clearPresentation) {
       const clear = this.clearPresentation;
       clear.elapsed += Math.max(0, dt);
@@ -739,9 +936,20 @@ export class Game {
     // pushes the hero through. The parent level is stashed by beginBonus().
     if (!this.bonusReturn && this.cracks.length) {
       for (const crack of this.cracks) {
-        if (crack.used || this.mouse.moving) continue;
-        const reach = this.level.world.cell * 1.1;
-        if (dist(this.mouse.x, this.mouse.y, crack.trigger.x, crack.trigger.y) <= reach) {
+        if (crack.used) continue;
+        const cell = this.level.world.cell;
+        // Two measurements, because the hero can never stand on the painted
+        // crack itself (it is inside the wall):
+        //   * the authored trigger point, for an exact walk-up, and
+        //   * the crack decal in the art, with a radius wide enough to cover the
+        //     whole drawn zigzag. Without the second one, 1-7 was unreachable:
+        //     the corridor corner stops the hero ~23 px short of the trigger
+        //     point (measured in the browser), so nothing happened.
+        const atTrigger = dist(this.mouse.x, this.mouse.y, crack.trigger.x, crack.trigger.y) <= cell * 1.1;
+        const atDecal = dist(this.mouse.x, this.mouse.y, crack.x, crack.y) <= cell * 2;
+        // Standing still keeps it deliberate; pushing into the crack while still
+        // moving counts too, as long as the hero is inside the decal radius.
+        if (atTrigger || (atDecal && !this.mouse.moving)) {
           this.enterCrack(crack);
           return;
         }
@@ -874,6 +1082,19 @@ export class Game {
     if(!this.mouse.hidden&&!this.mouse.airborne)updateCwmice(this.level,this.mouse,dt,(id)=>audio.playSound(id));
     this.level.mechanisms.update(this,dt,{x:px,y:py});
     if(this.state!=='playing'||this.level.world!==world)return;
+    // Reward-room entrance: appears when the level has nothing left to collect,
+    // then waits for an explicit tap (src/bonus.js).
+    this.bonusPortal?.update(dt, this);
+    if (this.state !== 'playing') return;
+    // Boss run: approach stages/camera or the arena fight, resolved before the
+    // normal exit check so the entrance gate hands over instead of clearing.
+    this.bossFlow?.step?.(this, dt);
+    if (this.state !== 'playing') return;
+    if (this.bossFlow?.interceptExit?.(this)) return;
+    // A boss entrance ends at the gate hand-over, never with a normal clear -
+    // even while the boss-appearance cinematic keeps the player waiting there.
+    if (this.bossFlow?.kind === 'approach'
+      && (this.level.mechanisms.exitDoorReady || this.bossFlow.atGate?.(this))) return;
     // Native exit doors 358 (boss) / 359 (level): only an OPEN door wins on
     // contact; 357 is a decorative entrance (special factory 0x9ed40). The
     // Mechanisms update resolves the open state and the interaction point.
@@ -1039,8 +1260,10 @@ export class Game {
     this.caughtCount++;
     // Native death cues: normal catch = mouse_dies (77) + death_cloud (96);
     // lava/fire = death_fire (122). These are call-site ids, not runtime proof.
+    // 'scroll' (boss entrance advance reaching the hero) is not a catcher, so it
+    // only plays the death cry - no cloud, no trap sting.
     if (cause === 'lava' || cause === 'fire') audio.playSound(122);
-    else { audio.playSound(77); if (cause !== 'trap') audio.playSound(96); }
+    else { audio.playSound(77); if (cause !== 'trap' && cause !== 'scroll') audio.playSound(96); }
     this.emitHud();
     this.cancelStroke();
     this.mouse.clearPath();
@@ -1049,6 +1272,8 @@ export class Game {
       x: cat ? (cat.x + this.mouse.x) / 2 : this.mouse.x,
       y: cat ? (cat.y + this.mouse.y) / 2 : this.mouse.y };
     this.state = "caught";
+    // Boss attempt bookkeeping (no-op outside a boss arena).
+    this.bossFlow?.onCaught?.(this);
   }
 
   // Native levelOver retry: reset the whole map and reopen the pinhole. The
@@ -1058,6 +1283,8 @@ export class Game {
     this.resetLevel(true);
     this.state = "playing";
     this.intro = { elapsed: 0, hold: 0.2, reveal: 0.45, animation: 'idle1' };
+    // A boss retry rebuilds the fight; hits only survive a resume, not a death.
+    this.bossFlow?.onRetry?.(this);
   }
 
   resumeAfterCaught() {
@@ -1097,6 +1324,62 @@ export class Game {
   restart() {
     this.resetLevel(true);
     this.state = "playing";
+    // Replaying a boss arena rebuilds the fight (fresh attempt, boss home).
+    this.bossFlow?.onRetry?.(this);
+  }
+
+  // Native `autostart`: the entrance run hands over to the boss arena without a
+  // results screen. A two-stage fade covers the map swap so the hero, camera
+  // and HUD never show a half-loaded level.
+  startBossTransition(targetId, { reason = 'arena', delay = 0 } = {}) {
+    if (this.bossTransition) return false;
+    const catalog = this.levelCatalog || [];
+    const index = catalog.findIndex((level) => level && level.id === targetId);
+    if (index < 0) return false;
+    this.bossTransition = {
+      elapsed: 0, duration: 1.15, delay, reason, targetId, index, loaded: false, fade: 0,
+    };
+    // Remember which half of the run the save is in before the swap.
+    this.saveBossRun({ stage: reason === 'chain' ? 'arena' : 'arena' });
+    this.state = 'boss_transition';
+    this.inputLocked = true;
+    this.cancelStroke();
+    this.mouse.clearPath();
+    this.mouse.moving = false;
+    audio.playSound(140, { priority: 7 }); // ui_woosh
+    return true;
+  }
+
+  updateBossTransition(dt) {
+    const t = this.bossTransition;
+    if (!t) return;
+    t.elapsed += Math.max(0, dt);
+    if (t.delay > 0) {
+      t.delay -= dt;
+      t.fade = 0;
+      if (t.delay > 0) return;
+    }
+    const mid = t.duration * 0.5;
+    t.fade = t.elapsed <= mid
+      ? clamp(t.elapsed / mid, 0, 1)
+      : clamp(1 - (t.elapsed - mid) / mid, 0, 1);
+    if (!t.loaded && t.elapsed >= mid) {
+      t.loaded = true;
+      const def = this.levelCatalog[t.index];
+      if (def) {
+        this.loadLevel(def, t.index);
+        this.state = 'boss_transition';
+        this.inputLocked = true;
+        this.updateCamera();
+      }
+    }
+    if (t.elapsed >= t.duration) {
+      this.bossTransition = null;
+      this.state = 'playing';
+      this.inputLocked = !!this.bossFlow?.inputLocked;
+      this.bossFlow?.attach?.(this);
+      this.emitHud();
+    }
   }
 
   levelClear() {
@@ -1230,17 +1513,24 @@ export class Game {
       name = "pair";
     }
     const banked = Math.floor(combo * sum);
+    // Reward-room payout: the native exit_bonus_multiplier (2.0) is authored
+    // but has an unreachable branch natively; the port applies it once after a
+    // reward room is cleared (see src/bonus.js).
+    const multiplier = Number.isFinite(this.bonusMultiplier) && this.bonusMultiplier > 0 ? this.bonusMultiplier : 1;
+    const boosted = Math.floor(banked * multiplier);
     // Native score countdown: one point per 200ms, independent of the HUD.
     const start = this.level?.times?.start;
     const timeBonus = this.state === 'timeout' ? 0 : this.timeLeft != null ? Math.max(0, Math.floor(this.timeLeft))
       : Number.isFinite(start) ? Math.max(0, Math.floor(start) - Math.floor((this.time + 1e-9) / CFG.game.scoreCountdownSeconds)) : 0;
     return {
-      banked,
+      banked: boosted,
+      baseBanked: banked,
+      bonusMultiplier: multiplier,
       combo,
       comboName: name,
       timeBonus,
       elapsed: this.time,
-      final: banked + timeBonus,
+      final: boosted + timeBonus,
       cheese: { ...this.cheeseCounts },
     };
   }
@@ -1277,8 +1567,10 @@ export class Game {
     // into the exit (clearPresentation.phase==='enter'), drawMouse applies that
     // scale; after the clear event the DOM results background masks the canvas.
     const { scale, ox, oy } = this.cam;
+    // Boss charge/crash impacts shake the world, never the DOM panel.
+    const shake = this.bossFlow?.shakeOffset?.() || null;
     ctx.save();
-    ctx.translate(ox, oy);
+    ctx.translate(ox + (shake?.x || 0), oy + (shake?.y || 0));
     ctx.scale(scale, scale);
 
     const u = this.level.world.cell;
@@ -1296,9 +1588,11 @@ export class Game {
     drawCwmice(ctx, this.sprites, this.level, this.time, u, this.cwmousePresentationScale());
     this.drawExit(ctx, u);
     this.drawCracks(ctx, u);
+    this.bonusPortal?.draw?.(ctx, this);
     this.drawPath(ctx, u);
     this.drawCats(ctx, u);
     this.drawBosses(ctx, u);
+    this.bossFlow?.draw?.(ctx, this);
     this.drawCatIndicators(ctx, u);
     this.drawProjectiles(ctx, u);
     this.drawMouse(ctx, u);
@@ -1308,6 +1602,15 @@ export class Game {
     this.drawFloats(ctx, u);
 
     ctx.restore();
+    this.bossFlow?.drawBanner?.(ctx, this);
+    this.bossFlow?.drawHud?.(ctx, this);
+    if (this.bossTransition) {
+      ctx.save();
+      ctx.globalAlpha = clamp(this.bossTransition.fade || 0, 0, 1);
+      ctx.fillStyle = '#000';
+      ctx.fillRect(0, 0, this.cssW, this.cssH);
+      ctx.restore();
+    }
     if (this.death) this.drawCaughtMask(ctx);
     else if (this.intro) this.drawIntro(ctx);
   }
@@ -1744,6 +2047,9 @@ export class Game {
   // so a neutral marker keeps the lethal contact visible. Authored parts that
   // do have known sprites are drawn at their native anchors.
   drawBosses(ctx, u) {
+    // A boss arena draws its own bodies (telegraph halo, crash state) in
+    // src/boss-flow.js; the generic placeholder would double up on them.
+    if (this.bossFlow?.kind === 'arena') return;
     const PART_ART = {
       282: 'boss4_reflector', 283: 'boss4_breakable',
       349: 'rope_post', 350: 'boss7_support', 366: 'target_moving',

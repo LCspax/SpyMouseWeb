@@ -98,6 +98,10 @@ export class Level {
           parts: b.parts || [],
         }));
     }
+    // Authored boss parts (282/283/349/350/353/357/358/366/367). 4-Boss authors
+    // no boss body at all - only turret parts - so the runtime needs the raw
+    // list to give that arena a target (src/boss-flow.js ensureBoss).
+    this.bossParts = Array.isArray(def.bossParts) ? def.bossParts : [];
     // Prop-11 cwmouse (parallel-L2): not cheese, no score; the runtime fields
     // mirror the native carried/hop/vanish states. `trap` is the paired
     // mousetrap (prop 60) the decoy runs into; `hole` is kept as a deprecated

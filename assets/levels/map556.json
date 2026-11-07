@@ -297,7 +297,7 @@
           "wait": 0
         },
         {
-          "x": 6242,
+          "x": 6136,
           "y": 386,
           "wait": 0
         }
@@ -535,14 +535,19 @@
   ],
   "cwmice": [
     {
-      "x": 2472,
-      "y": 200,
+      "x": 2464,
+      "y": 196,
       "source": "xml",
       "id": 336,
       "prop": 11,
       "tag": 0,
       "ox": 2464,
       "oy": 196,
+      "trap": {
+        "x": 2938,
+        "y": 288,
+        "id": 339
+      },
       "hole": {
         "x": 2938,
         "y": 288,
@@ -550,44 +555,59 @@
       }
     },
     {
-      "x": 2344,
-      "y": 616,
+      "x": 2350,
+      "y": 620,
       "source": "xml",
       "id": 337,
       "prop": 11,
       "tag": 0,
       "ox": 2350,
       "oy": 620,
-      "hole": {
-        "x": 2938,
+      "trap": {
+        "x": 3082,
         "y": 288,
-        "id": 339
+        "id": 340
+      },
+      "hole": {
+        "x": 3082,
+        "y": 288,
+        "id": 340
       }
     },
     {
-      "x": 2664,
-      "y": 616,
+      "x": 2660,
+      "y": 620,
       "source": "xml",
       "id": 338,
       "prop": 11,
       "tag": 0,
       "ox": 2660,
       "oy": 620,
-      "hole": {
-        "x": 2938,
+      "trap": {
+        "x": 3226,
         "y": 288,
-        "id": 339
+        "id": 341
+      },
+      "hole": {
+        "x": 3226,
+        "y": 288,
+        "id": 341
       }
     },
     {
-      "x": 4952,
-      "y": 200,
+      "x": 4948,
+      "y": 206,
       "source": "xml",
       "id": 349,
       "prop": 11,
       "tag": 0,
       "ox": 4948,
       "oy": 206,
+      "trap": {
+        "x": 4952,
+        "y": 612,
+        "id": 350
+      },
       "hole": {
         "x": 4952,
         "y": 612,
@@ -686,6 +706,14 @@
         "source": "xml"
       }
     },
-    "noAuthoredCheese": true
+    "noAuthoredCheese": true,
+    "bossEntranceRepair": {
+      "source": "xml-prop11-prop60",
+      "mice": 4,
+      "traps": 4,
+      "paired": 4,
+      "maxSpawnDrift": 0,
+      "clampedCatWaypoints": 1
+    }
   }
 }

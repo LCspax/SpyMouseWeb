@@ -14,6 +14,19 @@
 // after clearing the hidden level the hero emerges at that exact point, not at
 // the parent level start.
 export const SECRET_CRACKS = {
+  // 1-7 (map98). `level_data.xml` authors no secret child for uid 7 and 1-S
+  // (map798, uid 111) is `by1=-1`, so nothing on the map screen unlocks it.
+  // The parent background nevertheless paints a crack at the end of the
+  // right-hand corridor (level px ~926,452), which is what the player sees and
+  // pushes against. The port wires that painted crack to the chapter's secret
+  // level: WEB-COMPATIBLE - the art is authored, the doorway is not.
+  map98: [{
+    id: '1-S-crack',
+    x: 926, y: 452,
+    trigger: { x: 904, y: 456 },
+    returnTo: { x: 904, y: 456 },
+    target: 'map798',
+  }],
   map724: [{
     id: '3-H1-crack',
     x: 430, y: 300,

@@ -32,6 +32,12 @@ const canvas={getContext:()=>ctx,getBoundingClientRect:()=>({width:960,height:64
 const {levels}=await loadContent();assert.equal(levels.length,121);report.maps=levels.length;
 for(const def of levels){
  const game=new Game(canvas,{intro:false});game.loadLevel(def,0);
+ // Boss arenas open behind a presentation beat that intentionally ignores
+ // pointer input (src/boss-flow.js). Fast-forward it through the same update
+ // path the game uses, so the entrance wiring below is audited in the state a
+ // player actually gets to click in.
+ if(game.bossFlow?.kind==='arena')
+  for(let i=0;i<240&&game.bossFlow.phase==='intro';i++)game.bossFlow.update(1/60,game);
  for(const [key,sheet]of Object.entries(game.sprites.images)){
   assert(game.sprites.ready(key),`${key}: not registered/loaded`);
   assert.equal(sheet.image.naturalWidth%sheet.fw,0,key);assert.equal(sheet.image.naturalHeight%sheet.fh,0,key);

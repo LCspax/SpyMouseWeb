@@ -14,6 +14,7 @@ import { PLAYER_SEQUENCES } from '../src/player-animations.js';
 import {CAT_REST_PROFILES,catRestFrameIndex,updateCatRest} from '../src/cat-rest.js';
 import { loadContent } from "../src/content.js";
 import { Sprites, catFacing, playerIdleRow } from "../src/sprites.js";
+import { parseMbn } from "./decode-mbn.mjs";
 
 const results = [];
 function check(name, fn) { fn(); results.push({ name, pass: true }); }
@@ -718,6 +719,41 @@ check('sleep interruption uses common strips without walking, blank frames or pe
   c.state='spot';updateCatRest(c,.1);assert.equal(c.rest.phase,'wake');draws.length=0;s.catRestFrame(ctx,c,100,100,64,64);assert.equal(draws.length,1);
   updateCatRest(c,.6);assert.equal(c.rest,null);
   c.state='stunned';updateCatRest(c,.1);assert.equal(c.rest,null);
+});
+check('non-solid MBN line props stay out of collision, and no contour seals a native route',()=>{
+  // Regression: a prop-114 line crossed the 1-Boss corridor at map736 x=1550
+  // where the art paints nothing, so the hero jammed on an invisible wall. The
+  // import now drops line classes the authored route network (linesB) walks
+  // through, so nothing a route crosses may survive as collision.
+  const index=JSON.parse(fs.readFileSync('assets/collision/index.json','utf8'));
+  const worldPoint=v=>({x:v.x*2+32,y:(320-v.y)*2+64});
+  const cross=(o,a,b)=>(a.x-o.x)*(b.y-o.y)-(a.y-o.y)*(b.x-o.x);
+  const crosses=(p1,p2,p3,p4)=>{
+    const d1=cross(p3,p4,p1),d2=cross(p3,p4,p2),d3=cross(p1,p2,p3),d4=cross(p1,p2,p4);
+    return ((d1>0&&d2<0)||(d1<0&&d2>0))&&((d3>0&&d4<0)||(d3<0&&d4>0));
+  };
+  let checked=0;
+  for(const key of index){
+    const file=`com.ea.spymouse_row/files/res/${key}/${key}.mbn`;
+    if(!fs.existsSync(file))continue;
+    const info=parseMbn(file);
+    const routes=(info.linesB||[]).map(l=>{const a=info.vertices[l.vA],b=info.vertices[l.vB];return a&&b?[worldPoint(a),worldPoint(b)]:null;}).filter(Boolean);
+    if(!routes.length)continue;
+    const collision=JSON.parse(fs.readFileSync(`assets/collision/${key}.json`,'utf8'));
+    for(const s of collision.segments){
+      const p1={x:s[0],y:s[1]},p2={x:s[2],y:s[3]};
+      for(const [r1,r2] of routes){
+        assert(!crosses(p1,p2,r1,r2),`${key}: collision ${s.map(Math.round)} cuts an authored route`);
+      }
+      checked++;
+    }
+  }
+  assert(checked>1000,`collision data present (${checked} spans)`);
+  // The exact span the player was jammed on: floor is open, nothing blocks.
+  const w=World.fromMask(JSON.parse(fs.readFileSync('assets/masks/map736.json','utf8')));
+  w.setCollisionSegments(JSON.parse(fs.readFileSync('assets/collision/map736.json','utf8')).segments);
+  assert.equal(w.circleHitsWall(1550,360,5.6),false,'map736 x=1550 must be walkable');
+  assert(w.lineClear(1500,360,1800,360,5.6),'the corridor span is clear for a body-sized hero');
 });
 fs.writeFileSync("analysis/repair-regressions.json", JSON.stringify({ results, pass: true }, null, 2));
 console.log(`Repair regressions: ${results.length} passed`);

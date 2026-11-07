@@ -39,7 +39,10 @@ function snapAll(def, world) {
 
 // Load authored level definitions (assets/levels/index.json). Falls back to the
 // built-in ASCII levels when the imported content is not present.
-export async function loadContent() {
+//
+// `onProgress(0..1)` is optional and reports how many level files have settled;
+// the loading screen in src/loader.js drives its bar from it.
+export async function loadContent(onProgress = null) {
   let index = null;
   try {
     index = await fetchJson("assets/levels/index.json");
@@ -48,11 +51,18 @@ export async function loadContent() {
   }
 
   if (!index || !index.length) {
+    onProgress?.(1);
     return { levels: ASCII, source: "builtin" };
   }
 
   const mechanisms=await fetchJson('assets/mechanisms.json').catch(()=>({}));
   const floorDefinitions=await fetchJson('assets/floors/definitions.json').catch(()=>({}));
+  const total = index.length;
+  let settled = 0;
+  const report = () => {
+    settled += 1;
+    onProgress?.(Math.min(1, settled / total));
+  };
   const results = await Promise.all(
     index.map(async (entry) => {
       try {
@@ -85,6 +95,8 @@ export async function loadContent() {
       } catch (e) {
         console.warn("level import failed:", entry.file, e);
         return null;
+      } finally {
+        report();
       }
     })
   );

@@ -2,6 +2,7 @@ import {CFG} from './config.js';
 import {
   signalColour, gateVertical, ITEM_LABELS, FURNITURE_SHEETS,
   SWITCH_LATCH, SWITCH_TIMED, SWITCH_REMOTE, SWITCH_CAT, MACHINE_CHARGES, doorTheme,
+  floorDoorSheet,
 } from './mechanism-types.js';
 import {updateCarried,resetCarried} from './carried.js';
 import {advanceMover} from './movers.js';
@@ -279,7 +280,26 @@ export class Mechanisms{
         if(x>0&&y>0&&x<world.cols-1&&y<world.rows-1)cells.push(y*world.cols+x);
     return cells;
   }
+  // A lowered barrier opens a real doorway in every collision layer. The
+  // colour-mask grid alone is not enough: World.segmentNear() also tests the
+  // authored MBN linesA contours, which would keep the closed gate's wall
+  // solid even after the barrier drops (3-1 / map716, prop 215 at x=244).
+  gateOpenAreas(){
+    const areas=[];
+    for(const gate of this.gates){
+      if(!gate.open)continue;
+      const vertical=gateVertical(gate.prop),hx=vertical?16:20,hy=vertical?20:16;
+      areas.push({minX:gate.x-hx,maxX:gate.x+hx,minY:gate.y-hy,maxY:gate.y+hy});
+    }
+    for(const bridge of this.bridges){
+      if(!bridge.active)continue;
+      const vertical=this.bridgeVertical(bridge),hx=vertical?30:46,hy=vertical?46:30;
+      areas.push({minX:bridge.x-hx,maxX:bridge.x+hx,minY:bridge.y-hy,maxY:bridge.y+hy});
+    }
+    return areas;
+  }
   applyGateGrid(){
+    const openAreas=this.gateOpenAreas();
     for(const [world,base] of [[this.level.world,this.baseGrid],[this.level.catWorld,this.baseCatGrid]]){
       world.grid.set(base);
       // Platforms do not write terrain collision (native negative evidence).
@@ -304,6 +324,7 @@ export class Mechanisms{
       }
       for(const gate of this.gates)for(const i of this.gateCells(gate))world.grid[i]=0;
       for(const gate of this.gates)if(!gate.open)for(const i of this.gateCells(gate))world.grid[i]=1;
+      world.setOpenAreas(openAreas);
     }
   }
 
@@ -460,8 +481,14 @@ export class Mechanisms{
         if(contact&&!o.contact)this.activate(game,o);
         o.contact=contact;
       }else if(o.kind==='tv'){
-        // Native 0x83934: the TV is toggled by the player's tap/use action,
-        // not by walking past its collision box.
+        // A TV switches on when the mouse walks past it, like every other
+        // contact trigger. Native driver 0xa2640 only exposes the on state
+        // 0x23 (sound 0x48 use_tv); the web port used to require an explicit
+        // tap, which also stole ordinary move-taps near the screen. Once on,
+        // it stays on for the room until the level resets.
+        if(!o.active&&(touched||distance(m,this.interactionPoint(o))<w.cell*2.4)){
+          o.active=true;this.count(game,'tv');audio.playSound(72,{priority:5});
+        }
         if(o.active)for(const cat of this.level.cats){
           if(distance(cat,o)<w.cell*14&&w.lineClear(cat.x,cat.y,o.x,o.y)&&(!cat.distraction||cat.distraction.kind==='tv')){
             if(!cat.distraction)this.distract(cat,this.tvViewPoint(o),'tv');else cat.distraction.left=EFFECTS.distraction;
@@ -600,7 +627,9 @@ export class Mechanisms{
   handleTap(game,point){
     const m=game.mouse,w=this.level.world;
     if(m.furnitureId!=null){m.hidden=false;m.furnitureId=null;m.hiddenTag=null;const open=w.closestOpen(point.x,point.y,m.radius);const route=w.bfsToWorld(m.x,m.y,open.x,open.y);if(route)m.setPath(route);return true;}
-    const object=this.objects.find(o=>['tv','furniture','cannon','floor'].includes(o.kind)&&distance(point,o)<w.cell*2);
+    // TVs are ambient walk-past triggers now (see update); a tap near one
+    // must stay an ordinary move command instead of toggling the screen.
+    const object=this.objects.find(o=>['furniture','cannon','floor'].includes(o.kind)&&distance(point,o)<w.cell*2);
     if(!object)return false;
     const open=this.interactionPoint(object);
     if(distance(m,open)>w.cell*2){const route=w.bfsToWorld(m.x,m.y,open.x,open.y);if(route){m.setPath(route);this.pendingInteraction={id:object.id};}return true;}
@@ -685,7 +714,8 @@ export class Mechanisms{
         // to 81 wide) is roughly centered in it.
         const facing=this.tvFacing(o);
         const wallSide={u:'d',d:'u',l:'r',r:'l'}[facing];
-        key=`tv_${wallSide}`;width=height=128;frame=o.active?Math.floor(game.time*5)%5:0;
+        // Native frame 0 is the dark/off screen; frames 1..4 are the lit TV.
+        key=`tv_${wallSide}`;width=height=128;frame=o.active?1+Math.floor(game.time*5)%4:0;
       }
       else if(o.kind==='trap'){
         key='mouse_trap';width=64;height=84;
@@ -742,15 +772,39 @@ export class Mechanisms{
         const sector=((Math.round((o.angle||0)/(Math.PI/4))+8)%8)+1;key=`cannon0${sector}`;width=138;height=130;frame=o.flash>0?Math.min(4,1+Math.floor((.2-o.flash)*15)):0;
       }
       else if(o.kind==='floor'){
-        key=({33:'door_house',36:'trapdoor_house',37:'trapdoor_factory',38:'trapdoor_spooky',39:'trapdoor_manhole',267:'elevator',268:'elevator',320:'door_house'})[o.prop];
-        if(!key)continue;const s=sprites.images[key];width=s?.fw||80;height=s?.fh||80;
+        key=({33:'door_house',36:'trapdoor_house',37:'trapdoor_factory',38:'trapdoor_spooky',39:'trapdoor_manhole',267:'elevator',268:'elevator',320:'slidingdoor_map711'})[o.prop];
+        // Native door_helper 0x8bd8c replaces the generic house door with a
+        // map-specific sheet (5-1 uses a 128x64 hatch, not a standing door).
+        const nativeSheet=floorDoorSheet(this.level,o.prop);
+        if(nativeSheet&&sprites.images[nativeSheet])key=nativeSheet;
+        if(!key){
+          // Native FloorTransport init 0x8c558 makes 30/31/34/35 static
+          // triggers with no door sheet, while 33/36-39/320 get an arrow.png
+          // decal. They still change floors, so leaving them completely
+          // invisible strands the player in a room with no visible way back
+          // (5-1 floor 2). Render the authored arrow as their only affordance.
+          if(![30,31,34,35].includes(o.prop))continue;
+          const u=w.cell;
+          sprites.frame(ctx,'arrow',0,o.x,o.y-u*1.35,u*1.45,u*1.6);
+          continue;
+        }
+        const s=sprites.images[key];width=s?.fw||192;height=s?.fh||80;
         const frames=s?.image?Math.max(1,Math.floor(s.image.width/width)):1;
         frame=o.travelT?Math.min(frames-1,Math.floor(o.travelT*(frames-1))):0;
       }
       else if(o.kind==='furniture'){
         key=FURNITURE_SHEETS[o.prop];if(!key||!sprites.images[key])continue;width=height=128;
       }
-      if(key){sprites.frame(ctx,key,frame,o.x,o.y,width,height);if(o.prop===354&&!o.active)ctx.globalAlpha=1;}
+      if(key){
+        sprites.frame(ctx,key,frame,o.x,o.y,width,height);
+        // Native ON TVs draw two spiral.png hypnotic discs over the screen
+        // (verified in the MuMu 2-2 tutorial frame); an OFF TV has none.
+        if(o.kind==='tv'&&o.active&&sprites.ready('spiral')){
+          const size=width*0.26;
+          for(const side of [-1,1])sprites.frame(ctx,'spiral',0,o.x+side*width*0.17,o.y+height*0.03,size,size);
+        }
+        if(o.prop===354&&!o.active)ctx.globalAlpha=1;
+      }
     }
     for(const tool of this.tools){const key=ITEM_ART[tool.kind];sprites.frame(ctx,key,Math.floor(game.time*5),tool.x,tool.y,tool.kind==='fish'?64:48,48);}
   }

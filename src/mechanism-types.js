@@ -63,6 +63,26 @@ export function doorTheme(level){
   const chapter=Number.parseInt(String(level?.num||''),10);
   return DOOR_CHAPTER_THEME[chapter]||'metal';
 }
+// Native FloorTransport factory 0x8bf84 only uses door_house.png as the
+// fallback for prop 33. It first calls door_helper 0x8bd8c, which switches on
+// the current map number and substitutes a map-specific sheet; 728/729 pick a
+// "_1" variant when the object's floor flag is 1. Chapters 6/7 fall through
+// to trapdoor_lava.png. prop 320 is mapped directly in Mechanisms.draw.
+const FLOOR_DOOR_OVERRIDES={
+  map711:{default:'slidingdoor_map711'},
+  map727:{default:'door_house_map727'},
+  map728:{default:'door_house_map728',floor1:'door_house_map728_1'},
+  map729:{default:'slidingdoor_map729',floor1:'slidingdoor_map729_1'},
+  map730:{default:'slidingdoor_map730'},
+};
+export function floorDoorSheet(level,prop){
+  if(prop!==33)return null;
+  const override=FLOOR_DOOR_OVERRIDES[level?.id];
+  if(override)return Number(level?.floor)===1&&override.floor1?override.floor1:override.default;
+  const chapter=Number.parseInt(String(level?.num||''),10);
+  if(chapter===6||chapter===7)return 'trapdoor_lava';
+  return null;
+}
 export const ITEM_LABELS={chilli:'辣椒',chilli2:'双辣椒',string:'线团',fish:'鱼骨',cover:'茶杯',balloon:'气球',dossier:'档案',robodog:'机器狗',keepsake:'纪念品',cheese_inf:'无限奶酪'};
 // Colored pipe portals (native teleport controller 0xfda2c draws the
 // map752_portal_glow colour): the pipe Tag selects the same 8-colour palette
@@ -98,7 +118,23 @@ export const MECHANISM_SHEETS={
   trigger_set_green_boss5:[40,40],trigger_set_red_boss5:[40,40],
   bars_boss5_red:[32,40],bars_boss5_green:[32,40],
   tv_u:[128,128],tv_l:[128,128],tv_d:[128,128],tv_r:[128,128],
-  cannon01:[138,130],cannon02:[138,130],cannon03:[138,130],cannon04:[138,130],cannon05:[138,130],cannon06:[138,130],cannon07:[138,130],cannon08:[138,130],elevator:[96,76],trapdoor_house:[80,80],trapdoor_factory:[80,80],trapdoor_spooky:[80,80],trapdoor_lava:[80,64],trapdoor_manhole:[108,108],door_house:[80,80],
+  // Native ON TVs overlay two 32px spiral.png hypnotic discs on the screen
+  // (MuMu 2-2 "Tune In, Drop Out" tutorial frame). Frame 0 is the off TV.
+  spiral:[32,32],
+  cannon01:[138,130],cannon02:[138,130],cannon03:[138,130],cannon04:[138,130],cannon05:[138,130],cannon06:[138,130],cannon07:[138,130],cannon08:[138,130],elevator:[96,76],
+  // FloorTransport door sheets are 960x80 = 5 authored frames of 192x80, not
+  // 80x80. Slicing at 80 px cut each door in half (and produced seven blank
+  // frames), which is why 5-1's house door rendered as a thin white sliver.
+  // Native 0x8bf84 passes SetScale 96 design units (1 unit = 2 web px) for
+  // these sheets, which independently confirms a 192px frame.
+  trapdoor_house:[192,80],trapdoor_factory:[192,80],trapdoor_spooky:[192,80],trapdoor_lava:[80,64],trapdoor_manhole:[108,108],door_house:[192,80],
+  // Native door_helper 0x8bd8c overrides prop 33 art for five authored maps.
+  // Scales: 711 -> 72, 727 -> 64, 728 -> 32 / _1 -> 64, 729 -> 44 / _1 -> 55,
+  // 730 -> 30 design units; multiply by 2 for web pixels.
+  slidingdoor_map711:[144,48],door_house_map727:[128,64],
+  door_house_map728:[64,128],door_house_map728_1:[128,64],
+  slidingdoor_map729:[88,109],slidingdoor_map729_1:[110,115],
+  slidingdoor_map730:[60,112],
   bridge:[92,92],bridge_timed:[94,92],entrance_door:[96,192],exit_door_boss:[96,192],exit_door:[96,192],
   boss4_reflector:[128,64],boss4_breakable:[320,80],rope_post:[48,48],boss7_support:[480,320],
   boss1_oil:[180,51],emitter_boss2:[256,64],car01:[186,94],car02:[186,94],car03:[84,168],

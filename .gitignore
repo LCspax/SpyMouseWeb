@@ -49,8 +49,18 @@ temp/
 analysis/**
 docs/*.mp4
 docs/*.wav
+# Promo source (scripts, stage, tts, tools, *.md) is tracked; generated
+# audio/fonts/media/render frames and finished video stay local (~700 MB).
+promo/audio/
+promo/fonts/
+promo/media/
+promo/out/
+promo/render/
 
 # IDE
 .idea/
 .vscode/
 *.code-workspace
+
+# Assistant workspace data
+.workbuddy/

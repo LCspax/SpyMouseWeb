@@ -1,0 +1,7 @@
+# Build intermediates and generated artefacts never enter the repository.
+_work/
+out/
+*.jks
+*.keystore
+*.apk
+*.zip

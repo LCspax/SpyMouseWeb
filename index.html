@@ -7,11 +7,26 @@
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="theme-color" content="#101418" />
 <title>Spy Mouse Web</title>
+<!-- Suppress the browser's automatic /favicon.ico request (404 noise in the
+     automated browser verification console). -->
+<link rel="icon" href="data:," />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="menu.css" />
 </head>
 <body>
 <div id="app">
+  <!-- Loading transition: the same yellow results backdrop, the menu logo and a
+       cheese-coloured progress bar. Shown while the level list loads, while the
+       main menu warms up, and before every level starts. -->
+  <div id="loader" class="loading-screen" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <div class="loading-inner">
+      <img class="loading-logo" src="assets/menu/logo.png" alt="Spy Mouse" draggable="false" />
+      <div class="loading-meter">
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+        <div class="loading-percent">0%</div>
+      </div>
+    </div>
+  </div>
   <div id="frontEnd" class="front-end" hidden></div>
   <canvas id="game" aria-label="Spy Mouse game canvas"></canvas>
 

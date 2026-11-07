@@ -10,15 +10,18 @@ export class World {
     this.grid = grid; // Uint8Array length cols*rows
     this.w = cols * cell; // world width in units
     this.h = rows * cell;
-    // Native MBN linesA wall contours. Kept separate from the colour-derived
-    // grid so audits can tell authored geometry from the rendered floor mask.
+    // Native MBN linesA wall contours. `baseSegments` is the authored geometry;
+    // `segments` is the *active* geometry after dynamic gate openings have been
+    // cut out of it. Keeping both lets a lowered barrier reopen a doorway
+    // without ever rewriting the imported map data.
+    this.baseSegments = [];
     this.segments = [];
     this.segmentCells = new Set();
+    this.openAreas = [];
   }
 
   setCollisionSegments(segments = []) {
-    this.segments = [];
-    this.segmentCells.clear();
+    this.baseSegments = [];
     for (const s of segments) {
       const ax = Array.isArray(s) ? s[0] : s.ax;
       const ay = Array.isArray(s) ? s[1] : s.ay;
@@ -26,16 +29,95 @@ export class World {
       const by = Array.isArray(s) ? s[3] : s.by;
       if (![ax, ay, bx, by].every(Number.isFinite)) continue;
       if (Math.hypot(bx - ax, by - ay) < 0.01) continue;
-      this.segments.push({
+      this.baseSegments.push({
         ax, ay, bx, by,
         minX: Math.min(ax, bx), maxX: Math.max(ax, bx),
         minY: Math.min(ay, by), maxY: Math.max(ay, by),
       });
     }
+    this.rebuildSegments();
+    return this.baseSegments.length;
+  }
+
+  /**
+   * Dynamic openings (lowered gates, raised bridges) in world units.
+   * A native wall contour that crosses one of these rects is split into the
+   * solid spans outside the opening, so `circleHitsWall`, `lineClear`,
+   * `rayDistance` and the BFS `segmentCells` all agree with the grid. Without
+   * this, `Mechanisms.applyGateGrid()` only clears the colour-mask grid and
+   * `segmentNear()` keeps treating the lowered barrier as a wall (3-1 / map716).
+   */
+  setOpenAreas(areas = []) {
+    this.openAreas = [];
+    for (const a of areas) {
+      if (!a) continue;
+      const minX = Math.min(a.minX, a.maxX), maxX = Math.max(a.minX, a.maxX);
+      const minY = Math.min(a.minY, a.maxY), maxY = Math.max(a.minY, a.maxY);
+      if (![minX, maxX, minY, maxY].every(Number.isFinite)) continue;
+      if (maxX - minX <= 0 || maxY - minY <= 0) continue;
+      this.openAreas.push({ minX, maxX, minY, maxY });
+    }
+    this.rebuildSegments();
+  }
+
+  // Liang-Barsky parametric clip: the [t0,t1] interval of the segment that
+  // lies inside the rect. An empty interval means the segment misses the rect.
+  static segmentInRect(s, rect) {
+    const dx = s.bx - s.ax, dy = s.by - s.ay;
+    let t0 = 0, t1 = 1;
+    const edges = [
+      [-dx, s.ax - rect.minX], [dx, rect.maxX - s.ax],
+      [-dy, s.ay - rect.minY], [dy, rect.maxY - s.ay],
+    ];
+    for (const [p, q] of edges) {
+      if (p === 0) { if (q < 0) return null; continue; }
+      const r = q / p;
+      if (p < 0) { if (r > t1) return null; if (r > t0) t0 = r; }
+      else { if (r < t0) return null; if (r < t1) t1 = r; }
+    }
+    return t1 > t0 ? [t0, t1] : null;
+  }
+
+  rebuildSegments() {
+    this.segments = [];
+    for (const s of this.baseSegments) {
+      const holes = [];
+      for (const rect of this.openAreas) {
+        const hit = World.segmentInRect(s, rect);
+        if (hit) holes.push(hit);
+      }
+      holes.sort((a, b) => a[0] - b[0]);
+      const merged = [];
+      for (const h of holes) {
+        const last = merged[merged.length - 1];
+        if (last && h[0] <= last[1]) last[1] = Math.max(last[1], h[1]);
+        else merged.push([h[0], h[1]]);
+      }
+      let cursor = 0;
+      const solids = [];
+      for (const [a, b] of merged) {
+        if (a > cursor) solids.push([cursor, Math.min(a, 1)]);
+        cursor = Math.max(cursor, b);
+        if (cursor >= 1) break;
+      }
+      if (cursor < 1) solids.push([cursor, 1]);
+      for (const [t0, t1] of solids) {
+        if (t1 - t0 < 1e-6) continue;
+        const ax = s.ax + (s.bx - s.ax) * t0, ay = s.ay + (s.by - s.ay) * t0;
+        const bx = s.ax + (s.bx - s.ax) * t1, by = s.ay + (s.by - s.ay) * t1;
+        this.segments.push({
+          ax, ay, bx, by,
+          minX: Math.min(ax, bx), maxX: Math.max(ax, bx),
+          minY: Math.min(ay, by), maxY: Math.max(ay, by),
+        });
+      }
+    }
     // The colour mask is only an approximation of the floor. Rasterise the
-    // authored contours into the navigation grid as well, otherwise BFS can
+    // *active* contours into the navigation grid as well, otherwise BFS can
     // route straight through a native wall that the mask misclassified as rug
-    // or floor (map11's red room divider is the regression case).
+    // or floor (map11's red room divider is the regression case). Closed
+    // gates are walled in `grid`; open gates must lose their segment cells too.
+    this.segmentCells = new Set();
     const markRadius = this.cell * 0.2;
     for (const s of this.segments) {
       const minTx = Math.max(0, Math.floor(s.minX / this.cell) - 1);
@@ -138,14 +220,18 @@ export class World {
     return this.gridCircleHitsWall(x, y, r) || this.segmentNear(x, y, r);
   }
 
-  lineClear(x0, y0, x1, y1) {
+  lineClear(x0, y0, x1, y1, clearance) {
     const d = Math.hypot(x1 - x0, y1 - y0);
-    const steps = Math.max(1, Math.ceil(d / (this.cell * 0.4)));
+    // `clearance` is the body radius the caller needs (0 = the old sight-line
+    // margin). Sampling tighter than the radius is what keeps a drawn stroke
+    // from being accepted through a gap the body cannot actually fit.
+    const radius = clearance > 0 ? clearance : this.cell * 0.15;
+    const steps = Math.max(1, Math.ceil(d / Math.max(1, Math.min(this.cell * 0.4, radius))));
     for (let i = 0; i <= steps; i++) {
       const t = i / steps;
       const px = x0 + (x1 - x0) * t;
       const py = y0 + (y1 - y0) * t;
-      if (this.isWallAt(px, py) || this.segmentNear(px, py, this.cell * 0.15)) return false;
+      if (this.isWallAt(px, py) || this.segmentNear(px, py, radius)) return false;
     }
     return true;
   }
